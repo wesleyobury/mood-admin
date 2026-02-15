@@ -7674,6 +7674,125 @@ async def delete_featured_workout(
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
 
+# Admin endpoint - seed featured workouts with default data
+@api_router.post("/admin/seed-featured-workouts")
+async def seed_featured_workouts(
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Seed the featured workouts collection with default data.
+    Use this to initialize the featured workouts in a new deployment.
+    Only accessible by admin users.
+    """
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    # Check if already has workouts
+    existing_count = await db.featured_workouts.count_documents({})
+    
+    # Default featured workouts data
+    default_workouts = [
+        {
+            "title": "Cardio Based",
+            "subtitle": "High-energy fat burning",
+            "mood": "Sweat / Burn Fat",
+            "difficulty": "Intermediate",
+            "durationMin": 30,
+            "duration": "25-35 min",
+            "badge": "Top pick",
+            "heroImageUrl": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800",
+            "exercises": [
+                {"exerciseId": "cardio-1", "order": 1, "name": "Jump Rope", "sets": 3, "reps": "60 sec", "restSec": 30, "equipment": "Jump Rope", "imageUrl": "https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=400", "battlePlan": "Keep a steady rhythm, land softly on balls of feet"},
+                {"exerciseId": "cardio-2", "order": 2, "name": "Burpees", "sets": 3, "reps": "12", "restSec": 45, "equipment": "None", "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400", "battlePlan": "Explosive jump at the top, controlled descent"},
+                {"exerciseId": "cardio-3", "order": 3, "name": "Mountain Climbers", "sets": 3, "reps": "30 sec", "restSec": 30, "equipment": "None", "imageUrl": "https://images.unsplash.com/photo-1598971457999-ca4ef48a9a71?w=400", "battlePlan": "Drive knees to chest rapidly, keep core tight"}
+            ],
+            "created_at": datetime.now(timezone.utc)
+        },
+        {
+            "title": "Strength Builder",
+            "subtitle": "Build lean muscle",
+            "mood": "Get Strong",
+            "difficulty": "Intermediate",
+            "durationMin": 45,
+            "duration": "40-50 min",
+            "badge": "Popular",
+            "heroImageUrl": "https://images.unsplash.com/photo-1581009146145-b5ef050c149a?w=800",
+            "exercises": [
+                {"exerciseId": "strength-1", "order": 1, "name": "Barbell Squat", "sets": 4, "reps": "8-10", "restSec": 90, "equipment": "Barbell", "imageUrl": "https://images.unsplash.com/photo-1566241142559-40e1dab266c6?w=400", "battlePlan": "Chest up, drive through heels, go below parallel"},
+                {"exerciseId": "strength-2", "order": 2, "name": "Bench Press", "sets": 4, "reps": "8-10", "restSec": 90, "equipment": "Barbell, Bench", "imageUrl": "https://images.unsplash.com/photo-1534368959876-26bf04f2c947?w=400", "battlePlan": "Arch back slightly, lower bar to mid-chest"},
+                {"exerciseId": "strength-3", "order": 3, "name": "Deadlift", "sets": 3, "reps": "6-8", "restSec": 120, "equipment": "Barbell", "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400", "battlePlan": "Flat back, push through floor, lockout at top"}
+            ],
+            "created_at": datetime.now(timezone.utc)
+        },
+        {
+            "title": "HIIT Express",
+            "subtitle": "Quick & intense",
+            "mood": "Quick Session",
+            "difficulty": "Advanced",
+            "durationMin": 20,
+            "duration": "15-20 min",
+            "badge": "Quick",
+            "heroImageUrl": "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=800",
+            "exercises": [
+                {"exerciseId": "hiit-1", "order": 1, "name": "Box Jumps", "sets": 4, "reps": "10", "restSec": 30, "equipment": "Plyo Box", "imageUrl": "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=400", "battlePlan": "Explode up, land softly with bent knees"},
+                {"exerciseId": "hiit-2", "order": 2, "name": "Battle Ropes", "sets": 3, "reps": "30 sec", "restSec": 30, "equipment": "Battle Ropes", "imageUrl": "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=400", "battlePlan": "Create waves from shoulders, core engaged"},
+                {"exerciseId": "hiit-3", "order": 3, "name": "Kettlebell Swings", "sets": 3, "reps": "15", "restSec": 30, "equipment": "Kettlebell", "imageUrl": "https://images.unsplash.com/photo-1603287681836-b174ce5074c2?w=400", "battlePlan": "Hip hinge power, squeeze glutes at top"}
+            ],
+            "created_at": datetime.now(timezone.utc)
+        },
+        {
+            "title": "Upper Body Focus",
+            "subtitle": "Arms, chest & back",
+            "mood": "Get Strong",
+            "difficulty": "Intermediate",
+            "durationMin": 40,
+            "duration": "35-45 min",
+            "badge": None,
+            "heroImageUrl": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800",
+            "exercises": [
+                {"exerciseId": "upper-1", "order": 1, "name": "Pull-ups", "sets": 4, "reps": "8-12", "restSec": 60, "equipment": "Pull-up Bar", "imageUrl": "https://images.unsplash.com/photo-1598971457999-ca4ef48a9a71?w=400", "battlePlan": "Full range of motion, controlled descent"},
+                {"exerciseId": "upper-2", "order": 2, "name": "Dumbbell Rows", "sets": 3, "reps": "12 each", "restSec": 45, "equipment": "Dumbbells", "imageUrl": "https://images.unsplash.com/photo-1534368420009-621bfab424a8?w=400", "battlePlan": "Pull to hip, squeeze shoulder blade"},
+                {"exerciseId": "upper-3", "order": 3, "name": "Push-ups", "sets": 3, "reps": "15-20", "restSec": 45, "equipment": "None", "imageUrl": "https://images.unsplash.com/photo-1598971457999-ca4ef48a9a71?w=400", "battlePlan": "Core tight, full range of motion"}
+            ],
+            "created_at": datetime.now(timezone.utc)
+        }
+    ]
+    
+    # Insert workouts
+    inserted_ids = []
+    for workout in default_workouts:
+        # Check if similar workout exists
+        existing = await db.featured_workouts.find_one({"title": workout["title"]})
+        if not existing:
+            result = await db.featured_workouts.insert_one(workout)
+            inserted_ids.append(str(result.inserted_id))
+        else:
+            inserted_ids.append(str(existing["_id"]))
+    
+    # Update featured config to include these workouts
+    await db.featured_config.update_one(
+        {"_id": "main"},
+        {
+            "$set": {
+                "schemaVersion": 1,
+                "featuredWorkoutIds": inserted_ids,
+                "ttlHours": 12,
+                "updatedAt": datetime.now(timezone.utc).isoformat()
+            }
+        },
+        upsert=True
+    )
+    
+    logger.info(f"Seeded {len(inserted_ids)} featured workouts for admin {current_user_id}")
+    
+    return {
+        "success": True,
+        "message": f"Seeded {len(inserted_ids)} featured workouts",
+        "workout_ids": inserted_ids,
+        "existing_count_before": existing_count
+    }
+
 # ==================== END FEATURED WORKOUTS API ====================
 
 # ==================== CHOOSE FOR ME API ====================
