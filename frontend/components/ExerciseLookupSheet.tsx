@@ -238,7 +238,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
               <Text style={styles.overlayTitle}>{selectedExercise.name}</Text>
               
               {/* Cues */}
-              {selectedExercise.cues.length > 0 && (
+              {selectedExercise.cues && selectedExercise.cues.length > 0 && (
                 <View style={styles.overlayCuesContainer}>
                   <Text style={styles.overlaySectionTitle}>Key Cues</Text>
                   {selectedExercise.cues.map((cue, idx) => (
