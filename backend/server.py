@@ -7260,6 +7260,96 @@ async def grant_admin_access(
     
     return {"message": "Admin access granted successfully", "is_admin": True}
 
+@api_router.post("/admin/bootstrap-staging")
+async def bootstrap_staging(
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    One-call bootstrap endpoint that performs all staging setup:
+    1. Grants admin access to the designated owner
+    2. Seeds featured workouts if missing
+    3. Repairs featured_config to reference valid workouts
+    
+    Use this after deploying to a new environment to set everything up.
+    Only accessible by the app owner (officialmoodapp).
+    """
+    results = {
+        "admin_grant": None,
+        "featured_workouts": None,
+        "config_repair": None,
+        "environment": {
+            "APP_ENV": APP_ENV,
+            "IS_STAGING": IS_STAGING
+        }
+    }
+    
+    # Get current user
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    username = user.get("username", "").lower()
+    
+    # Only allow the app owner
+    if username != "officialmoodapp":
+        raise HTTPException(status_code=403, detail="Only the app owner can use this endpoint")
+    
+    # Step 1: Grant admin access
+    if not user.get("is_admin"):
+        await db.users.update_one(
+            {"_id": ObjectId(current_user_id)},
+            {"$set": {"is_admin": True}}
+        )
+        results["admin_grant"] = {"granted": True, "message": "Admin access granted"}
+        logger.info(f"🔑 Bootstrap: Admin access granted to {username}")
+    else:
+        results["admin_grant"] = {"granted": False, "message": "Already admin"}
+    
+    # Step 2: Seed featured workouts
+    existing_count = await db.featured_workouts.count_documents({})
+    if existing_count < len(DEFAULT_FEATURED_WORKOUTS):
+        inserted_ids = []
+        for workout in DEFAULT_FEATURED_WORKOUTS:
+            workout_data = {**workout, "created_at": datetime.now(timezone.utc)}
+            existing = await db.featured_workouts.find_one({"title": workout["title"]})
+            if not existing:
+                result = await db.featured_workouts.insert_one(workout_data)
+                inserted_ids.append(str(result.inserted_id))
+            else:
+                inserted_ids.append(str(existing["_id"]))
+        results["featured_workouts"] = {"seeded": True, "count": len(inserted_ids)}
+        logger.info(f"🌱 Bootstrap: Seeded {len(inserted_ids)} featured workouts")
+    else:
+        results["featured_workouts"] = {"seeded": False, "existing_count": existing_count}
+    
+    # Step 3: Repair featured_config to ensure it references valid workouts
+    all_workouts = await db.featured_workouts.find({}).to_list(100)
+    valid_workout_ids = [str(w["_id"]) for w in all_workouts]
+    
+    await db.featured_config.update_one(
+        {"_id": "main"},
+        {
+            "$set": {
+                "schemaVersion": 1,
+                "featuredWorkoutIds": valid_workout_ids[:6],  # Top 6 workouts
+                "ttlHours": 12,
+                "updatedAt": datetime.now(timezone.utc).isoformat()
+            }
+        },
+        upsert=True
+    )
+    results["config_repair"] = {
+        "repaired": True,
+        "workout_ids_count": len(valid_workout_ids[:6])
+    }
+    logger.info(f"🔧 Bootstrap: Featured config repaired with {len(valid_workout_ids[:6])} workout IDs")
+    
+    return {
+        "success": True,
+        "message": "Staging bootstrap complete",
+        "results": results
+    }
+
 @api_router.post("/admin/exercises/upload-video")
 async def upload_exercise_video(
     file: UploadFile = File(...),
