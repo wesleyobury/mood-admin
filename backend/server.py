@@ -212,6 +212,36 @@ async def auto_grant_admin_for_staging(user_id: str, username: str):
         logger.error(f"❌ Failed to auto-grant admin: {e}")
         return False
 
+async def auto_seed_exercises():
+    """
+    Auto-seed exercises if collection is empty or has fewer than expected.
+    Uses the exact exercise data from the preview environment.
+    """
+    try:
+        existing_count = await db.exercises.count_documents({})
+        
+        # If we have significantly fewer exercises than preview, seed them
+        if existing_count < len(PREVIEW_EXERCISES) * 0.9:  # Allow 10% variance
+            logger.info(f"🌱 Auto-seeding exercises (found {existing_count}, need {len(PREVIEW_EXERCISES)})")
+            
+            # Delete existing and insert preview exercises
+            await db.exercises.delete_many({})
+            
+            exercises_to_insert = []
+            for ex in PREVIEW_EXERCISES:
+                ex_data = {**ex, "created_at": datetime.now(timezone.utc)}
+                exercises_to_insert.append(ex_data)
+            
+            await db.exercises.insert_many(exercises_to_insert)
+            logger.info(f"✅ Auto-seeded {len(exercises_to_insert)} exercises")
+            return {"seeded": True, "count": len(exercises_to_insert)}
+        else:
+            logger.info(f"✅ Exercises already seeded ({existing_count} found)")
+            return {"seeded": False, "count": existing_count}
+    except Exception as e:
+        logger.error(f"❌ Failed to auto-seed exercises: {e}")
+        return {"seeded": False, "error": str(e)}
+
 # Terms of Service Version - Update this when terms change to force re-acceptance
 # Format: YYYY-MM-DD
 CURRENT_TERMS_VERSION = "2025-01-19"
