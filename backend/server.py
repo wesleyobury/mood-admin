@@ -7304,16 +7304,35 @@ async def bootstrap_staging(
     }
     logger.info(f"🔧 Bootstrap: Featured config updated with {len(inserted_ids)} workout IDs")
     
-    # Step 4: Check exercises collection status
-    exercises_count = await db.exercises.count_documents({})
-    results["exercises_sync"] = {
-        "current_count": exercises_count,
-        "note": "Exercises are stored with Cloudinary video URLs which should work across deployments"
-    }
+    # Step 4: Sync exercises collection - FORCE replace with preview data
+    # First delete all existing exercises
+    exercises_delete = await db.exercises.delete_many({})
+    logger.info(f"🗑️ Bootstrap: Deleted {exercises_delete.deleted_count} old exercises")
+    
+    # Insert all preview exercises
+    if PREVIEW_EXERCISES:
+        exercises_to_insert = []
+        for ex in PREVIEW_EXERCISES:
+            ex_data = {**ex, "created_at": datetime.now(timezone.utc)}
+            exercises_to_insert.append(ex_data)
+        
+        await db.exercises.insert_many(exercises_to_insert)
+        logger.info(f"🌱 Bootstrap: Inserted {len(exercises_to_insert)} exercises from preview")
+        
+        results["exercises_sync"] = {
+            "force_replaced": True,
+            "deleted_old": exercises_delete.deleted_count,
+            "inserted_new": len(exercises_to_insert)
+        }
+    else:
+        results["exercises_sync"] = {
+            "force_replaced": False,
+            "error": "No preview exercises data available"
+        }
     
     return {
         "success": True,
-        "message": "Staging bootstrap complete - featured workouts FORCE REPLACED",
+        "message": "Staging bootstrap complete - featured workouts and exercises FORCE REPLACED",
         "results": results
     }
 
