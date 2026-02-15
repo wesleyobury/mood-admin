@@ -349,7 +349,11 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
           : `${API_URL}${comment.author.avatar}`)
       : null;
     
-    const hasReplies = (comment.replies_count || 0) > 0;
+    // For root comments (depth=0), show total thread replies; for nested, show direct replies
+    const directReplies = comment.replies_count || 0;
+    const totalThreadReplies = comment.total_thread_replies || 0;
+    const displayReplyCount = depth === 0 ? (directReplies + totalThreadReplies) : directReplies;
+    const hasReplies = displayReplyCount > 0;
     const isExpanded = expandedReplies.has(comment.id);
     const replies = repliesData[comment.id] || [];
     const isLoadingReplies = loadingReplies.has(comment.id);
