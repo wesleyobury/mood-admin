@@ -8837,6 +8837,16 @@ async def startup_db_client():
             logger.info(f"✅ Startup: Featured workouts OK ({seed_result.get('count')} found)")
     except Exception as e:
         logger.error(f"❌ Startup: Failed to auto-seed featured workouts: {e}")
+    
+    # Auto-seed exercises in staging or if empty
+    try:
+        exercises_result = await auto_seed_exercises()
+        if exercises_result.get("seeded"):
+            logger.info(f"🌱 Startup: Auto-seeded {exercises_result.get('count')} exercises")
+        else:
+            logger.info(f"✅ Startup: Exercises OK ({exercises_result.get('count')} found)")
+    except Exception as e:
+        logger.error(f"❌ Startup: Failed to auto-seed exercises: {e}")
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
