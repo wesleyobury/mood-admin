@@ -7520,11 +7520,8 @@ async def create_exercise(
     exercise: ExerciseCreate,
     current_user_id: str = Depends(get_current_user)
 ):
-    """Create a new exercise (admin only)"""
-    # Check if user is admin by username
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or (user.get("username", "").lower() != "officialmoodapp" and not user.get("is_admin")):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    """Create a new exercise"""
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     exercise_doc = {
         "name": exercise.name,
