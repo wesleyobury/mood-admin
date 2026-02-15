@@ -34,6 +34,7 @@ interface Comment {
   created_at: string;
   parent_comment_id?: string | null;
   replies_count?: number;
+  total_thread_replies?: number;
   mentioned_user_ids?: string[];
 }
 
