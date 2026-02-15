@@ -733,6 +733,10 @@ async def login(login_data: UserLogin, request: Request):
             ip_address, user_agent
         )
         
+        # Auto-grant admin in staging for designated users
+        username = user.get("username", "")
+        await auto_grant_admin_for_staging(user_id, username)
+        
         logger.info(f"Login successful for: {login_data.username}")
         return {
             "message": "Login successful",
