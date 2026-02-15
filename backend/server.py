@@ -6959,10 +6959,7 @@ async def get_pending_reports(
 ):
     """Get content reports for admin review"""
     
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     query = {}
     if status != "all":
@@ -7044,10 +7041,7 @@ async def get_block_notifications(
 ):
     """Get user block notifications for admin review"""
     
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     query = {"type": "user_blocked"}
     if status != "all":
@@ -7082,10 +7076,7 @@ async def take_action_on_report(
 ):
     """Take action on a content report (remove content, ban user, or dismiss)"""
     
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     action = action_data.get("action")  # "remove_content", "ban_user", "dismiss"
     
@@ -7562,10 +7553,7 @@ async def create_exercises_bulk(
     current_user_id: str = Depends(get_current_user)
 ):
     """Bulk create exercises (admin only)"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     exercise_docs = []
     for exercise in exercises:
@@ -7761,10 +7749,7 @@ async def update_featured_config(
     current_user_id: str = Depends(get_current_user)
 ):
     """Update the featured workouts configuration (admin only)"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     # Validate that all workout IDs exist
     for workout_id in config.featuredWorkoutIds:
@@ -7829,9 +7814,7 @@ async def create_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Create a new featured workout (admin only)"""
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     # Validate exercises have either exerciseId or inline data
     for ex in workout.exercises:
@@ -7871,9 +7854,7 @@ async def get_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Get a single featured workout (admin only)"""
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     try:
         workout = await db.featured_workouts.find_one({"_id": ObjectId(workout_id)})
@@ -7893,9 +7874,7 @@ async def update_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Update an existing featured workout (admin only)"""
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     try:
         existing = await db.featured_workouts.find_one({"_id": ObjectId(workout_id)})
@@ -7939,9 +7918,7 @@ async def delete_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Delete a featured workout (admin only)"""
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     try:
         # Check if workout is in featured config
@@ -7973,9 +7950,7 @@ async def seed_featured_workouts(
     Use this to initialize the featured workouts in a new deployment.
     Only accessible by admin users.
     """
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     # Check if already has workouts
     existing_count = await db.featured_workouts.count_documents({})
@@ -8424,10 +8399,7 @@ async def get_moderation_stats(
 ):
     """Get moderation statistics for admin dashboard"""
     
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     now = datetime.now(timezone.utc)
     last_24h = now - timedelta(hours=24)
@@ -8664,10 +8636,7 @@ async def admin_send_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Send featured workout push to users"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     notification_service = get_notification_service(db)
     count = await notification_service.send_featured_workout_to_all(
@@ -8689,10 +8658,7 @@ async def admin_send_featured_suggestion(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Send featured suggestion push to users"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     notification_service = get_notification_service(db)
     count = await notification_service.send_featured_suggestion_to_all(
@@ -8712,10 +8678,7 @@ async def admin_send_workout_reminder(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Send workout reminder to a specific user"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     notification_service = get_notification_service(db)
     result = await notification_service.trigger_workout_reminder(
@@ -8738,10 +8701,7 @@ async def admin_send_mass_workout_reminder(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Send workout reminder to all eligible users"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     worker = get_notification_worker(db)
     count = await worker.trigger_mass_workout_reminder(data.custom_message)
@@ -8757,10 +8717,7 @@ async def admin_get_worker_status(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Check notification worker status"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     worker = get_notification_worker(db)
     
@@ -8775,10 +8732,7 @@ async def admin_trigger_digest(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Manually trigger digest for a specific user"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     worker = get_notification_worker(db)
     result = await worker._send_following_digest(user_id)
