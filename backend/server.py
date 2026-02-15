@@ -79,6 +79,7 @@ from notification_worker import (
     start_notification_worker,
     stop_notification_worker,
 )
+from seed_data import PREVIEW_FEATURED_WORKOUTS, FEATURED_WORKOUT_IDS
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
