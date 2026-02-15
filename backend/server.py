@@ -80,6 +80,7 @@ from notification_worker import (
     stop_notification_worker,
 )
 from seed_data import PREVIEW_FEATURED_WORKOUTS, FEATURED_WORKOUT_IDS
+from exercises_seed_data import PREVIEW_EXERCISES
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
