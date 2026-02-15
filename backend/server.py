@@ -126,22 +126,34 @@ STAGING_ADMIN_USERNAMES = ["officialmoodapp"]
 
 async def auto_seed_featured_workouts():
     """
-    Auto-seed featured workouts if collection is empty or has fewer than expected.
-    Uses the exact workout data from the preview environment.
-    Called on startup in staging environments.
+    Auto-seed featured workouts on startup.
+    FORCE REPLACES if the existing workouts don't match preview data.
+    Called on startup to ensure correct data.
     """
     try:
         existing_count = await db.featured_workouts.count_documents({})
         
-        # Check if we have all 6 featured workouts
-        if existing_count < len(PREVIEW_FEATURED_WORKOUTS):
-            logger.info(f"🌱 Auto-seeding featured workouts (found {existing_count}, need {len(PREVIEW_FEATURED_WORKOUTS)})")
+        # Check if we have the correct workouts by checking titles
+        expected_titles = {w["title"] for w in PREVIEW_FEATURED_WORKOUTS}
+        existing_workouts = await db.featured_workouts.find({}).to_list(100)
+        existing_titles = {w.get("title") for w in existing_workouts}
+        
+        # If titles don't match, we need to force replace
+        needs_replacement = not expected_titles.issubset(existing_titles)
+        
+        if existing_count < len(PREVIEW_FEATURED_WORKOUTS) or needs_replacement:
+            logger.info(f"🌱 Auto-seeding featured workouts (found {existing_count}, titles match: {not needs_replacement})")
+            
+            # Delete old workouts if we're replacing
+            if needs_replacement:
+                await db.featured_workouts.delete_many({})
+                logger.info(f"🗑️ Deleted old featured workouts for replacement")
             
             inserted_ids = []
             for workout in PREVIEW_FEATURED_WORKOUTS:
                 workout_data = {**workout, "created_at": datetime.now(timezone.utc)}
-                # Remove _id from data to insert, we'll use MongoDB's auto-generated IDs
-                original_id = workout_data.pop("_id", None)
+                # Remove _id from data to insert
+                workout_data.pop("_id", None)
                 
                 # Check if workout with same title exists
                 existing = await db.featured_workouts.find_one({"title": workout["title"]})
@@ -168,7 +180,7 @@ async def auto_seed_featured_workouts():
             logger.info(f"✅ Auto-seeded {len(inserted_ids)} featured workouts")
             return {"seeded": True, "count": len(inserted_ids)}
         else:
-            logger.info(f"✅ Featured workouts already seeded ({existing_count} found)")
+            logger.info(f"✅ Featured workouts already seeded ({existing_count} found, correct titles)")
             return {"seeded": False, "count": existing_count}
     except Exception as e:
         logger.error(f"❌ Failed to auto-seed featured workouts: {e}")
