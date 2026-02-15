@@ -5452,12 +5452,32 @@ async def create_comment(comment_data: CommentCreate, current_user_id: str = Dep
         result = await db.comments.insert_one(comment_doc)
         comment_id = str(result.inserted_id)
         
-        # If this is a reply, increment the parent comment's reply count
+        # If this is a reply, increment reply counts up the chain to the root comment
         if comment_data.parent_comment_id:
+            # Increment the direct parent's reply count
             await db.comments.update_one(
                 {"_id": ObjectId(comment_data.parent_comment_id)},
                 {"$inc": {"replies_count": 1}}
             )
+            
+            # Also increment all ancestor comments' total_thread_replies count
+            # This allows the root comment to show total replies in the thread
+            current_parent_id = comment_data.parent_comment_id
+            visited = set()  # Prevent infinite loops
+            while current_parent_id and current_parent_id not in visited:
+                visited.add(current_parent_id)
+                parent_comment = await db.comments.find_one({"_id": ObjectId(current_parent_id)})
+                if parent_comment and parent_comment.get("parent_comment_id"):
+                    # This parent has a grandparent - increment grandparent's total_thread_replies
+                    grandparent_id = parent_comment["parent_comment_id"]
+                    await db.comments.update_one(
+                        {"_id": ObjectId(grandparent_id)},
+                        {"$inc": {"total_thread_replies": 1}}
+                    )
+                    current_parent_id = grandparent_id
+                else:
+                    # Reached the root comment
+                    break
         
         # Update post comment count
         await db.posts.update_one(
