@@ -413,7 +413,7 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
                 <>
                   <View style={styles.repliesLine} />
                   <Text style={styles.viewRepliesText}>
-                    {isExpanded ? 'Hide replies' : `View ${comment.replies_count} ${comment.replies_count === 1 ? 'reply' : 'replies'}`}
+                    {isExpanded ? 'Hide replies' : `View ${displayReplyCount} ${displayReplyCount === 1 ? 'reply' : 'replies'}`}
                   </Text>
                 </>
               )}
