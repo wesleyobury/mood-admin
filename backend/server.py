@@ -120,6 +120,142 @@ def is_staging_environment() -> bool:
 
 IS_STAGING = is_staging_environment()
 
+# Default featured workouts data for seeding
+DEFAULT_FEATURED_WORKOUTS = [
+    {
+        "title": "Cardio Based",
+        "subtitle": "High-energy fat burning",
+        "mood": "Sweat / Burn Fat",
+        "difficulty": "Intermediate",
+        "durationMin": 30,
+        "duration": "25-35 min",
+        "badge": "Top pick",
+        "heroImageUrl": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800",
+        "exercises": [
+            {"exerciseId": "cardio-1", "order": 1, "name": "Jump Rope", "sets": 3, "reps": "60 sec", "restSec": 30, "equipment": "Jump Rope", "imageUrl": "https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=400", "battlePlan": "Keep a steady rhythm, land softly on balls of feet"},
+            {"exerciseId": "cardio-2", "order": 2, "name": "Burpees", "sets": 3, "reps": "12", "restSec": 45, "equipment": "None", "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400", "battlePlan": "Explosive jump at the top, controlled descent"},
+            {"exerciseId": "cardio-3", "order": 3, "name": "Mountain Climbers", "sets": 3, "reps": "30 sec", "restSec": 30, "equipment": "None", "imageUrl": "https://images.unsplash.com/photo-1598971457999-ca4ef48a9a71?w=400", "battlePlan": "Drive knees to chest rapidly, keep core tight"}
+        ]
+    },
+    {
+        "title": "Strength Builder",
+        "subtitle": "Build lean muscle",
+        "mood": "Get Strong",
+        "difficulty": "Intermediate",
+        "durationMin": 45,
+        "duration": "40-50 min",
+        "badge": "Popular",
+        "heroImageUrl": "https://images.unsplash.com/photo-1581009146145-b5ef050c149a?w=800",
+        "exercises": [
+            {"exerciseId": "strength-1", "order": 1, "name": "Barbell Squat", "sets": 4, "reps": "8-10", "restSec": 90, "equipment": "Barbell", "imageUrl": "https://images.unsplash.com/photo-1566241142559-40e1dab266c6?w=400", "battlePlan": "Chest up, drive through heels, go below parallel"},
+            {"exerciseId": "strength-2", "order": 2, "name": "Bench Press", "sets": 4, "reps": "8-10", "restSec": 90, "equipment": "Barbell, Bench", "imageUrl": "https://images.unsplash.com/photo-1534368959876-26bf04f2c947?w=400", "battlePlan": "Arch back slightly, lower bar to mid-chest"},
+            {"exerciseId": "strength-3", "order": 3, "name": "Deadlift", "sets": 3, "reps": "6-8", "restSec": 120, "equipment": "Barbell", "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400", "battlePlan": "Flat back, push through floor, lockout at top"}
+        ]
+    },
+    {
+        "title": "HIIT Express",
+        "subtitle": "Quick & intense",
+        "mood": "Quick Session",
+        "difficulty": "Advanced",
+        "durationMin": 20,
+        "duration": "15-20 min",
+        "badge": "Quick",
+        "heroImageUrl": "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=800",
+        "exercises": [
+            {"exerciseId": "hiit-1", "order": 1, "name": "Box Jumps", "sets": 4, "reps": "10", "restSec": 30, "equipment": "Plyo Box", "imageUrl": "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=400", "battlePlan": "Explode up, land softly with bent knees"},
+            {"exerciseId": "hiit-2", "order": 2, "name": "Battle Ropes", "sets": 3, "reps": "30 sec", "restSec": 30, "equipment": "Battle Ropes", "imageUrl": "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=400", "battlePlan": "Create waves from shoulders, core engaged"},
+            {"exerciseId": "hiit-3", "order": 3, "name": "Kettlebell Swings", "sets": 3, "reps": "15", "restSec": 30, "equipment": "Kettlebell", "imageUrl": "https://images.unsplash.com/photo-1603287681836-b174ce5074c2?w=400", "battlePlan": "Hip hinge power, squeeze glutes at top"}
+        ]
+    },
+    {
+        "title": "Upper Body Focus",
+        "subtitle": "Arms, chest & back",
+        "mood": "Get Strong",
+        "difficulty": "Intermediate",
+        "durationMin": 40,
+        "duration": "35-45 min",
+        "badge": None,
+        "heroImageUrl": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800",
+        "exercises": [
+            {"exerciseId": "upper-1", "order": 1, "name": "Pull-ups", "sets": 4, "reps": "8-12", "restSec": 60, "equipment": "Pull-up Bar", "imageUrl": "https://images.unsplash.com/photo-1598971457999-ca4ef48a9a71?w=400", "battlePlan": "Full range of motion, controlled descent"},
+            {"exerciseId": "upper-2", "order": 2, "name": "Dumbbell Rows", "sets": 3, "reps": "12 each", "restSec": 45, "equipment": "Dumbbells", "imageUrl": "https://images.unsplash.com/photo-1534368420009-621bfab424a8?w=400", "battlePlan": "Pull to hip, squeeze shoulder blade"},
+            {"exerciseId": "upper-3", "order": 3, "name": "Push-ups", "sets": 3, "reps": "15-20", "restSec": 45, "equipment": "None", "imageUrl": "https://images.unsplash.com/photo-1598971457999-ca4ef48a9a71?w=400", "battlePlan": "Core tight, full range of motion"}
+        ]
+    }
+]
+
+# Admin users who get auto-promoted in staging
+STAGING_ADMIN_USERNAMES = ["officialmoodapp"]
+
+async def auto_seed_featured_workouts():
+    """
+    Auto-seed featured workouts if collection is empty or has fewer than expected.
+    Called on startup in staging environments.
+    """
+    try:
+        existing_count = await db.featured_workouts.count_documents({})
+        
+        if existing_count < len(DEFAULT_FEATURED_WORKOUTS):
+            logger.info(f"🌱 Auto-seeding featured workouts (found {existing_count}, need {len(DEFAULT_FEATURED_WORKOUTS)})")
+            
+            inserted_ids = []
+            for workout in DEFAULT_FEATURED_WORKOUTS:
+                workout_data = {**workout, "created_at": datetime.now(timezone.utc)}
+                existing = await db.featured_workouts.find_one({"title": workout["title"]})
+                if not existing:
+                    result = await db.featured_workouts.insert_one(workout_data)
+                    inserted_ids.append(str(result.inserted_id))
+                else:
+                    inserted_ids.append(str(existing["_id"]))
+            
+            # Update featured config
+            await db.featured_config.update_one(
+                {"_id": "main"},
+                {
+                    "$set": {
+                        "schemaVersion": 1,
+                        "featuredWorkoutIds": inserted_ids,
+                        "ttlHours": 12,
+                        "updatedAt": datetime.now(timezone.utc).isoformat()
+                    }
+                },
+                upsert=True
+            )
+            
+            logger.info(f"✅ Auto-seeded {len(inserted_ids)} featured workouts")
+            return {"seeded": True, "count": len(inserted_ids)}
+        else:
+            logger.info(f"✅ Featured workouts already seeded ({existing_count} found)")
+            return {"seeded": False, "count": existing_count}
+    except Exception as e:
+        logger.error(f"❌ Failed to auto-seed featured workouts: {e}")
+        return {"seeded": False, "error": str(e)}
+
+async def auto_grant_admin_for_staging(user_id: str, username: str):
+    """
+    Auto-grant admin access in staging environments for designated users.
+    Called during login/auth.
+    """
+    if not IS_STAGING:
+        return False
+    
+    if username.lower() not in [u.lower() for u in STAGING_ADMIN_USERNAMES]:
+        return False
+    
+    try:
+        user = await db.users.find_one({"_id": ObjectId(user_id)})
+        if user and not user.get("is_admin"):
+            await db.users.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$set": {"is_admin": True}}
+            )
+            logger.info(f"🔑 Auto-granted admin access to {username} (staging mode)")
+            return True
+        return user.get("is_admin", False) if user else False
+    except Exception as e:
+        logger.error(f"❌ Failed to auto-grant admin: {e}")
+        return False
+
 # Terms of Service Version - Update this when terms change to force re-acceptance
 # Format: YYYY-MM-DD
 CURRENT_TERMS_VERSION = "2025-01-19"
