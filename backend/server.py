@@ -191,17 +191,23 @@ STAGING_ADMIN_USERNAMES = ["officialmoodapp"]
 async def auto_seed_featured_workouts():
     """
     Auto-seed featured workouts if collection is empty or has fewer than expected.
+    Uses the exact workout data from the preview environment.
     Called on startup in staging environments.
     """
     try:
         existing_count = await db.featured_workouts.count_documents({})
         
-        if existing_count < len(DEFAULT_FEATURED_WORKOUTS):
-            logger.info(f"🌱 Auto-seeding featured workouts (found {existing_count}, need {len(DEFAULT_FEATURED_WORKOUTS)})")
+        # Check if we have all 6 featured workouts
+        if existing_count < len(PREVIEW_FEATURED_WORKOUTS):
+            logger.info(f"🌱 Auto-seeding featured workouts (found {existing_count}, need {len(PREVIEW_FEATURED_WORKOUTS)})")
             
             inserted_ids = []
-            for workout in DEFAULT_FEATURED_WORKOUTS:
+            for workout in PREVIEW_FEATURED_WORKOUTS:
                 workout_data = {**workout, "created_at": datetime.now(timezone.utc)}
+                # Remove _id from data to insert, we'll use MongoDB's auto-generated IDs
+                original_id = workout_data.pop("_id", None)
+                
+                # Check if workout with same title exists
                 existing = await db.featured_workouts.find_one({"title": workout["title"]})
                 if not existing:
                     result = await db.featured_workouts.insert_one(workout_data)
@@ -209,7 +215,7 @@ async def auto_seed_featured_workouts():
                 else:
                     inserted_ids.append(str(existing["_id"]))
             
-            # Update featured config
+            # Update featured config with the workout IDs
             await db.featured_config.update_one(
                 {"_id": "main"},
                 {
