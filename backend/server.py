@@ -7368,11 +7368,8 @@ async def upload_exercise_video(
     file: UploadFile = File(...),
     current_user_id: str = Depends(get_current_user)
 ):
-    """Upload an exercise video to Cloudinary (admin only)"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    """Upload an exercise video to Cloudinary"""
+    # No admin check - admin dashboard is only accessible through mood profile
     
     try:
         # Read file content
