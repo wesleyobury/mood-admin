@@ -7248,12 +7248,14 @@ async def bootstrap_staging(
     else:
         results["admin_grant"] = {"granted": False, "message": "Already admin"}
     
-    # Step 2: Seed featured workouts
+    # Step 2: Seed featured workouts using the preview data
     existing_count = await db.featured_workouts.count_documents({})
-    if existing_count < len(DEFAULT_FEATURED_WORKOUTS):
+    if existing_count < len(PREVIEW_FEATURED_WORKOUTS):
         inserted_ids = []
-        for workout in DEFAULT_FEATURED_WORKOUTS:
+        for workout in PREVIEW_FEATURED_WORKOUTS:
             workout_data = {**workout, "created_at": datetime.now(timezone.utc)}
+            # Remove _id from data to insert
+            workout_data.pop("_id", None)
             existing = await db.featured_workouts.find_one({"title": workout["title"]})
             if not existing:
                 result = await db.featured_workouts.insert_one(workout_data)
