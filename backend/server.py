@@ -2694,10 +2694,7 @@ async def get_user_detail_report(
     app sessions, posts/likes/comments, time spent in app.
     days=0 means "all time" (no date filter)
     """
-    # Verify admin
-    admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not admin_user or admin_user.get("username", "").lower() != "officialmoodapp":
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     # Handle "all time" option (days=0)
     is_all_time = days == 0
