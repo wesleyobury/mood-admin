@@ -8707,12 +8707,26 @@ logger = logging.getLogger(__name__)
 @app.on_event("startup")
 async def startup_db_client():
     """Start background services on app startup"""
+    # Log environment info
+    logger.info(f"🌍 Environment: APP_ENV={APP_ENV}, IS_STAGING={IS_STAGING}")
+    
     # Start notification background worker
     try:
         await start_notification_worker(db)
         logger.info("🚀 Notification worker started successfully")
     except Exception as e:
         logger.error(f"Failed to start notification worker: {e}")
+    
+    # Auto-seed featured workouts in staging or if empty
+    # This runs on EVERY deployment to ensure featured workouts exist
+    try:
+        seed_result = await auto_seed_featured_workouts()
+        if seed_result.get("seeded"):
+            logger.info(f"🌱 Startup: Auto-seeded {seed_result.get('count')} featured workouts")
+        else:
+            logger.info(f"✅ Startup: Featured workouts OK ({seed_result.get('count')} found)")
+    except Exception as e:
+        logger.error(f"❌ Startup: Failed to auto-seed featured workouts: {e}")
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
