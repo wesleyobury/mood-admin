@@ -92,6 +92,34 @@ db = client[os.environ.get('DB_NAME', 'mood_app')]
 JWT_SECRET = os.environ.get('JWT_SECRET', 'mood-app-secret-key-2025')
 JWT_ALGORITHM = 'HS256'
 
+# Environment Detection for Staging/Preview
+# Set APP_ENV=staging in .env for staging environments, or auto-detect from domain
+APP_ENV = os.environ.get('APP_ENV', 'production')
+
+def is_staging_environment() -> bool:
+    """
+    Detect if we're running in a staging/preview environment.
+    Returns True if:
+    - APP_ENV is set to 'staging', 'preview', or 'development'
+    - Or if the backend URL contains 'preview' or 'stage'
+    """
+    if APP_ENV.lower() in ['staging', 'preview', 'development', 'dev']:
+        return True
+    
+    # Check if running on preview domain
+    backend_url = os.environ.get('EXPO_PUBLIC_BACKEND_URL', '')
+    if 'preview' in backend_url.lower() or 'stage' in backend_url.lower():
+        return True
+    
+    # Check tunnel subdomain for preview
+    tunnel_subdomain = os.environ.get('EXPO_TUNNEL_SUBDOMAIN', '')
+    if tunnel_subdomain and 'dev' in tunnel_subdomain.lower():
+        return True
+    
+    return False
+
+IS_STAGING = is_staging_environment()
+
 # Terms of Service Version - Update this when terms change to force re-acceptance
 # Format: YYYY-MM-DD
 CURRENT_TERMS_VERSION = "2025-01-19"
