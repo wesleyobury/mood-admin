@@ -6257,11 +6257,11 @@ async def admin_bulk_delete_posts(
     Admin endpoint to bulk delete posts by username or user_id.
     Only admin (officialmoodapp) can use this endpoint.
     """
-    try:
-        # Check admin allowlist
+    # Check admin allowlist
     if not await is_admin_allowed(current_user_id):
         raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
-        
+    
+    try:
         if not username and not user_id:
             raise HTTPException(status_code=400, detail="Must provide username or user_id")
         
