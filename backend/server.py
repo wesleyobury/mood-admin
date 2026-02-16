@@ -6335,11 +6335,11 @@ async def admin_list_all_posts(
     Admin endpoint to list all posts with user info.
     Only admin (officialmoodapp) can use this endpoint.
     """
-    try:
-        # Check admin allowlist
+    # Check admin allowlist
     if not await is_admin_allowed(current_user_id):
         raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
-        
+    
+    try:
         # Build query
         query = {}
         if username:
