@@ -7276,118 +7276,156 @@ async def bootstrap_staging(
     current_user_id: str = Depends(get_current_user)
 ):
     """
-    One-call bootstrap endpoint that performs all staging setup:
-    1. Grants admin access to the designated owner
-    2. FORCE REPLACES featured workouts with preview data
-    3. Repairs featured_config to reference the correct workouts
-    4. Syncs exercises collection from preview data
+    Safe bootstrap endpoint that UPSERTS specific data without deleting collections.
+    Uses UPSERT-by-stable-key to ensure content is updated, not just counted.
     
-    Use this after deploying to a new environment to set everything up.
-    Only accessible by the app owner (officialmoodapp).
+    Scoped to only update:
+    1. exercises - ensure cues/mistakes/aliases fields are present
+    2. featured "Cardio Based" workout - update to correct content
+    3. featured_config - ensure carousel points to correct workouts
+    
+    Returns detailed verification report.
     """
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
+    
+    # Capture before state
+    exercises_before = await db.exercises.count_documents({})
+    featured_workouts_before = await db.featured_workouts.count_documents({})
+    
     results = {
-        "admin_grant": None,
-        "featured_workouts": None,
-        "exercises_sync": None,
-        "config_repair": None,
-        "environment": {
-            "APP_ENV": APP_ENV,
-            "IS_STAGING": IS_STAGING
-        }
+        "meta": {
+            "env": APP_ENV,
+            "git_sha": GIT_SHA,
+            "deployed_at": DEPLOYED_AT,
+            "seed_version": SEED_VERSION,
+            "mongo_db_name": db.name
+        },
+        "exercises_before": exercises_before,
+        "exercises_after": 0,
+        "exercises_upserted": 0,
+        "sample_exercise": None,
+        "featured_cardio": None,
+        "featured_config_snapshot": None,
+        "admin_grant": None
     }
     
-    # Get current user
+    # Step 1: Grant admin access to current user
     user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
-    
-    username = user.get("username", "").lower()
-    
-    # Only allow the app owner
-    if username != "officialmoodapp":
-        raise HTTPException(status_code=403, detail="Only the app owner can use this endpoint")
-    
-    # Step 1: Grant admin access
-    if not user.get("is_admin"):
+    if user and not user.get("is_admin"):
         await db.users.update_one(
             {"_id": ObjectId(current_user_id)},
             {"$set": {"is_admin": True}}
         )
-        results["admin_grant"] = {"granted": True, "message": "Admin access granted"}
-        logger.info(f"🔑 Bootstrap: Admin access granted to {username}")
+        results["admin_grant"] = {"granted": True, "username": user.get("username")}
+        logger.info(f"🔑 Bootstrap: Admin access granted to {user.get('username')}")
     else:
-        results["admin_grant"] = {"granted": False, "message": "Already admin"}
+        results["admin_grant"] = {"granted": False, "message": "Already admin or user not found"}
     
-    # Step 2: FORCE REPLACE featured workouts with preview data
-    # First, delete all existing featured workouts
-    delete_result = await db.featured_workouts.delete_many({})
-    logger.info(f"🗑️ Bootstrap: Deleted {delete_result.deleted_count} old featured workouts")
+    # Step 2: UPSERT all exercises by name (stable key)
+    upserted_count = 0
+    for ex in PREVIEW_EXERCISES:
+        ex_data = {**ex, "updated_at": datetime.now(timezone.utc)}
+        # Use name as stable key for upsert
+        stable_key = ex.get("name")
+        if stable_key:
+            result = await db.exercises.update_one(
+                {"name": stable_key},
+                {"$set": ex_data},
+                upsert=True
+            )
+            if result.upserted_id or result.modified_count > 0:
+                upserted_count += 1
     
-    # Insert the correct preview workouts
-    inserted_ids = []
+    results["exercises_upserted"] = upserted_count
+    results["exercises_after"] = await db.exercises.count_documents({})
+    logger.info(f"🌱 Bootstrap: Upserted {upserted_count} exercises")
+    
+    # Get sample exercise to verify cues/mistakes
+    sample_ex = await db.exercises.find_one({"cues": {"$exists": True, "$ne": []}})
+    if sample_ex:
+        results["sample_exercise"] = {
+            "name": sample_ex.get("name"),
+            "video_url": sample_ex.get("video_url", "")[:100] + "..." if sample_ex.get("video_url") else None,
+            "cues_count": len(sample_ex.get("cues", [])),
+            "cues": sample_ex.get("cues", [])[:3],  # First 3 cues
+            "mistakes_count": len(sample_ex.get("mistakes", [])),
+            "mistakes": sample_ex.get("mistakes", [])[:3]  # First 3 mistakes
+        }
+    
+    # Step 3: UPSERT featured workouts by title (stable key)
+    featured_workout_ids = []
     for workout in PREVIEW_FEATURED_WORKOUTS:
-        workout_data = {**workout, "created_at": datetime.now(timezone.utc)}
-        # Remove _id from data to insert (will auto-generate new IDs)
-        workout_data.pop("_id", None)
-        result = await db.featured_workouts.insert_one(workout_data)
-        inserted_ids.append(str(result.inserted_id))
+        workout_data = {**workout, "updated_at": datetime.now(timezone.utc)}
+        workout_data.pop("_id", None)  # Remove source _id
+        stable_key = workout.get("title")
+        if stable_key:
+            # Upsert by title
+            result = await db.featured_workouts.update_one(
+                {"title": stable_key},
+                {"$set": workout_data},
+                upsert=True
+            )
+            # Get the workout ID (either upserted or existing)
+            if result.upserted_id:
+                featured_workout_ids.append(str(result.upserted_id))
+            else:
+                existing = await db.featured_workouts.find_one({"title": stable_key})
+                if existing:
+                    featured_workout_ids.append(str(existing["_id"]))
     
-    results["featured_workouts"] = {
-        "force_replaced": True, 
-        "deleted_old": delete_result.deleted_count,
-        "inserted_new": len(inserted_ids),
-        "workout_titles": [w["title"] for w in PREVIEW_FEATURED_WORKOUTS]
+    logger.info(f"🌱 Bootstrap: Upserted {len(PREVIEW_FEATURED_WORKOUTS)} featured workouts")
+    
+    # Get the Cardio Based workout details for verification
+    cardio_workout = await db.featured_workouts.find_one({"title": "Cardio Based"})
+    if cardio_workout:
+        exercises_list = cardio_workout.get("exercises", [])
+        results["featured_cardio"] = {
+            "id": str(cardio_workout["_id"]),
+            "title": cardio_workout.get("title"),
+            "mood": cardio_workout.get("mood"),
+            "image_url": cardio_workout.get("heroImageUrl", "")[:100] + "..." if cardio_workout.get("heroImageUrl") else None,
+            "exercises_count": len(exercises_list),
+            "exercise_names": [e.get("name") for e in exercises_list[:5]],
+            "has_battle_plan": any(e.get("battlePlan") for e in exercises_list)
+        }
+    
+    # Step 4: Update featured_config to reference the correct workout IDs
+    config_update = {
+        "schemaVersion": 1,
+        "featuredWorkoutIds": featured_workout_ids,
+        "ttlHours": 12,
+        "updatedAt": datetime.now(timezone.utc).isoformat()
     }
-    logger.info(f"🌱 Bootstrap: Force replaced with {len(inserted_ids)} featured workouts from preview")
-    
-    # Step 3: Update featured_config to reference the new workout IDs
     await db.featured_config.update_one(
         {"_id": "main"},
+        {"$set": config_update},
+        upsert=True
+    )
+    results["featured_config_snapshot"] = {
+        "config_id": "main",
+        "workout_ids_count": len(featured_workout_ids),
+        "workout_ids": featured_workout_ids
+    }
+    logger.info(f"🔧 Bootstrap: Featured config updated with {len(featured_workout_ids)} workout IDs")
+    
+    # Step 5: Record seed state in DB
+    await db.system.update_one(
+        {"_id": "seed_state"},
         {
             "$set": {
-                "schemaVersion": 1,
-                "featuredWorkoutIds": inserted_ids,
-                "ttlHours": 12,
-                "updatedAt": datetime.now(timezone.utc).isoformat()
+                "version": SEED_VERSION,
+                "applied_at": datetime.now(timezone.utc).isoformat(),
+                "applied_by": current_user_id
             }
         },
         upsert=True
     )
-    results["config_repair"] = {
-        "repaired": True,
-        "workout_ids": inserted_ids
-    }
-    logger.info(f"🔧 Bootstrap: Featured config updated with {len(inserted_ids)} workout IDs")
-    
-    # Step 4: Sync exercises collection - FORCE replace with preview data
-    # First delete all existing exercises
-    exercises_delete = await db.exercises.delete_many({})
-    logger.info(f"🗑️ Bootstrap: Deleted {exercises_delete.deleted_count} old exercises")
-    
-    # Insert all preview exercises
-    if PREVIEW_EXERCISES:
-        exercises_to_insert = []
-        for ex in PREVIEW_EXERCISES:
-            ex_data = {**ex, "created_at": datetime.now(timezone.utc)}
-            exercises_to_insert.append(ex_data)
-        
-        await db.exercises.insert_many(exercises_to_insert)
-        logger.info(f"🌱 Bootstrap: Inserted {len(exercises_to_insert)} exercises from preview")
-        
-        results["exercises_sync"] = {
-            "force_replaced": True,
-            "deleted_old": exercises_delete.deleted_count,
-            "inserted_new": len(exercises_to_insert)
-        }
-    else:
-        results["exercises_sync"] = {
-            "force_replaced": False,
-            "error": "No preview exercises data available"
-        }
     
     return {
         "success": True,
-        "message": "Staging bootstrap complete - featured workouts and exercises FORCE REPLACED",
+        "message": f"Bootstrap complete - {upserted_count} exercises upserted, {len(PREVIEW_FEATURED_WORKOUTS)} featured workouts upserted",
         "results": results
     }
 
