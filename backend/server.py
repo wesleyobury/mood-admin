@@ -2726,7 +2726,9 @@ async def get_user_detail_report(
     app sessions, posts/likes/comments, time spent in app.
     days=0 means "all time" (no date filter)
     """
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     # Handle "all time" option (days=0)
     is_all_time = days == 0
@@ -3015,7 +3017,9 @@ async def get_deleted_users(
     Get list of users who deleted their accounts (for analytics).
     Only admin can access this.
     """
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     try:
         # Get deleted users from the last N days
@@ -3066,7 +3070,9 @@ async def soft_delete_user(
     for 7 days before permanent deletion.
     Only admin can perform this action.
     """
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     # Prevent self-deletion
     if user_id == current_user_id:
@@ -3122,7 +3128,9 @@ async def get_deleted_users(
     """
     Get list of soft-deleted users that can be recovered.
     """
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     now = datetime.now(timezone.utc)
     
@@ -3156,7 +3164,9 @@ async def restore_deleted_user(
     """
     Restore a soft-deleted user before the 7-day expiration.
     """
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     try:
         # Find in deleted_users
@@ -6248,7 +6258,9 @@ async def admin_bulk_delete_posts(
     Only admin (officialmoodapp) can use this endpoint.
     """
     try:
-        # No admin check needed - admin dashboard only accessible through mood profile
+        # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
         
         if not username and not user_id:
             raise HTTPException(status_code=400, detail="Must provide username or user_id")
@@ -6324,7 +6336,9 @@ async def admin_list_all_posts(
     Only admin (officialmoodapp) can use this endpoint.
     """
     try:
-        # No admin check needed - admin dashboard only accessible through mood profile
+        # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
         
         # Build query
         query = {}
@@ -6996,7 +7010,9 @@ async def get_pending_reports(
 ):
     """Get content reports for admin review"""
     
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     query = {}
     if status != "all":
@@ -7078,7 +7094,9 @@ async def get_block_notifications(
 ):
     """Get user block notifications for admin review"""
     
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     query = {"type": "user_blocked"}
     if status != "all":
@@ -7113,7 +7131,9 @@ async def take_action_on_report(
 ):
     """Take action on a content report (remove content, ban user, or dismiss)"""
     
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     action = action_data.get("action")  # "remove_content", "ban_user", "dismiss"
     
@@ -7598,7 +7618,9 @@ async def create_exercise(
     current_user_id: str = Depends(get_current_user)
 ):
     """Create a new exercise"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     exercise_doc = {
         "name": exercise.name,
@@ -7627,7 +7649,9 @@ async def create_exercises_bulk(
     current_user_id: str = Depends(get_current_user)
 ):
     """Bulk create exercises (admin only)"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     exercise_docs = []
     for exercise in exercises:
@@ -7659,7 +7683,9 @@ async def update_exercise(
     current_user_id: str = Depends(get_current_user)
 ):
     """Update an exercise"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     try:
         result = await db.exercises.update_one(
@@ -7693,7 +7719,9 @@ async def delete_exercise(
     current_user_id: str = Depends(get_current_user)
 ):
     """Delete an exercise"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     try:
         result = await db.exercises.delete_one({"_id": ObjectId(exercise_id)})
@@ -7817,7 +7845,9 @@ async def update_featured_config(
     current_user_id: str = Depends(get_current_user)
 ):
     """Update the featured workouts configuration (admin only)"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     # Validate that all workout IDs exist
     for workout_id in config.featuredWorkoutIds:
@@ -7861,7 +7891,9 @@ async def list_featured_workouts(
     current_user_id: str = Depends(get_current_user)
 ):
     """List all featured workouts"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     workouts = await db.featured_workouts.find().sort("created_at", -1).to_list(100)
     
@@ -7879,7 +7911,9 @@ async def create_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Create a new featured workout (admin only)"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     # Validate exercises have either exerciseId or inline data
     for ex in workout.exercises:
@@ -7919,7 +7953,9 @@ async def get_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Get a single featured workout (admin only)"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     try:
         workout = await db.featured_workouts.find_one({"_id": ObjectId(workout_id)})
@@ -7939,7 +7975,9 @@ async def update_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Update an existing featured workout (admin only)"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     try:
         existing = await db.featured_workouts.find_one({"_id": ObjectId(workout_id)})
@@ -7983,7 +8021,9 @@ async def delete_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Delete a featured workout (admin only)"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     try:
         # Check if workout is in featured config
@@ -8015,7 +8055,9 @@ async def seed_featured_workouts(
     Use this to initialize the featured workouts in a new deployment.
     Only accessible by admin users.
     """
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     # Check if already has workouts
     existing_count = await db.featured_workouts.count_documents({})
@@ -8464,7 +8506,9 @@ async def get_moderation_stats(
 ):
     """Get moderation statistics for admin dashboard"""
     
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     now = datetime.now(timezone.utc)
     last_24h = now - timedelta(hours=24)
@@ -8701,7 +8745,9 @@ async def admin_send_featured_workout(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Send featured workout push to users"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     notification_service = get_notification_service(db)
     count = await notification_service.send_featured_workout_to_all(
@@ -8723,7 +8769,9 @@ async def admin_send_featured_suggestion(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Send featured suggestion push to users"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     notification_service = get_notification_service(db)
     count = await notification_service.send_featured_suggestion_to_all(
@@ -8743,7 +8791,9 @@ async def admin_send_workout_reminder(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Send workout reminder to a specific user"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     notification_service = get_notification_service(db)
     result = await notification_service.trigger_workout_reminder(
@@ -8766,7 +8816,9 @@ async def admin_send_mass_workout_reminder(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Send workout reminder to all eligible users"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     worker = get_notification_worker(db)
     count = await worker.trigger_mass_workout_reminder(data.custom_message)
@@ -8782,7 +8834,9 @@ async def admin_get_worker_status(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Check notification worker status"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     worker = get_notification_worker(db)
     
@@ -8797,7 +8851,9 @@ async def admin_trigger_digest(
     current_user_id: str = Depends(get_current_user)
 ):
     """Admin: Manually trigger digest for a specific user"""
-    # No admin check needed - admin dashboard only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     worker = get_notification_worker(db)
     result = await worker._send_following_digest(user_id)
