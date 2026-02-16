@@ -6439,6 +6439,32 @@ async def root():
 async def health_check():
     return {"status": "healthy", "database": "connected"}
 
+@api_router.get("/meta")
+async def get_meta():
+    """
+    Returns deployment metadata to verify which build and DB is live.
+    READ-ONLY endpoint - no auth required.
+    """
+    # Get seed state from DB if exists
+    seed_state = await db.system.find_one({"_id": "seed_state"})
+    seed_version_applied = seed_state.get("version") if seed_state else "none"
+    
+    # Sanitize mongo URL (hide credentials)
+    mongo_host = mongo_url.split("@")[-1] if "@" in mongo_url else mongo_url
+    mongo_host = mongo_host.split("/")[0] if "/" in mongo_host else mongo_host
+    
+    return {
+        "env": APP_ENV,
+        "is_staging": IS_STAGING,
+        "git_sha": GIT_SHA,
+        "deployed_at": DEPLOYED_AT,
+        "seed_version_current": SEED_VERSION,
+        "seed_version_applied": seed_version_applied,
+        "mongo_db_name": db.name,
+        "mongo_host": mongo_host,
+        "admin_allowlist": ADMIN_ALLOWLIST
+    }
+
 # Feedback endpoint
 @api_router.post("/feedback")
 async def submit_feedback(
