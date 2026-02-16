@@ -122,6 +122,38 @@ def is_staging_environment() -> bool:
 
 IS_STAGING = is_staging_environment()
 
+# Deployment metadata (set via environment variables during deploy)
+GIT_SHA = os.environ.get('GIT_SHA', 'missing')
+DEPLOYED_AT = os.environ.get('DEPLOYED_AT', 'missing')
+SEED_VERSION = "2026-02-15-v2"  # Update this when seed data changes
+
+# Admin allowlist - emails/usernames that bypass admin checks
+# Format: comma-separated list of emails or usernames
+ADMIN_ALLOWLIST = os.environ.get('ADMIN_ALLOWLIST', 'officialmoodapp').split(',')
+ADMIN_ALLOWLIST = [x.strip().lower() for x in ADMIN_ALLOWLIST if x.strip()]
+
+async def is_admin_allowed(user_id: str) -> bool:
+    """Check if user is in admin allowlist (by username or email)"""
+    try:
+        user = await db.users.find_one({"_id": ObjectId(user_id)})
+        if not user:
+            return False
+        
+        username = user.get("username", "").lower()
+        email = user.get("email", "").lower()
+        
+        # Check if username or email is in allowlist
+        if username in ADMIN_ALLOWLIST or email in ADMIN_ALLOWLIST:
+            return True
+        
+        # Also allow if user has is_admin flag set
+        if user.get("is_admin"):
+            return True
+            
+        return False
+    except Exception:
+        return False
+
 # Admin users who get auto-promoted in staging
 STAGING_ADMIN_USERNAMES = ["officialmoodapp"]
 
