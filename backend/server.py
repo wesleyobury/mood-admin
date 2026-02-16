@@ -7201,7 +7201,9 @@ async def get_all_exercises_admin(
     search: str = ""
 ):
     """Get all exercises for admin management (paginated)"""
-    # No admin check - admin dashboard is only accessible through mood profile
+    # Check admin allowlist
+    if not await is_admin_allowed(current_user_id):
+        raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     # Build query
     query = {}
