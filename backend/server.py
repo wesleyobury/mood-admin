@@ -5940,6 +5940,53 @@ async def get_comment_replies(comment_id: str, limit: int = 20):
         logger.error(f"Error fetching replies for comment {comment_id}: {str(e)}")
         raise HTTPException(status_code=404, detail="Comment not found")
 
+@api_router.delete("/comments/{comment_id}")
+async def delete_comment(comment_id: str, current_user_id: str = Depends(get_current_user)):
+    """Delete a comment (only the author can delete their own comments)"""
+    try:
+        # Find the comment first
+        comment = await db.comments.find_one({"_id": ObjectId(comment_id)})
+        if not comment:
+            raise HTTPException(status_code=404, detail="Comment not found")
+        
+        # Check if the current user is the author
+        if comment.get("author_id") != current_user_id:
+            raise HTTPException(status_code=403, detail="You can only delete your own comments")
+        
+        # Get the post_id to update comment count
+        post_id = comment.get("post_id")
+        parent_comment_id = comment.get("parent_comment_id")
+        
+        # Delete the comment
+        await db.comments.delete_one({"_id": ObjectId(comment_id)})
+        
+        # Delete all replies to this comment
+        replies_deleted = await db.comments.delete_many({"parent_comment_id": comment_id})
+        
+        # Update the post's comment count
+        if post_id:
+            total_deleted = 1 + replies_deleted.deleted_count
+            await db.posts.update_one(
+                {"_id": ObjectId(post_id)},
+                {"$inc": {"comments_count": -total_deleted}}
+            )
+        
+        # If this was a reply, decrement the parent comment's replies_count
+        if parent_comment_id:
+            await db.comments.update_one(
+                {"_id": ObjectId(parent_comment_id)},
+                {"$inc": {"replies_count": -1}}
+            )
+        
+        logger.info(f"User {current_user_id} deleted comment {comment_id} (and {replies_deleted.deleted_count} replies)")
+        
+        return {"message": "Comment deleted successfully", "replies_deleted": replies_deleted.deleted_count}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error deleting comment {comment_id}: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to delete comment")
+
 @api_router.get("/users/search/mention")
 async def search_users_for_mention(q: str, limit: int = 10, current_user_id: str = Depends(get_current_user)):
     """Search users for @mention autocomplete"""
