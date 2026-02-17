@@ -38,16 +38,34 @@ const CAROUSEL_PADDING = 16;
 const CARD_GAP = 12;
 const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
 
+// Helper to format minutes - converts to hours when >= 1000
+const formatMinutes = (minutes: number): { value: string; label: string } => {
+  if (minutes >= 1000) {
+    const hours = minutes / 60;
+    // Show 1 decimal place for hours
+    return { 
+      value: hours.toFixed(1), 
+      label: 'HOURS' 
+    };
+  }
+  return { 
+    value: minutes.toString(), 
+    label: 'MINUTES' 
+  };
+};
+
 // Animated Counter Stat Component
 const AnimatedStat = ({ 
   value, 
   label, 
   isStreak = false,
+  isMinutes = false,
   delay = 0 
 }: { 
   value: number; 
   label: string; 
   isStreak?: boolean;
+  isMinutes?: boolean;
   delay?: number;
 }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -57,24 +75,42 @@ const AnimatedStat = ({
     // Reset and animate when value changes
     animatedValue.setValue(0);
     
-    // Count up animation
+    // Count up animation - counts every integer
     Animated.timing(animatedValue, {
       toValue: value,
-      duration: 800,
+      duration: Math.min(800 + (value * 2), 1500), // Scale duration slightly with value, max 1.5s
       delay,
-      easing: Easing.out(Easing.cubic),
+      easing: Easing.out(Easing.quad),
       useNativeDriver: false, // Required for non-transform animations
     }).start();
 
-    // Listen to animated value changes
+    // Listen to animated value changes - update every frame
     const listenerId = animatedValue.addListener(({ value: v }) => {
-      setDisplayValue(Math.round(v));
+      setDisplayValue(Math.floor(v));
     });
 
     return () => {
       animatedValue.removeListener(listenerId);
     };
   }, [value]);
+
+  // Format the display - handle minutes to hours conversion
+  const getDisplayText = () => {
+    if (isMinutes && value >= 1000) {
+      // For hours display, interpolate the decimal
+      const targetHours = value / 60;
+      const currentHours = displayValue / 60;
+      return currentHours.toFixed(1);
+    }
+    return displayValue.toString();
+  };
+
+  const getLabel = () => {
+    if (isMinutes && value >= 1000) {
+      return 'HOURS';
+    }
+    return label;
+  };
 
   return (
     <View style={styles.statWrapper}>
@@ -84,33 +120,27 @@ const AnimatedStat = ({
           styles.statValue,
           isStreak && styles.statValueStreak
         ]}>
-          {displayValue}
+          {getDisplayText()}
         </Text>
         <Text style={[
           styles.statLabel,
           isStreak && styles.statLabelStreak
         ]}>
-          {label}
+          {getLabel()}
         </Text>
       </View>
       
-      {/* Underline with upward glow */}
-      <View style={styles.underlineContainer}>
-        {/* Upward fading glow */}
+      {/* Soft spotlight glow underneath */}
+      <View style={styles.spotlightContainer}>
         <LinearGradient
           colors={isStreak 
-            ? ['rgba(255,210,0,0.0)', 'rgba(255,210,0,0.25)']
-            : ['rgba(255,255,255,0.0)', 'rgba(255,255,255,0.15)']
+            ? ['rgba(255,200,0,0.45)', 'rgba(255,180,0,0.15)', 'rgba(255,150,0,0.0)']
+            : ['rgba(255,255,255,0.25)', 'rgba(255,255,255,0.08)', 'rgba(255,255,255,0.0)']
           }
-          style={styles.underlineGlow}
+          style={styles.spotlightGlow}
           start={{ x: 0.5, y: 0 }}
           end={{ x: 0.5, y: 1 }}
         />
-        {/* Solid underline */}
-        <View style={[
-          styles.underline,
-          isStreak && styles.underlineStreak
-        ]} />
       </View>
     </View>
   );
