@@ -1337,6 +1337,7 @@ async def get_platform_stats(
 @api_router.get("/analytics/admin/time-series/{metric_type}")
 async def get_time_series_analytics(
     metric_type: str,
+    response: Response,
     period: str = "day",  # day, week, month
     limit: int = 30,
     current_user_id: str = Depends(get_current_user)
@@ -1355,6 +1356,12 @@ async def get_time_series_analytics(
     - posts_created: New posts created
     - social_interactions: Likes, comments, follows combined
     """
+    # Admin check
+    is_admin, matched_by = await is_admin_effective(current_user_id)
+    response.headers["X-Admin-Effective"] = str(is_admin).lower()
+    if not is_admin:
+        raise HTTPException(status_code=403, detail=f"Admin access required - not in allowlist (checked: {matched_by})")
+    
     from collections import defaultdict
     
     # Determine time grouping
