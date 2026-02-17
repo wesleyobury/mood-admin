@@ -277,17 +277,25 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
   const VideoThumbnailItem = ({ videoUrl, existingThumbnail, style }: { videoUrl: string; existingThumbnail?: string; style: any }) => {
     // Use existing thumbnail if available, otherwise generate Cloudinary thumbnail URL
     const thumbnailUrl = existingThumbnail || cloudinaryThumbnailUrlFromVideoUrl(videoUrl);
+    const [hasError, setHasError] = useState(false);
 
     return (
-      <Image
-        source={{ uri: thumbnailUrl }}
-        style={style}
-        contentFit="cover"
-        cachePolicy="memory-disk"
-        transition={200}
-        placeholder={require('../assets/images/placeholder-exercise.png')}
-        placeholderContentFit="cover"
-      />
+      <View style={[style, { backgroundColor: 'rgba(255,255,255,0.05)' }]}>
+        {!hasError ? (
+          <Image
+            source={{ uri: thumbnailUrl }}
+            style={{ width: '100%', height: '100%' }}
+            contentFit="cover"
+            cachePolicy="memory-disk"
+            transition={200}
+            onError={() => setHasError(true)}
+          />
+        ) : (
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Ionicons name="videocam-outline" size={24} color="rgba(255,255,255,0.3)" />
+          </View>
+        )}
+      </View>
     );
   };
 
