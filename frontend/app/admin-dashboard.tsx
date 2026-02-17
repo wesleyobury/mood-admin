@@ -313,6 +313,15 @@ export default function AdminDashboard() {
     error?: string;
   } | null>(null);
   
+  // Admin auth status
+  const [adminAuthInfo, setAdminAuthInfo] = useState<{
+    username?: string;
+    email?: string;
+    is_admin_effective?: boolean;
+    admin_matched_by?: string;
+    admin_allowlist?: string[];
+  } | null>(null);
+  
   // Heartbeat interval
   const heartbeatRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -339,7 +348,7 @@ export default function AdminDashboard() {
     fetchDebugMeta();
   }, []);
 
-  // Check authorization via API
+  // Check authorization via API - now using /api/auth/me for detailed admin info
   useEffect(() => {
     const checkAdminStatus = async () => {
       if (!token) {
@@ -348,19 +357,30 @@ export default function AdminDashboard() {
       }
       
       try {
-        const response = await fetch(`${API_URL}/api/users/me`, {
+        // Use the new /api/auth/me endpoint for detailed admin info
+        const response = await fetch(`${API_URL}/api/auth/me`, {
           headers: { 'Authorization': `Bearer ${token}` },
         });
         
         if (response.ok) {
           const data = await response.json();
-          const authorized = data.is_admin === true;
+          
+          // Store admin auth info for display
+          setAdminAuthInfo({
+            username: data.username,
+            email: data.email,
+            is_admin_effective: data.is_admin_effective,
+            admin_matched_by: data.admin_matched_by,
+            admin_allowlist: data.admin_allowlist,
+          });
+          
+          const authorized = data.is_admin_effective === true;
           setIsAuthorized(authorized);
           
           if (!authorized) {
             Alert.alert(
               'Access Denied',
-              'You do not have permission to access the admin dashboard.',
+              `You do not have admin permission.\n\nLogged in as: ${data.username}\nEmail: ${data.email}\nCheck result: ${data.admin_matched_by}\nAllowlist: ${data.admin_allowlist?.join(', ')}`,
               [{ text: 'OK', onPress: () => router.back() }]
             );
           }
