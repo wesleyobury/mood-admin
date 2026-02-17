@@ -4455,5 +4455,174 @@ PREVIEW_EXERCISES = [
       "Hinging at the hips",
       "Swaying"
     ]
+  },
+  {
+    "name": "BB Snatch",
+    "aliases": [
+      "barbell snatch",
+      "bb snatch",
+      "snatch",
+      "olympic snatch",
+      "power snatch",
+      "barbell power snatch",
+      "full snatch",
+      "squat snatch"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352030/exercise_library/bb_snatch.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/2exq4es1_BB%20snatch.mov",
+    "muscle_group": "Full Body",
+    "equipment": ["Barbell"],
+    "description": "An explosive Olympic lift that develops power, speed, and coordination",
+    "difficulty": "advanced",
+    "instructions": [],
+    "tips": [],
+    "category": "Olympic Lifting",
+    "cues": [
+      "Start with bar over mid-foot",
+      "Keep bar close to body throughout",
+      "Explode upward from hips",
+      "Pull under the bar quickly",
+      "Lock out arms overhead"
+    ],
+    "mistakes": [
+      "Bar swinging away from body",
+      "Not fully extending hips before pulling under",
+      "Catching with soft elbows",
+      "Pulling with arms too early"
+    ]
+  },
+  {
+    "name": "Cable Fly High to Low",
+    "aliases": [
+      "cable fly high to low",
+      "high cable fly",
+      "cable crossover high to low",
+      "high to low cable fly",
+      "downward cable fly",
+      "cable chest fly high to low",
+      "high pulley cable fly"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352032/exercise_library/cable_fly_high_to_low.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/vhi2epn2_Cable%20fly%20high%20to%20low.mov",
+    "muscle_group": "Chest",
+    "equipment": ["Cable Machine"],
+    "description": "Targets the lower chest fibers with a downward fly movement",
+    "difficulty": "intermediate",
+    "instructions": [],
+    "tips": [],
+    "category": "Isolation",
+    "cues": [
+      "Set cables at high position",
+      "Slight bend in elbows throughout",
+      "Bring hands together below chest level",
+      "Squeeze chest at bottom",
+      "Control the movement back up"
+    ],
+    "mistakes": [
+      "Using too much weight and bending arms excessively",
+      "Jerking or swinging the weight",
+      "Not maintaining tension at the top"
+    ]
+  },
+  {
+    "name": "Cable Fly Low to High",
+    "aliases": [
+      "cable fly low to high",
+      "low cable fly",
+      "cable crossover low to high",
+      "low to high cable fly",
+      "upward cable fly",
+      "cable chest fly low to high",
+      "low pulley cable fly",
+      "incline cable fly"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352034/exercise_library/cable_fly_low_to_high.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/bvepf8cc_Cable%20fly%20low%20to%20high.mov",
+    "muscle_group": "Chest",
+    "equipment": ["Cable Machine"],
+    "description": "Targets the upper chest fibers with an upward fly movement",
+    "difficulty": "intermediate",
+    "instructions": [],
+    "tips": [],
+    "category": "Isolation",
+    "cues": [
+      "Set cables at low position",
+      "Slight bend in elbows throughout",
+      "Bring hands together above chest level",
+      "Focus on upper chest squeeze",
+      "Control the eccentric movement"
+    ],
+    "mistakes": [
+      "Straightening arms completely",
+      "Leaning too far forward",
+      "Using momentum instead of muscle control"
+    ]
+  },
+  {
+    "name": "Cable Pull Through",
+    "aliases": [
+      "cable pull through",
+      "cable pull-through",
+      "hip pull through",
+      "cable hip pull through",
+      "glute pull through",
+      "rope pull through",
+      "cable pull thru"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352036/exercise_library/cable_pull_through.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/j6frollx_Cable%20pull%20through.mov",
+    "muscle_group": "Glutes",
+    "equipment": ["Cable Machine"],
+    "description": "A hip hinge movement that targets glutes and hamstrings",
+    "difficulty": "beginner",
+    "instructions": [],
+    "tips": [],
+    "category": "Compound",
+    "cues": [
+      "Face away from cable machine",
+      "Hinge at hips, pushing them back",
+      "Keep back flat throughout",
+      "Drive hips forward to stand",
+      "Squeeze glutes at the top"
+    ],
+    "mistakes": [
+      "Rounding the lower back",
+      "Squatting instead of hinging",
+      "Not fully extending hips at top",
+      "Pulling with arms instead of using hips"
+    ]
+  },
+  {
+    "name": "Cable Squat",
+    "aliases": [
+      "cable squat",
+      "cable machine squat",
+      "cable front squat",
+      "cable goblet squat",
+      "standing cable squat",
+      "cable squats"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352037/exercise_library/cable_squat.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/vrnx8pt2_Cable%20squat.mov",
+    "muscle_group": "Legs",
+    "equipment": ["Cable Machine"],
+    "description": "A squat variation using cable resistance for constant tension",
+    "difficulty": "beginner",
+    "instructions": [],
+    "tips": [],
+    "category": "Compound",
+    "cues": [
+      "Hold cable handle at chest level",
+      "Feet shoulder-width apart",
+      "Sit back and down into squat",
+      "Keep chest up and back straight",
+      "Drive through heels to stand"
+    ],
+    "mistakes": [
+      "Letting knees cave inward",
+      "Rising onto toes",
+      "Rounding upper back",
+      "Not reaching full depth"
+    ]
   }
 ]
