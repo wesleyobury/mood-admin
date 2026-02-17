@@ -88,29 +88,27 @@ const FloatingProgressChip = ({
         { transform: [{ translateY: combinedTranslateY }] }
       ]}
     >
-      {/* Underlight layer */}
-      <View style={[
-        styles.chipUnderlight,
-        isStreak && styles.chipUnderlightStreak
-      ]} />
-      
-      {/* Main chip container */}
-      <View style={styles.floatingChipContainer}>
-        {/* Specular gradient overlay */}
-        <LinearGradient
-          colors={['rgba(255,255,255,0.10)', 'transparent']}
-          style={styles.chipSpecularGradient}
-        />
-        
-        {/* Content */}
+      {/* Content - no container, just floating text */}
+      <View style={styles.floatingChipContent}>
         <Text style={[
           styles.floatingChipValue,
           isStreak && styles.floatingChipValueStreak
         ]}>
           {value}
         </Text>
-        <Text style={styles.floatingChipLabel}>{label}</Text>
+        <Text style={[
+          styles.floatingChipLabel,
+          isStreak && styles.floatingChipLabelStreak
+        ]}>
+          {label}
+        </Text>
       </View>
+      
+      {/* Spotlight/glow beneath */}
+      <View style={[
+        styles.chipSpotlight,
+        isStreak && styles.chipSpotlightStreak
+      ]} />
     </Animated.View>
   );
 };
