@@ -8,7 +8,7 @@ PREVIEW_FEATURED_WORKOUTS = [
     "mood": "Sweat / Burn Fat",
     "duration": "25–35 min",
     "badge": "Top pick",
-    "heroImageUrl": "https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/tfdiqbfo_download.png",
+    "heroImageUrl": "https://customer-assets.emergentagent.com/job_dev-bug-squash/artifacts/u5mq7v0e_download%20%286%29.png",
     "difficulty": "Intermediate",
     "exercises": [
       {
