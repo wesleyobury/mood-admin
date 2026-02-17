@@ -205,17 +205,10 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
               </View>
             </TouchableOpacity>
           ) : (
-            <Video
-              ref={videoRef}
-              source={{ uri: optimizedVideoUrl }}
+            <VideoWithPoster
+              videoUrl={optimizedVideoUrl}
+              posterUrl={posterUrl}
               style={styles.fullScreenVideo}
-              resizeMode={ResizeMode.COVER}
-              isLooping
-              isMuted
-              shouldPlay
-              onError={handleVideoError}
-              posterSource={{ uri: posterUrl }}
-              usePoster={true}
             />
           )}
           
