@@ -1528,21 +1528,22 @@ const styles = StyleSheet.create({
   },
   chipSpotlight: {
     position: 'absolute',
-    bottom: 0,
-    width: 60,
-    height: 20,
-    borderRadius: 30,
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-    // Blur effect via shadow
+    bottom: -4,
+    width: 50,
+    height: 8,
+    borderRadius: 50,
+    backgroundColor: 'transparent',
+    // Create the spotlight glow effect via shadow only
     shadowColor: '#FFFFFF',
-    shadowOpacity: 0.3,
-    shadowRadius: 20,
+    shadowOpacity: 0.5,
+    shadowRadius: 24,
     shadowOffset: { width: 0, height: 0 },
+    elevation: 0,
   },
   chipSpotlightStreak: {
-    backgroundColor: 'rgba(255, 215, 0, 0.25)',
     shadowColor: '#FFD700',
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.6,
+    shadowRadius: 28,
   },
   // Exercise Search Section
   exerciseSearchSection: {
