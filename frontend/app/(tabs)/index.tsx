@@ -1499,74 +1499,70 @@ const styles = StyleSheet.create({
     textShadowRadius: 0,
   },
   // New top progress section styles
-  // Floating Readouts - Native Expo compatible
-  readoutsSection: {
+  // Floating Stats - NO pill, NO border, just text + spotlight glow
+  floatingStatsRow: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 8,
-    marginBottom: 24,
-    paddingHorizontal: 16,
-    gap: 20,
-    overflow: 'visible', // Critical: don't clip shadows
+    marginBottom: 28,
+    paddingHorizontal: 8,
+    overflow: 'visible', // Critical: don't clip
   },
-  readoutWrapper: {
-    position: 'relative',
+  floatingStatWrapper: {
+    width: 110,
     alignItems: 'center',
-    paddingBottom: 16,
-    overflow: 'visible', // Critical: don't clip shadows
+    overflow: 'visible', // Critical: don't clip
+    paddingBottom: 20,
   },
-  underlightContainer: {
+  // Outer bloom layer - larger, softer
+  outerGlow: {
+    position: 'absolute',
+    bottom: -14,
+    width: 120,
+    height: 46,
+    borderRadius: 999,
+    transform: [{ scaleX: 1.2 }, { scaleY: 0.8 }],
+  },
+  // Inner spotlight glow
+  innerGlow: {
     position: 'absolute',
     bottom: -10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'visible',
-  },
-  underlightGradient: {
-    width: 100,
-    height: 26,
+    width: 96,
+    height: 34,
     borderRadius: 999,
-    opacity: 0.22,
-    transform: [{ scaleY: 1.1 }],
+    transform: [{ scaleX: 1.25 }, { scaleY: 0.85 }],
   },
-  underlightGradientStreak: {
-    opacity: 0.28,
-    width: 110,
-  },
-  readoutContent: {
+  // Floating text stack - NO background, NO border
+  floatingTextStack: {
     alignItems: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 18,
-    // Subtle background for Android elevation to work
-    backgroundColor: 'rgba(20, 20, 20, 0.35)',
-    borderRadius: 28,
-    // iOS native shadow
-    shadowColor: '#000',
-    shadowOpacity: 0.28,
-    shadowRadius: 22,
-    shadowOffset: { width: 0, height: 14 },
-    // Android elevation
-    elevation: 14,
+    paddingVertical: 8,
+    // NO backgroundColor
+    // NO borderRadius
+    // NO border
   },
-  readoutValue: {
-    fontSize: 28,
+  floatingStatValue: {
+    fontSize: 32,
     fontWeight: '700',
     color: '#FFFFFF',
     letterSpacing: -0.5,
+    // iOS text shadow for subtle separation
+    textShadowColor: 'rgba(0,0,0,0.6)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 8,
   },
-  readoutValueStreak: {
+  floatingStatValueStreak: {
     color: '#FFD700',
   },
-  readoutLabel: {
+  floatingStatLabel: {
     fontSize: 11,
     color: 'rgba(255, 255, 255, 0.55)',
     marginTop: 6,
     textTransform: 'uppercase',
-    letterSpacing: 2.4,
+    letterSpacing: 2.6,
     fontWeight: '500',
   },
-  readoutLabelStreak: {
+  floatingStatLabelStreak: {
     color: 'rgba(255, 215, 0, 0.7)',
   },
   // Exercise Search Section
