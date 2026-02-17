@@ -1526,15 +1526,22 @@ const styles = StyleSheet.create({
   },
   chipSpotlight: {
     position: 'absolute',
-    bottom: 0,
-    width: 70,
-    height: 3,
-    borderRadius: 2,
-    backgroundColor: 'rgba(255, 255, 255, 0.25)',
-    // No shadow - just a thin lit surface
+    bottom: -8,
+    width: 80,
+    height: 24,
+    borderRadius: 40,
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+    // Soft blur via shadow to create glow effect
+    shadowColor: 'rgba(255, 255, 255, 0.8)',
+    shadowOpacity: 1,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 0 },
+    elevation: 8,
   },
   chipSpotlightStreak: {
-    backgroundColor: 'rgba(255, 215, 0, 0.4)',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    shadowColor: 'rgba(255, 215, 0, 0.9)',
+    shadowRadius: 20,
   },
   // Exercise Search Section
   exerciseSearchSection: {
