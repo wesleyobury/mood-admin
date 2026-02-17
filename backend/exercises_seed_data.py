@@ -1,5 +1,5 @@
 # Auto-generated exercises seed data from preview environment
-# Total exercises: 159 (includes 5 new videos added 2026-02-17)
+# Total exercises: 164 (includes 10 new videos added 2026-02-17)
 # Includes: name, aliases, video_url, thumbnail_url, equipment, cues, mistakes
 PREVIEW_EXERCISES = [
   {
