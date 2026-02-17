@@ -753,21 +753,7 @@ export default function WorkoutsHome() {
         {/* Centered MOOD Branding */}
         <View style={styles.centeredBrandingHeader}>
           <Text style={styles.centeredBrandTitle}>MOOD</Text>
-          <Text style={styles.centeredBrandSubtitle}>Workouts based on your mood</Text>
-          <View style={styles.centeredSocialContainer}>
-            <TouchableOpacity 
-              style={styles.socialButton}
-              onPress={() => handleSocialLink('https://www.instagram.com/officialmoodapp/', 'Instagram')}
-            >
-              <Ionicons name="logo-instagram" size={18} color="#FFD700" />
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={styles.socialButton}
-              onPress={() => handleSocialLink('https://www.tiktok.com/@officialmoodapp', 'TikTok')}
-            >
-              <Ionicons name="logo-tiktok" size={18} color="#FFD700" />
-            </TouchableOpacity>
-          </View>
+          <Text style={styles.centeredBrandSubtitle}>TRAIN HOW YOU FEEL</Text>
         </View>
 
         {/* Progress Tracker - Moved to top */}
