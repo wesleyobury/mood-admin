@@ -843,6 +843,29 @@ export default function AdminDashboard() {
         </TouchableOpacity>
       </View>
 
+      {/* Debug Panel - Shows API configuration */}
+      <View style={styles.debugPanel}>
+        <Text style={styles.debugTitle}>🔧 Debug Info</Text>
+        <Text style={styles.debugText}>
+          <Text style={styles.debugLabel}>Backend: </Text>
+          <Text style={styles.debugValue}>{API_URL || 'NOT SET'}</Text>
+        </Text>
+        <Text style={styles.debugText}>
+          <Text style={styles.debugLabel}>Env: </Text>
+          <Text style={styles.debugValue}>{debugMeta?.env || debugMeta?.error || 'loading...'}</Text>
+        </Text>
+        <Text style={styles.debugText}>
+          <Text style={styles.debugLabel}>Seed: </Text>
+          <Text style={[styles.debugValue, debugMeta?.seed_version_applied === 'none' && styles.debugWarning]}>
+            {debugMeta?.seed_version_applied || 'loading...'}
+          </Text>
+        </Text>
+        <Text style={styles.debugText}>
+          <Text style={styles.debugLabel}>DB: </Text>
+          <Text style={styles.debugValue}>{debugMeta?.mongo_db_name || 'loading...'}</Text>
+        </Text>
+      </View>
+
       {/* Time Period Selector */}
       <View style={styles.periodSelector}>
         {TIME_PERIODS.map(period => (
