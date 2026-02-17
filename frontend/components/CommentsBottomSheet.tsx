@@ -266,6 +266,35 @@ export default function CommentsBottomSheet({ postId, authToken, currentUserId, 
     setMentionedUsers([]);
   };
 
+  const handleDeleteComment = async (commentId: string) => {
+    if (deleting) return;
+    
+    setDeleting(commentId);
+    try {
+      const response = await fetch(`${API_URL}/api/comments/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+        },
+      });
+      
+      if (response.ok) {
+        // Refresh comments list
+        fetchComments();
+        if (onCommentAdded) {
+          onCommentAdded(); // This will also refresh post comment count
+        }
+      } else {
+        const error = await response.json();
+        console.error('Error deleting comment:', error);
+      }
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+    } finally {
+      setDeleting(null);
+    }
+  };
+
   const toggleReplies = (commentId: string) => {
     const newExpanded = new Set(expandedReplies);
     if (newExpanded.has(commentId)) {
