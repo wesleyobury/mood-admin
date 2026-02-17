@@ -28,8 +28,6 @@ import GuestPromptModal from '../../components/GuestPromptModal';
 import { useFeaturedWorkouts, FeaturedWorkout } from '../../hooks/useFeaturedWorkouts';
 import ExerciseLookupSheet from '../../components/ExerciseLookupSheet';
 
-import { LinearGradient } from 'expo-linear-gradient';
-
 // Prioritize process.env for development/preview environments
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
