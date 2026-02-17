@@ -37,92 +37,80 @@ const CAROUSEL_PADDING = 16;
 const CARD_GAP = 12;
 const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
 
-// Floating Stat Component - NO pill, NO border, just text + spotlight glow
-const FloatingStat = ({ 
+// Animated Counter Stat Component
+const AnimatedStat = ({ 
   value, 
   label, 
   isStreak = false,
   delay = 0 
 }: { 
-  value: number | string; 
+  value: number; 
   label: string; 
   isStreak?: boolean;
   delay?: number;
 }) => {
-  // Only animate the text, not the glow
-  const textTranslateY = useRef(new Animated.Value(0)).current;
+  const [displayValue, setDisplayValue] = useState(0);
+  const animatedValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Idle float animation - text only
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(textTranslateY, {
-          toValue: -2,
-          duration: 2400,
-          useNativeDriver: true,
-        }),
-        Animated.timing(textTranslateY, {
-          toValue: 0,
-          duration: 2400,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
-  }, []);
+    // Reset and animate when value changes
+    animatedValue.setValue(0);
+    
+    // Count up animation
+    Animated.timing(animatedValue, {
+      toValue: value,
+      duration: 800,
+      delay,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: false, // Required for non-transform animations
+    }).start();
 
-  // Gradient colors
-  const innerGradientColors = isStreak
-    ? ['rgba(255,210,0,0.55)', 'rgba(255,210,0,0.16)', 'rgba(255,210,0,0.00)'] as const
-    : ['rgba(255,255,255,0.45)', 'rgba(255,255,255,0.10)', 'rgba(255,255,255,0.00)'] as const;
-  
-  const outerGradientColors = isStreak
-    ? ['rgba(255,210,0,0.35)', 'rgba(255,210,0,0.08)', 'rgba(255,210,0,0.00)'] as const
-    : ['rgba(255,255,255,0.25)', 'rgba(255,255,255,0.06)', 'rgba(255,255,255,0.00)'] as const;
+    // Listen to animated value changes
+    const listenerId = animatedValue.addListener(({ value: v }) => {
+      setDisplayValue(Math.round(v));
+    });
+
+    return () => {
+      animatedValue.removeListener(listenerId);
+    };
+  }, [value]);
 
   return (
-    <View style={styles.floatingStatWrapper}>
-      {/* Outer bloom layer - larger, softer */}
-      <LinearGradient
-        colors={outerGradientColors}
-        style={[
-          styles.outerGlow,
-          { opacity: isStreak ? 0.16 : 0.10 }
-        ]}
-        start={{ x: 0.5, y: 0 }}
-        end={{ x: 0.5, y: 1 }}
-      />
-      
-      {/* Inner spotlight glow */}
-      <LinearGradient
-        colors={innerGradientColors}
-        style={[
-          styles.innerGlow,
-          { opacity: isStreak ? 0.32 : 0.22 }
-        ]}
-        start={{ x: 0.5, y: 0 }}
-        end={{ x: 0.5, y: 1 }}
-      />
-      
-      {/* Floating text stack - NO background, NO border */}
-      <Animated.View 
-        style={[
-          styles.floatingTextStack,
-          { transform: [{ translateY: textTranslateY }] }
-        ]}
-      >
+    <View style={styles.statWrapper}>
+      {/* Text stack */}
+      <View style={styles.statContent}>
         <Text style={[
-          styles.floatingStatValue,
-          isStreak && styles.floatingStatValueStreak
+          styles.statValue,
+          isStreak && styles.statValueStreak
         ]}>
-          {value}
+          {displayValue}
         </Text>
         <Text style={[
-          styles.floatingStatLabel,
-          isStreak && styles.floatingStatLabelStreak
+          styles.statLabel,
+          isStreak && styles.statLabelStreak
         ]}>
           {label}
         </Text>
-      </Animated.View>
+      </View>
+      
+      {/* Underline with upward glow */}
+      <View style={styles.underlineContainer}>
+        {/* Upward fading glow */}
+        <LinearGradient
+          colors={isStreak 
+            ? ['rgba(255,210,0,0.0)', 'rgba(255,210,0,0.25)']
+            : ['rgba(255,255,255,0.0)', 'rgba(255,255,255,0.15)']
+          }
+          style={styles.underlineGlow}
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.5, y: 1 }}
+        />
+        {/* Solid underline */}
+        <View style={[
+          styles.underline,
+          isStreak && styles.underlineStreak
+        ]} />
+      </View>
     </View>
   );
 };
