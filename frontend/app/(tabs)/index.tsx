@@ -26,7 +26,7 @@ import { Analytics } from '../../utils/analytics';
 import { useScreenTime } from '../../hooks/useScreenTime';
 import GuestPromptModal from '../../components/GuestPromptModal';
 import { useFeaturedWorkouts, FeaturedWorkout } from '../../hooks/useFeaturedWorkouts';
-import ExerciseLookupSheet from '../../components/ExerciseLookupSheet';
+import { LinearGradient } from 'expo-linear-gradient';
 
 // Prioritize process.env for development/preview environments
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
@@ -36,8 +36,8 @@ const CAROUSEL_PADDING = 16;
 const CARD_GAP = 12;
 const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
 
-// Floating Progress Chip Component
-const FloatingProgressChip = ({ 
+// Floating Progress Readout Component - Native Expo compatible
+const FloatingReadout = ({ 
   value, 
   label, 
   isStreak = false,
@@ -52,7 +52,7 @@ const FloatingProgressChip = ({
   const floatAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Mount animation
+    // Mount animation - lift up
     Animated.timing(translateY, {
       toValue: 0,
       duration: 450,
@@ -60,7 +60,7 @@ const FloatingProgressChip = ({
       useNativeDriver: true,
     }).start();
 
-    // Idle float animation
+    // Idle float animation - subtle bob
     Animated.loop(
       Animated.sequence([
         Animated.timing(floatAnim, {
@@ -82,31 +82,41 @@ const FloatingProgressChip = ({
   return (
     <Animated.View 
       style={[
-        styles.floatingChipWrapper,
+        styles.readoutWrapper,
         { transform: [{ translateY: combinedTranslateY }] }
       ]}
     >
-      {/* Content - no container, just floating text */}
-      <View style={styles.floatingChipContent}>
+      {/* Underlight spotlight using LinearGradient */}
+      <View style={styles.underlightContainer}>
+        <LinearGradient
+          colors={isStreak 
+            ? ['rgba(255,210,0,0.40)', 'rgba(255,210,0,0.0)']
+            : ['rgba(255,255,255,0.35)', 'rgba(255,255,255,0.0)']
+          }
+          style={[
+            styles.underlightGradient,
+            isStreak && styles.underlightGradientStreak
+          ]}
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.5, y: 1 }}
+        />
+      </View>
+      
+      {/* Floating readout content with native shadow */}
+      <View style={styles.readoutContent}>
         <Text style={[
-          styles.floatingChipValue,
-          isStreak && styles.floatingChipValueStreak
+          styles.readoutValue,
+          isStreak && styles.readoutValueStreak
         ]}>
           {value}
         </Text>
         <Text style={[
-          styles.floatingChipLabel,
-          isStreak && styles.floatingChipLabelStreak
+          styles.readoutLabel,
+          isStreak && styles.readoutLabelStreak
         ]}>
           {label}
         </Text>
       </View>
-      
-      {/* Spotlight/glow beneath */}
-      <View style={[
-        styles.chipSpotlight,
-        isStreak && styles.chipSpotlightStreak
-      ]} />
     </Animated.View>
   );
 };
