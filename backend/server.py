@@ -372,6 +372,7 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
     try:
         payload = jwt.decode(credentials.credentials, JWT_SECRET, algorithms=[JWT_ALGORITHM])
         user_id = payload.get('user_id')
+        logger.info(f"🔐 Auth: Decoded user_id from token: {user_id}")
         if not user_id:
             raise HTTPException(status_code=401, detail="Invalid token")
         
@@ -380,17 +381,22 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
         
         # First try to find by custom user_id field
         user = await db.users.find_one({"user_id": user_id})
+        logger.info(f"🔐 Auth: Found by user_id field: {user is not None}")
         
         # If not found, try ObjectId (for legacy users)
         if not user:
             try:
                 user = await db.users.find_one({"_id": ObjectId(user_id)})
-            except:
+                logger.info(f"🔐 Auth: Found by ObjectId: {user is not None}")
+            except Exception as e:
+                logger.info(f"🔐 Auth: ObjectId lookup error: {e}")
                 pass  # Invalid ObjectId format, skip
         
         if not user:
+            logger.warning(f"🔐 Auth: User not found for id: {user_id}")
             raise HTTPException(status_code=401, detail="User not found")
         
+        logger.info(f"🔐 Auth: Authenticated user: {user.get('username')}")
         # ALWAYS return the MongoDB ObjectId for consistency across all operations
         return str(user["_id"])
     except jwt.InvalidTokenError:
