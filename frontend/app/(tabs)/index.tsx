@@ -1556,8 +1556,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 8,
-    marginBottom: 28,
+    marginTop: 4,
+    marginBottom: 16,
     paddingHorizontal: 8,
     overflow: 'visible', // Critical: don't clip
   },
