@@ -1313,15 +1313,19 @@ async def get_journey(
 
 @api_router.get("/analytics/admin/platform-stats")
 async def get_platform_stats(
+    response: Response,
     days: int = 30,
     current_user_id: str = Depends(get_current_user)
 ):
     """
     Get platform-wide analytics (admin only)
-    Note: In production, add admin role check here
     """
-    # TODO: Add admin role verification
-    # For now, any authenticated user can access
+    # Admin check using canonical function
+    is_admin, matched_by = await is_admin_effective(current_user_id)
+    response.headers["X-Admin-Effective"] = str(is_admin).lower()
+    if not is_admin:
+        raise HTTPException(status_code=403, detail=f"Admin access required - not in allowlist (checked: {matched_by})")
+    
     stats = await get_admin_analytics(db, days)
     return stats
 
