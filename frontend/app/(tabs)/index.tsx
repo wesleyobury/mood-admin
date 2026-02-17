@@ -847,23 +847,20 @@ export default function WorkoutsHome() {
           <Text style={styles.centeredBrandSubtitle}>TRAIN HOW YOU FEEL</Text>
         </View>
 
-        {/* Progress Tracker - Floating Readouts */}
-        <View style={styles.readoutsSection}>
-          <FloatingReadout 
+        {/* Progress Tracker - Floating Stats with Spotlight */}
+        <View style={styles.floatingStatsRow}>
+          <FloatingStat 
             value={userStats.workouts} 
             label="WORKOUTS" 
-            delay={0}
           />
-          <FloatingReadout 
+          <FloatingStat 
             value={userStats.minutes} 
             label="MINUTES" 
-            delay={100}
           />
-          <FloatingReadout 
+          <FloatingStat 
             value={userStats.streak} 
             label="STREAK" 
             isStreak={true}
-            delay={200}
           />
         </View>
 
