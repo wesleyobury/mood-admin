@@ -1496,62 +1496,75 @@ const styles = StyleSheet.create({
     textShadowRadius: 0,
   },
   // New top progress section styles
-  // Floating Progress Chips
-  floatingChipsSection: {
+  // Floating Readouts - Native Expo compatible
+  readoutsSection: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 8,
-    marginBottom: 20,
+    marginBottom: 24,
     paddingHorizontal: 16,
-    gap: 24,
+    gap: 20,
+    overflow: 'visible', // Critical: don't clip shadows
   },
-  floatingChipWrapper: {
+  readoutWrapper: {
     position: 'relative',
     alignItems: 'center',
-    paddingBottom: 20,
+    paddingBottom: 16,
+    overflow: 'visible', // Critical: don't clip shadows
   },
-  floatingChipContent: {
+  underlightContainer: {
+    position: 'absolute',
+    bottom: -10,
     alignItems: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 16,
+    justifyContent: 'center',
+    overflow: 'visible',
   },
-  floatingChipValue: {
+  underlightGradient: {
+    width: 100,
+    height: 26,
+    borderRadius: 999,
+    opacity: 0.22,
+    transform: [{ scaleY: 1.1 }],
+  },
+  underlightGradientStreak: {
+    opacity: 0.28,
+    width: 110,
+  },
+  readoutContent: {
+    alignItems: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    // Subtle background for Android elevation to work
+    backgroundColor: 'rgba(20, 20, 20, 0.35)',
+    borderRadius: 28,
+    // iOS native shadow
+    shadowColor: '#000',
+    shadowOpacity: 0.28,
+    shadowRadius: 22,
+    shadowOffset: { width: 0, height: 14 },
+    // Android elevation
+    elevation: 14,
+  },
+  readoutValue: {
     fontSize: 28,
-    fontWeight: '600',
+    fontWeight: '700',
     color: '#FFFFFF',
+    letterSpacing: -0.5,
   },
-  floatingChipValueStreak: {
+  readoutValueStreak: {
     color: '#FFD700',
   },
-  floatingChipLabel: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.5)',
+  readoutLabel: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.55)',
     marginTop: 6,
     textTransform: 'uppercase',
-    letterSpacing: 2,
+    letterSpacing: 2.4,
+    fontWeight: '500',
   },
-  floatingChipLabelStreak: {
-    color: 'rgba(255, 215, 0, 0.6)',
-  },
-  chipSpotlight: {
-    position: 'absolute',
-    bottom: -8,
-    width: 80,
-    height: 24,
-    borderRadius: 40,
-    backgroundColor: 'rgba(255, 255, 255, 0.06)',
-    // Soft blur via shadow to create glow effect
-    shadowColor: 'rgba(255, 255, 255, 0.8)',
-    shadowOpacity: 1,
-    shadowRadius: 16,
-    shadowOffset: { width: 0, height: 0 },
-    elevation: 8,
-  },
-  chipSpotlightStreak: {
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    shadowColor: 'rgba(255, 215, 0, 0.9)',
-    shadowRadius: 20,
+  readoutLabelStreak: {
+    color: 'rgba(255, 215, 0, 0.7)',
   },
   // Exercise Search Section
   exerciseSearchSection: {
