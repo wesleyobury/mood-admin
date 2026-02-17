@@ -81,20 +81,18 @@ export default function TabLayout() {
           ),
         }}
       />
-      {/* Workouts - Center position with gold ring */}
+      {/* Workouts - Center position */}
       <Tabs.Screen
         name="index"
         options={{
           title: 'Workouts',
           tabBarIcon: ({ color, focused }) => (
-            <View style={styles.workoutsIconContainer}>
-              <View style={styles.workoutsGoldRing}>
-                <Ionicons 
-                  name={focused ? 'fitness' : 'fitness-outline'} 
-                  size={24} 
-                  color={color} 
-                />
-              </View>
+            <View style={styles.iconContainer}>
+              <Ionicons 
+                name={focused ? 'fitness' : 'fitness-outline'} 
+                size={24} 
+                color={color} 
+              />
             </View>
           ),
         }}
