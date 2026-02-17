@@ -125,7 +125,7 @@ IS_STAGING = is_staging_environment()
 # Deployment metadata (set via environment variables during deploy)
 GIT_SHA = os.environ.get('GIT_SHA', 'missing')
 DEPLOYED_AT = os.environ.get('DEPLOYED_AT', 'missing')
-SEED_VERSION = "2026-02-15-v2"  # Update this when seed data changes
+SEED_VERSION = "2026-02-17-v3"  # Updated Cardio Based hero image
 
 # Admin allowlist - emails/usernames that bypass admin checks
 # Format: comma-separated list of emails or usernames
