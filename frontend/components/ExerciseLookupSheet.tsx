@@ -170,13 +170,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
 
   const handleRetryVideo = async () => {
     setVideoError(false);
-    if (videoRef.current) {
-      try {
-        await videoRef.current.playAsync();
-      } catch (e) {
-        setVideoError(true);
-      }
-    }
+    // VideoWithPoster will automatically start playing when re-rendered
   };
 
   // Render exercise detail view
