@@ -1492,46 +1492,70 @@ const styles = StyleSheet.create({
     textShadowRadius: 0,
   },
   // New top progress section styles
-  topProgressSection: {
-    marginHorizontal: 24,
-    marginTop: -6,
-    marginBottom: 4,
-    backgroundColor: 'rgba(255, 215, 0, 0.03)',
-    borderRadius: 16,
-    padding: 12,
-  },
-  progressStatsRow: {
+  // Floating Progress Chips
+  floatingChipsSection: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 8,
+    marginBottom: 12,
+    paddingHorizontal: 16,
+    gap: 12,
+  },
+  floatingChipWrapper: {
+    position: 'relative',
     alignItems: 'center',
   },
-  progressStatItem: {
-    alignItems: 'center',
-    flex: 1,
+  chipUnderlight: {
+    position: 'absolute',
+    bottom: -6,
+    width: '75%',
+    height: 16,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255, 255, 255, 0.14)',
   },
-  progressStatValue: {
-    fontSize: 24,
-    fontWeight: '700',
+  chipUnderlightStreak: {
+    backgroundColor: 'rgba(255, 215, 0, 0.22)',
+  },
+  floatingChipContainer: {
+    backgroundColor: 'rgba(255, 255, 255, 0.025)',
+    borderRadius: 30,
+    paddingVertical: 16,
+    paddingHorizontal: 22,
+    alignItems: 'center',
+    overflow: 'hidden',
+    // iOS shadow for levitation
+    shadowColor: '#000',
+    shadowOpacity: 0.30,
+    shadowRadius: 26,
+    shadowOffset: { width: 0, height: 14 },
+    // Android elevation
+    elevation: 14,
+  },
+  chipSpecularGradient: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: '35%',
+    opacity: 0.4,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+  },
+  floatingChipValue: {
+    fontSize: 22,
+    fontWeight: '600',
     color: '#FFFFFF',
   },
-  progressStatLabel: {
-    fontSize: 11,
-    color: '#888',
+  floatingChipValueStreak: {
+    color: '#FFD700',
+  },
+  floatingChipLabel: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.55)',
     marginTop: 4,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
-  },
-  progressDivider: {
-    width: 1,
-    height: 32,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
-  },
-  streakContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  streakIcon: {
-    marginLeft: 4,
+    letterSpacing: 2.5,
   },
   // Exercise Search Section
   exerciseSearchSection: {
