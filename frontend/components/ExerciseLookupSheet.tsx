@@ -273,54 +273,35 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
     );
   };
 
-  // Video Thumbnail component with auto-generation
-  const VideoThumbnailItem = ({ videoUrl, style }: { videoUrl: string; style: any }) => {
-    const [thumbnailUri, setThumbnailUri] = useState<string | null>(thumbnailCache[videoUrl] || null);
-    const [isLoading, setIsLoading] = useState(!thumbnailCache[videoUrl]);
-
-    useEffect(() => {
-      if (thumbnailCache[videoUrl]) {
-        setThumbnailUri(thumbnailCache[videoUrl]);
-        setIsLoading(false);
-        return;
-      }
-
-      const generateThumbnail = async () => {
-        try {
-          const { uri } = await VideoThumbnails.getThumbnailAsync(videoUrl, {
-            time: 0, // First frame
-            quality: 0.5,
-          });
-          thumbnailCache[videoUrl] = uri;
-          setThumbnailUri(uri);
-        } catch (error) {
-          console.log('Thumbnail generation failed:', error);
-        } finally {
-          setIsLoading(false);
-        }
-      };
-
-      generateThumbnail();
-    }, [videoUrl]);
-
-    if (isLoading) {
-      return (
-        <View style={[style, { backgroundColor: 'rgba(255,255,255,0.05)', justifyContent: 'center', alignItems: 'center' }]}>
-          <ActivityIndicator size="small" color="rgba(255,255,255,0.3)" />
-        </View>
-      );
-    }
+  // Video Thumbnail component using Cloudinary server-side thumbnails (fast, no client-side generation)
+  const VideoThumbnailItem = ({ videoUrl, existingThumbnail, style }: { videoUrl: string; existingThumbnail?: string; style: any }) => {
+    // Use existing thumbnail if available, otherwise generate Cloudinary thumbnail URL
+    const thumbnailUrl = existingThumbnail || cloudinaryThumbnailUrlFromVideoUrl(videoUrl);
 
     return (
       <Image
-        source={{ uri: thumbnailUri || undefined }}
+        source={{ uri: thumbnailUrl }}
         style={style}
         contentFit="cover"
         cachePolicy="memory-disk"
         transition={200}
+        placeholder={require('../assets/images/placeholder-exercise.png')}
+        placeholderContentFit="cover"
       />
     );
   };
+
+  // Prefetch thumbnails when exercises load
+  useEffect(() => {
+    if (exercises.length > 0) {
+      const items: PreloadableItem[] = exercises.map(ex => ({
+        id: ex._id,
+        video_url: ex.video_url,
+        thumbnail_url: ex.thumbnail_url || null,
+      }));
+      prefetchThumbnails(items.slice(0, 10)); // Prefetch first 10
+    }
+  }, [exercises]);
 
   // Render exercise list item
   const renderExerciseItem = ({ item }: { item: Exercise }) => (
