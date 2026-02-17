@@ -1551,6 +1551,7 @@ async def get_time_series_analytics(
 @api_router.get("/analytics/admin/breakdown/{metric_type}")
 async def get_metric_breakdown(
     metric_type: str,
+    response: Response,
     period: str = "day",
     days: int = 30,
     current_user_id: str = Depends(get_current_user)
@@ -1563,6 +1564,12 @@ async def get_metric_breakdown(
     - mood_selections: Breakdown by mood type
     - social_interactions: Breakdown by interaction type
     """
+    # Admin check
+    is_admin, matched_by = await is_admin_effective(current_user_id)
+    response.headers["X-Admin-Effective"] = str(is_admin).lower()
+    if not is_admin:
+        raise HTTPException(status_code=403, detail=f"Admin access required - not in allowlist (checked: {matched_by})")
+    
     from collections import defaultdict
     
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
