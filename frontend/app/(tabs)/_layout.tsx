@@ -36,14 +36,14 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: '#0c0c0c',
           borderTopWidth: 1,
-          borderTopColor: '#333',
+          borderTopColor: '#222',
           height: Platform.OS === 'ios' ? 90 : 70,
           paddingBottom: Platform.OS === 'ios' ? 30 : 20,
           paddingTop: 10,
         },
         headerShown: false,
         tabBarLabelStyle: {
-          fontSize: 12,
+          fontSize: 11,
           fontWeight: '600',
         },
         sceneStyle: {
@@ -59,23 +59,7 @@ export default function TabLayout() {
         },
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Workouts',
-          tabBarIcon: ({ color, focused }) => (
-            <View style={styles.workoutsIconContainer}>
-              {/* Subtle glow effect behind the icon */}
-              {focused && <View style={styles.workoutsGlow} />}
-              <Ionicons 
-                name={focused ? 'fitness' : 'fitness-outline'} 
-                size={24} 
-                color={color} 
-              />
-            </View>
-          ),
-        }}
-      />
+      {/* Explore - Left position */}
       <Tabs.Screen
         name="explore"
         options={{
@@ -99,6 +83,36 @@ export default function TabLayout() {
           ),
         }}
       />
+      {/* Workouts - Center position with premium standout */}
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Workouts',
+          tabBarIcon: ({ color, focused }) => (
+            <View style={styles.workoutsIconWrapper}>
+              {/* Premium elevated button container */}
+              <View style={[
+                styles.workoutsButton,
+                focused && styles.workoutsButtonActive
+              ]}>
+                {/* Subtle inner glow when active */}
+                {focused && <View style={styles.workoutsInnerGlow} />}
+                <Ionicons 
+                  name={focused ? 'fitness' : 'fitness-outline'} 
+                  size={26} 
+                  color={focused ? '#FFD700' : '#999'} 
+                />
+              </View>
+            </View>
+          ),
+          tabBarLabelStyle: {
+            fontSize: 11,
+            fontWeight: '700',
+            marginTop: -2,
+          },
+        }}
+      />
+      {/* Profile - Right position */}
       <Tabs.Screen
         name="profile"
         options={{
@@ -122,17 +136,38 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  workoutsIconContainer: {
+  workoutsIconWrapper: {
     position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: -8,
   },
-  workoutsGlow: {
+  workoutsButton: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: '#1a1a1a',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#2a2a2a',
+    // Subtle shadow for depth
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  workoutsButtonActive: {
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    backgroundColor: '#1c1c1c',
+  },
+  workoutsInnerGlow: {
     position: 'absolute',
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: 'rgba(255, 215, 0, 0.08)',
   },
   notificationBadge: {
     position: 'absolute',
