@@ -48,16 +48,18 @@ interface MentionUser {
 interface CommentsBottomSheetProps {
   postId: string;
   authToken: string;
+  currentUserId?: string;
   onClose: () => void;
   onCommentAdded?: () => void;
   onUserPress?: (userId: string) => void;
 }
 
-export default function CommentsBottomSheet({ postId, authToken, onClose, onCommentAdded, onUserPress }: CommentsBottomSheetProps) {
+export default function CommentsBottomSheet({ postId, authToken, currentUserId, onClose, onCommentAdded, onUserPress }: CommentsBottomSheetProps) {
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState('');
   const [loading, setLoading] = useState(true);
   const [posting, setPosting] = useState(false);
+  const [deleting, setDeleting] = useState<string | null>(null);
   const [replyingTo, setReplyingTo] = useState<Comment | null>(null);
   const [expandedReplies, setExpandedReplies] = useState<Set<string>>(new Set());
   const [repliesData, setRepliesData] = useState<{ [commentId: string]: Comment[] }>({});
