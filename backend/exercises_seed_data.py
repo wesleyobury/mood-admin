@@ -4479,16 +4479,12 @@ PREVIEW_EXERCISES = [
     "tips": [],
     "category": "Olympic Lifting",
     "cues": [
-      "Start with bar over mid-foot",
       "Keep bar close to body throughout",
       "Explode upward from hips",
-      "Pull under the bar quickly",
       "Lock out arms overhead"
     ],
     "mistakes": [
       "Bar swinging away from body",
-      "Not fully extending hips before pulling under",
-      "Catching with soft elbows",
       "Pulling with arms too early"
     ]
   },
@@ -4515,14 +4511,11 @@ PREVIEW_EXERCISES = [
     "cues": [
       "Set cables at high position",
       "Slight bend in elbows throughout",
-      "Bring hands together below chest level",
-      "Squeeze chest at bottom",
-      "Control the movement back up"
+      "Squeeze chest at bottom"
     ],
     "mistakes": [
       "Using too much weight and bending arms excessively",
-      "Jerking or swinging the weight",
-      "Not maintaining tension at the top"
+      "Jerking or swinging the weight"
     ]
   },
   {
@@ -4549,13 +4542,10 @@ PREVIEW_EXERCISES = [
     "cues": [
       "Set cables at low position",
       "Slight bend in elbows throughout",
-      "Bring hands together above chest level",
-      "Focus on upper chest squeeze",
-      "Control the eccentric movement"
+      "Focus on upper chest squeeze"
     ],
     "mistakes": [
       "Straightening arms completely",
-      "Leaning too far forward",
       "Using momentum instead of muscle control"
     ]
   },
@@ -4580,17 +4570,13 @@ PREVIEW_EXERCISES = [
     "tips": [],
     "category": "Compound",
     "cues": [
-      "Face away from cable machine",
       "Hinge at hips, pushing them back",
       "Keep back flat throughout",
-      "Drive hips forward to stand",
       "Squeeze glutes at the top"
     ],
     "mistakes": [
       "Rounding the lower back",
-      "Squatting instead of hinging",
-      "Not fully extending hips at top",
-      "Pulling with arms instead of using hips"
+      "Squatting instead of hinging"
     ]
   },
   {
@@ -4614,16 +4600,12 @@ PREVIEW_EXERCISES = [
     "category": "Compound",
     "cues": [
       "Hold cable handle at chest level",
-      "Feet shoulder-width apart",
       "Sit back and down into squat",
-      "Keep chest up and back straight",
       "Drive through heels to stand"
     ],
     "mistakes": [
       "Letting knees cave inward",
-      "Rising onto toes",
-      "Rounding upper back",
-      "Not reaching full depth"
+      "Rounding upper back"
     ]
   },
   {
@@ -4649,15 +4631,11 @@ PREVIEW_EXERCISES = [
     "cues": [
       "Grip shoulder-width or slightly narrower",
       "Keep elbows tucked close to body",
-      "Lower bar to lower chest",
-      "Drive through triceps to lockout",
-      "Maintain tight upper back"
+      "Drive through triceps to lockout"
     ],
     "mistakes": [
       "Flaring elbows out wide",
-      "Gripping too narrow causing wrist strain",
-      "Bouncing bar off chest",
-      "Not fully locking out at top"
+      "Bouncing bar off chest"
     ]
   },
   {
@@ -4683,15 +4661,11 @@ PREVIEW_EXERCISES = [
     "cues": [
       "Start with palms facing body",
       "Rotate wrists as you curl up",
-      "Finish with palms facing shoulders",
-      "Control the rotation on the way down",
       "Keep elbows stationary"
     ],
     "mistakes": [
       "Swinging the weights",
-      "Rotating too early in the movement",
-      "Using momentum instead of muscle control",
-      "Moving elbows forward"
+      "Using momentum instead of muscle control"
     ]
   },
   {
@@ -4717,15 +4691,11 @@ PREVIEW_EXERCISES = [
     "cues": [
       "Start with palms facing you at shoulder height",
       "Rotate and press in one smooth motion",
-      "Finish with palms facing forward overhead",
-      "Reverse the motion on the way down",
       "Keep core tight throughout"
     ],
     "mistakes": [
       "Arching lower back excessively",
-      "Not completing the full rotation",
-      "Pressing before rotating",
-      "Locking out elbows aggressively"
+      "Pressing before rotating"
     ]
   },
   {
@@ -4751,16 +4721,12 @@ PREVIEW_EXERCISES = [
     "category": "Isolation",
     "cues": [
       "Keep slight bend in elbows throughout",
-      "Lower weights in wide arc to chest level",
       "Feel the stretch in chest at bottom",
-      "Squeeze chest to bring weights together",
-      "Maintain same elbow angle throughout"
+      "Squeeze chest to bring weights together"
     ],
     "mistakes": [
       "Straightening arms at the bottom",
-      "Going too deep and straining shoulders",
-      "Turning it into a press movement",
-      "Using too heavy weight"
+      "Going too deep and straining shoulders"
     ]
   },
   {
@@ -4784,17 +4750,159 @@ PREVIEW_EXERCISES = [
     "tips": [],
     "category": "Isolation",
     "cues": [
-      "Stand with dumbbells at thighs",
       "Raise arms straight in front to shoulder height",
       "Keep slight bend in elbows",
-      "Control the lowering phase",
-      "Avoid swinging or using momentum"
+      "Control the lowering phase"
     ],
     "mistakes": [
       "Swinging weights up with momentum",
-      "Raising above shoulder height",
-      "Leaning back excessively",
-      "Using too heavy weight"
+      "Leaning back excessively"
+    ]
+  },
+  {
+    "name": "DB Lat Raise",
+    "aliases": [
+      "db lat raise",
+      "dumbbell lateral raise",
+      "lateral raise",
+      "side raise",
+      "db side raise",
+      "shoulder lateral raise",
+      "dumbbell side raise"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352602/exercise_library/db_lat_raise.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/ylbjdlqv_Db%20lat%20raise.mov",
+    "muscle_group": "Shoulders",
+    "equipment": ["Dumbbells"],
+    "description": "An isolation exercise targeting the lateral deltoid",
+    "difficulty": "beginner",
+    "instructions": [],
+    "tips": [],
+    "category": "Isolation",
+    "cues": [
+      "Raise arms out to sides to shoulder height",
+      "Lead with elbows, not hands",
+      "Control the lowering phase"
+    ],
+    "mistakes": [
+      "Swinging weights up",
+      "Raising above shoulder height"
+    ]
+  },
+  {
+    "name": "DB Skull Crusher",
+    "aliases": [
+      "db skull crusher",
+      "dumbbell skull crusher",
+      "lying tricep extension",
+      "db lying extension",
+      "dumbbell lying tricep extension",
+      "skull crushers dumbbell"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352604/exercise_library/db_skull_crusher.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/fmiojdgv_DB%20skull%20crusher.mov",
+    "muscle_group": "Triceps",
+    "equipment": ["Dumbbells", "Bench"],
+    "description": "An isolation exercise for tricep development",
+    "difficulty": "intermediate",
+    "instructions": [],
+    "tips": [],
+    "category": "Isolation",
+    "cues": [
+      "Keep upper arms stationary",
+      "Lower weight to sides of head",
+      "Extend through triceps to lockout"
+    ],
+    "mistakes": [
+      "Moving elbows during the movement",
+      "Using momentum to lift"
+    ]
+  },
+  {
+    "name": "Decline Bench Press",
+    "aliases": [
+      "decline bench press",
+      "decline bench",
+      "decline barbell press",
+      "decline press",
+      "lower chest press",
+      "decline bp"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352606/exercise_library/decline_bench_press.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/thxlfbcd_Decline%20bench.mov",
+    "muscle_group": "Chest",
+    "equipment": ["Barbell", "Decline Bench"],
+    "description": "A bench press variation emphasizing the lower chest",
+    "difficulty": "intermediate",
+    "instructions": [],
+    "tips": [],
+    "category": "Compound",
+    "cues": [
+      "Secure feet under pads",
+      "Lower bar to lower chest",
+      "Press up and slightly back"
+    ],
+    "mistakes": [
+      "Bouncing bar off chest",
+      "Flaring elbows too wide"
+    ]
+  },
+  {
+    "name": "EZ Bar Curl",
+    "aliases": [
+      "ez bar curl",
+      "ez curl",
+      "ez barbell curl",
+      "cambered bar curl",
+      "angled bar curl",
+      "ez bar bicep curl"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352608/exercise_library/ez_bar_curl.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/n5mfewvd_EZ%20bar%20curl.mov",
+    "muscle_group": "Biceps",
+    "equipment": ["EZ Bar"],
+    "description": "A curl variation with an angled grip for wrist comfort",
+    "difficulty": "beginner",
+    "instructions": [],
+    "tips": [],
+    "category": "Isolation",
+    "cues": [
+      "Grip the angled portions of the bar",
+      "Keep elbows pinned to sides",
+      "Squeeze biceps at the top"
+    ],
+    "mistakes": [
+      "Swinging the weight",
+      "Moving elbows forward"
+    ]
+  },
+  {
+    "name": "EZ Bar Skull Crusher",
+    "aliases": [
+      "ez bar skull crusher",
+      "ez skull crusher",
+      "lying ez bar extension",
+      "ez bar tricep extension",
+      "ez bar lying tricep",
+      "skull crusher ez bar"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352611/exercise_library/ez_bar_skull_crusher.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/0ss0isc3_EZ%20bar%20skull%20crush.mov",
+    "muscle_group": "Triceps",
+    "equipment": ["EZ Bar", "Bench"],
+    "description": "A tricep isolation using EZ bar for better wrist position",
+    "difficulty": "intermediate",
+    "instructions": [],
+    "tips": [],
+    "category": "Isolation",
+    "cues": [
+      "Keep upper arms vertical",
+      "Lower bar to forehead level",
+      "Extend through triceps only"
+    ],
+    "mistakes": [
+      "Flaring elbows outward",
+      "Using shoulder movement"
     ]
   }
 ]
