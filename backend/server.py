@@ -447,6 +447,22 @@ async def get_optional_current_user(authorization: Optional[str] = Header(None))
         return None
 
 
+async def require_admin(current_user_id: str = Depends(get_current_user)) -> str:
+    """
+    FastAPI dependency that requires admin access.
+    Raises 403 if user is not an admin.
+    Returns user_id if admin.
+    Use this as a dependency: current_user_id: str = Depends(require_admin)
+    """
+    is_admin, matched_by = await is_admin_effective(current_user_id)
+    if not is_admin:
+        raise HTTPException(
+            status_code=403, 
+            detail=f"Admin access required - not in allowlist (checked: {matched_by})"
+        )
+    return current_user_id
+
+
 async def check_terms_accepted(user_id: str) -> bool:
     """Check if user has accepted the current version of terms of service.
     Returns True if accepted, raises HTTPException with TERMS_NOT_ACCEPTED if not.
