@@ -876,6 +876,7 @@ export default function WorkoutsHome() {
           <AnimatedStat 
             value={userStats.minutes} 
             label="MINUTES" 
+            isMinutes={true}
             delay={150}
           />
           <AnimatedStat 
