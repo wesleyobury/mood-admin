@@ -1771,7 +1771,7 @@ async def get_signup_trend_endpoint(
 async def get_active_users_endpoint(
     days: int = 30,
     limit: int = 100,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get users who were active in the specified period (based on any tracked event)"""
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
