@@ -310,7 +310,11 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
       onPress={() => handleExerciseSelect(item)}
       activeOpacity={0.7}
     >
-      <VideoThumbnailItem videoUrl={item.video_url} style={styles.exerciseThumbnail} />
+      <VideoThumbnailItem 
+        videoUrl={item.video_url} 
+        existingThumbnail={item.thumbnail_url}
+        style={styles.exerciseThumbnail} 
+      />
       <View style={styles.exerciseInfo}>
         <Text style={styles.exerciseName}>{item.name}</Text>
         {item.equipment.length > 0 && (
