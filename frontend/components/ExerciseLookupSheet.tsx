@@ -28,9 +28,6 @@ import {
 const { width, height } = Dimensions.get('window');
 const SHEET_HEIGHT = height * 0.70;
 
-// Thumbnail cache
-const thumbnailCache: { [key: string]: string } = {};
-
 // Types
 export interface Exercise {
   _id: string;
