@@ -1331,7 +1331,7 @@ async def get_journey(
 async def get_platform_stats(
     response: Response,
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Get platform-wide analytics (admin only)
@@ -1356,7 +1356,7 @@ async def get_time_series_analytics(
     response: Response,
     period: str = "day",  # day, week, month
     limit: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Get time-series data for various metrics.
@@ -1570,7 +1570,7 @@ async def get_metric_breakdown(
     response: Response,
     period: str = "day",
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Get detailed breakdown of a metric with sub-categories.
@@ -1829,7 +1829,7 @@ async def get_active_users_endpoint(
 @api_router.get("/analytics/admin/users/daily-active")
 async def get_daily_active_users_endpoint(
     limit: int = 100,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get users who were active in the last 24 hours"""
     cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
@@ -1884,7 +1884,7 @@ async def get_daily_active_users_endpoint(
 @api_router.get("/analytics/admin/screens")
 async def get_screens_breakdown_endpoint(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get breakdown of screen views"""
     return await get_screen_views_breakdown(db, days)
@@ -1893,7 +1893,7 @@ async def get_screens_breakdown_endpoint(
 @api_router.get("/analytics/admin/moods")
 async def get_moods_breakdown_endpoint(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get breakdown of mood selections"""
     return await get_mood_selections_breakdown(db, days)
@@ -1902,7 +1902,7 @@ async def get_moods_breakdown_endpoint(
 @api_router.get("/analytics/admin/equipment")
 async def get_equipment_breakdown_endpoint(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get breakdown of equipment selections with mood paths"""
     return await get_equipment_selections_breakdown(db, days)
@@ -1911,7 +1911,7 @@ async def get_equipment_breakdown_endpoint(
 @api_router.get("/analytics/admin/difficulties")
 async def get_difficulties_breakdown_endpoint(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get breakdown of difficulty selections"""
     return await get_difficulty_selections_breakdown(db, days)
@@ -1920,7 +1920,7 @@ async def get_difficulties_breakdown_endpoint(
 @api_router.get("/analytics/admin/try-workout-stats")
 async def get_try_workout_stats(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get stats for 'Try this workout' / 'Start Workout' button clicks"""
     try:
@@ -1980,7 +1980,7 @@ async def get_try_workout_stats(
 @api_router.get("/analytics/admin/session-completion-stats")
 async def get_session_completion_stats(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get stats for workout session completions"""
     try:
@@ -2053,7 +2053,7 @@ async def get_session_completion_stats(
 async def get_workout_engagement_chart(
     period: str = "day",
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get chart data for try workout clicks and session completions over time"""
     try:
@@ -2170,7 +2170,7 @@ async def get_moderation_logs(
     limit: int = 50,
     skip: int = 0,
     category: Optional[str] = None,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get content moderation logs for admin review (rejected content attempts)"""
     try:
@@ -2216,7 +2216,7 @@ async def get_moderation_logs(
 @api_router.get("/admin/moderation-stats")
 async def get_moderation_stats(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get content moderation statistics for admin dashboard"""
     try:
@@ -2282,7 +2282,7 @@ async def get_moderation_stats(
 @api_router.get("/analytics/admin/exercises")
 async def get_exercises_breakdown_endpoint(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get breakdown of exercises completed"""
     return await get_exercises_breakdown(db, days)
@@ -2291,7 +2291,7 @@ async def get_exercises_breakdown_endpoint(
 @api_router.get("/analytics/admin/social")
 async def get_social_breakdown_endpoint(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get breakdown of social activity"""
     return await get_social_activity_breakdown(db, days)
@@ -2300,7 +2300,7 @@ async def get_social_breakdown_endpoint(
 @api_router.get("/analytics/admin/workout-funnel")
 async def get_workout_funnel_endpoint(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get detailed workout funnel data"""
     return await get_workout_funnel_detail(db, days)
@@ -2340,7 +2340,7 @@ async def record_heartbeat(
 @api_router.get("/analytics/admin/realtime-active")
 async def get_realtime_active_users(
     timeout_minutes: int = 5,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Get truly active users (with heartbeat in last N minutes).
@@ -2384,7 +2384,7 @@ async def get_realtime_active_users(
 async def get_comprehensive_stats(
     days: int = 1,
     user_type: str = "all",  # "all", "users", "guests"
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Get comprehensive platform statistics with accurate data.
@@ -2739,7 +2739,7 @@ async def get_users_list(
     sort_by: str = "created_at",
     sort_order: str = "desc",
     search: str = "",
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Get paginated list of all users with detailed stats.
@@ -2819,7 +2819,7 @@ async def get_users_list(
 async def get_user_detail_report(
     user_id: str,
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Get detailed analytics report for a specific user.
@@ -3068,7 +3068,7 @@ async def get_user_detail_report(
 @api_router.get("/analytics/admin/export/users")
 async def export_users_csv(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Export all users data as CSV format (returns JSON for frontend to convert).
@@ -3110,7 +3110,7 @@ async def export_users_csv(
 
 @api_router.get("/analytics/admin/deleted-users")
 async def get_deleted_users(
-    current_user_id: str = Depends(get_current_user),
+    current_user_id: str = Depends(require_admin),
     days: int = 30,
     limit: int = 50
 ):
@@ -3164,7 +3164,7 @@ async def get_deleted_users(
 @api_router.delete("/analytics/admin/users/{user_id}")
 async def soft_delete_user(
     user_id: str,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Soft delete a user - moves their profile to deleted_users collection
@@ -3224,7 +3224,7 @@ async def soft_delete_user(
 
 @api_router.get("/analytics/admin/deleted-users")
 async def get_deleted_users(
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Get list of soft-deleted users that can be recovered.
@@ -3260,7 +3260,7 @@ async def get_deleted_users(
 @api_router.post("/analytics/admin/users/{user_id}/restore")
 async def restore_deleted_user(
     user_id: str,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Restore a soft-deleted user before the 7-day expiration.
@@ -3316,7 +3316,7 @@ async def get_chart_data(
     chart_type: str,
     period: str = "day",  # day, week, month
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Get formatted data for various chart types.
@@ -6361,7 +6361,7 @@ async def delete_post(
 async def admin_bulk_delete_posts(
     username: Optional[str] = None,
     user_id: Optional[str] = None,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Admin endpoint to bulk delete posts by username or user_id.
@@ -6439,7 +6439,7 @@ async def admin_list_all_posts(
     limit: int = 50,
     skip: int = 0,
     username: Optional[str] = None,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Admin endpoint to list all posts with user info.
@@ -7116,7 +7116,7 @@ async def get_blocked_user_ids(user_id: str) -> set:
 async def get_pending_reports(
     status: str = "pending",
     limit: int = 50,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get content reports for admin review"""
     
@@ -7200,7 +7200,7 @@ async def get_pending_reports(
 async def get_block_notifications(
     status: str = "pending_review",
     limit: int = 50,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get user block notifications for admin review"""
     
@@ -7237,7 +7237,7 @@ async def get_block_notifications(
 async def take_action_on_report(
     report_id: str,
     action_data: dict,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Take action on a content report (remove content, ban user, or dismiss)"""
     
@@ -7325,7 +7325,7 @@ class ExerciseCreate(BaseModel):
 
 @api_router.get("/admin/exercises")
 async def get_all_exercises_admin(
-    current_user_id: str = Depends(get_current_user),
+    current_user_id: str = Depends(require_admin),
     skip: int = 0,
     limit: int = 200,
     search: str = ""
@@ -7374,7 +7374,7 @@ async def get_all_exercises_admin(
 
 @api_router.post("/admin/grant-access")
 async def grant_admin_access(
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Grant admin access to the current user if they are the designated admin.
@@ -7405,7 +7405,7 @@ async def grant_admin_access(
 
 @api_router.post("/admin/bootstrap-staging")
 async def bootstrap_staging(
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Safe bootstrap endpoint that UPSERTS specific data without deleting collections.
@@ -7564,7 +7564,7 @@ async def bootstrap_staging(
 @api_router.post("/admin/exercises/upload-video")
 async def upload_exercise_video(
     file: UploadFile = File(...),
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Upload an exercise video to Cloudinary"""
     # No admin check - admin dashboard is only accessible through mood profile
@@ -8158,7 +8158,7 @@ async def delete_featured_workout(
 # Admin endpoint - seed featured workouts with default data
 @api_router.post("/admin/seed-featured-workouts")
 async def seed_featured_workouts(
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """
     Seed the featured workouts collection with default data.
@@ -8456,7 +8456,7 @@ async def get_generated_workout(
 @api_router.get("/analytics/admin/build-for-me-stats")
 async def get_build_for_me_stats(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get comprehensive Build for Me statistics for admin dashboard"""
     
@@ -8552,7 +8552,7 @@ async def get_build_for_me_stats(
 @api_router.get("/analytics/admin/custom-workouts-stats")
 async def get_custom_workouts_stats(
     days: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get statistics for custom workouts added to cart (non-Build for Me)"""
     
@@ -8612,7 +8612,7 @@ async def get_custom_workouts_stats(
 
 @api_router.get("/moderation/admin/stats")
 async def get_moderation_stats(
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get moderation statistics for admin dashboard"""
     
@@ -8852,7 +8852,7 @@ class WorkoutReminderPush(BaseModel):
 @api_router.post("/admin/notifications/featured-workout")
 async def admin_send_featured_workout(
     data: FeaturedWorkoutPush,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Admin: Send featured workout push to users"""
     # Check admin allowlist
@@ -8876,7 +8876,7 @@ async def admin_send_featured_workout(
 @api_router.post("/admin/notifications/featured-suggestion")
 async def admin_send_featured_suggestion(
     data: FeaturedSuggestionPush,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Admin: Send featured suggestion push to users"""
     # Check admin allowlist
@@ -8898,7 +8898,7 @@ async def admin_send_featured_suggestion(
 @api_router.post("/admin/notifications/workout-reminder")
 async def admin_send_workout_reminder(
     data: WorkoutReminderPush,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Admin: Send workout reminder to a specific user"""
     # Check admin allowlist
@@ -8923,7 +8923,7 @@ class MassWorkoutReminderPush(BaseModel):
 @api_router.post("/admin/notifications/mass-workout-reminder")
 async def admin_send_mass_workout_reminder(
     data: MassWorkoutReminderPush,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Admin: Send workout reminder to all eligible users"""
     # Check admin allowlist
@@ -8941,7 +8941,7 @@ async def admin_send_mass_workout_reminder(
 
 @api_router.get("/admin/notifications/worker-status")
 async def admin_get_worker_status(
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Admin: Check notification worker status"""
     # Check admin allowlist
@@ -8958,7 +8958,7 @@ async def admin_get_worker_status(
 @api_router.post("/admin/notifications/trigger-digest")
 async def admin_trigger_digest(
     user_id: str,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Admin: Manually trigger digest for a specific user"""
     # Check admin allowlist
