@@ -182,6 +182,10 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
   // Render exercise detail view
   const renderExerciseDetail = () => {
     if (!selectedExercise) return null;
+    
+    // Get optimized URLs from Cloudinary
+    const optimizedVideoUrl = cloudinaryOptimizedVideoUrl(selectedExercise.video_url);
+    const posterUrl = selectedExercise.thumbnail_url || cloudinaryThumbnailUrlFromVideoUrl(selectedExercise.video_url);
 
     return (
       <View style={styles.detailContainer}>
@@ -190,7 +194,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
           {videoError ? (
             <TouchableOpacity style={styles.videoErrorContainer} onPress={handleRetryVideo} activeOpacity={0.9}>
               <Image
-                source={{ uri: selectedExercise.thumbnail_url }}
+                source={{ uri: posterUrl }}
                 style={styles.fullScreenVideo}
                 contentFit="cover"
                 cachePolicy="memory-disk"
@@ -203,15 +207,15 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
           ) : (
             <Video
               ref={videoRef}
-              source={{ uri: selectedExercise.video_url }}
+              source={{ uri: optimizedVideoUrl }}
               style={styles.fullScreenVideo}
               resizeMode={ResizeMode.COVER}
               isLooping
               isMuted
               shouldPlay
               onError={handleVideoError}
-              posterSource={selectedExercise.thumbnail_url ? { uri: selectedExercise.thumbnail_url } : undefined}
-              usePoster={!!selectedExercise.thumbnail_url}
+              posterSource={{ uri: posterUrl }}
+              usePoster={true}
             />
           )}
           
