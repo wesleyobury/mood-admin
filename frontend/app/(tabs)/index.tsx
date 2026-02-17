@@ -37,8 +37,8 @@ const CAROUSEL_PADDING = 16;
 const CARD_GAP = 12;
 const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
 
-// Floating Progress Readout Component - Native Expo compatible
-const FloatingReadout = ({ 
+// Floating Stat Component - NO pill, NO border, just text + spotlight glow
+const FloatingStat = ({ 
   value, 
   label, 
   isStreak = false,
@@ -49,27 +49,19 @@ const FloatingReadout = ({
   isStreak?: boolean;
   delay?: number;
 }) => {
-  const translateY = useRef(new Animated.Value(8)).current;
-  const floatAnim = useRef(new Animated.Value(0)).current;
+  // Only animate the text, not the glow
+  const textTranslateY = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Mount animation - lift up
-    Animated.timing(translateY, {
-      toValue: 0,
-      duration: 450,
-      delay,
-      useNativeDriver: true,
-    }).start();
-
-    // Idle float animation - subtle bob
+    // Idle float animation - text only
     Animated.loop(
       Animated.sequence([
-        Animated.timing(floatAnim, {
+        Animated.timing(textTranslateY, {
           toValue: -2,
           duration: 2400,
           useNativeDriver: true,
         }),
-        Animated.timing(floatAnim, {
+        Animated.timing(textTranslateY, {
           toValue: 0,
           duration: 2400,
           useNativeDriver: true,
@@ -78,47 +70,60 @@ const FloatingReadout = ({
     ).start();
   }, []);
 
-  const combinedTranslateY = Animated.add(translateY, floatAnim);
+  // Gradient colors
+  const innerGradientColors = isStreak
+    ? ['rgba(255,210,0,0.55)', 'rgba(255,210,0,0.16)', 'rgba(255,210,0,0.00)'] as const
+    : ['rgba(255,255,255,0.45)', 'rgba(255,255,255,0.10)', 'rgba(255,255,255,0.00)'] as const;
+  
+  const outerGradientColors = isStreak
+    ? ['rgba(255,210,0,0.35)', 'rgba(255,210,0,0.08)', 'rgba(255,210,0,0.00)'] as const
+    : ['rgba(255,255,255,0.25)', 'rgba(255,255,255,0.06)', 'rgba(255,255,255,0.00)'] as const;
 
   return (
-    <Animated.View 
-      style={[
-        styles.readoutWrapper,
-        { transform: [{ translateY: combinedTranslateY }] }
-      ]}
-    >
-      {/* Underlight spotlight using LinearGradient */}
-      <View style={styles.underlightContainer}>
-        <LinearGradient
-          colors={isStreak 
-            ? ['rgba(255,210,0,0.40)', 'rgba(255,210,0,0.0)']
-            : ['rgba(255,255,255,0.35)', 'rgba(255,255,255,0.0)']
-          }
-          style={[
-            styles.underlightGradient,
-            isStreak && styles.underlightGradientStreak
-          ]}
-          start={{ x: 0.5, y: 0 }}
-          end={{ x: 0.5, y: 1 }}
-        />
-      </View>
+    <View style={styles.floatingStatWrapper}>
+      {/* Outer bloom layer - larger, softer */}
+      <LinearGradient
+        colors={outerGradientColors}
+        style={[
+          styles.outerGlow,
+          { opacity: isStreak ? 0.16 : 0.10 }
+        ]}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+      />
       
-      {/* Floating readout content with native shadow */}
-      <View style={styles.readoutContent}>
+      {/* Inner spotlight glow */}
+      <LinearGradient
+        colors={innerGradientColors}
+        style={[
+          styles.innerGlow,
+          { opacity: isStreak ? 0.32 : 0.22 }
+        ]}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+      />
+      
+      {/* Floating text stack - NO background, NO border */}
+      <Animated.View 
+        style={[
+          styles.floatingTextStack,
+          { transform: [{ translateY: textTranslateY }] }
+        ]}
+      >
         <Text style={[
-          styles.readoutValue,
-          isStreak && styles.readoutValueStreak
+          styles.floatingStatValue,
+          isStreak && styles.floatingStatValueStreak
         ]}>
           {value}
         </Text>
         <Text style={[
-          styles.readoutLabel,
-          isStreak && styles.readoutLabelStreak
+          styles.floatingStatLabel,
+          isStreak && styles.floatingStatLabelStreak
         ]}>
           {label}
         </Text>
-      </View>
-    </Animated.View>
+      </Animated.View>
+    </View>
   );
 };
 
