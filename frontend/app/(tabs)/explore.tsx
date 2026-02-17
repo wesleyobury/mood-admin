@@ -1593,6 +1593,7 @@ export default function Explore() {
               <CommentsBottomSheet
                 postId={selectedPostId}
                 authToken={token}
+                currentUserId={user?.id}
                 onClose={() => setShowComments(false)}
                 onCommentAdded={handleCommentAdded}
                 onUserPress={handleProfile}
