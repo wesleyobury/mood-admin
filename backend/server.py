@@ -3823,7 +3823,10 @@ async def find_user_by_id(user_id: str):
     return user
 
 @api_router.get("/users/me")
-async def get_current_user_info(current_user_id: str = Depends(get_current_user)):
+async def get_current_user_info(
+    response: Response,
+    current_user_id: str = Depends(get_current_user)
+):
     user = await find_user_by_id(current_user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
@@ -3846,8 +3849,12 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
                 {"$set": {"current_streak": current_streak}}
             )
     
-    # Check if admin
-    is_admin = user.get("username", "").lower() == "officialmoodapp"
+    # Check if admin using canonical function
+    is_admin, matched_by = is_admin_effective_sync(user)
+    
+    # Set response headers for debugging
+    response.headers["X-Admin-Effective"] = str(is_admin).lower()
+    response.headers["X-Admin-Matched-By"] = matched_by
     
     # Return user data including terms acceptance status
     return {
@@ -3862,11 +3869,13 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
         "workouts_count": user.get("workouts_count", 0),
         "current_streak": current_streak,
         "is_admin": is_admin,
+        "is_admin_matched_by": matched_by,  # Added for debugging
         "created_at": user.get("created_at", datetime.now(timezone.utc)).isoformat() if user.get("created_at") else datetime.now(timezone.utc).isoformat(),
         "terms_accepted_at": user.get("terms_accepted_at").isoformat() if user.get("terms_accepted_at") else None,
         "terms_accepted_version": user.get("terms_accepted_version"),
         "current_terms_version": CURRENT_TERMS_VERSION
     }
+
 
 
 @api_router.get("/users/me/stats")
