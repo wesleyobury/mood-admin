@@ -2637,6 +2637,39 @@ const styles = StyleSheet.create({
     marginTop: 12,
     fontSize: 14,
   },
+  // Debug Panel Styles
+  debugPanel: {
+    backgroundColor: '#1a1a2e',
+    borderWidth: 1,
+    borderColor: '#4a90d9',
+    borderRadius: 8,
+    padding: 12,
+    marginHorizontal: 16,
+    marginTop: 8,
+    marginBottom: 8,
+  },
+  debugTitle: {
+    color: '#4a90d9',
+    fontSize: 12,
+    fontWeight: '700',
+    marginBottom: 6,
+  },
+  debugText: {
+    fontSize: 11,
+    marginBottom: 2,
+  },
+  debugLabel: {
+    color: '#888',
+    fontWeight: '600',
+  },
+  debugValue: {
+    color: '#4a90d9',
+    fontFamily: 'monospace',
+  },
+  debugWarning: {
+    color: '#ff6b6b',
+    fontWeight: '700',
+  },
   quickActionsSection: {
     paddingHorizontal: 16,
     paddingTop: 16,
