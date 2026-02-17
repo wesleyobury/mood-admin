@@ -474,8 +474,8 @@ PREVIEW_EXERCISES = [
       "olympic clean",
       "power clean from floor"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/shl7f1he_Power%20clean%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365673/exercise_library/power_clean.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/power_clean.jpg",
     "muscle_group": "",
     "equipment": [
       "barbell"
@@ -503,8 +503,8 @@ PREVIEW_EXERCISES = [
       "stiff leg deadlift",
       "barbell romanian deadlift"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/qrrkkj98_Barbell%20RDL%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365676/exercise_library/barbell_rdl.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_rdl.jpg",
     "muscle_group": "",
     "equipment": [
       "barbell"
@@ -531,8 +531,8 @@ PREVIEW_EXERCISES = [
       "good mornings",
       "barbell good morning"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/ivrojdy4_Barbell%20goodmornings%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365678/exercise_library/barbell_good_mornings.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_good_mornings.jpg",
     "muscle_group": "",
     "equipment": [
       "barbell"
@@ -560,8 +560,8 @@ PREVIEW_EXERCISES = [
       "lat pull-up",
       "assisted wide pull-up"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/pexkk7jt_Wide%20grip%20assisted%20pull-up.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365681/exercise_library/wide_grip_assisted_pull_up.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/wide_grip_assisted_pull_up.jpg",
     "muscle_group": "",
     "equipment": [
       "pull-up bar",
@@ -591,8 +591,8 @@ PREVIEW_EXERCISES = [
       "barbell squat",
       "bb squat"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/tlaztx9h_Barbell%20back%20squat%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365685/exercise_library/barbell_back_squat.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_back_squat.jpg",
     "muscle_group": "",
     "equipment": [
       "barbell",
@@ -621,8 +621,8 @@ PREVIEW_EXERCISES = [
       "pit shark hip hinge",
       "belt squat rdl"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/95coegz8_Pit%20shark%20rdl%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365688/exercise_library/pit_shark_rdl.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/pit_shark_rdl.jpg",
     "muscle_group": "",
     "equipment": [
       "pit shark",
@@ -652,8 +652,8 @@ PREVIEW_EXERCISES = [
       "reverse lunges",
       "back lunge"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/nxiiqw9r_Barbell%20reverse%20lunge%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365693/exercise_library/barbell_reverse_lunge.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_reverse_lunge.jpg",
     "muscle_group": "",
     "equipment": [
       "barbell",
@@ -683,8 +683,8 @@ PREVIEW_EXERCISES = [
       "barbell static lunge",
       "split squats"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/n3u85pxr_Barbell%20split%20squat%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365700/exercise_library/barbell_split_squat.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_split_squat.jpg",
     "muscle_group": "",
     "equipment": [
       "barbell",
@@ -714,8 +714,8 @@ PREVIEW_EXERCISES = [
       "rope cable row",
       "seated row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/i6e1sxen_Cable-rope%20row%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365708/exercise_library/cable_rope_row.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/cable_rope_row.jpg",
     "muscle_group": "",
     "equipment": [
       "cable machine",
@@ -745,8 +745,8 @@ PREVIEW_EXERCISES = [
       "pendlay row",
       "bent row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/8dtgwnox_Barbell%20row%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365716/exercise_library/barbell_row.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_row.jpg",
     "muscle_group": "",
     "equipment": [
       "barbell"
@@ -774,8 +774,8 @@ PREVIEW_EXERCISES = [
       "hammer grip pull-up",
       "parallel grip pull-up"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/qcafxs9t_Neutral%20grip%20assisted%20pull-up%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365720/exercise_library/neutral_grip_assisted_pull_up.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/neutral_grip_assisted_pull_up.jpg",
     "muscle_group": "",
     "equipment": [
       "pull-up bar",
@@ -805,8 +805,8 @@ PREVIEW_EXERCISES = [
       "explosive row",
       "floor row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/09mk1czg_Barbell%20pendlay%20row%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365725/exercise_library/barbell_pendlay_row.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_pendlay_row.jpg",
     "muscle_group": "",
     "equipment": [
       "barbell"
@@ -834,8 +834,8 @@ PREVIEW_EXERCISES = [
       "facing hack squat",
       "forward hack squat"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/nvie07qc_Reverse%20hack%20%20squat.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365728/exercise_library/reverse_hack_squat.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/reverse_hack_squat.jpg",
     "muscle_group": "",
     "equipment": [
       "hack squat machine"
@@ -863,8 +863,8 @@ PREVIEW_EXERCISES = [
       "hammer grip pulldown",
       "v-bar pulldown"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/j4ksxpfc_Neutral%20grip%20lat%20pull%20down%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365731/exercise_library/neutral_grip_lat_pulldown.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/neutral_grip_lat_pulldown.jpg",
     "muscle_group": "",
     "equipment": [
       "cable machine",
@@ -893,8 +893,8 @@ PREVIEW_EXERCISES = [
       "hip belt squat",
       "lever squat"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/9jfbfyjz_Pit%20shark%20squat%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365740/exercise_library/pit_shark_squat.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/pit_shark_squat.jpg",
     "muscle_group": "",
     "equipment": [
       "pit shark",
@@ -923,8 +923,8 @@ PREVIEW_EXERCISES = [
       "hyperextension side bend",
       "lateral bend"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/pm4p1kgi_Roman%20chair%20side%20bend%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365742/exercise_library/roman_chair_side_bend.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/roman_chair_side_bend.jpg",
     "muscle_group": "",
     "equipment": [
       "roman chair",
@@ -953,8 +953,8 @@ PREVIEW_EXERCISES = [
       "dumbbell suitcase deadlift",
       "one arm deadlift"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/xeu2zfa2_DB%20suitcase%20deadlift%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365745/exercise_library/db_suitcase_deadlift.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/db_suitcase_deadlift.jpg",
     "muscle_group": "",
     "equipment": [
       "dumbbell"
@@ -982,8 +982,8 @@ PREVIEW_EXERCISES = [
       "chest supported t-bar",
       "wide t-bar row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/81ltuym4_Wide%20grip%20T-bar%20chest%20supported%20row%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365747/exercise_library/wide_grip_t_bar_chest_supported_row.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/wide_grip_t_bar_chest_supported_row.jpg",
     "muscle_group": "",
     "equipment": [
       "t-bar row machine",
@@ -1012,8 +1012,8 @@ PREVIEW_EXERCISES = [
       "chest supported t-bar neutral",
       "hammer grip t-bar"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/id5jz1op_Neutral%20grip%20T-bar%20chest%20supported%20row%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365750/exercise_library/neutral_grip_t_bar_chest_supported_row.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/neutral_grip_t_bar_chest_supported_row.jpg",
     "muscle_group": "",
     "equipment": [
       "t-bar row machine",
@@ -1042,8 +1042,8 @@ PREVIEW_EXERCISES = [
       "dumbbell renegade row",
       "plank dumbbell row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/4378vu4c_DB%20renegade%20rows%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365753/exercise_library/db_renegade_rows.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/db_renegade_rows.jpg",
     "muscle_group": "",
     "equipment": [
       "dumbbells"
@@ -1071,8 +1071,8 @@ PREVIEW_EXERCISES = [
       "double kb row",
       "alternating kb row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/u686ue59_KB%20gorilla%20rows%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365761/exercise_library/kb_gorilla_rows.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_gorilla_rows.jpg",
     "muscle_group": "",
     "equipment": [
       "kettlebells"
@@ -1100,8 +1100,8 @@ PREVIEW_EXERCISES = [
       "block pull",
       "elevated deadlift"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/h6jaqiqj_Rack%20pull%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365764/exercise_library/rack_pull.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/rack_pull.jpg",
     "muscle_group": "",
     "equipment": [
       "barbell",
@@ -1131,8 +1131,8 @@ PREVIEW_EXERCISES = [
       "roman chair extension",
       "weighted hyper"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/ss6s2xjs_Roman%20chair%20weighted%20back%20extension%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365767/exercise_library/roman_chair_weighted_back_extension.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/roman_chair_weighted_back_extension.jpg",
     "muscle_group": "",
     "equipment": [
       "roman chair",
@@ -1162,8 +1162,8 @@ PREVIEW_EXERCISES = [
       "prone db row",
       "seal row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/erpbvu8n_Chest%20supported%20DB%20row%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365770/exercise_library/chest_supported_db_row.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/chest_supported_db_row.jpg",
     "muscle_group": "",
     "equipment": [
       "dumbbells",
@@ -1192,8 +1192,8 @@ PREVIEW_EXERCISES = [
       "one arm row",
       "db row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/qyqlvtel_DB%20single%20arm%20row%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365772/exercise_library/db_single_arm_row.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/db_single_arm_row.jpg",
     "muscle_group": "",
     "equipment": [
       "dumbbell",
@@ -1221,8 +1221,8 @@ PREVIEW_EXERCISES = [
       "db gorilla row",
       "alternating db row hinged"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/7h9rydo8_DB%20gorilla%20rows%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365775/exercise_library/db_gorilla_rows.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/db_gorilla_rows.jpg",
     "muscle_group": "",
     "equipment": [
       "dumbbells"
@@ -1249,8 +1249,8 @@ PREVIEW_EXERCISES = [
       "kb plank row",
       "kettlebell plank row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/by1tpabf_KB%20renegade%20rows%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365779/exercise_library/kb_renegade_rows.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_renegade_rows.jpg",
     "muscle_group": "",
     "equipment": [
       "kettlebells"
@@ -1278,8 +1278,8 @@ PREVIEW_EXERCISES = [
       "roman chair hyper",
       "bodyweight back extension"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/jyb0qrz1_Roman%20chair%20back%20extension%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365783/exercise_library/roman_chair_back_extension.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/roman_chair_back_extension.jpg",
     "muscle_group": "",
     "equipment": [
       "roman chair",
@@ -1307,8 +1307,8 @@ PREVIEW_EXERCISES = [
       "single arm kb deadlift",
       "one arm kettlebell deadlift"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_226a4724-7b18-4fb8-8c07-2f039b1d13c4/artifacts/gavx3rgh_KB%20suitcase%20deadlift%20.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365787/exercise_library/kb_suitcase_deadlift.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_suitcase_deadlift.jpg",
     "muscle_group": "",
     "equipment": [
       "kettlebell"
@@ -1620,8 +1620,8 @@ PREVIEW_EXERCISES = [
       "Rope Pushdown",
       "Cable Tricep Extension"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/i2ddxe4w_Cable%20rope%20tricep%20pushdown.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365791/exercise_library/cable_rope_tricep_pushdown.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/cable_rope_tricep_pushdown.jpg",
     "muscle_group": "",
     "equipment": [
       "Cable Machine",
@@ -1648,8 +1648,8 @@ PREVIEW_EXERCISES = [
       "Dumbbell Front Squat",
       "Goblet Squat Variation"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/gxr2dbow_DB%20front%20squat.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365800/exercise_library/db_front_squat.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/db_front_squat.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -1676,8 +1676,8 @@ PREVIEW_EXERCISES = [
       "Dumbbell Romanian Deadlift",
       "DB Romanian Deadlift"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/umom8xmj_DB%20rdl.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365808/exercise_library/db_rdl.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/db_rdl.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -1704,8 +1704,8 @@ PREVIEW_EXERCISES = [
       "Lateral Lunge",
       "DB Lateral Lunge"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/wkd8gj9e_DB%20side%20lunges.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365810/exercise_library/db_side_lunge.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/db_side_lunge.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -1732,8 +1732,8 @@ PREVIEW_EXERCISES = [
       "Dumbbell Single Leg Deadlift",
       "One Leg RDL"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/kci3qn9b_DB%20single%20leg%20rdl.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365813/exercise_library/db_single_leg_rdl.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/db_single_leg_rdl.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -1759,8 +1759,8 @@ PREVIEW_EXERCISES = [
       "Kettlebell High Pull",
       "KB Upright Pull"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/12gxc1r9_KB%20high%20pull.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365816/exercise_library/kb_high_pull.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_high_pull.jpg",
     "muscle_group": "",
     "equipment": [
       "Kettlebell"
@@ -1786,8 +1786,8 @@ PREVIEW_EXERCISES = [
       "Kettlebell Pull Press",
       "KB Clean and Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/6bhp0o0e_KB%20pull%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365818/exercise_library/kb_pull_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_pull_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Kettlebell"
@@ -1813,8 +1813,8 @@ PREVIEW_EXERCISES = [
       "Landmine Jump Squat",
       "Explosive Hack Squat"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/fml1w1yi_Landmine%20hack%20squat%20jump.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365828/exercise_library/landmine_hack_squat_jump.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_hack_squat_jump.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -1841,8 +1841,8 @@ PREVIEW_EXERCISES = [
       "Landmine Squat",
       "Barbell Landmine Squat"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/1aiaiunc_Landmine%20hack%20squat.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365834/exercise_library/landmine_hack_squat.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_hack_squat.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -1869,8 +1869,8 @@ PREVIEW_EXERCISES = [
       "Landmine Side Lunge",
       "Barbell Lateral Lunge"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/9ov38k6l_Landmine%20lateral%20lunge.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365837/exercise_library/landmine_lateral_lunge.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_lateral_lunge.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -1897,8 +1897,8 @@ PREVIEW_EXERCISES = [
       "Landmine Shoulder Press",
       "Single Arm Landmine Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/mi4jngx6_Landmine%20push%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365840/exercise_library/landmine_push_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_push_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -1926,8 +1926,8 @@ PREVIEW_EXERCISES = [
       "Russian Twist Landmine",
       "Landmine Core Rotation"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/dhvo096t_Landmine%20rotation.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365845/exercise_library/landmine_rotation.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_rotation.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -1954,8 +1954,8 @@ PREVIEW_EXERCISES = [
       "Landmine Thruster",
       "Squat to Press Landmine"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/fw68gcml_Landmine%20squat%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365847/exercise_library/landmine_squat_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_squat_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -1983,8 +1983,8 @@ PREVIEW_EXERCISES = [
       "Rope Sled Pull",
       "Hand Over Hand Sled"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/70lk2gh1_Sled%20pull.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365853/exercise_library/sled_pull.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sled_pull.jpg",
     "muscle_group": "",
     "equipment": [
       "Sled",
@@ -2011,8 +2011,8 @@ PREVIEW_EXERCISES = [
       "Prowler Push",
       "Weighted Sled Push"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/0f07forp_Sled%20push.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365857/exercise_library/sled_push.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sled_push.jpg",
     "muscle_group": "",
     "equipment": [
       "Sled"
@@ -2038,8 +2038,8 @@ PREVIEW_EXERCISES = [
       "Hex Bar Deadlift",
       "Trap Bar DL"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/c69iy7pq_Trap%20bar%20deadlift.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365859/exercise_library/trap_bar_deadlift.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/trap_bar_deadlift.jpg",
     "muscle_group": "",
     "equipment": [
       "Trap Bar",
@@ -2066,8 +2066,8 @@ PREVIEW_EXERCISES = [
       "Hex Bar Jump",
       "Trap Bar Jump Squat"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/pbsl1n0p_Trap%20bar%20squat%20jump.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365862/exercise_library/trap_bar_squat_jump.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/trap_bar_squat_jump.jpg",
     "muscle_group": "",
     "equipment": [
       "Trap Bar",
@@ -2095,8 +2095,8 @@ PREVIEW_EXERCISES = [
       "Underhand Pull Up",
       "Supinated Pull Up"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/5zlwscvh_Chin%20ups.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365865/exercise_library/chin_ups.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/chin_ups.jpg",
     "muscle_group": "",
     "equipment": [
       "Pull Up Bar"
@@ -2123,8 +2123,8 @@ PREVIEW_EXERCISES = [
       "Parallel Bar L-Sit",
       "L-Sit Hold"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/71errs65_Dip%20bar%20L%20sit.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365868/exercise_library/dip_bar_l_sit.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dip_bar_l_sit.jpg",
     "muscle_group": "",
     "equipment": [
       "Dip Bars",
@@ -2152,8 +2152,8 @@ PREVIEW_EXERCISES = [
       "Tricep Dips",
       "Chest Dips"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/wd5v6ssq_Dips.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365870/exercise_library/dips.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dips.jpg",
     "muscle_group": "",
     "equipment": [
       "Dip Bars",
@@ -2181,8 +2181,8 @@ PREVIEW_EXERCISES = [
       "Hanging Knee Tuck",
       "Knee Ups"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/xzyxpluy_Hanging%20knee%20raise.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365877/exercise_library/hanging_knee_raise.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/hanging_knee_raise.jpg",
     "muscle_group": "",
     "equipment": [
       "Pull Up Bar"
@@ -2209,8 +2209,8 @@ PREVIEW_EXERCISES = [
       "Hanging Leg Raise",
       "T2B"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/3a7pzy3v_Hanging%20toe%20touch.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365887/exercise_library/hanging_toe_touch.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/hanging_toe_touch.jpg",
     "muscle_group": "",
     "equipment": [
       "Pull Up Bar"
@@ -2236,8 +2236,8 @@ PREVIEW_EXERCISES = [
       "Burpee to Box Jump",
       "Box Jump Burpee"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/1poz21cl_Burpee%20-%20Box%20jump.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365890/exercise_library/burpee_box_jump.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/burpee_box_jump.jpg",
     "muscle_group": "",
     "equipment": [
       "Plyo Box"
@@ -2264,8 +2264,8 @@ PREVIEW_EXERCISES = [
       "Ab Wheel Rollout",
       "Standing Wheel Rollout"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/agxkqkpc_Ab%20wheel%20standing%20rollout.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365892/exercise_library/ab_wheel_standing_rollout.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/ab_wheel_standing_rollout.jpg",
     "muscle_group": "",
     "equipment": [
       "Ab Wheel"
@@ -2291,8 +2291,8 @@ PREVIEW_EXERCISES = [
       "Barbell Hang Clean",
       "Power Clean from Hang"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/4b2hxw4m_Hang%20clean.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365895/exercise_library/hang_clean.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/hang_clean.jpg",
     "muscle_group": "",
     "equipment": [
       "Barbell"
@@ -2318,8 +2318,8 @@ PREVIEW_EXERCISES = [
       "Tyre Flip",
       "Strongman Tire Flip"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/3ju0njpj_Tire%20flip.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365906/exercise_library/tire_flip.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/tire_flip.jpg",
     "muscle_group": "",
     "equipment": [
       "Tire"
@@ -2346,8 +2346,8 @@ PREVIEW_EXERCISES = [
       "Hollow Rock Position",
       "Gymnast Hollow"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/rk4wimu2_Hollow%20holds.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365932/exercise_library/hollow_holds.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/hollow_holds.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -2374,8 +2374,8 @@ PREVIEW_EXERCISES = [
       "Kneeling Rollout",
       "Ab Roller"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/j21vjpqh_Kneeling%20ab%20wheel.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365934/exercise_library/kneeling_ab_wheel.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kneeling_ab_wheel.jpg",
     "muscle_group": "",
     "equipment": [
       "Ab Wheel"
@@ -2401,8 +2401,8 @@ PREVIEW_EXERCISES = [
       "Bar Muscle Up",
       "Pull Up to Dip"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/1hfmnqr3_Muscle%20ups.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365937/exercise_library/muscle_ups.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/muscle_ups.jpg",
     "muscle_group": "",
     "equipment": [
       "Pull Up Bar"
@@ -2429,8 +2429,8 @@ PREVIEW_EXERCISES = [
       "Floor L-Sit",
       "Parallette Hold"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/mku1xfq5_Parallette%20L%20sit.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365939/exercise_library/parallette_l_sit.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/parallette_l_sit.jpg",
     "muscle_group": "",
     "equipment": [
       "Parallettes"
@@ -2457,8 +2457,8 @@ PREVIEW_EXERCISES = [
       "Parallette Pike Push Up",
       "Pike Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/2sl9g5a8_Parallette%20pike%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365942/exercise_library/parallette_pike_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/parallette_pike_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Parallettes"
@@ -2485,8 +2485,8 @@ PREVIEW_EXERCISES = [
       "Deep Push Ups",
       "Elevated Push Ups"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/29em9t3y_Parellette%20pushups.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365944/exercise_library/parallette_push_ups.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/parallette_push_ups.jpg",
     "muscle_group": "",
     "equipment": [
       "Parallettes"
@@ -2513,8 +2513,8 @@ PREVIEW_EXERCISES = [
       "Tuck Jump to Pike",
       "Explosive Pike"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/bwgvvwvm_Pike%20jumps.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365947/exercise_library/pike_jumps.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/pike_jumps.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -2541,8 +2541,8 @@ PREVIEW_EXERCISES = [
       "Overhand Pull Up",
       "Pronated Pull Up"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/z0oxh2tg_Pull%20ups.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365950/exercise_library/pull_ups.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/pull_ups.jpg",
     "muscle_group": "",
     "equipment": [
       "Pull Up Bar"
@@ -2569,8 +2569,8 @@ PREVIEW_EXERCISES = [
       "V Sit Up",
       "Jackknife"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/ye5necoz_V%20ups.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365952/exercise_library/v_ups.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/v_ups.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -2597,8 +2597,8 @@ PREVIEW_EXERCISES = [
       "Push Press",
       "Overhead Push Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/uckume4l_BB%20push%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365956/exercise_library/barbell_push_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_push_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Barbell"
@@ -2625,8 +2625,8 @@ PREVIEW_EXERCISES = [
       "Power Snatch",
       "Olympic Snatch"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/61h6jl5b_BB%20snatch.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365959/exercise_library/barbell_snatch.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_snatch.jpg",
     "muscle_group": "",
     "equipment": [
       "Barbell"
@@ -2653,8 +2653,8 @@ PREVIEW_EXERCISES = [
       "Split Jerk",
       "Jerk"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/oqbsaek2_BB%20split%20jerk.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365961/exercise_library/barbell_split_jerk.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_split_jerk.jpg",
     "muscle_group": "",
     "equipment": [
       "Barbell"
@@ -2681,8 +2681,8 @@ PREVIEW_EXERCISES = [
       "Heel Raise",
       "Calf Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/4yfmpoli_Calf%20raise.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365963/exercise_library/calf_raise.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/calf_raise.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight",
@@ -2711,8 +2711,8 @@ PREVIEW_EXERCISES = [
       "Dumbbell Clean",
       "DB Clean from Hang"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/rcjdq18o_DB%20hang%20clean.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365967/exercise_library/dumbbell_hang_clean.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_hang_clean.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -2740,8 +2740,8 @@ PREVIEW_EXERCISES = [
       "Lateral Delt Raise",
       "Side Delt Raise"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/mbe2mv2e_DB%20lateral%20raise.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365968/exercise_library/dumbbell_lateral_raise.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_lateral_raise.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -2768,8 +2768,8 @@ PREVIEW_EXERCISES = [
       "Dumbbell Thruster",
       "DB Thruster"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/tysldqr4_DB%20squat%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365970/exercise_library/dumbbell_squat_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_squat_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -2797,8 +2797,8 @@ PREVIEW_EXERCISES = [
       "Reactive Jump",
       "Plyometric Depth Jump"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/zjophypg_Depth%20step%20rebound.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365976/exercise_library/depth_step_rebound.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/depth_step_rebound.jpg",
     "muscle_group": "",
     "equipment": [
       "Plyo Box"
@@ -2826,8 +2826,8 @@ PREVIEW_EXERCISES = [
       "Adductor Machine",
       "Seated Hip Adduction"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/3k0ex1gg_Glute%20machine%20hip%20adductor.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365979/exercise_library/hip_adductor_machine.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/hip_adductor_machine.jpg",
     "muscle_group": "",
     "equipment": [
       "Machine"
@@ -2854,8 +2854,8 @@ PREVIEW_EXERCISES = [
       "Hack Squat Machine",
       "Reverse Hack Squat"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/ggnsiixp_Hack%20squat.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365981/exercise_library/hack_squat.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/hack_squat.jpg",
     "muscle_group": "",
     "equipment": [
       "Machine"
@@ -2883,8 +2883,8 @@ PREVIEW_EXERCISES = [
       "Side to Side Jumps",
       "Skaters"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/qm8cz7md_Skater%20bounds.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365985/exercise_library/skater_bounds.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/skater_bounds.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -2911,8 +2911,8 @@ PREVIEW_EXERCISES = [
       "Med Ball Chest Throw",
       "Wall Ball Chest Pass"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/eosdhh4o_Slam%20ball%20chest%20pass.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365987/exercise_library/slam_ball_chest_pass.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_chest_pass.jpg",
     "muscle_group": "",
     "equipment": [
       "Slam Ball",
@@ -2940,8 +2940,8 @@ PREVIEW_EXERCISES = [
       "Backward Ball Throw",
       "Ball Heave Toss"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/59h442nb_Slam%20ball%20heave.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365990/exercise_library/slam_ball_heave.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_heave.jpg",
     "muscle_group": "",
     "equipment": [
       "Slam Ball",
@@ -2969,8 +2969,8 @@ PREVIEW_EXERCISES = [
       "Overhead Ball Toss",
       "Backward Overhead Throw"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/jgk6ev4w_Slam%20ball%20overhead%20toss.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771365997/exercise_library/slam_ball_overhead_toss.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_overhead_toss.jpg",
     "muscle_group": "",
     "equipment": [
       "Slam Ball",
@@ -2999,8 +2999,8 @@ PREVIEW_EXERCISES = [
       "Med Ball Side Throw",
       "Torso Rotation Throw"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/v3imqlsh_Slam%20ball%20rotational%20throw.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366016/exercise_library/slam_ball_rotational_throw.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_rotational_throw.jpg",
     "muscle_group": "",
     "equipment": [
       "Slam Ball",
@@ -3029,8 +3029,8 @@ PREVIEW_EXERCISES = [
       "Med Ball Slams",
       "Overhead Slams"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/dhzukc4b_Slam%20ball%20slams.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366020/exercise_library/slam_ball_slams.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_slams.jpg",
     "muscle_group": "",
     "equipment": [
       "Slam Ball",
@@ -3058,8 +3058,8 @@ PREVIEW_EXERCISES = [
       "Ball Thruster",
       "Med Ball Squat to Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/zq1rinkt_Slam%20ball%20squat%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366024/exercise_library/slam_ball_squat_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_squat_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Slam Ball",
@@ -3087,8 +3087,8 @@ PREVIEW_EXERCISES = [
       "Sled Pull",
       "Reverse Sled Drag"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/d9s4uxme_Sled%20drag.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366025/exercise_library/sled_drag.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sled_drag.jpg",
     "muscle_group": "",
     "equipment": [
       "Sled"
@@ -3116,8 +3116,8 @@ PREVIEW_EXERCISES = [
       "Alternating Lunge Jumps",
       "Plyometric Lunges"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/e4pgxfcg_Split%20squat%20jump.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366028/exercise_library/split_squat_jump.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/split_squat_jump.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -3144,8 +3144,8 @@ PREVIEW_EXERCISES = [
       "Squat Pop",
       "Explosive Squat Hold"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/z1k9rtrc_Squat%20pop%20stick.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366031/exercise_library/squat_pop_stick.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/squat_pop_stick.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -3171,8 +3171,8 @@ PREVIEW_EXERCISES = [
       "Landmine Jerk",
       "Single Arm Landmine Jerk"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/5g4hten1_Landmine%20split%20jerk.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366035/exercise_library/landmine_split_jerk.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_split_jerk.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -3199,8 +3199,8 @@ PREVIEW_EXERCISES = [
       "Landmine Heave",
       "Triple Extension Throw"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/psbxwuw0_Landmine%20triple%20extension%20heave.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366036/exercise_library/landmine_triple_extension_heave.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_triple_extension_heave.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -3228,8 +3228,8 @@ PREVIEW_EXERCISES = [
       "Incline Dumbbell Bench Press",
       "Incline DB Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/58cs7s12_DB%20incline%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366039/exercise_library/dumbbell_incline_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_incline_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells",
@@ -3256,8 +3256,8 @@ PREVIEW_EXERCISES = [
       "One Leg Box Jump",
       "Unilateral Box Jump"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/sgp25luy_Single%20leg%20box%20jump.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366043/exercise_library/single_leg_box_jump.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/single_leg_box_jump.jpg",
     "muscle_group": "",
     "equipment": [
       "Plyo Box"
@@ -3283,8 +3283,8 @@ PREVIEW_EXERCISES = [
       "Landmine Punch",
       "Rotational Punch Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/xm1wv8g3_Landmine%20rotation%20punch.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366046/exercise_library/landmine_rotation_punch.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_rotation_punch.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -3311,8 +3311,8 @@ PREVIEW_EXERCISES = [
       "Landmine Punch Bound",
       "Rotational Punch Jump"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/b59mw9fd_Landmine%20rotational%20punch%20and%20bound.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366050/exercise_library/landmine_rotational_punch_and_bound.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/landmine_rotational_punch_and_bound.jpg",
     "muscle_group": "",
     "equipment": [
       "Landmine",
@@ -3340,8 +3340,8 @@ PREVIEW_EXERCISES = [
       "Cable Side Raise",
       "Single Arm Cable Lateral Raise"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/b5mjd4fr_Cable%20machine%20lateral%20raise.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366052/exercise_library/cable_lateral_raise.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/cable_lateral_raise.jpg",
     "muscle_group": "",
     "equipment": [
       "Cable Machine"
@@ -3368,8 +3368,8 @@ PREVIEW_EXERCISES = [
       "Cable Reverse Fly",
       "Rear Delt Cable Fly"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/j5gtni5z_Cable%20machine%20rear%20dealt%20fly.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366055/exercise_library/cable_rear_delt_fly.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/cable_rear_delt_fly.jpg",
     "muscle_group": "",
     "equipment": [
       "Cable Machine"
@@ -3396,8 +3396,8 @@ PREVIEW_EXERCISES = [
       "Dumbbell Bench Press",
       "DB Bench Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/y6i7m5ns_Db%20flat%20bench%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366056/exercise_library/dumbbell_flat_bench_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_flat_bench_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells",
@@ -3426,8 +3426,8 @@ PREVIEW_EXERCISES = [
       "Strict Press",
       "Standing Barbell Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/6lb7vrdh_BB%20military%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366060/exercise_library/barbell_military_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_military_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Barbell"
@@ -3454,8 +3454,8 @@ PREVIEW_EXERCISES = [
       "Machine Chest Fly",
       "Butterfly Machine"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/fnpdiu0q_Pec%20deck%20fly.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366064/exercise_library/pec_deck_fly.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/pec_deck_fly.jpg",
     "muscle_group": "",
     "equipment": [
       "Machine"
@@ -3483,8 +3483,8 @@ PREVIEW_EXERCISES = [
       "Standing Cable Fly",
       "Cable Crossover"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/z486td8r_Cable%20machine%20fly.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366066/exercise_library/cable_machine_fly.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/cable_machine_fly.jpg",
     "muscle_group": "",
     "equipment": [
       "Cable Machine"
@@ -3511,8 +3511,8 @@ PREVIEW_EXERCISES = [
       "Seated DB Press",
       "Dumbbell Overhead Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/e66yc5tr_DB%20shoulder%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366068/exercise_library/dumbbell_shoulder_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_shoulder_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -3539,8 +3539,8 @@ PREVIEW_EXERCISES = [
       "Incline Bench Press",
       "Incline Barbell Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/o2194eqp_BB%20incline%20bench.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366070/exercise_library/barbell_incline_bench_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_incline_bench_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Barbell",
@@ -3568,8 +3568,8 @@ PREVIEW_EXERCISES = [
       "Barbell Bench Press",
       "Bench Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/bov7l98c_BB%20flat%20bench.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366072/exercise_library/barbell_flat_bench_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/barbell_flat_bench_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Barbell",
@@ -3597,8 +3597,8 @@ PREVIEW_EXERCISES = [
       "Abdominal Sit Ups",
       "Ab Sit Ups"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/4v96n7au_Sit%20ups.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366074/exercise_library/sit_ups.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sit_ups.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -3625,8 +3625,8 @@ PREVIEW_EXERCISES = [
       "Suspension Knee Crunches",
       "TRX Ab Tucks"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/jsgzp8qc_Trx%20knee%20crunches.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366076/exercise_library/trx_knee_crunches.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/trx_knee_crunches.jpg",
     "muscle_group": "",
     "equipment": [
       "TRX",
@@ -3654,8 +3654,8 @@ PREVIEW_EXERCISES = [
       "Suspension Push Ups",
       "TRX Chest Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/5fs8suca_TRX%20pushups.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366078/exercise_library/trx_push_ups.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/trx_push_ups.jpg",
     "muscle_group": "",
     "equipment": [
       "TRX",
@@ -3683,8 +3683,8 @@ PREVIEW_EXERCISES = [
       "Suspension Rows",
       "Inverted TRX Row"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/ynoj97og_TRX%20rows.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366080/exercise_library/trx_rows.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/trx_rows.jpg",
     "muscle_group": "",
     "equipment": [
       "TRX",
@@ -3712,8 +3712,8 @@ PREVIEW_EXERCISES = [
       "Forward Walking Lunges",
       "Traveling Lunges"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/5iljqr9g_Walking%20lunges.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366083/exercise_library/walking_lunges.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/walking_lunges.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -3740,8 +3740,8 @@ PREVIEW_EXERCISES = [
       "Plyometric Box Jump",
       "Jump to Box"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/48qr5yfq_Plyo%20box%20jump.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366087/exercise_library/plyo_box_jump.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/plyo_box_jump.jpg",
     "muscle_group": "",
     "equipment": [
       "Plyo Box"
@@ -3768,8 +3768,8 @@ PREVIEW_EXERCISES = [
       "Rapid Box Jumps",
       "Quick Box Hops"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/oz7kyif8_Plyo%20box%20pulse%20jumps.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366090/exercise_library/plyo_box_pulse_jumps.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/plyo_box_pulse_jumps.jpg",
     "muscle_group": "",
     "equipment": [
       "Plyo Box"
@@ -3796,8 +3796,8 @@ PREVIEW_EXERCISES = [
       "Explosive Step Ups",
       "Step Up Jumps"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/6x5zjy9h_Plyo%20box%20step%20up%20pops.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366092/exercise_library/plyo_box_step_up_pops.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/plyo_box_step_up_pops.jpg",
     "muscle_group": "",
     "equipment": [
       "Plyo Box"
@@ -3824,8 +3824,8 @@ PREVIEW_EXERCISES = [
       "Seated Leg Extension",
       "Machine Quad Extension"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/xqhw2pbw_Quad%20extension.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366097/exercise_library/quad_extension.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/quad_extension.jpg",
     "muscle_group": "",
     "equipment": [
       "Machine"
@@ -3852,8 +3852,8 @@ PREVIEW_EXERCISES = [
       "Side Bridge",
       "Oblique Plank"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/v6394ecd_Side%20plank.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366099/exercise_library/side_plank.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/side_plank.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -3880,8 +3880,8 @@ PREVIEW_EXERCISES = [
       "Weighted Step Ups",
       "Step Ups with Dumbbells"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/au75warz_DB%20step%20ups.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366100/exercise_library/dumbbell_step_ups.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_step_ups.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells",
@@ -3909,8 +3909,8 @@ PREVIEW_EXERCISES = [
       "Tuck Crunches",
       "Double Crunch"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/sk96wby9_Knee%20tuck%20crunches.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366102/exercise_library/knee_tuck_crunches.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/knee_tuck_crunches.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -3937,8 +3937,8 @@ PREVIEW_EXERCISES = [
       "Seated Leg Press",
       "45 Degree Leg Press"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/xplynzmo_Leg%20press.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366105/exercise_library/leg_press.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/leg_press.jpg",
     "muscle_group": "",
     "equipment": [
       "Machine"
@@ -3965,8 +3965,8 @@ PREVIEW_EXERCISES = [
       "Weighted Russian Twists",
       "Russian Twist"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/irhzzpya_Med%20ball%20russian%20twists.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366108/exercise_library/medicine_ball_russian_twists.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/medicine_ball_russian_twists.jpg",
     "muscle_group": "",
     "equipment": [
       "Medicine Ball"
@@ -3993,8 +3993,8 @@ PREVIEW_EXERCISES = [
       "Forearm Plank",
       "Core Plank"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/71clw8hp_Plank.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366109/exercise_library/plank.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/plank.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -4021,8 +4021,8 @@ PREVIEW_EXERCISES = [
       "Side Lying Clamshells",
       "Hip Clamshells"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/2mb09bex_Clamshells.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366114/exercise_library/clamshells.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/clamshells.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -4049,8 +4049,8 @@ PREVIEW_EXERCISES = [
       "Abdominal Crunches",
       "Basic Crunches"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/feuh3omn_Crunches.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366117/exercise_library/crunches.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/crunches.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -4077,8 +4077,8 @@ PREVIEW_EXERCISES = [
       "Bicep Curl",
       "Dumbbell Bicep Curl"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/450juhlt_DB%20Curl.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366119/exercise_library/dumbbell_curl.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_curl.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -4105,8 +4105,8 @@ PREVIEW_EXERCISES = [
       "Goblet Squat",
       "Kettlebell Goblet Squat"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/ebpwbu6b_DB%20goblet%20squat.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366121/exercise_library/dumbbell_goblet_squat.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_goblet_squat.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells",
@@ -4134,8 +4134,8 @@ PREVIEW_EXERCISES = [
       "Hammer Curl",
       "Neutral Grip Curl"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/qceq8o8n_DB%20hammer%20curl.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366124/exercise_library/dumbbell_hammer_curl.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/dumbbell_hammer_curl.jpg",
     "muscle_group": "",
     "equipment": [
       "Dumbbells"
@@ -4162,8 +4162,8 @@ PREVIEW_EXERCISES = [
       "Rope Slams",
       "Double Wave Slams"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/szvihbh8_Battle%20rope%20slams.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366127/exercise_library/battle_rope_slams.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/battle_rope_slams.jpg",
     "muscle_group": "",
     "equipment": [
       "Battle Ropes"
@@ -4190,8 +4190,8 @@ PREVIEW_EXERCISES = [
       "Chair Dips",
       "Bodyweight Dips"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/ndedos99_Bench%20dips.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366129/exercise_library/bench_dips.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/bench_dips.jpg",
     "muscle_group": "",
     "equipment": [
       "Flat Bench"
@@ -4218,8 +4218,8 @@ PREVIEW_EXERCISES = [
       "Cross Body Crunches",
       "Cycling Crunches"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/9gpeq929_Bicycle%20crunches.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366131/exercise_library/bicycle_crunches.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/bicycle_crunches.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -4245,8 +4245,8 @@ PREVIEW_EXERCISES = [
       "Quadruped Bird Dog",
       "Opposite Arm Leg Raise"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/e9sv9lwc_Bird%20dog.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366133/exercise_library/bird_dog.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/bird_dog.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -4273,8 +4273,8 @@ PREVIEW_EXERCISES = [
       "Cable Bicep Curl",
       "Low Cable Curl"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/y8vqu6wh_Cable%20machine%20straight%20bar%20curl.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366135/exercise_library/cable_straight_bar_curl.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/cable_straight_bar_curl.jpg",
     "muscle_group": "",
     "equipment": [
       "Cable Machine"
@@ -4301,8 +4301,8 @@ PREVIEW_EXERCISES = [
       "Lying Toe Touch",
       "Ab Toe Touch"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/5fe2dren_Alternating%20toe%20touch.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366141/exercise_library/alternating_toe_touch.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/alternating_toe_touch.jpg",
     "muscle_group": "",
     "equipment": [
       "Bodyweight"
@@ -4329,8 +4329,8 @@ PREVIEW_EXERCISES = [
       "Assisted Tricep Dips",
       "Dip Machine"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/jo7v589c_Assisted%20dips.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366144/exercise_library/assisted_dips.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/assisted_dips.jpg",
     "muscle_group": "",
     "equipment": [
       "Machine"
@@ -4357,8 +4357,8 @@ PREVIEW_EXERCISES = [
       "Alternating Waves",
       "Single Arm Waves"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/ecr8qxno_Battle%20rope%20alternating%20waves.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366148/exercise_library/battle_rope_alternating_waves.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/battle_rope_alternating_waves.jpg",
     "muscle_group": "",
     "equipment": [
       "Battle Ropes"
@@ -4384,8 +4384,8 @@ PREVIEW_EXERCISES = [
       "Rope Lateral Raises",
       "Battle Rope Side Raises"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/cf2av97w_Battle%20rope%20lateral%20raises.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366150/exercise_library/battle_rope_lateral_raises.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/battle_rope_lateral_raises.jpg",
     "muscle_group": "",
     "equipment": [
       "Battle Ropes"
@@ -4412,8 +4412,8 @@ PREVIEW_EXERCISES = [
       "Lateral Rope Slams",
       "Side to Side Waves"
     ],
-    "video_url": "https://customer-assets.emergentagent.com/job_chestworkoutfix/artifacts/q7awgnl9_Battle%20rope%20side%20to%20side%20slams.mov",
-    "thumbnail_url": "",
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771366153/exercise_library/battle_rope_side_to_side_slams.mov",
+    "thumbnail_url": "https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/battle_rope_side_to_side_slams.jpg",
     "muscle_group": "",
     "equipment": [
       "Battle Ropes"
