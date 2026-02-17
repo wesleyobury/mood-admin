@@ -1062,6 +1062,38 @@ async def logout(request: Request, response: Response):
     return {"message": "Logged out successfully"}
 
 
+@api_router.get("/auth/me")
+async def get_auth_me(
+    response: Response,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get current authenticated user info including admin status.
+    Returns is_admin_effective and which field matched for debugging.
+    Also sets X-Admin-Effective header on response.
+    """
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Check admin status using canonical function
+    is_admin, matched_by = is_admin_effective_sync(user)
+    
+    # Set response header
+    response.headers["X-Admin-Effective"] = str(is_admin).lower()
+    response.headers["X-Admin-Matched-By"] = matched_by
+    
+    return {
+        "user_id": str(user["_id"]),
+        "username": user.get("username", ""),
+        "email": user.get("email", ""),
+        "is_admin_effective": is_admin,
+        "admin_matched_by": matched_by,
+        "admin_allowlist": ADMIN_ALLOWLIST,  # Show what the allowlist contains for debugging
+        "is_admin_flag": user.get("is_admin", False),  # Show the legacy flag value
+    }
+
+
 # Auth Tracking Endpoints
 
 @api_router.get("/auth/sessions")
