@@ -68,7 +68,6 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
   const [videoError, setVideoError] = useState(false);
   const searchInputRef = useRef<TextInput>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const videoRef = useRef<Video>(null);
   
   const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
