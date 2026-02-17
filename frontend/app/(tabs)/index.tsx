@@ -1529,33 +1529,26 @@ const styles = StyleSheet.create({
   statWrapper: {
     width: 110,
     alignItems: 'center',
-    paddingBottom: 12,
+    paddingBottom: 8,
   },
   statContent: {
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 4,
   },
-  underlineContainer: {
-    width: 60,
-    height: 16,
+  // Spotlight glow container
+  spotlightContainer: {
+    width: 80,
+    height: 24,
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    position: 'relative',
+    justifyContent: 'flex-start',
+    overflow: 'visible',
   },
-  underlineGlow: {
-    position: 'absolute',
-    width: 60,
-    height: 14,
-    bottom: 2,
-  },
-  underline: {
-    width: 40,
-    height: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.25)',
-    borderRadius: 0.5,
-  },
-  underlineStreak: {
-    backgroundColor: 'rgba(255, 215, 0, 0.4)',
+  // Soft diffused spotlight glow - like the reference image
+  spotlightGlow: {
+    width: 70,
+    height: 20,
+    borderRadius: 35,
+    transform: [{ scaleX: 1.3 }, { scaleY: 0.6 }],
   },
   // New top progress section styles
   // Floating Stats - NO pill, NO border, just text + spotlight glow
