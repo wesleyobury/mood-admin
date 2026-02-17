@@ -431,6 +431,21 @@ export default function CommentsBottomSheet({ postId, authToken, currentUserId, 
             >
               <Text style={styles.replyButtonText}>Reply</Text>
             </TouchableOpacity>
+            
+            {/* Delete button - only show for comment author */}
+            {currentUserId && comment.author?.id === currentUserId && (
+              <TouchableOpacity 
+                style={styles.deleteButton}
+                onPress={() => handleDeleteComment(comment.id)}
+                disabled={deleting === comment.id}
+              >
+                {deleting === comment.id ? (
+                  <ActivityIndicator size="small" color="#FF3B30" />
+                ) : (
+                  <Text style={styles.deleteButtonText}>Delete</Text>
+                )}
+              </TouchableOpacity>
+            )}
           </View>
 
           {/* View replies button - show for any comment with replies (including nested ones) */}
