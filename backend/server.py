@@ -1663,7 +1663,7 @@ async def get_users_detail_endpoint(
     days: int = 30,
     limit: int = 100,
     skip: int = 0,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get all users with activity summary"""
     return await get_all_users_detail(db, days, limit, skip)
@@ -1673,7 +1673,7 @@ async def get_users_detail_endpoint(
 async def get_new_users_endpoint(
     days: int = 30,
     limit: int = 100,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get new users who joined in the period"""
     return await get_new_users_detail(db, days, limit)
@@ -1683,7 +1683,7 @@ async def get_new_users_endpoint(
 async def get_signup_trend_endpoint(
     period: str = "day",  # day, week, month
     limit: int = 30,
-    current_user_id: str = Depends(get_current_user)
+    current_user_id: str = Depends(require_admin)
 ):
     """Get user signup trends grouped by day, week, or month"""
     try:
