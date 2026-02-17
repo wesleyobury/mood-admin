@@ -2713,6 +2713,15 @@ const styles = StyleSheet.create({
     color: '#ff6b6b',
     fontWeight: '700',
   },
+  debugSuccess: {
+    color: '#4ecdc4',
+    fontWeight: '700',
+  },
+  debugDivider: {
+    height: 1,
+    backgroundColor: '#333',
+    marginVertical: 6,
+  },
   quickActionsSection: {
     paddingHorizontal: 16,
     paddingTop: 16,
