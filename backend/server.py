@@ -127,32 +127,67 @@ GIT_SHA = os.environ.get('GIT_SHA', 'missing')
 DEPLOYED_AT = os.environ.get('DEPLOYED_AT', 'missing')
 SEED_VERSION = "2026-02-17-v3"  # Updated Cardio Based hero image
 
-# Admin allowlist - emails/usernames that bypass admin checks
-# Format: comma-separated list of emails or usernames
+# Admin allowlist - emails/usernames/user_ids that have admin access
+# Format: comma-separated list of emails, usernames, or user_ids
 ADMIN_ALLOWLIST = os.environ.get('ADMIN_ALLOWLIST', 'officialmoodapp').split(',')
 ADMIN_ALLOWLIST = [x.strip().lower() for x in ADMIN_ALLOWLIST if x.strip()]
 
-async def is_admin_allowed(user_id: str) -> bool:
-    """Check if user is in admin allowlist (by username or email)"""
+def is_admin_effective_sync(user: dict) -> tuple[bool, str]:
+    """
+    CANONICAL admin check - used by ALL admin endpoints.
+    Returns (is_admin: bool, matched_by: str) where matched_by indicates which field matched.
+    
+    Checks in order:
+    1. user.username in ADMIN_ALLOWLIST
+    2. user.email in ADMIN_ALLOWLIST  
+    3. str(user._id) in ADMIN_ALLOWLIST
+    4. user.is_admin == True (backwards compatibility)
+    """
+    if not user:
+        return False, "no_user"
+    
+    username = user.get("username", "").lower()
+    email = user.get("email", "").lower()
+    user_id = str(user.get("_id", "")).lower()
+    
+    # Check username
+    if username and username in ADMIN_ALLOWLIST:
+        return True, f"username:{username}"
+    
+    # Check email
+    if email and email in ADMIN_ALLOWLIST:
+        return True, f"email:{email}"
+    
+    # Check user_id (ObjectId as string)
+    if user_id and user_id in ADMIN_ALLOWLIST:
+        return True, f"user_id:{user_id}"
+    
+    # Check is_admin flag for backwards compatibility
+    if user.get("is_admin") == True:
+        return True, "is_admin_flag"
+    
+    return False, "no_match"
+
+async def is_admin_effective(user_id: str) -> tuple[bool, str]:
+    """
+    Async wrapper for is_admin_effective_sync.
+    Fetches user and checks admin status.
+    Returns (is_admin: bool, matched_by: str)
+    """
     try:
         user = await db.users.find_one({"_id": ObjectId(user_id)})
-        if not user:
-            return False
-        
-        username = user.get("username", "").lower()
-        email = user.get("email", "").lower()
-        
-        # Check if username or email is in allowlist
-        if username in ADMIN_ALLOWLIST or email in ADMIN_ALLOWLIST:
-            return True
-        
-        # Also allow if user has is_admin flag set
-        if user.get("is_admin"):
-            return True
-            
-        return False
-    except Exception:
-        return False
+        return is_admin_effective_sync(user)
+    except Exception as e:
+        logger.error(f"Error checking admin status: {e}")
+        return False, f"error:{str(e)}"
+
+async def is_admin_allowed(user_id: str) -> bool:
+    """
+    Legacy wrapper for backwards compatibility.
+    Use is_admin_effective() for new code.
+    """
+    is_admin, _ = await is_admin_effective(user_id)
+    return is_admin
 
 # Admin users who get auto-promoted in staging
 STAGING_ADMIN_USERNAMES = ["officialmoodapp"]
