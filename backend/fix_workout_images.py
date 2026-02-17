@@ -30,15 +30,23 @@ def get_equipment_thumbnails(exercise_thumbnails):
         'dumbbells': 'db bulgarian split squat',
         'kettlebell': 'kb single arm swing',
         'kettlebells': 'kb single arm swing',
+        'kettle bell': 'kb single arm swing',
+        'kettle bells': 'kb single arm swing',
         'kb': 'kb single arm swing',
         'medicine ball': 'slam ball chest pass',
         'med ball': 'slam ball chest pass',
+        'slam ball': 'slam ball chest pass',
+        'slam balls': 'slam ball chest pass',
         'battle rope': 'battle rope slams',
         'battle ropes': 'battle rope slams',
         'sled': 'sled push',
         'box': 'burpee box jump',
         'plyo': 'burpee box jump',
         'hammer': 'hip abductor',  # Machine based
+        'tire': 'tire flip',
+        'flipping tire': 'tire flip',
+        'resistance band': 'wide grip assisted pull-up',
+        'resistance bands': 'wide grip assisted pull-up',
     }
     
     equipment_thumbnails = {}
