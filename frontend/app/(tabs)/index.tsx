@@ -8,6 +8,7 @@ import {
   Alert,
   Image,
   Animated,
+  Easing,
   Linking,
   Platform,
   Dimensions,
@@ -835,20 +836,23 @@ export default function WorkoutsHome() {
           <Text style={styles.centeredBrandSubtitle}>TRAIN HOW YOU FEEL</Text>
         </View>
 
-        {/* Progress Tracker - Floating Stats with Spotlight */}
+        {/* Progress Tracker - Animated Counting Stats */}
         <View style={styles.floatingStatsRow}>
-          <FloatingStat 
+          <AnimatedStat 
             value={userStats.workouts} 
             label="WORKOUTS" 
+            delay={0}
           />
-          <FloatingStat 
+          <AnimatedStat 
             value={userStats.minutes} 
             label="MINUTES" 
+            delay={150}
           />
-          <FloatingStat 
+          <AnimatedStat 
             value={userStats.streak} 
             label="STREAK" 
             isStreak={true}
+            delay={300}
           />
         </View>
 
