@@ -716,6 +716,7 @@ export default function PostDetail() {
             <CommentsBottomSheet
               postId={post.id}
               authToken={token}
+              currentUserId={user?.id}
               onClose={() => setShowComments(false)}
               onCommentAdded={handleCommentAdded}
               onUserPress={handleUserPress}
