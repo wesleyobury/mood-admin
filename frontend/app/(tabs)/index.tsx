@@ -1475,20 +1475,56 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statValue: {
-    fontSize: 28,
-    fontWeight: '600',
-    color: 'rgba(255, 255, 255, 0.9)',
-    textShadowColor: 'transparent',
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 0,
+    fontSize: 32,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    letterSpacing: -0.5,
+  },
+  statValueStreak: {
+    color: '#FFD700',
   },
   statLabel: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.4)',
-    marginTop: 6,
-    textShadowColor: 'transparent',
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 0,
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.5)',
+    marginTop: 4,
+    textTransform: 'uppercase',
+    letterSpacing: 2,
+    fontWeight: '500',
+  },
+  statLabelStreak: {
+    color: 'rgba(255, 215, 0, 0.7)',
+  },
+  // Animated stat wrapper styles
+  statWrapper: {
+    width: 110,
+    alignItems: 'center',
+    paddingBottom: 12,
+  },
+  statContent: {
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  underlineContainer: {
+    width: 60,
+    height: 16,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    position: 'relative',
+  },
+  underlineGlow: {
+    position: 'absolute',
+    width: 60,
+    height: 14,
+    bottom: 2,
+  },
+  underline: {
+    width: 40,
+    height: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 0.5,
+  },
+  underlineStreak: {
+    backgroundColor: 'rgba(255, 215, 0, 0.4)',
   },
   // New top progress section styles
   // Floating Stats - NO pill, NO border, just text + spotlight glow
