@@ -4624,5 +4624,176 @@ PREVIEW_EXERCISES = [
       "Rounding upper back",
       "Not reaching full depth"
     ]
+  },
+  {
+    "name": "Close Grip Bench Press",
+    "aliases": [
+      "close grip bench press",
+      "close grip bench",
+      "narrow grip bench press",
+      "tricep bench press",
+      "cgbp",
+      "close grip bp",
+      "narrow bench"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352369/exercise_library/close_grip_bench_press.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/kfiptxnh_Close%20grip%20bench%20press.mov",
+    "muscle_group": "Triceps",
+    "equipment": ["Barbell", "Bench"],
+    "description": "A bench press variation that emphasizes tricep development",
+    "difficulty": "intermediate",
+    "instructions": [],
+    "tips": [],
+    "category": "Compound",
+    "cues": [
+      "Grip shoulder-width or slightly narrower",
+      "Keep elbows tucked close to body",
+      "Lower bar to lower chest",
+      "Drive through triceps to lockout",
+      "Maintain tight upper back"
+    ],
+    "mistakes": [
+      "Flaring elbows out wide",
+      "Gripping too narrow causing wrist strain",
+      "Bouncing bar off chest",
+      "Not fully locking out at top"
+    ]
+  },
+  {
+    "name": "DB Arnold Curl",
+    "aliases": [
+      "db arnold curl",
+      "dumbbell arnold curl",
+      "arnold curl",
+      "supinating curl",
+      "rotating dumbbell curl",
+      "twist curl",
+      "rotation curl"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352371/exercise_library/db_arnold_curl.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/0wnmajab_DB%20arnold%20curl.mov",
+    "muscle_group": "Biceps",
+    "equipment": ["Dumbbells"],
+    "description": "A curl variation with rotation for complete bicep development",
+    "difficulty": "intermediate",
+    "instructions": [],
+    "tips": [],
+    "category": "Isolation",
+    "cues": [
+      "Start with palms facing body",
+      "Rotate wrists as you curl up",
+      "Finish with palms facing shoulders",
+      "Control the rotation on the way down",
+      "Keep elbows stationary"
+    ],
+    "mistakes": [
+      "Swinging the weights",
+      "Rotating too early in the movement",
+      "Using momentum instead of muscle control",
+      "Moving elbows forward"
+    ]
+  },
+  {
+    "name": "DB Arnold Press",
+    "aliases": [
+      "db arnold press",
+      "dumbbell arnold press",
+      "arnold press",
+      "rotating shoulder press",
+      "arnold shoulder press",
+      "rotating dumbbell press",
+      "arnold dumbbell press"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352375/exercise_library/db_arnold_press.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/2dobo4dj_DB%20arnold%20press.mov",
+    "muscle_group": "Shoulders",
+    "equipment": ["Dumbbells"],
+    "description": "A shoulder press with rotation hitting all three deltoid heads",
+    "difficulty": "intermediate",
+    "instructions": [],
+    "tips": [],
+    "category": "Compound",
+    "cues": [
+      "Start with palms facing you at shoulder height",
+      "Rotate and press in one smooth motion",
+      "Finish with palms facing forward overhead",
+      "Reverse the motion on the way down",
+      "Keep core tight throughout"
+    ],
+    "mistakes": [
+      "Arching lower back excessively",
+      "Not completing the full rotation",
+      "Pressing before rotating",
+      "Locking out elbows aggressively"
+    ]
+  },
+  {
+    "name": "DB Fly",
+    "aliases": [
+      "db fly",
+      "dumbbell fly",
+      "dumbbell chest fly",
+      "db chest fly",
+      "flat dumbbell fly",
+      "pec fly",
+      "dumbbell flyes",
+      "db flyes"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352378/exercise_library/db_fly.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/mgbijupe_DB%20fly.mov",
+    "muscle_group": "Chest",
+    "equipment": ["Dumbbells", "Bench"],
+    "description": "An isolation exercise for chest development and stretch",
+    "difficulty": "intermediate",
+    "instructions": [],
+    "tips": [],
+    "category": "Isolation",
+    "cues": [
+      "Keep slight bend in elbows throughout",
+      "Lower weights in wide arc to chest level",
+      "Feel the stretch in chest at bottom",
+      "Squeeze chest to bring weights together",
+      "Maintain same elbow angle throughout"
+    ],
+    "mistakes": [
+      "Straightening arms at the bottom",
+      "Going too deep and straining shoulders",
+      "Turning it into a press movement",
+      "Using too heavy weight"
+    ]
+  },
+  {
+    "name": "DB Front Raise",
+    "aliases": [
+      "db front raise",
+      "dumbbell front raise",
+      "front delt raise",
+      "front shoulder raise",
+      "anterior delt raise",
+      "front raise",
+      "dumbbell front delt raise"
+    ],
+    "video_url": "https://res.cloudinary.com/dfsygar5c/video/upload/v1771352380/exercise_library/db_front_raise.mov",
+    "thumbnail_url": "https://customer-assets.emergentagent.com/job_cd319695-7bae-4812-a60a-72dc19f1228f/artifacts/7sp7nrzh_DB%20front%20raise.mov",
+    "muscle_group": "Shoulders",
+    "equipment": ["Dumbbells"],
+    "description": "An isolation exercise targeting the front deltoids",
+    "difficulty": "beginner",
+    "instructions": [],
+    "tips": [],
+    "category": "Isolation",
+    "cues": [
+      "Stand with dumbbells at thighs",
+      "Raise arms straight in front to shoulder height",
+      "Keep slight bend in elbows",
+      "Control the lowering phase",
+      "Avoid swinging or using momentum"
+    ],
+    "mistakes": [
+      "Swinging weights up with momentum",
+      "Raising above shoulder height",
+      "Leaning back excessively",
+      "Using too heavy weight"
+    ]
   }
 ]
