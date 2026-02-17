@@ -841,19 +841,19 @@ export default function WorkoutsHome() {
           <Text style={styles.centeredBrandSubtitle}>TRAIN HOW YOU FEEL</Text>
         </View>
 
-        {/* Progress Tracker - Floating Chips */}
-        <View style={styles.floatingChipsSection}>
-          <FloatingProgressChip 
+        {/* Progress Tracker - Floating Readouts */}
+        <View style={styles.readoutsSection}>
+          <FloatingReadout 
             value={userStats.workouts} 
             label="WORKOUTS" 
             delay={0}
           />
-          <FloatingProgressChip 
+          <FloatingReadout 
             value={userStats.minutes} 
             label="MINUTES" 
             delay={100}
           />
-          <FloatingProgressChip 
+          <FloatingReadout 
             value={userStats.streak} 
             label="STREAK" 
             isStreak={true}
