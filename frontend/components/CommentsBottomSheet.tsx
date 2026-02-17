@@ -715,6 +715,14 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
   },
+  deleteButton: {
+    marginRight: 16,
+  },
+  deleteButtonText: {
+    color: '#FF3B30',
+    fontSize: 13,
+    fontWeight: '600',
+  },
   viewRepliesButton: {
     flexDirection: 'row',
     alignItems: 'center',
