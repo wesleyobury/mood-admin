@@ -31,7 +31,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#FFD700', // Gold color
+        tabBarActiveTintColor: '#FFD700',
         tabBarInactiveTintColor: '#666',
         tabBarStyle: {
           backgroundColor: '#0c0c0c',
@@ -54,7 +54,6 @@ export default function TabLayout() {
         tabPress: (e) => {
           const tabName = e.target?.split('-')[0] || '';
           trackTabSwitch(tabName);
-          // Refresh badge counts when switching tabs
           refreshBadges();
         },
       }}
@@ -71,7 +70,6 @@ export default function TabLayout() {
                 size={24} 
                 color={color} 
               />
-              {/* Combined notification + message badge on Explore tab */}
               {totalBadgeCount > 0 && (
                 <View style={styles.notificationBadge}>
                   <Text style={styles.notificationBadgeText}>
@@ -83,33 +81,22 @@ export default function TabLayout() {
           ),
         }}
       />
-      {/* Workouts - Center position with premium standout */}
+      {/* Workouts - Center position with gold ring */}
       <Tabs.Screen
         name="index"
         options={{
           title: 'Workouts',
           tabBarIcon: ({ color, focused }) => (
-            <View style={styles.workoutsIconWrapper}>
-              {/* Premium elevated button container */}
-              <View style={[
-                styles.workoutsButton,
-                focused && styles.workoutsButtonActive
-              ]}>
-                {/* Subtle inner glow when active */}
-                {focused && <View style={styles.workoutsInnerGlow} />}
+            <View style={styles.workoutsIconContainer}>
+              <View style={styles.workoutsGoldRing}>
                 <Ionicons 
                   name={focused ? 'fitness' : 'fitness-outline'} 
-                  size={26} 
-                  color={focused ? '#FFD700' : '#999'} 
+                  size={24} 
+                  color={color} 
                 />
               </View>
             </View>
           ),
-          tabBarLabelStyle: {
-            fontSize: 11,
-            fontWeight: '700',
-            marginTop: -2,
-          },
         }}
       />
       {/* Profile - Right position */}
@@ -118,11 +105,13 @@ export default function TabLayout() {
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons 
-              name={focused ? 'person' : 'person-outline'} 
-              size={24} 
-              color={color} 
-            />
+            <View style={styles.iconContainer}>
+              <Ionicons 
+                name={focused ? 'person' : 'person-outline'} 
+                size={24} 
+                color={color} 
+              />
+            </View>
           ),
         }}
       />
@@ -136,38 +125,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  workoutsIconWrapper: {
-    position: 'relative',
+  workoutsIconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: -8,
   },
-  workoutsButton: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    backgroundColor: '#1a1a1a',
+  workoutsGoldRing: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    borderWidth: 1.5,
+    borderColor: '#FFD700',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: '#2a2a2a',
-    // Subtle shadow for depth
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 4,
-  },
-  workoutsButtonActive: {
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-    backgroundColor: '#1c1c1c',
-  },
-  workoutsInnerGlow: {
-    position: 'absolute',
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: 'rgba(255, 215, 0, 0.08)',
   },
   notificationBadge: {
     position: 'absolute',
