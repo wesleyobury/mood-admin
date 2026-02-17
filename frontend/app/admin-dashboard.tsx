@@ -305,8 +305,39 @@ export default function AdminDashboard() {
     }[];
   } | null>(null);
   
+  // Debug Panel state - shows API base URL and meta info
+  const [debugMeta, setDebugMeta] = useState<{
+    env?: string;
+    seed_version_applied?: string;
+    mongo_db_name?: string;
+    error?: string;
+  } | null>(null);
+  
   // Heartbeat interval
   const heartbeatRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Fetch debug meta info on mount
+  useEffect(() => {
+    const fetchDebugMeta = async () => {
+      try {
+        const response = await fetch(`${API_URL}/api/meta`);
+        if (response.ok) {
+          const data = await response.json();
+          setDebugMeta({
+            env: data.env,
+            seed_version_applied: data.seed_version_applied,
+            mongo_db_name: data.mongo_db_name,
+          });
+        } else {
+          setDebugMeta({ error: `HTTP ${response.status}` });
+        }
+      } catch (error: any) {
+        setDebugMeta({ error: error.message || 'Failed to fetch' });
+      }
+    };
+    
+    fetchDebugMeta();
+  }, []);
 
   // Check authorization via API
   useEffect(() => {
