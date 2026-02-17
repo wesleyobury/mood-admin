@@ -1067,6 +1067,9 @@ async def apple_sign_in(
             # Get the MongoDB ObjectId after insert
             mongodb_id = str(result.inserted_id)
             logger.info(f"Created new Apple user: {username} with MongoDB ID: {mongodb_id}")
+            
+            # Send welcome message to new Apple users
+            await send_welcome_message(mongodb_id)
         
         # Get the MongoDB ObjectId for use in token and responses
         if existing_user:
