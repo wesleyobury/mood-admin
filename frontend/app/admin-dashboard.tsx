@@ -863,7 +863,7 @@ export default function AdminDashboard() {
         </TouchableOpacity>
       </View>
 
-      {/* Debug Panel - Shows API configuration */}
+      {/* Debug Panel - Shows API configuration and Admin Auth Status */}
       <View style={styles.debugPanel}>
         <Text style={styles.debugTitle}>🔧 Debug Info</Text>
         <Text style={styles.debugText}>
@@ -883,6 +883,29 @@ export default function AdminDashboard() {
         <Text style={styles.debugText}>
           <Text style={styles.debugLabel}>DB: </Text>
           <Text style={styles.debugValue}>{debugMeta?.mongo_db_name || 'loading...'}</Text>
+        </Text>
+        {/* Admin Auth Info */}
+        <View style={styles.debugDivider} />
+        <Text style={styles.debugText}>
+          <Text style={styles.debugLabel}>Logged in as: </Text>
+          <Text style={styles.debugValue}>{adminAuthInfo?.username || user?.username || 'loading...'}</Text>
+        </Text>
+        <Text style={styles.debugText}>
+          <Text style={styles.debugLabel}>Admin effective: </Text>
+          <Text style={[
+            styles.debugValue, 
+            adminAuthInfo?.is_admin_effective ? styles.debugSuccess : styles.debugWarning
+          ]}>
+            {adminAuthInfo?.is_admin_effective === undefined ? 'loading...' : adminAuthInfo.is_admin_effective ? '✅ true' : '❌ false'}
+          </Text>
+        </Text>
+        <Text style={styles.debugText}>
+          <Text style={styles.debugLabel}>Matched by: </Text>
+          <Text style={styles.debugValue}>{adminAuthInfo?.admin_matched_by || 'loading...'}</Text>
+        </Text>
+        <Text style={styles.debugText}>
+          <Text style={styles.debugLabel}>Allowlist: </Text>
+          <Text style={styles.debugValue}>{adminAuthInfo?.admin_allowlist?.join(', ') || 'loading...'}</Text>
         </Text>
       </View>
 
