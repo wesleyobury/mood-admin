@@ -1729,7 +1729,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Cardio and strength: swings paired with farmer\'s carries.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 20 kettlebell swings\n• 30-sec farmer\'s carry (walk with 2 kettlebells)\n• Rest 60 sec\nFinish with 2 min stretching',
-          imageUrl: 'https://images.unsplash.com/flagged/photo-1556895368-9d1eed826c58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3Njk5MTQ4MzZ8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_single_arm_swing.jpg',
           intensityReason: 'Basic kettlebell introduction with hip hinge training.',
           moodTips: [
             {
@@ -1749,7 +1749,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Full-body flow: squats, swings, and overhead presses.\n\n ',
           battlePlan: 'Perform 3 rounds:\n• 10 goblet squats\n• 15 kettlebell swings\n• 8 overhead presses (4 each arm)\n• Rest 90 sec\nFinish with light walking',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxrZXR0bGViZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_single_arm_swing.jpg',
           intensityReason: 'Progressive flow builds kettlebell familiarity with control.',
           moodTips: [
             {
@@ -1771,7 +1771,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: 'Descending rep ladder: swings, cleans, snatches, squats, presses.\n\n ',
           battlePlan: 'Descending ladder (10-8-6-4-2):\n• Kettlebell swings\n• Single-arm cleans (alternating)\n• Snatches (alternating)\n• Goblet squats\n• Overhead presses\nRest 90 sec between rounds',
-          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxrZXR0bGViZWxsJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_single_arm_swing.jpg',
           intensityReason: 'Complex ladder challenges coordination and strength.',
           moodTips: [
             {
@@ -1791,7 +1791,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Tabata: swings, squats, lunges, and high pulls.\n\n ',
           battlePlan: 'Perform 4 Tabata rounds (20 sec work, 10 sec rest):\nRound 1: Kettlebell swings\nRound 2: Goblet squats\nRound 3: Reverse lunges\nRound 4: High pulls\nRest 2 min between rounds',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxrZXR0bGViZWxsJTIwdGFiYXRhfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_single_arm_swing.jpg',
           intensityReason: 'High-intensity intervals push cardiovascular limits.',
           moodTips: [
             {
@@ -1813,7 +1813,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '25–26 min',
           description: 'Full-body complex: swing, clean, squat, press, and snatch.\n\n ',
           battlePlan: 'Perform 5 rounds without putting bell down:\n• 5 swings\n• 5 cleans\n• 5 front squats\n• 5 presses\n• 5 snatches\nRest 2 min between rounds\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxrZXR0bGViZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_single_arm_swing.jpg',
           intensityReason: 'Advanced complex demands mastery with minimal rest.',
           moodTips: [
             {
@@ -1833,7 +1833,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'AMRAP: double swings, snatches, jump squats, and Turkish get-ups.\n\n ',
           battlePlan: 'AMRAP for 15 minutes:\n• 10 double kettlebell swings\n• 8 alternating snatches (4 each)\n• 12 goblet jump squats\n• 2 Turkish get-ups (1 each side)\nScore total rounds + reps',
-          imageUrl: 'https://images.unsplash.com/flagged/photo-1556895368-9d1eed826c58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3Njk5MTQ4MzZ8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/kb_single_arm_swing.jpg',
           intensityReason: 'Maximum intensity AMRAP combines power, agility, and movement.',
           moodTips: [
             {
@@ -2125,7 +2125,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Foundational slams, squat-to-press, and lunges.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 10 overhead slams\n• 8 side slams (4 each side)\n• 6 squat slams\n• Rest 60 sec\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGFtJTIwYmFsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_chest_pass.jpg',
           intensityReason: 'Introduction to slam ball fundamentals with proper mechanics.',
           moodTips: [
             {
@@ -2145,7 +2145,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Full-body flow: slams, overhead throws, and Russian twists.\n\n ',
           battlePlan: 'Perform 3 rounds:\n• 8 overhead slams\n• 6 rotational slams (3 each side)\n• 4 slam-to-squat\n• Rest 90 sec\nFinish with light walking',
-          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGFtJTIwYmFsbCUyMGZsb3d8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_chest_pass.jpg',
           intensityReason: 'Movement progression adds overhead power and core rotation.',
           moodTips: [
             {
@@ -2167,7 +2167,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '10 min',
           description: 'AMRAP: slams, lateral slams, and squat jumps.\n\n ',
           battlePlan: 'AMRAP for 10 minutes:\n• 12 overhead slams\n• 10 side-to-side slams\n• 8 slam-to-burpee\nScore total rounds + reps',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGFtJTIwYmFsbCUyMGFtcmFwfGVufDB8fHx8TVc1Mijg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_chest_pass.jpg',
           intensityReason: 'High-intensity AMRAP with lateral movement and plyometrics.',
           moodTips: [
             {
@@ -2187,7 +2187,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Tabata: slams, squat-to-press, lateral slams, and burpee slams.\n\n ',
           battlePlan: 'Perform 4 Tabata rounds (20 sec work, 10 sec rest):\nRound 1: Overhead slams\nRound 2: Side slams\nRound 3: Squat slams\nRound 4: Slam burpees\nRest 2 min between rounds',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzbGFtJTIwYmFsbCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_chest_pass.jpg',
           intensityReason: 'Intense Tabata pushes anaerobic power with explosive slams.',
           moodTips: [
             {
@@ -2209,7 +2209,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: 'Full-body complex: slams, lateral slams, burpee slams, and throws.\n\n ',
           battlePlan: 'Perform 5 rounds:\n• 15 overhead slams\n• 12 rotational slams (6 each side)\n• 10 slam-to-burpee\n• 8 single-arm slams (4 each)\n• Rest 90 sec\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGFtJTIwYmFsbCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Mijg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_chest_pass.jpg',
           intensityReason: 'Advanced complex demands maximum power with varied slams.',
           moodTips: [
             {
@@ -2229,7 +2229,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–25 min',
           description: 'Sprint circuit: slams, lateral slams, and sprints with the ball.\n\n ',
           battlePlan: 'AMRAP for 12 minutes:\n• 10 overhead slams\n• 8 side-to-side slams\n• 6 slam-to-burpee\n• 4 single-arm slams (2 each)\nScore total rounds + reps',
-          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGFtJTIwYmFsbCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/slam_ball_chest_pass.jpg',
           intensityReason: 'Peak performance circuit combines slam ball power with sprints.',
           moodTips: [
             {
@@ -2521,7 +2521,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Full-body circuit: banded squats, rows, and chest presses.\n\n ',
           battlePlan: 'Perform 3 rounds:\n• 10 banded squats (band around lower thighs, just above knees)\n• 10 band rows (anchor band at chest height, pull toward torso)\n• 10 band chest presses (anchor band behind you at chest level, press forward)\n• Rest 1 min\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/wide_grip_assisted_pull_up.jpg',
           intensityReason: 'Perfect introduction to resistance bands with simple movements.',
           moodTips: [
             {
@@ -2541,7 +2541,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Lower body and upper body: lateral walks and overhead presses.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 10 lateral walks (each direction with band around ankles)\n• 8 overhead presses (hold band overhead, press arms apart)\n• 6 band pull-aparts (at chest level)\n• Rest 75 sec\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdhbGt8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/wide_grip_assisted_pull_up.jpg',
           intensityReason: 'Focus on glute activation and shoulder stability.',
           moodTips: [
             {
@@ -2563,7 +2563,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Tabata: squat jumps, push-ups, rows, and mountain climbers.\n\n ',
           battlePlan: 'Perform 4 Tabata rounds (20 sec work, 10 sec rest):\nRound 1: Band squat jumps\nRound 2: Band-assisted push-ups\nRound 3: Band rows\nRound 4: Mountain climbers with band\nRest 2 min between rounds',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/wide_grip_assisted_pull_up.jpg',
           intensityReason: 'High-intensity Tabata maximizes anaerobic power.',
           moodTips: [
             {
@@ -2583,7 +2583,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Sprint circuit: squat jumps, band sprints, and push-ups.\n\n ',
           battlePlan: 'Perform 5 rounds:\n• 10 band squat jumps (band around thighs)\n• 20m band sprints (attached to anchor)\n• 8 band-assisted push-ups\n• Rest 90 sec\nFinish when all rounds complete',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/wide_grip_assisted_pull_up.jpg',
           intensityReason: 'Power circuit combines plyometrics with sprint mechanics.',
           moodTips: [
             {
@@ -2605,7 +2605,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Full-body complex: squat jumps, push-ups, sprints, and burpees.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 12 band squat jumps\n• 10 band-assisted push-ups\n• 20m band sprints\n• 8 band burpees (band around ankles)\n• Rest 2 min\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxyZXNpc3RhbmNlJTIwYmFuZCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/wide_grip_assisted_pull_up.jpg',
           intensityReason: 'Elite complex demands maximal power through movements.',
           moodTips: [
             {
@@ -2625,7 +2625,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Plyometric circuit: jump lunges, mountain climbers, rows, and push-ups.\n\n ',
           battlePlan: 'AMRAP for 20 minutes:\n• 10 jump lunges with band (band around ankles)\n• 20 mountain climbers with band around feet\n• 15 band rows\n• 8 explosive push-ups with band\nScore total rounds + reps',
-          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHBseW98ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/wide_grip_assisted_pull_up.jpg',
           intensityReason: 'Advanced plyometrics combines explosive movements.',
           moodTips: [
             {
@@ -2785,7 +2785,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Foundational tire flips and step-ups for strength.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 5 tire flips\n• 8 tire step-ups (each leg)\n• Rest 90 sec\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/tire_flip.jpg',
           intensityReason: 'Perfect introduction to tire flipping with proper mechanics.',
           moodTips: [
             {
@@ -2805,7 +2805,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Tire flips and toe taps for power and agility.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 6 tire flips\n• 20 tire toe taps\n• 5 tire step-overs\n• Rest 75 sec\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHx0aXJlJTIwZmxpcCUyMHRhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/tire_flip.jpg',
           intensityReason: 'Progressive strength workout builds tire flipping power.',
           moodTips: [
             {
@@ -2827,7 +2827,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Tire flips and jumps for explosive power.\n\n ',
           battlePlan: 'Perform 5 rounds:\n• 4 tire flips\n• 6 tire jumps\n• 8 tire step-ups (alternating legs)\n• Rest 90 sec\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHx0aXJlJTIwZmxpcCUyMGp1bXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/tire_flip.jpg',
           intensityReason: 'Intermediate circuit combines tire flipping with plyometrics.',
           moodTips: [
             {
@@ -2847,7 +2847,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Full-body circuit: tire flips, push-ups, and lateral jumps.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 6 tire flips\n• 8 tire push-ups (hands on tire)\n• 10 lateral jumps (side to side over tire)\n• Rest 2 min\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0aXJlJTIwZmxpcCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/tire_flip.jpg',
           intensityReason: 'Strength circuit integrates tire manipulation with movements.',
           moodTips: [
             {
@@ -2869,7 +2869,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Full-body gauntlet: flips, burpees, jumps, and push-ups.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 8 tire flips\n• 6 burpees\n• 10 tire jumps\n• 8 tire push-ups\n• Rest 2 min\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1758875570256-6510adffb1de?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMGNyb3NzZml0fGVufDB8fHx8MTc2OTkxNDg0MXww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/tire_flip.jpg',
           intensityReason: 'Elite complex demands maximal tire flipping power.',
           moodTips: [
             {
@@ -2889,7 +2889,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Sprint circuit: tire flips and sprints for power endurance.\n\n ',
           battlePlan: 'Perform 5 rounds:\n• 6 tire flips\n• 40m sprint\n• 4 tire flips\n• 20m sprint\n• Rest 2 min\nFinish when all rounds complete',
-          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHx0aXJlJTIwZmxpcCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/tire_flip.jpg',
           intensityReason: 'Peak conditioning integrates tire manipulation with sprints.',
           moodTips: [
             {
