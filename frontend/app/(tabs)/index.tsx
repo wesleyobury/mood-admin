@@ -1238,8 +1238,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     paddingTop: 20,
     paddingBottom: 16,
-    borderBottomWidth: 0.5,
-    borderBottomColor: 'rgba(255, 215, 0, 0.08)',
   },
   centeredBrandTitle: {
     fontSize: 42,
