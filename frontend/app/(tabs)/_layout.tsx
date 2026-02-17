@@ -123,19 +123,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  workoutsIconContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  workoutsGoldRing: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    borderWidth: 1.5,
-    borderColor: '#FFD700',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   notificationBadge: {
     position: 'absolute',
     top: -6,
