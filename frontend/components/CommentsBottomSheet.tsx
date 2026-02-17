@@ -719,7 +719,7 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   deleteButtonText: {
-    color: '#FF3B30',
+    color: '#666',
     fontSize: 13,
     fontWeight: '600',
   },
