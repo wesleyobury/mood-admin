@@ -1,5 +1,6 @@
 # Auto-generated exercises seed data from preview environment
-# Total exercises: 164 (includes 10 new videos added 2026-02-17)
+# Total exercises: 169 (includes 15 new videos added 2026-02-17)
+# Format: 3 key cues, 2 common mistakes per exercise
 # Includes: name, aliases, video_url, thumbnail_url, equipment, cues, mistakes
 PREVIEW_EXERCISES = [
   {
