@@ -15,6 +15,7 @@ import re
 import time
 import requests
 import cloudinary
+import cloudinary.api
 import cloudinary.uploader
 from urllib.parse import unquote, quote
 from pymongo import MongoClient
