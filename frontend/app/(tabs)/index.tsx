@@ -28,6 +28,8 @@ import GuestPromptModal from '../../components/GuestPromptModal';
 import { useFeaturedWorkouts, FeaturedWorkout } from '../../hooks/useFeaturedWorkouts';
 import ExerciseLookupSheet from '../../components/ExerciseLookupSheet';
 
+import { LinearGradient } from 'expo-linear-gradient';
+
 // Prioritize process.env for development/preview environments
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
@@ -35,6 +37,83 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const CAROUSEL_PADDING = 16;
 const CARD_GAP = 12;
 const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
+
+// Floating Progress Chip Component
+const FloatingProgressChip = ({ 
+  value, 
+  label, 
+  isStreak = false,
+  delay = 0 
+}: { 
+  value: number | string; 
+  label: string; 
+  isStreak?: boolean;
+  delay?: number;
+}) => {
+  const translateY = useRef(new Animated.Value(8)).current;
+  const floatAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    // Mount animation
+    Animated.timing(translateY, {
+      toValue: 0,
+      duration: 450,
+      delay,
+      useNativeDriver: true,
+    }).start();
+
+    // Idle float animation
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(floatAnim, {
+          toValue: -2,
+          duration: 2400,
+          useNativeDriver: true,
+        }),
+        Animated.timing(floatAnim, {
+          toValue: 0,
+          duration: 2400,
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+  }, []);
+
+  const combinedTranslateY = Animated.add(translateY, floatAnim);
+
+  return (
+    <Animated.View 
+      style={[
+        styles.floatingChipWrapper,
+        { transform: [{ translateY: combinedTranslateY }] }
+      ]}
+    >
+      {/* Underlight layer */}
+      <View style={[
+        styles.chipUnderlight,
+        isStreak && styles.chipUnderlightStreak
+      ]} />
+      
+      {/* Main chip container */}
+      <View style={styles.floatingChipContainer}>
+        {/* Specular gradient overlay */}
+        <LinearGradient
+          colors={['rgba(255,255,255,0.10)', 'transparent']}
+          style={styles.chipSpecularGradient}
+        />
+        
+        {/* Content */}
+        <Text style={[
+          styles.floatingChipValue,
+          isStreak && styles.floatingChipValueStreak
+        ]}>
+          {value}
+        </Text>
+        <Text style={styles.floatingChipLabel}>{label}</Text>
+      </View>
+    </Animated.View>
+  );
+};
 
 // Transform FeaturedWorkout to carousel format
 interface CarouselWorkout {
