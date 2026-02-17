@@ -835,6 +835,22 @@ export default function WorkoutsHome() {
             <Text style={styles.exerciseSearchText}>Search workout library</Text>
           </TouchableOpacity>
         </View>
+
+        {/* Social Icons - Below Search Bar */}
+        <View style={styles.bottomSocialContainer}>
+          <TouchableOpacity 
+            style={styles.bottomSocialButton}
+            onPress={() => handleSocialLink('https://www.instagram.com/officialmoodapp/', 'Instagram')}
+          >
+            <Ionicons name="logo-instagram" size={20} color="#FFD700" />
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.bottomSocialButton}
+            onPress={() => handleSocialLink('https://www.tiktok.com/@officialmoodapp', 'TikTok')}
+          >
+            <Ionicons name="logo-tiktok" size={20} color="#FFD700" />
+          </TouchableOpacity>
+        </View>
       </ScrollView>
       </View>
       
