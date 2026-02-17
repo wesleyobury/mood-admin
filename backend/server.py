@@ -189,21 +189,6 @@ async def is_admin_allowed(user_id: str) -> bool:
     is_admin, _ = await is_admin_effective(user_id)
     return is_admin
 
-async def require_admin(current_user_id: str = Depends(get_current_user)) -> str:
-    """
-    FastAPI dependency that requires admin access.
-    Raises 403 if user is not an admin.
-    Returns user_id if admin.
-    Use this as a dependency: current_user_id: str = Depends(require_admin)
-    """
-    is_admin, matched_by = await is_admin_effective(current_user_id)
-    if not is_admin:
-        raise HTTPException(
-            status_code=403, 
-            detail=f"Admin access required - not in allowlist (checked: {matched_by})"
-        )
-    return current_user_id
-
 # Admin users who get auto-promoted in staging
 STAGING_ADMIN_USERNAMES = ["officialmoodapp"]
 
