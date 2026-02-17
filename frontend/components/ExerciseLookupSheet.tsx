@@ -296,6 +296,72 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
     );
   };
 
+  // Video player with seamless poster-to-video transition
+  // Keeps poster visible until video is actually playing to avoid aspect ratio jump
+  const VideoWithPoster = ({ videoUrl, posterUrl, style }: { videoUrl: string; posterUrl: string; style: any }) => {
+    const videoRef = useRef<Video>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isBuffering, setIsBuffering] = useState(true);
+
+    const handlePlaybackStatusUpdate = useCallback((status: AVPlaybackStatus) => {
+      if (status.isLoaded) {
+        // Only hide poster when video is actually playing AND not buffering
+        const videoIsPlaying = status.isPlaying && !status.isBuffering;
+        setIsPlaying(videoIsPlaying);
+        setIsBuffering(status.isBuffering);
+      }
+    }, []);
+
+    return (
+      <View style={[style, { backgroundColor: '#000' }]}>
+        {/* Poster image - stays visible until video is playing */}
+        {!isPlaying && (
+          <Image
+            source={{ uri: posterUrl }}
+            style={{ 
+              position: 'absolute', 
+              top: 0, 
+              left: 0, 
+              right: 0, 
+              bottom: 0,
+              zIndex: 2 
+            }}
+            contentFit="cover"
+            cachePolicy="memory-disk"
+          />
+        )}
+        
+        {/* Loading indicator while buffering */}
+        {isBuffering && (
+          <View style={{ 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            right: 0, 
+            bottom: 0, 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            zIndex: 3 
+          }}>
+            <ActivityIndicator size="large" color="rgba(255,255,255,0.7)" />
+          </View>
+        )}
+        
+        {/* Video - plays underneath poster until ready */}
+        <Video
+          ref={videoRef}
+          source={{ uri: videoUrl }}
+          style={{ width: '100%', height: '100%' }}
+          resizeMode={ResizeMode.COVER}
+          isLooping
+          isMuted
+          shouldPlay
+          onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
+        />
+      </View>
+    );
+  };
+
   // Prefetch thumbnails when exercises load
   useEffect(() => {
     if (exercises.length > 0) {
