@@ -192,6 +192,88 @@ async def is_admin_allowed(user_id: str) -> bool:
 # Admin users who get auto-promoted in staging
 STAGING_ADMIN_USERNAMES = ["officialmoodapp"]
 
+# Welcome message configuration
+WELCOME_MESSAGE_SENDER = "officialmoodapp"
+WELCOME_MESSAGE_TEXT = """Welcome to MOOD 👋
+
+Here, you can build workouts by vibe, equipment, and intensity — all tailored to how you want to train.
+Share your achievements to the explore page or export to Instagram, and connect with a community of driven gym-goers.
+
+Try your first workout today. Let's get after it. ⚡️"""
+
+async def send_welcome_message(new_user_id: str):
+    """
+    Send a welcome DM to a new user from the officialmoodapp admin account.
+    Creates a conversation and sends the welcome message.
+    """
+    try:
+        # Find the admin sender account
+        admin_user = await db.users.find_one({"username": WELCOME_MESSAGE_SENDER})
+        if not admin_user:
+            logger.warning(f"Welcome message sender '{WELCOME_MESSAGE_SENDER}' not found")
+            return
+        
+        admin_id = str(admin_user["_id"])
+        
+        # Don't send welcome message to the admin themselves
+        if new_user_id == admin_id:
+            return
+        
+        # Check if conversation already exists
+        existing_conv = await db.conversations.find_one({
+            "participants": {"$all": [admin_id, new_user_id]}
+        })
+        
+        if existing_conv:
+            # Conversation exists, check if welcome was already sent
+            welcome_exists = await db.messages.find_one({
+                "conversation_id": str(existing_conv["_id"]),
+                "sender_id": admin_id,
+                "content": {"$regex": "Welcome to MOOD"}
+            })
+            if welcome_exists:
+                logger.info(f"Welcome message already sent to user {new_user_id}")
+                return
+            conversation_id = str(existing_conv["_id"])
+        else:
+            # Create new conversation
+            conversation = {
+                "participants": [admin_id, new_user_id],
+                "created_at": datetime.now(timezone.utc),
+                "updated_at": datetime.now(timezone.utc),
+                "last_message": WELCOME_MESSAGE_TEXT[:50] + "...",
+                "last_message_at": datetime.now(timezone.utc),
+            }
+            result = await db.conversations.insert_one(conversation)
+            conversation_id = str(result.inserted_id)
+        
+        # Create the welcome message
+        message = {
+            "conversation_id": conversation_id,
+            "sender_id": admin_id,
+            "content": WELCOME_MESSAGE_TEXT,
+            "created_at": datetime.now(timezone.utc),
+            "read": False,
+        }
+        await db.messages.insert_one(message)
+        
+        # Update conversation with last message
+        await db.conversations.update_one(
+            {"_id": ObjectId(conversation_id)},
+            {
+                "$set": {
+                    "last_message": WELCOME_MESSAGE_TEXT[:50] + "...",
+                    "last_message_at": datetime.now(timezone.utc),
+                    "updated_at": datetime.now(timezone.utc),
+                }
+            }
+        )
+        
+        logger.info(f"Welcome message sent to new user {new_user_id}")
+        
+    except Exception as e:
+        logger.error(f"Failed to send welcome message to user {new_user_id}: {e}")
+
 async def auto_seed_featured_workouts():
     """
     Auto-seed featured workouts on startup.
