@@ -597,40 +597,54 @@ async def get_comparison_stats(
     current_end: datetime,
     previous_start: datetime,
     previous_end: datetime,
+    include_internal: bool = False
 ) -> Dict[str, Any]:
     """
     Get comparison stats between two periods for KPI cards.
     Returns current values, previous values, and percentage change.
+    Excludes internal users by default.
     """
     try:
-        exclude_filter = {"user_id": {"$nin": EXCLUDED_USER_IDS}}
+        # Get internal user IDs to exclude
+        excluded_user_ids = set()
+        if not include_internal:
+            excluded_user_ids = await get_internal_user_ids(db)
+        
+        exclude_filter = {}
+        if excluded_user_ids:
+            exclude_filter = {"user_id": {"$nin": list(excluded_user_ids)}}
         
         async def count_events(event_type: str, start: datetime, end: datetime) -> int:
-            return await db.user_events.count_documents({
+            query = {
                 "event_type": event_type,
                 "timestamp": {"$gte": start, "$lte": end},
-                **exclude_filter
-            })
+            }
+            if excluded_user_ids:
+                query["user_id"] = {"$nin": list(excluded_user_ids)}
+            return await db.user_events.count_documents(query)
         
         async def count_unique_users(event_type: str, start: datetime, end: datetime) -> int:
-            users = await db.user_events.distinct("user_id", {
+            query = {
                 "event_type": event_type,
                 "timestamp": {"$gte": start, "$lte": end},
-                **exclude_filter
-            })
-            return len([u for u in users if u not in EXCLUDED_USER_IDS])
+            }
+            if excluded_user_ids:
+                query["user_id"] = {"$nin": list(excluded_user_ids)}
+            users = await db.user_events.distinct("user_id", query)
+            return len([u for u in users if u not in excluded_user_ids])
         
         async def count_active_users(start: datetime, end: datetime) -> int:
-            users = await db.user_events.distinct("user_id", {
-                "timestamp": {"$gte": start, "$lte": end},
-                **exclude_filter
-            })
-            return len([u for u in users if u not in EXCLUDED_USER_IDS])
+            query = {"timestamp": {"$gte": start, "$lte": end}}
+            if excluded_user_ids:
+                query["user_id"] = {"$nin": list(excluded_user_ids)}
+            users = await db.user_events.distinct("user_id", query)
+            return len([u for u in users if u not in excluded_user_ids])
         
         async def count_new_users(start: datetime, end: datetime) -> int:
-            return await db.users.count_documents({
-                "created_at": {"$gte": start, "$lte": end}
-            })
+            query = {"created_at": {"$gte": start, "$lte": end}}
+            if not include_internal:
+                query["is_internal"] = {"$ne": True}
+            return await db.users.count_documents(query)
         
         # Calculate metrics for both periods
         metrics = {}
