@@ -8738,6 +8738,18 @@ async def seed_featured_workouts(
     
     logger.info(f"Seeded {len(inserted_ids)} featured workouts for admin {current_user_id}")
     
+    # Audit log
+    await log_admin_action(
+        admin_user_id=current_user_id,
+        action="seed_featured_workouts",
+        endpoint="/admin/seed-featured-workouts",
+        request_body_redacted={},
+        status_code=200,
+        result_summary=f"Seeded {len(inserted_ids)} workouts (existing: {existing_count})",
+        ip_address=ip_address,
+        user_agent=user_agent
+    )
+    
     return {
         "success": True,
         "message": f"Seeded {len(inserted_ids)} featured workouts",
