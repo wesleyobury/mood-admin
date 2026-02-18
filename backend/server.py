@@ -66,6 +66,7 @@ from admin_analytics import (
     search_users,
     get_user_timeline,
     get_comparison_stats,
+    get_engagement_metrics,
 )
 from content_moderation import (
     check_content,
