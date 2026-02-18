@@ -6,8 +6,4 @@
       "use": "@vercel/next"
     }
   ],
-  "env": {
-    "NEXT_PUBLIC_API_BASE_URL": "@mood_api_base_url",
-    "NEXT_PUBLIC_ENV_NAME": "@mood_env_name"
-  }
 }
