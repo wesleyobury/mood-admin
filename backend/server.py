@@ -2528,6 +2528,7 @@ async def get_funnel_endpoint(
     steps: Optional[str] = None,  # Comma-separated list of event types
     include_users: bool = False,
     limit_users: int = 100,
+    include_internal: bool = False,
     current_user_id: str = Depends(require_admin)
 ):
     """
@@ -2539,6 +2540,7 @@ async def get_funnel_endpoint(
     - steps: Comma-separated event types (default: app_session_start,mood_selected,workout_started,workout_completed,post_created)
     - include_users: Include user IDs for each step
     - limit_users: Max users to return per step
+    - include_internal: Include internal/staff users (default: false)
     
     Example: /analytics/admin/funnel?start=2025-01-01&end=2025-01-31&steps=app_session_start,workout_started,workout_completed
     """
@@ -2560,7 +2562,7 @@ async def get_funnel_endpoint(
             step_list = [s.strip() for s in steps.split(",") if s.strip()]
         
         return await get_funnel_analysis(
-            db, start_date, end_date, step_list, include_users, limit_users
+            db, start_date, end_date, step_list, include_users, limit_users, include_internal
         )
     except Exception as e:
         logger.error(f"Funnel endpoint error: {e}")
@@ -2573,6 +2575,7 @@ async def get_retention_endpoint(
     end: Optional[str] = None,
     cohort: str = "week",  # day, week, month
     window: int = 28,  # retention window in days
+    include_internal: bool = False,
     current_user_id: str = Depends(require_admin)
 ):
     """
@@ -2583,6 +2586,7 @@ async def get_retention_endpoint(
     - end: ISO date string (default: now)
     - cohort: Cohort grouping period (day, week, month)
     - window: Retention window in days (default: 28)
+    - include_internal: Include internal/staff users (default: false)
     
     Returns cohort retention table with D1, D7, D14, D28 retention rates.
     """
@@ -2598,7 +2602,7 @@ async def get_retention_endpoint(
         else:
             start_date = end_date - timedelta(days=90)
         
-        return await get_retention_cohorts(db, start_date, end_date, cohort, window)
+        return await get_retention_cohorts(db, start_date, end_date, cohort, window, include_internal)
     except Exception as e:
         logger.error(f"Retention endpoint error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
