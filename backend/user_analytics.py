@@ -72,19 +72,27 @@ EVENT_TYPES = {
 }
 
 # Excluded user IDs for analytics (admin/test accounts)
-# Note: Removing admin accounts from exclusion so streaks work properly
-# Platform analytics will filter these out separately if needed
+# Note: These are legacy exclusions. New approach uses users.is_internal field.
+# These are kept for backward compatibility.
 EXCLUDED_USER_IDS = [
-    # "695c956938cfc491f1b71940",  # officialmoodapp - allow tracking for streaks
     "695c9fa0e58a04344db951e5",  # OgeeezzburyTester
-    # "693f94d29a560edaab674fd5",  # old officialmoodapp ID - allow tracking for streaks
 ]
 
 EXCLUDED_USERNAMES = [
-    # "officialmoodapp",  # Allow tracking for streaks
     "ogeeezzburytester",
-    # "ogeeezzbury",  # Allow tracking for streaks
 ]
+
+
+async def get_internal_user_ids(db: AsyncIOMotorDatabase) -> set:
+    """Get set of internal user IDs to exclude from analytics."""
+    internal_users = await db.users.find(
+        {"is_internal": True},
+        {"_id": 1}
+    ).to_list(1000)
+    # Combine database internal users with legacy exclusions
+    ids = {str(u["_id"]) for u in internal_users}
+    ids.update(EXCLUDED_USER_IDS)
+    return ids
 
 
 async def track_user_event(
