@@ -2208,6 +2208,54 @@ async def get_engagement_metrics_endpoint(
     return await get_engagement_metrics(db)
 
 
+@api_router.get("/analytics/admin/data-freshness")
+async def get_data_freshness(
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get data freshness info - last event timestamp and system info.
+    Used to verify data pipeline is working.
+    """
+    try:
+        # Get the most recent event
+        latest_event = await db.user_events.find_one(
+            {},
+            sort=[("timestamp", -1)],
+            projection={"timestamp": 1, "event_type": 1, "_id": 0}
+        )
+        
+        # Get event count for last hour
+        one_hour_ago = datetime.now(timezone.utc) - timedelta(hours=1)
+        events_last_hour = await db.user_events.count_documents({
+            "timestamp": {"$gte": one_hour_ago}
+        })
+        
+        # Get event count for last 24 hours
+        one_day_ago = datetime.now(timezone.utc) - timedelta(hours=24)
+        events_last_24h = await db.user_events.count_documents({
+            "timestamp": {"$gte": one_day_ago}
+        })
+        
+        return {
+            "last_event_at": latest_event["timestamp"].isoformat() if latest_event and latest_event.get("timestamp") else None,
+            "last_event_type": latest_event.get("event_type") if latest_event else None,
+            "events_last_hour": events_last_hour,
+            "events_last_24h": events_last_24h,
+            "checked_at": datetime.now(timezone.utc).isoformat(),
+            "git_sha": GIT_SHA,
+            "deployed_at": DEPLOYED_AT,
+            "environment": APP_ENV,
+        }
+    except Exception as e:
+        logger.error(f"Error getting data freshness: {e}")
+        return {
+            "last_event_at": None,
+            "error": str(e),
+            "git_sha": GIT_SHA,
+            "deployed_at": DEPLOYED_AT,
+        }
+
+
 @api_router.get("/analytics/admin/workout-engagement-chart")
 async def get_workout_engagement_chart(
     period: str = "day",
