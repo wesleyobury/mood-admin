@@ -2408,6 +2408,217 @@ async def get_workout_funnel_endpoint(
 
 
 # ============================================
+# ADMIN PANEL V1 - NEW ANALYTICS ENDPOINTS
+# ============================================
+
+@api_router.get("/analytics/admin/funnel")
+async def get_funnel_endpoint(
+    start: Optional[str] = None,
+    end: Optional[str] = None,
+    steps: Optional[str] = None,  # Comma-separated list of event types
+    include_users: bool = False,
+    limit_users: int = 100,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get funnel analysis with conversion rates between steps.
+    
+    Query params:
+    - start: ISO date string (default: 30 days ago)
+    - end: ISO date string (default: now)
+    - steps: Comma-separated event types (default: app_session_start,mood_selected,workout_started,workout_completed,post_created)
+    - include_users: Include user IDs for each step
+    - limit_users: Max users to return per step
+    
+    Example: /analytics/admin/funnel?start=2025-01-01&end=2025-01-31&steps=app_session_start,workout_started,workout_completed
+    """
+    try:
+        # Parse dates
+        if end:
+            end_date = datetime.fromisoformat(end.replace('Z', '+00:00'))
+        else:
+            end_date = datetime.now(timezone.utc)
+        
+        if start:
+            start_date = datetime.fromisoformat(start.replace('Z', '+00:00'))
+        else:
+            start_date = end_date - timedelta(days=30)
+        
+        # Parse steps
+        step_list = None
+        if steps:
+            step_list = [s.strip() for s in steps.split(",") if s.strip()]
+        
+        return await get_funnel_analysis(
+            db, start_date, end_date, step_list, include_users, limit_users
+        )
+    except Exception as e:
+        logger.error(f"Funnel endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.get("/analytics/admin/retention")
+async def get_retention_endpoint(
+    start: Optional[str] = None,
+    end: Optional[str] = None,
+    cohort: str = "week",  # day, week, month
+    window: int = 28,  # retention window in days
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get retention cohort analysis.
+    
+    Query params:
+    - start: ISO date string (default: 90 days ago)
+    - end: ISO date string (default: now)
+    - cohort: Cohort grouping period (day, week, month)
+    - window: Retention window in days (default: 28)
+    
+    Returns cohort retention table with D1, D7, D14, D28 retention rates.
+    """
+    try:
+        # Parse dates
+        if end:
+            end_date = datetime.fromisoformat(end.replace('Z', '+00:00'))
+        else:
+            end_date = datetime.now(timezone.utc)
+        
+        if start:
+            start_date = datetime.fromisoformat(start.replace('Z', '+00:00'))
+        else:
+            start_date = end_date - timedelta(days=90)
+        
+        return await get_retention_cohorts(db, start_date, end_date, cohort, window)
+    except Exception as e:
+        logger.error(f"Retention endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.get("/analytics/admin/users/search")
+async def search_users_endpoint(
+    q: str,
+    limit: int = 50,
+    skip: int = 0,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Search users by email, username, or user_id.
+    
+    Query params:
+    - q: Search query (min 2 characters)
+    - limit: Max results (default: 50)
+    - skip: Pagination offset
+    
+    Returns user details with 30-day activity summary.
+    """
+    if len(q) < 2:
+        raise HTTPException(status_code=400, detail="Query must be at least 2 characters")
+    
+    return await search_users(db, q, limit, skip)
+
+
+@api_router.get("/analytics/admin/users/{user_id}/timeline")
+async def get_user_timeline_endpoint(
+    user_id: str,
+    start: Optional[str] = None,
+    end: Optional[str] = None,
+    limit: int = 200,
+    event_types: Optional[str] = None,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get detailed event timeline for a specific user.
+    
+    Path params:
+    - user_id: User's MongoDB ObjectId or custom user_id
+    
+    Query params:
+    - start: ISO date string (optional)
+    - end: ISO date string (optional)
+    - limit: Max events (default: 200)
+    - event_types: Comma-separated list of event types to filter
+    
+    Returns events grouped by day with login history and active sessions.
+    """
+    try:
+        start_date = None
+        end_date = None
+        
+        if start:
+            start_date = datetime.fromisoformat(start.replace('Z', '+00:00'))
+        if end:
+            end_date = datetime.fromisoformat(end.replace('Z', '+00:00'))
+        
+        event_type_list = None
+        if event_types:
+            event_type_list = [e.strip() for e in event_types.split(",") if e.strip()]
+        
+        return await get_user_timeline(db, user_id, start_date, end_date, limit, event_type_list)
+    except Exception as e:
+        logger.error(f"User timeline endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.get("/analytics/admin/comparison")
+async def get_comparison_endpoint(
+    start: Optional[str] = None,
+    end: Optional[str] = None,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get comparison stats between current period and previous period.
+    
+    Query params:
+    - start: Current period start (default: 7 days ago)
+    - end: Current period end (default: now)
+    
+    Automatically calculates previous period of same length.
+    Returns metrics with current, previous, and % change.
+    """
+    try:
+        # Parse dates for current period
+        if end:
+            current_end = datetime.fromisoformat(end.replace('Z', '+00:00'))
+        else:
+            current_end = datetime.now(timezone.utc)
+        
+        if start:
+            current_start = datetime.fromisoformat(start.replace('Z', '+00:00'))
+        else:
+            current_start = current_end - timedelta(days=7)
+        
+        # Calculate previous period (same length)
+        period_length = current_end - current_start
+        previous_end = current_start
+        previous_start = previous_end - period_length
+        
+        return await get_comparison_stats(
+            db, current_start, current_end, previous_start, previous_end
+        )
+    except Exception as e:
+        logger.error(f"Comparison endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.get("/analytics/admin/env-info")
+async def get_env_info(
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get environment info for admin panel header.
+    Returns environment name, git SHA, and deployment timestamp.
+    """
+    return {
+        "environment": APP_ENV,
+        "is_staging": IS_STAGING,
+        "git_sha": GIT_SHA,
+        "deployed_at": DEPLOYED_AT,
+        "seed_version": SEED_VERSION,
+        "admin_allowlist": ADMIN_ALLOWLIST,
+    }
+
+
+# ============================================
 # ENHANCED ADMIN ANALYTICS V2 ENDPOINTS
 # ============================================
 
