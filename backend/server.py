@@ -7779,34 +7779,85 @@ async def get_all_exercises_admin(
 
 @api_router.post("/admin/grant-access")
 async def grant_admin_access(
+    request: Request,
+    body: Optional[dict] = None,
     current_user_id: str = Depends(require_admin)
 ):
     """
-    Grant admin access to the current user if they are the designated admin.
-    This is a one-time setup endpoint for the app owner.
+    Grant admin access to a user by username.
+    If no username provided, grants to current user (legacy behavior).
+    Only accessible by existing admins.
     """
-    # Get current user
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
+    # Get request info for audit
+    ip_address = request.client.host if request.client else None
+    user_agent = request.headers.get("user-agent")
     
-    # Only allow the app owner (officialmoodapp) to grant themselves admin
-    if user.get("username", "").lower() != "officialmoodapp":
-        raise HTTPException(status_code=403, detail="Only the app owner can use this endpoint")
+    # Parse body if provided
+    target_username = None
+    if body and isinstance(body, dict):
+        target_username = body.get("username")
+    
+    # Get current admin user for audit
+    admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    
+    if target_username:
+        # Grant to specified user
+        target_user = await db.users.find_one({"username": {"$regex": f"^{target_username}$", "$options": "i"}})
+        if not target_user:
+            await log_admin_action(
+                admin_user_id=current_user_id,
+                action="grant_access",
+                endpoint="/admin/grant-access",
+                request_body_redacted={"target_username": target_username},
+                status_code=404,
+                result_summary=f"User not found: {target_username}",
+                ip_address=ip_address,
+                user_agent=user_agent
+            )
+            raise HTTPException(status_code=404, detail=f"User '{target_username}' not found")
+        
+        target_user_id = str(target_user["_id"])
+    else:
+        # Legacy: grant to current user (self-grant)
+        target_user = admin_user
+        target_user_id = current_user_id
+        target_username = target_user.get("username", "unknown")
     
     # Check if already admin
-    if user.get("is_admin"):
-        return {"message": "User already has admin access", "is_admin": True}
+    if target_user.get("is_admin"):
+        await log_admin_action(
+            admin_user_id=current_user_id,
+            action="grant_access",
+            endpoint="/admin/grant-access",
+            request_body_redacted={"target_username": target_username},
+            status_code=200,
+            result_summary=f"User already admin: {target_username}",
+            ip_address=ip_address,
+            user_agent=user_agent
+        )
+        return {"message": f"User '{target_username}' already has admin access", "is_admin": True, "user_id": target_user_id}
     
     # Grant admin access
     await db.users.update_one(
-        {"_id": ObjectId(current_user_id)},
+        {"_id": ObjectId(target_user_id)},
         {"$set": {"is_admin": True}}
     )
     
-    logger.info(f"Admin access granted to user {user.get('username')} ({current_user_id})")
+    # Audit log
+    await log_admin_action(
+        admin_user_id=current_user_id,
+        action="grant_access",
+        endpoint="/admin/grant-access",
+        request_body_redacted={"target_username": target_username, "target_user_id": target_user_id},
+        status_code=200,
+        result_summary=f"Admin access granted to {target_username}",
+        ip_address=ip_address,
+        user_agent=user_agent
+    )
     
-    return {"message": "Admin access granted successfully", "is_admin": True}
+    logger.info(f"Admin access granted to user {target_username} ({target_user_id}) by {admin_user.get('username')}")
+    
+    return {"message": f"Admin access granted to '{target_username}'", "is_admin": True, "user_id": target_user_id}
 
 @api_router.post("/admin/bootstrap-staging")
 async def bootstrap_staging(
