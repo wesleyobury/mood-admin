@@ -111,6 +111,10 @@ class ApiClient {
     }>("/analytics/admin/env-info");
   }
 
+  async getDataFreshness() {
+    return this.get<DataFreshnessData>("/analytics/admin/data-freshness");
+  }
+
   async getEngagement() {
     return this.get<EngagementData>("/analytics/admin/engagement");
   }
