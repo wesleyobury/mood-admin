@@ -745,44 +745,47 @@ def _calc_change(current: float, previous: float, is_percentage: bool = False) -
 
 async def get_engagement_metrics(
     db: AsyncIOMotorDatabase,
+    include_internal: bool = False
 ) -> Dict[str, Any]:
     """
     Get WAU, MAU, and DAU/MAU stickiness metrics.
     Uses app_session_start as the primary activity event.
+    Excludes internal users by default.
     """
     try:
         now = datetime.now(timezone.utc)
+        
+        # Get internal user IDs to exclude
+        excluded_user_ids = set()
+        if not include_internal:
+            excluded_user_ids = await get_internal_user_ids(db)
         
         # Define time windows
         day_ago = now - timedelta(days=1)
         week_ago = now - timedelta(days=7)
         month_ago = now - timedelta(days=30)
         
-        exclude_filter = {"user_id": {"$nin": EXCLUDED_USER_IDS}}
+        # Build query filter
+        def build_query(event_type: str, since: datetime) -> dict:
+            query = {
+                "event_type": event_type,
+                "timestamp": {"$gte": since},
+            }
+            if excluded_user_ids:
+                query["user_id"] = {"$nin": list(excluded_user_ids)}
+            return query
         
         # DAU - unique users with app_session_start today
-        dau_users = await db.user_events.distinct("user_id", {
-            "event_type": "app_session_start",
-            "timestamp": {"$gte": day_ago},
-            **exclude_filter
-        })
-        dau = len([u for u in dau_users if u not in EXCLUDED_USER_IDS])
+        dau_users = await db.user_events.distinct("user_id", build_query("app_session_start", day_ago))
+        dau = len([u for u in dau_users if u not in excluded_user_ids])
         
         # WAU - unique users with app_session_start in last 7 days
-        wau_users = await db.user_events.distinct("user_id", {
-            "event_type": "app_session_start",
-            "timestamp": {"$gte": week_ago},
-            **exclude_filter
-        })
-        wau = len([u for u in wau_users if u not in EXCLUDED_USER_IDS])
+        wau_users = await db.user_events.distinct("user_id", build_query("app_session_start", week_ago))
+        wau = len([u for u in wau_users if u not in excluded_user_ids])
         
         # MAU - unique users with app_session_start in last 30 days
-        mau_users = await db.user_events.distinct("user_id", {
-            "event_type": "app_session_start",
-            "timestamp": {"$gte": month_ago},
-            **exclude_filter
-        })
-        mau = len([u for u in mau_users if u not in EXCLUDED_USER_IDS])
+        mau_users = await db.user_events.distinct("user_id", build_query("app_session_start", month_ago))
+        mau = len([u for u in mau_users if u not in excluded_user_ids])
         
         # DAU/MAU stickiness
         stickiness = round((dau / mau * 100), 1) if mau > 0 else 0
@@ -797,7 +800,8 @@ async def get_engagement_metrics(
             "stickiness_dau_mau": stickiness,
             "wau_mau_ratio": wau_mau_ratio,
             "computed_at": now.isoformat(),
-            "note": "Primary event: app_session_start"
+            "note": "Primary event: app_session_start",
+            "include_internal": include_internal,
         }
         
     except Exception as e:
