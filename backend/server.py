@@ -60,6 +60,13 @@ from user_analytics import (
     get_workout_funnel_detail,
     EVENT_TYPES,
 )
+from admin_analytics import (
+    get_funnel_analysis,
+    get_retention_cohorts,
+    search_users,
+    get_user_timeline,
+    get_comparison_stats,
+)
 from content_moderation import (
     check_content,
     filter_content,
