@@ -104,6 +104,40 @@ export default function OverviewPage() {
         />
       </div>
 
+      {/* Engagement Metrics - WAU/MAU */}
+      {engagement && (
+        <div className="bg-card border border-border rounded-lg p-4">
+          <h3 className="text-sm font-medium text-muted-foreground mb-4">
+            Active Users & Stickiness
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="text-center">
+              <p className="text-2xl font-bold">{engagement.dau}</p>
+              <p className="text-sm text-muted-foreground">DAU</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold">{engagement.wau}</p>
+              <p className="text-sm text-muted-foreground">WAU</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold">{engagement.mau}</p>
+              <p className="text-sm text-muted-foreground">MAU</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-green-500">{engagement.stickiness_dau_mau}%</p>
+              <p className="text-sm text-muted-foreground">DAU/MAU</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-blue-500">{engagement.wau_mau_ratio}%</p>
+              <p className="text-sm text-muted-foreground">WAU/MAU</p>
+            </div>
+          </div>
+          <p className="text-xs text-muted-foreground text-center mt-3">
+            Based on app_session_start events • Last updated: {new Date(engagement.computed_at).toLocaleTimeString()}
+          </p>
+        </div>
+      )}
+
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <KPICard
