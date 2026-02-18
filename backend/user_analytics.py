@@ -527,76 +527,39 @@ async def get_admin_analytics(
         
         # Total follows
         total_follows = await count_events("user_followed")
-            "timestamp": {"$gte": start_date},
-            **exclude_filter
-        })
         
-        # Workouts started (for completion rate)
-        workouts_started = await db.user_events.count_documents({
-            "event_type": "workout_started",
-            "timestamp": {"$gte": start_date},
-            **exclude_filter
-        })
+        # Total unfollows
+        total_unfollows = await count_events("user_unfollowed")
         
         # Workouts skipped
-        workouts_skipped = await db.user_events.count_documents({
-            "event_type": "workout_skipped",
-            "timestamp": {"$gte": start_date}
-        })
+        workouts_skipped = await count_events("workout_skipped")
         
         # Workouts abandoned
-        workouts_abandoned = await db.user_events.count_documents({
-            "event_type": "workout_abandoned",
-            "timestamp": {"$gte": start_date}
-        })
+        workouts_abandoned = await count_events("workout_abandoned")
         
         # Profile views
-        profile_views = await db.user_events.count_documents({
-            "event_type": "profile_viewed",
-            "timestamp": {"$gte": start_date}
-        })
+        profile_views = await count_events("profile_viewed")
         
         # App sessions
-        app_sessions = await db.user_events.count_documents({
-            "event_type": "app_session_start",
-            "timestamp": {"$gte": start_date}
-        })
+        app_sessions = await count_events("app_session_start")
         
         # App opens (foreground)
-        app_opens = await db.user_events.count_documents({
-            "event_type": "app_opened",
-            "timestamp": {"$gte": start_date}
-        })
+        app_opens = await count_events("app_opened")
         
         # Screen views
-        screen_views = await db.user_events.count_documents({
-            "event_type": "screen_viewed",
-            "timestamp": {"$gte": start_date}
-        })
+        screen_views = await count_events("screen_viewed")
         
         # Tab switches
-        tab_switches = await db.user_events.count_documents({
-            "event_type": "tab_switched",
-            "timestamp": {"$gte": start_date}
-        })
+        tab_switches = await count_events("tab_switched")
         
         # Exercises completed
-        exercises_completed = await db.user_events.count_documents({
-            "event_type": "exercise_completed",
-            "timestamp": {"$gte": start_date}
-        })
+        exercises_completed = await count_events("exercise_completed")
         
         # Mood selections
-        mood_selections = await db.user_events.count_documents({
-            "event_type": "mood_selected",
-            "timestamp": {"$gte": start_date}
-        })
+        mood_selections = await count_events("mood_selected")
         
         # Equipment selections
-        equipment_selections = await db.user_events.count_documents({
-            "event_type": "equipment_selected",
-            "timestamp": {"$gte": start_date}
-        })
+        equipment_selections = await count_events("equipment_selected")
         
         # Difficulty selections
         difficulty_selections = await db.user_events.count_documents({
