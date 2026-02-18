@@ -543,6 +543,52 @@ async def require_admin(current_user_id: str = Depends(get_current_user)) -> str
     return current_user_id
 
 
+# ============================================
+# ADMIN AUDIT LOGGING
+# ============================================
+
+async def log_admin_action(
+    admin_user_id: str,
+    action: str,
+    endpoint: str,
+    request_body_redacted: Optional[dict] = None,
+    status_code: int = 200,
+    result_summary: str = "success",
+    ip_address: Optional[str] = None,
+    user_agent: Optional[str] = None
+):
+    """
+    Log admin actions to admin_audit_logs collection.
+    Schema:
+    { timestamp_utc, admin_user_id, admin_username, action, endpoint, 
+      request_body_redacted, status_code, result_summary, env, ip, user_agent }
+    """
+    try:
+        # Get admin username
+        admin_user = await db.users.find_one({"_id": ObjectId(admin_user_id)})
+        admin_username = admin_user.get("username", "unknown") if admin_user else "unknown"
+        
+        audit_log = {
+            "timestamp_utc": datetime.now(timezone.utc),
+            "admin_user_id": admin_user_id,
+            "admin_username": admin_username,
+            "action": action,
+            "endpoint": endpoint,
+            "request_body_redacted": request_body_redacted or {},
+            "status_code": status_code,
+            "result_summary": result_summary,
+            "env": APP_ENV,
+            "is_staging": IS_STAGING,
+            "ip_address": ip_address,
+            "user_agent": user_agent,
+        }
+        
+        await db.admin_audit_logs.insert_one(audit_log)
+        logger.info(f"📋 Admin audit: {admin_username} - {action} - {result_summary}")
+    except Exception as e:
+        logger.error(f"Failed to log admin action: {e}")
+
+
 async def check_terms_accepted(user_id: str) -> bool:
     """Check if user has accepted the current version of terms of service.
     Returns True if accepted, raises HTTPException with TERMS_NOT_ACCEPTED if not.
