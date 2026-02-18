@@ -518,7 +518,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Heavy thrusts with long lockout pauses',
           battlePlan: '4 rounds\n• 5–6 Thrusts (2s pause)\nRest 150s',
-          imageUrl: '',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241401/mood_app/workout_images/odvl0o6h_ht.jpg',
           intensityReason: 'Paused heavy thrusts build peak glute strength',
           moodTips: [
             {
