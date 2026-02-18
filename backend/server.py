@@ -2677,6 +2677,7 @@ async def get_user_timeline_endpoint(
 async def get_comparison_endpoint(
     start: Optional[str] = None,
     end: Optional[str] = None,
+    include_internal: bool = False,
     current_user_id: str = Depends(require_admin)
 ):
     """
@@ -2685,6 +2686,7 @@ async def get_comparison_endpoint(
     Query params:
     - start: Current period start (default: 7 days ago)
     - end: Current period end (default: now)
+    - include_internal: Include internal/staff users (default: false)
     
     Automatically calculates previous period of same length.
     Returns metrics with current, previous, and % change.
@@ -2707,7 +2709,7 @@ async def get_comparison_endpoint(
         previous_start = previous_end - period_length
         
         return await get_comparison_stats(
-            db, current_start, current_end, previous_start, previous_end
+            db, current_start, current_end, previous_start, previous_end, include_internal
         )
     except Exception as e:
         logger.error(f"Comparison endpoint error: {e}")
