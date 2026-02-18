@@ -2199,13 +2199,17 @@ async def get_session_completion_stats(
 
 @api_router.get("/analytics/admin/engagement")
 async def get_engagement_metrics_endpoint(
+    include_internal: bool = False,
     current_user_id: str = Depends(require_admin)
 ):
     """
     Get WAU, MAU, and DAU/MAU stickiness metrics.
     Uses app_session_start as the primary activity event.
+    
+    Query params:
+    - include_internal: Include internal users (default: false)
     """
-    return await get_engagement_metrics(db)
+    return await get_engagement_metrics(db, include_internal)
 
 
 @api_router.get("/analytics/admin/data-freshness")
