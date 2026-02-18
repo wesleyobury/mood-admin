@@ -107,6 +107,7 @@ class ApiClient {
       git_sha: string;
       deployed_at: string;
       seed_version: string;
+      admin_allowlist: string[];
     }>("/analytics/admin/env-info");
   }
 
