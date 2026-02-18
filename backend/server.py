@@ -8614,6 +8614,7 @@ async def delete_featured_workout(
 # Admin endpoint - seed featured workouts with default data
 @api_router.post("/admin/seed-featured-workouts")
 async def seed_featured_workouts(
+    request: Request,
     current_user_id: str = Depends(require_admin)
 ):
     """
@@ -8621,8 +8622,22 @@ async def seed_featured_workouts(
     Use this to initialize the featured workouts in a new deployment.
     Only accessible by admin users.
     """
-    # Check admin allowlist
+    # Get request info for audit
+    ip_address = request.client.host if request.client else None
+    user_agent = request.headers.get("user-agent")
+    
+    # Check admin allowlist (redundant with require_admin but explicit)
     if not await is_admin_allowed(current_user_id):
+        await log_admin_action(
+            admin_user_id=current_user_id,
+            action="seed_featured_workouts",
+            endpoint="/admin/seed-featured-workouts",
+            request_body_redacted={},
+            status_code=403,
+            result_summary="Admin access denied",
+            ip_address=ip_address,
+            user_agent=user_agent
+        )
         raise HTTPException(status_code=403, detail="Admin access required - not in allowlist")
     
     # Check if already has workouts
