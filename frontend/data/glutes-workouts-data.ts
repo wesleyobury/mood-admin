@@ -425,7 +425,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Slow eccentrics increasing glute time under tension',
           battlePlan: '4 rounds\n• 8–10 Thrusts (3s eccentric)\nRest 90s',
-          imageUrl: '',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240679/mood_app/workout_images/mr69uwpz_bb_hip_thrust.jpg',
           intensityReason: 'Extended eccentric phase maximizes muscle fiber recruitment',
           moodTips: [
             {
