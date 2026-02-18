@@ -450,7 +450,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended thrust sets using fast load reductions',
           battlePlan: '3 rounds\n• 8 Thrusts\n• Drop → 8\n• Drop → 8\nRest 120s',
-          imageUrl: '',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240654/mood_app/workout_images/60kuhstx_hip_thrust.jpg',
           intensityReason: 'Drop sets extend time under tension for hypertrophy',
           moodTips: [
             {
