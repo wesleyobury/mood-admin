@@ -1,37 +1,51 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { api } from "@/lib/api";
+import { api, DataFreshnessData } from "@/lib/api";
 import { useAuth } from "@/lib/auth-context";
+import { Database, Clock } from "lucide-react";
 
 export function EnvBanner() {
   const { isAuthenticated } = useAuth();
-  const [envInfo, setEnvInfo] = useState<{
-    environment: string;
-    is_staging: boolean;
-    git_sha: string;
-    deployed_at: string;
-  } | null>(null);
+  const [freshness, setFreshness] = useState<DataFreshnessData | null>(null);
   const [apiError, setApiError] = useState(false);
 
-  // Fallback to env var if API not available
-  const envName = envInfo?.environment?.toUpperCase() || process.env.NEXT_PUBLIC_ENV_NAME || "UNKNOWN";
-  const isStaging = envInfo?.is_staging ?? (envName === "STAGING");
+  // Derive env info from freshness data
+  const envName = freshness?.environment?.toUpperCase() || process.env.NEXT_PUBLIC_ENV_NAME || "UNKNOWN";
+  const isStaging = envName === "STAGING" || envName === "staging";
 
   useEffect(() => {
-    const fetchEnvInfo = async () => {
+    const fetchData = async () => {
       if (!isAuthenticated) return;
       
-      const result = await api.getEnvInfo();
+      const result = await api.getDataFreshness();
       if (result.data) {
-        setEnvInfo(result.data);
+        setFreshness(result.data);
         setApiError(false);
       } else if (result.error) {
         setApiError(true);
       }
     };
-    fetchEnvInfo();
+    
+    fetchData();
+    // Refresh every 60 seconds
+    const interval = setInterval(fetchData, 60000);
+    return () => clearInterval(interval);
   }, [isAuthenticated]);
+
+  const formatLastEvent = (isoString: string | null) => {
+    if (!isoString) return "No events";
+    const date = new Date(isoString);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffMins = Math.floor(diffMs / 60000);
+    
+    if (diffMins < 1) return "Just now";
+    if (diffMins < 60) return `${diffMins}m ago`;
+    const diffHours = Math.floor(diffMins / 60);
+    if (diffHours < 24) return `${diffHours}h ago`;
+    return date.toLocaleDateString();
+  };
 
   return (
     <div
@@ -50,7 +64,7 @@ export function EnvBanner() {
           {envName}
         </span>
         <span className="text-muted-foreground text-xs">
-          MOOD Admin Dashboard
+          MOOD Admin
         </span>
         {apiError && (
           <span className="text-red-400 text-xs">
@@ -58,14 +72,32 @@ export function EnvBanner() {
           </span>
         )}
       </div>
+      
       <div className="flex items-center gap-4 text-xs text-muted-foreground">
-        {envInfo && (
+        {freshness && (
           <>
-            <span>SHA: {envInfo.git_sha?.slice(0, 7) || "N/A"}</span>
-            <span>
-              Deployed: {envInfo.deployed_at !== "missing" ? envInfo.deployed_at : "N/A"}
+            {/* Data Freshness */}
+            <div className="flex items-center gap-1.5" title={`Last event: ${freshness.last_event_at || 'None'}`}>
+              <Database className="h-3 w-3" />
+              <span>Last event: {formatLastEvent(freshness.last_event_at)}</span>
+              {freshness.events_last_hour > 0 && (
+                <span className="text-green-400">({freshness.events_last_hour}/hr)</span>
+              )}
+            </div>
+            
+            <span className="opacity-30">|</span>
+            
+            {/* Git SHA */}
+            <span title={freshness.git_sha}>
+              SHA: {freshness.git_sha?.slice(0, 7) || "N/A"}
             </span>
-            <span className="opacity-60">All times UTC</span>
+            
+            {/* Deployed At */}
+            <span>
+              Deployed: {freshness.deployed_at !== "missing" ? freshness.deployed_at : "N/A"}
+            </span>
+            
+            <span className="opacity-40">UTC</span>
           </>
         )}
       </div>
