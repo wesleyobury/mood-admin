@@ -47,8 +47,14 @@ async def get_funnel_analysis(
     5. post_created
     
     Returns conversion rates and optionally user lists for each step.
+    Excludes internal users by default (include_internal=False).
     """
     try:
+        # Get internal user IDs to exclude
+        excluded_user_ids = set()
+        if not include_internal:
+            excluded_user_ids = await get_internal_user_ids(db)
+        
         # Default funnel steps if not provided
         if not steps:
             steps = [
@@ -62,8 +68,9 @@ async def get_funnel_analysis(
         # Base filter
         base_filter = {
             "timestamp": {"$gte": start_date, "$lte": end_date},
-            "user_id": {"$nin": EXCLUDED_USER_IDS}
         }
+        if excluded_user_ids:
+            base_filter["user_id"] = {"$nin": list(excluded_user_ids)}
         
         funnel_data = []
         previous_users = None
@@ -74,16 +81,16 @@ async def get_funnel_analysis(
             
             # For registration, check users collection
             if step in ["user_registered", "signup"]:
-                users_cursor = db.users.find(
-                    {"created_at": {"$gte": start_date, "$lte": end_date}},
-                    {"_id": 1}
-                )
+                user_filter = {"created_at": {"$gte": start_date, "$lte": end_date}}
+                if not include_internal:
+                    user_filter["is_internal"] = {"$ne": True}
+                users_cursor = db.users.find(user_filter, {"_id": 1})
                 user_ids = set()
                 async for user in users_cursor:
                     user_ids.add(str(user["_id"]))
             else:
                 user_ids_list = await db.user_events.distinct("user_id", step_filter)
-                user_ids = set(uid for uid in user_ids_list if uid not in EXCLUDED_USER_IDS)
+                user_ids = set(uid for uid in user_ids_list if uid not in excluded_user_ids)
             
             # Calculate conversion from previous step
             if i == 0:
