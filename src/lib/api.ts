@@ -1,0 +1,408 @@
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8001/api";
+
+export interface ApiResponse<T = unknown> {
+  data?: T;
+  error?: string;
+}
+
+class ApiClient {
+  private token: string | null = null;
+
+  setToken(token: string | null) {
+    this.token = token;
+    if (typeof window !== "undefined") {
+      if (token) {
+        localStorage.setItem("admin_token", token);
+      } else {
+        localStorage.removeItem("admin_token");
+      }
+    }
+  }
+
+  getToken(): string | null {
+    if (this.token) return this.token;
+    if (typeof window !== "undefined") {
+      this.token = localStorage.getItem("admin_token");
+    }
+    return this.token;
+  }
+
+  private async request<T>(
+    endpoint: string,
+    options: RequestInit = {}
+  ): Promise<ApiResponse<T>> {
+    const token = this.getToken();
+    const headers: HeadersInit = {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...options.headers,
+    };
+
+    try {
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        ...options,
+        headers,
+      });
+
+      if (response.status === 401) {
+        this.setToken(null);
+        return { error: "Unauthorized" };
+      }
+
+      if (response.status === 403) {
+        return { error: "Admin access required" };
+      }
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        return { error: errorData.detail || `HTTP ${response.status}` };
+      }
+
+      const data = await response.json();
+      return { data };
+    } catch (error) {
+      console.error("API request error:", error);
+      return { error: error instanceof Error ? error.message : "Network error" };
+    }
+  }
+
+  async get<T>(endpoint: string): Promise<ApiResponse<T>> {
+    return this.request<T>(endpoint, { method: "GET" });
+  }
+
+  async post<T>(endpoint: string, body?: unknown): Promise<ApiResponse<T>> {
+    return this.request<T>(endpoint, {
+      method: "POST",
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  }
+
+  // Auth endpoints
+  async login(username: string, password: string) {
+    const result = await this.post<{ token: string; user_id: string }>(
+      "/auth/login",
+      { username, password }
+    );
+    if (result.data?.token) {
+      this.setToken(result.data.token);
+    }
+    return result;
+  }
+
+  async checkAdmin() {
+    return this.get<{
+      user_id: string;
+      username: string;
+      email: string;
+      is_admin_effective: boolean;
+      admin_matched_by: string;
+    }>("/auth/me");
+  }
+
+  // Analytics endpoints
+  async getEnvInfo() {
+    return this.get<{
+      environment: string;
+      is_staging: boolean;
+      git_sha: string;
+      deployed_at: string;
+      seed_version: string;
+      admin_allowlist: string[];
+    }>("/analytics/admin/env-info");
+  }
+
+  async getEngagement() {
+    return this.get<EngagementData>("/analytics/admin/engagement");
+  }
+
+  async getPlatformStats(days: number = 30) {
+    return this.get<PlatformStats>(`/analytics/admin/platform-stats?days=${days}`);
+  }
+
+  async getTimeSeries(metricType: string, period: string = "day", limit: number = 30) {
+    return this.get<TimeSeriesData>(
+      `/analytics/admin/time-series/${metricType}?period=${period}&limit=${limit}`
+    );
+  }
+
+  async getComparison(start?: string, end?: string) {
+    const params = new URLSearchParams();
+    if (start) params.append("start", start);
+    if (end) params.append("end", end);
+    return this.get<ComparisonData>(`/analytics/admin/comparison?${params}`);
+  }
+
+  async getFunnel(
+    start?: string,
+    end?: string,
+    steps?: string[],
+    includeUsers: boolean = false
+  ) {
+    const params = new URLSearchParams();
+    if (start) params.append("start", start);
+    if (end) params.append("end", end);
+    if (steps) params.append("steps", steps.join(","));
+    if (includeUsers) params.append("include_users", "true");
+    return this.get<FunnelData>(`/analytics/admin/funnel?${params}`);
+  }
+
+  async getRetention(
+    start?: string,
+    end?: string,
+    cohort: string = "week",
+    window: number = 28
+  ) {
+    const params = new URLSearchParams();
+    if (start) params.append("start", start);
+    if (end) params.append("end", end);
+    params.append("cohort", cohort);
+    params.append("window", window.toString());
+    return this.get<RetentionData>(`/analytics/admin/retention?${params}`);
+  }
+
+  async getBreakdown(metricType: string, days: number = 30) {
+    return this.get<BreakdownData>(
+      `/analytics/admin/breakdown/${metricType}?days=${days}`
+    );
+  }
+
+  async getMoodBreakdown(days: number = 30) {
+    return this.get<MoodBreakdownData>(`/analytics/admin/moods?days=${days}`);
+  }
+
+  async getEquipmentBreakdown(days: number = 30) {
+    return this.get<EquipmentBreakdownData>(`/analytics/admin/equipment?days=${days}`);
+  }
+
+  async getDifficultyBreakdown(days: number = 30) {
+    return this.get<DifficultyBreakdownData>(`/analytics/admin/difficulties?days=${days}`);
+  }
+
+  async getExercisesBreakdown(days: number = 30) {
+    return this.get<ExercisesBreakdownData>(`/analytics/admin/exercises?days=${days}`);
+  }
+
+  async getSocialBreakdown(days: number = 30) {
+    return this.get<SocialBreakdownData>(`/analytics/admin/social?days=${days}`);
+  }
+
+  async searchUsers(query: string, limit: number = 50) {
+    return this.get<UserSearchResult>(
+      `/analytics/admin/users/search?q=${encodeURIComponent(query)}&limit=${limit}`
+    );
+  }
+
+  async getUserTimeline(userId: string, start?: string, end?: string) {
+    const params = new URLSearchParams();
+    if (start) params.append("start", start);
+    if (end) params.append("end", end);
+    return this.get<UserTimelineData>(`/analytics/admin/users/${userId}/timeline?${params}`);
+  }
+
+  // Admin actions
+  async seedFeaturedWorkouts() {
+    return this.post<{ message: string }>("/admin/seed-featured-workouts");
+  }
+
+  async grantAccess(username: string) {
+    return this.post<{ message: string; user_id: string }>("/admin/grant-access", { username });
+  }
+}
+
+export const api = new ApiClient();
+
+// Types
+export interface EngagementData {
+  dau: number;
+  wau: number;
+  mau: number;
+  stickiness_dau_mau: number;
+  wau_mau_ratio: number;
+  computed_at: string;
+  note: string;
+}
+
+export interface PlatformStats {
+  period_days: number;
+  total_users: number;
+  active_users: number;
+  daily_active_users: number;
+  new_users: number;
+  total_workouts_started: number;
+  total_workouts_completed: number;
+  workout_completion_rate: number;
+  total_posts_created: number;
+  total_likes: number;
+  total_comments: number;
+  total_follows: number;
+  retention_rate: number;
+  popular_mood_categories: { mood: string; count: number }[];
+}
+
+export interface TimeSeriesData {
+  metric_type: string;
+  period: string;
+  labels: string[];
+  values: number[];
+  secondary_values: number[];
+  total: number;
+  average: number;
+}
+
+export interface ComparisonData {
+  current_period: { start: string; end: string };
+  previous_period: { start: string; end: string };
+  metrics: Record<string, MetricComparison>;
+}
+
+export interface MetricComparison {
+  current: number;
+  previous: number;
+  change: number;
+  change_pct: number;
+  trend: "up" | "down" | "flat";
+  is_percentage: boolean;
+}
+
+export interface FunnelData {
+  start_date: string;
+  end_date: string;
+  steps: FunnelStep[];
+  overall_conversion: number;
+  total_entry_users: number;
+  total_completed_users: number;
+}
+
+export interface FunnelStep {
+  step: string;
+  step_index: number;
+  step_label: string;
+  unique_users: number;
+  converted_users: number;
+  dropped_users: number;
+  conversion_rate: number;
+  dropoff_rate: number;
+  converted_user_ids?: string[];
+  dropped_user_ids?: string[];
+}
+
+export interface RetentionData {
+  start_date: string;
+  end_date: string;
+  cohort_period: string;
+  retention_window: number;
+  retention_days: string[];
+  cohorts: RetentionCohort[];
+  average_retention: Record<string, number>;
+  heatmap_data: { cohort: string; day: string; value: number }[];
+  total_users: number;
+}
+
+export interface RetentionCohort {
+  cohort: string;
+  cohort_label: string;
+  cohort_size: number;
+  retention: Record<string, { retained: number; percentage: number }>;
+}
+
+export interface BreakdownData {
+  metric_type: string;
+  items: { name: string; count: number }[];
+  total: number;
+}
+
+export interface MoodBreakdownData {
+  total_selections: number;
+  moods: { mood: string; selection_count: number; unique_users: number; percentage: number }[];
+  period_days: number;
+}
+
+export interface EquipmentBreakdownData {
+  total_selections: number;
+  equipment: { equipment: string; selection_count: number; unique_users: number; percentage: number }[];
+  period_days: number;
+}
+
+export interface DifficultyBreakdownData {
+  total_selections: number;
+  difficulties: { difficulty: string; selection_count: number; unique_users: number; percentage: number }[];
+  period_days: number;
+}
+
+export interface ExercisesBreakdownData {
+  total_completions: number;
+  exercises: { exercise_name: string; completion_count: number; unique_users: number; percentage: number }[];
+  period_days: number;
+}
+
+export interface SocialBreakdownData {
+  top_likers: { user_id: string; username: string; count: number }[];
+  top_commenters: { user_id: string; username: string; count: number }[];
+  period_days: number;
+}
+
+export interface UserSearchResult {
+  users: UserSearchItem[];
+  total: number;
+  query: string;
+}
+
+export interface UserSearchItem {
+  user_id: string;
+  username: string;
+  email: string;
+  name: string;
+  avatar: string;
+  created_at: string;
+  last_active: string;
+  is_admin: boolean;
+  auth_provider: string;
+  total_logins: number;
+  activity_30d: {
+    sessions: number;
+    workouts_started: number;
+    workouts_completed: number;
+    posts: number;
+  };
+  followers_count: number;
+  following_count: number;
+  current_streak: number;
+}
+
+export interface UserTimelineData {
+  user: {
+    user_id: string;
+    username: string;
+    email: string;
+    name: string;
+    avatar: string;
+    created_at: string;
+    is_admin: boolean;
+    current_streak: number;
+    total_workouts: number;
+  };
+  events: TimelineEvent[];
+  events_by_day: Record<string, TimelineEvent[]>;
+  total_events: number;
+  login_history: {
+    timestamp: string;
+    method: string;
+    success: boolean;
+    ip_address: string;
+  }[];
+  active_sessions: {
+    created_at: string;
+    last_activity: string;
+    device_type: string;
+    login_method: string;
+  }[];
+}
+
+export interface TimelineEvent {
+  event_id: string;
+  event_type: string;
+  event_label: string;
+  category: string;
+  timestamp: string;
+  metadata: Record<string, unknown>;
+}
