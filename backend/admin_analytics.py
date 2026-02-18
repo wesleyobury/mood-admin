@@ -189,6 +189,7 @@ async def get_retention_cohorts(
     end_date: datetime,
     cohort_period: str = "week",  # "day", "week", "month"
     retention_window: int = 28,  # days to track retention
+    include_internal: bool = False
 ) -> Dict[str, Any]:
     """
     Get retention cohort analysis.
@@ -200,11 +201,18 @@ async def get_retention_cohorts(
     - Cohort labels
     - Retention percentages for D1, D7, D14, D28 (or custom window)
     - Heatmap data for visualization
+    
+    Excludes internal users by default (include_internal=False).
     """
     try:
+        # Build user filter
+        user_filter = {"created_at": {"$gte": start_date, "$lte": end_date}}
+        if not include_internal:
+            user_filter["is_internal"] = {"$ne": True}
+        
         # Get all users who signed up in the date range
         users = await db.users.find(
-            {"created_at": {"$gte": start_date, "$lte": end_date}},
+            user_filter,
             {"_id": 1, "created_at": 1, "username": 1}
         ).to_list(100000)
         
@@ -217,6 +225,7 @@ async def get_retention_cohorts(
                 "cohorts": [],
                 "retention_days": [],
                 "heatmap_data": [],
+                "include_internal": include_internal,
             }
         
         # Group users into cohorts
