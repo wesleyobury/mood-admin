@@ -212,6 +212,16 @@ class ApiClient {
 export const api = new ApiClient();
 
 // Types
+export interface EngagementData {
+  dau: number;
+  wau: number;
+  mau: number;
+  stickiness_dau_mau: number;
+  wau_mau_ratio: number;
+  computed_at: string;
+  note: string;
+}
+
 export interface PlatformStats {
   period_days: number;
   total_users: number;
