@@ -9482,6 +9482,36 @@ async def startup_db_client():
     # Log environment info
     logger.info(f"🌍 Environment: APP_ENV={APP_ENV}, IS_STAGING={IS_STAGING}")
     
+    # Create/verify MongoDB indexes for analytics performance
+    try:
+        # user_events indexes
+        await db.user_events.create_index([("timestamp", -1)])
+        await db.user_events.create_index([("user_id", 1), ("timestamp", -1)])
+        await db.user_events.create_index([("event_type", 1), ("timestamp", -1)])
+        await db.user_events.create_index([("event_type", 1), ("user_id", 1)])
+        
+        # users indexes
+        await db.users.create_index([("created_at", -1)])
+        await db.users.create_index([("username", 1)])
+        await db.users.create_index([("email", 1)])
+        
+        # daily_activity indexes
+        await db.daily_activity.create_index([("date", -1)])
+        await db.daily_activity.create_index([("user_id", 1), ("date", -1)])
+        
+        # login_events indexes
+        await db.login_events.create_index([("user_id", 1), ("timestamp", -1)])
+        await db.login_events.create_index([("timestamp", -1)])
+        
+        # admin_audit_logs indexes
+        await db.admin_audit_logs.create_index([("timestamp_utc", -1)])
+        await db.admin_audit_logs.create_index([("admin_user_id", 1), ("timestamp_utc", -1)])
+        await db.admin_audit_logs.create_index([("action", 1), ("timestamp_utc", -1)])
+        
+        logger.info("✅ MongoDB indexes verified/created for analytics")
+    except Exception as e:
+        logger.error(f"⚠️ Failed to create some indexes: {e}")
+    
     # Start notification background worker
     try:
         await start_notification_worker(db)
