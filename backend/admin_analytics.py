@@ -707,3 +707,72 @@ def _calc_change(current: float, previous: float, is_percentage: bool = False) -
         "trend": "up" if change_pct > 0 else ("down" if change_pct < 0 else "flat"),
         "is_percentage": is_percentage,
     }
+
+
+async def get_engagement_metrics(
+    db: AsyncIOMotorDatabase,
+) -> Dict[str, Any]:
+    """
+    Get WAU, MAU, and DAU/MAU stickiness metrics.
+    Uses app_session_start as the primary activity event.
+    """
+    try:
+        now = datetime.now(timezone.utc)
+        
+        # Define time windows
+        day_ago = now - timedelta(days=1)
+        week_ago = now - timedelta(days=7)
+        month_ago = now - timedelta(days=30)
+        
+        exclude_filter = {"user_id": {"$nin": EXCLUDED_USER_IDS}}
+        
+        # DAU - unique users with app_session_start today
+        dau_users = await db.user_events.distinct("user_id", {
+            "event_type": "app_session_start",
+            "timestamp": {"$gte": day_ago},
+            **exclude_filter
+        })
+        dau = len([u for u in dau_users if u not in EXCLUDED_USER_IDS])
+        
+        # WAU - unique users with app_session_start in last 7 days
+        wau_users = await db.user_events.distinct("user_id", {
+            "event_type": "app_session_start",
+            "timestamp": {"$gte": week_ago},
+            **exclude_filter
+        })
+        wau = len([u for u in wau_users if u not in EXCLUDED_USER_IDS])
+        
+        # MAU - unique users with app_session_start in last 30 days
+        mau_users = await db.user_events.distinct("user_id", {
+            "event_type": "app_session_start",
+            "timestamp": {"$gte": month_ago},
+            **exclude_filter
+        })
+        mau = len([u for u in mau_users if u not in EXCLUDED_USER_IDS])
+        
+        # DAU/MAU stickiness
+        stickiness = round((dau / mau * 100), 1) if mau > 0 else 0
+        
+        # WAU/MAU ratio
+        wau_mau_ratio = round((wau / mau * 100), 1) if mau > 0 else 0
+        
+        return {
+            "dau": dau,
+            "wau": wau,
+            "mau": mau,
+            "stickiness_dau_mau": stickiness,
+            "wau_mau_ratio": wau_mau_ratio,
+            "computed_at": now.isoformat(),
+            "note": "Primary event: app_session_start"
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting engagement metrics: {e}")
+        return {
+            "dau": 0,
+            "wau": 0,
+            "mau": 0,
+            "stickiness_dau_mau": 0,
+            "wau_mau_ratio": 0,
+            "error": str(e)
+        }
