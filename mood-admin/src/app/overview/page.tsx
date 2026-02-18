@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
-import { api, PlatformStats, ComparisonData, TimeSeriesData } from "@/lib/api";
+import { api, PlatformStats, ComparisonData, TimeSeriesData, EngagementData } from "@/lib/api";
 import { KPICard } from "@/components/KPICard";
 import { TimeSeriesChart } from "@/components/charts/TimeSeriesChart";
 import { DateRangePicker } from "@/components/DateRangePicker";
@@ -16,6 +16,8 @@ import {
   Heart,
   Bell,
   Activity,
+  TrendingUp,
+  CalendarDays,
 } from "lucide-react";
 import { redirect } from "next/navigation";
 
@@ -23,6 +25,7 @@ export default function OverviewPage() {
   const { isAuthenticated, isAdmin, isLoading } = useAuth();
   const [stats, setStats] = useState<PlatformStats | null>(null);
   const [comparison, setComparison] = useState<ComparisonData | null>(null);
+  const [engagement, setEngagement] = useState<EngagementData | null>(null);
   const [dauData, setDauData] = useState<TimeSeriesData | null>(null);
   const [newUsersData, setNewUsersData] = useState<TimeSeriesData | null>(null);
   const [workoutsData, setWorkoutsData] = useState<TimeSeriesData | null>(null);
@@ -44,9 +47,10 @@ export default function OverviewPage() {
       setLoading(true);
       const days = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
       
-      const [statsRes, compRes, dauRes, usersRes, workoutsRes, postsRes] = await Promise.all([
+      const [statsRes, compRes, engRes, dauRes, usersRes, workoutsRes, postsRes] = await Promise.all([
         api.getPlatformStats(days),
         api.getComparison(format(startDate, "yyyy-MM-dd"), format(endDate, "yyyy-MM-dd")),
+        api.getEngagement(),
         api.getTimeSeries("active_users", "day", days),
         api.getTimeSeries("new_users", "day", days),
         api.getTimeSeries("workouts_completed", "day", days),
@@ -55,6 +59,7 @@ export default function OverviewPage() {
 
       if (statsRes.data) setStats(statsRes.data);
       if (compRes.data) setComparison(compRes.data);
+      if (engRes.data) setEngagement(engRes.data);
       if (dauRes.data) setDauData(dauRes.data);
       if (usersRes.data) setNewUsersData(usersRes.data);
       if (workoutsRes.data) setWorkoutsData(workoutsRes.data);
