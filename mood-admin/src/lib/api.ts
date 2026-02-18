@@ -226,6 +226,18 @@ export interface EngagementData {
   note: string;
 }
 
+export interface DataFreshnessData {
+  last_event_at: string | null;
+  last_event_type: string | null;
+  events_last_hour: number;
+  events_last_24h: number;
+  checked_at: string;
+  git_sha: string;
+  deployed_at: string;
+  environment: string;
+  error?: string;
+}
+
 export interface PlatformStats {
   period_days: number;
   total_users: number;
