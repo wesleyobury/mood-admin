@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 MONGO_URL = os.environ.get("MONGO_URL", "mongodb://localhost:27017")
+DB_NAME = "mood_app"  # Correct database name
 
 # Realistic fitness influencer profiles
 TEST_PROFILES = [
@@ -22,7 +23,7 @@ TEST_PROFILES = [
     },
     {
         "username": "mike.fitness",
-        "name": "Mike Johnson",
+        "name": "Mike Johnson", 
         "avatar": "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=150&h=150&fit=crop&crop=faces"
     },
     {
@@ -38,7 +39,7 @@ TEST_PROFILES = [
     {
         "username": "maya.moves",
         "name": "Maya Thompson",
-        "avatar": "https://images.unsplash.com/photo-1609899464726-209befde tried?w=150&h=150&fit=crop&crop=faces"
+        "avatar": "https://images.unsplash.com/photo-1609899464726-209befde378e?w=150&h=150&fit=crop&crop=faces"
     },
     {
         "username": "alexfitpro",
@@ -59,16 +60,16 @@ TEST_PROFILES = [
 
 async def main():
     client = AsyncIOMotorClient(MONGO_URL)
-    db = client.mood_fitness
+    db = client[DB_NAME]
     
-    # Find officialmoodapp user
-    target_user = await db.users.find_one({"username": {"$regex": "^officialmoodapp$", "$options": "i"}})
+    # Find OgeeezzburyTester user
+    target_user = await db.users.find_one({"username": {"$regex": "^OgeeezzburyTester$", "$options": "i"}})
     if not target_user:
-        print("❌ officialmoodapp user not found!")
+        print("❌ OgeeezzburyTester user not found!")
         return
     
     target_user_id = str(target_user["_id"])
-    print(f"✅ Found officialmoodapp: {target_user_id}")
+    print(f"✅ Found OgeeezzburyTester: {target_user_id}")
     
     # Create test users if they don't exist, and create notifications
     notifications_created = []
@@ -134,7 +135,7 @@ async def main():
         notifications_created.append(str(result.inserted_id))
         print(f"  ✅ Created {template['type']} notification from @{profile['username']}")
     
-    print(f"\n🎉 Created {len(notifications_created)} notifications for officialmoodapp!")
+    print(f"\n🎉 Created {len(notifications_created)} notifications for OgeeezzburyTester!")
     print("Open the app and check the notifications tab.")
     
     client.close()
