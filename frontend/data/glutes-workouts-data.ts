@@ -543,7 +543,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Descending ladder maximizing glute fatigue',
           battlePlan: '2–3 ladders\n• 12 → 10 → 8 → 6 Thrusts\nRest 150s',
-          imageUrl: '',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241402/mood_app/workout_images/roi44n5q_download_10_.jpg',
           intensityReason: 'Ladder format accumulates massive training volume',
           moodTips: [
             {
