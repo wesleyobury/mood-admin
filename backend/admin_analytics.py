@@ -4,9 +4,12 @@ Advanced analytics endpoints for the admin panel including:
 - Funnel analysis
 - Retention cohorts
 - User search and timeline
+
+All analytics exclude internal users (is_internal=true) by default.
+Use include_internal=true to include them.
 """
 from datetime import datetime, timezone, timedelta
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Set
 from motor.motor_asyncio import AsyncIOMotorDatabase
 from bson import ObjectId
 import logging
@@ -14,14 +17,14 @@ from collections import defaultdict
 
 logger = logging.getLogger(__name__)
 
-# Excluded user IDs for analytics (admin/test accounts)
-EXCLUDED_USER_IDS = [
-    "695c9fa0e58a04344db951e5",  # OgeeezzburyTester
-]
 
-EXCLUDED_USERNAMES = [
-    "ogeeezzburytester",
-]
+async def get_internal_user_ids(db: AsyncIOMotorDatabase) -> Set[str]:
+    """Get set of internal user IDs to exclude from analytics."""
+    internal_users = await db.users.find(
+        {"is_internal": True},
+        {"_id": 1}
+    ).to_list(1000)
+    return {str(u["_id"]) for u in internal_users}
 
 
 async def get_funnel_analysis(
@@ -30,7 +33,8 @@ async def get_funnel_analysis(
     end_date: datetime,
     steps: Optional[List[str]] = None,
     include_users: bool = False,
-    limit_users: int = 100
+    limit_users: int = 100,
+    include_internal: bool = False
 ) -> Dict[str, Any]:
     """
     Get funnel analysis with conversion rates between steps.
