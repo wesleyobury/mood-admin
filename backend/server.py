@@ -2197,6 +2197,17 @@ async def get_session_completion_stats(
         raise HTTPException(status_code=500, detail="Failed to fetch session completion stats")
 
 
+@api_router.get("/analytics/admin/engagement")
+async def get_engagement_metrics_endpoint(
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get WAU, MAU, and DAU/MAU stickiness metrics.
+    Uses app_session_start as the primary activity event.
+    """
+    return await get_engagement_metrics(db)
+
+
 @api_router.get("/analytics/admin/workout-engagement-chart")
 async def get_workout_engagement_chart(
     period: str = "day",
