@@ -111,6 +111,10 @@ class ApiClient {
     }>("/analytics/admin/env-info");
   }
 
+  async getEngagement() {
+    return this.get<EngagementData>("/analytics/admin/engagement");
+  }
+
   async getPlatformStats(days: number = 30) {
     return this.get<PlatformStats>(`/analytics/admin/platform-stats?days=${days}`);
   }
