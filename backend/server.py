@@ -1479,10 +1479,15 @@ async def get_journey(
 async def get_platform_stats(
     response: Response,
     days: int = 30,
+    include_internal: bool = False,
     current_user_id: str = Depends(require_admin)
 ):
     """
     Get platform-wide analytics (admin only)
+    
+    Query params:
+    - days: Number of days to look back (default: 30)
+    - include_internal: Include internal/staff users (default: false)
     """
     # Admin check using canonical function
     is_admin, matched_by = await is_admin_effective(current_user_id)
@@ -1490,7 +1495,7 @@ async def get_platform_stats(
     if not is_admin:
         raise HTTPException(status_code=403, detail=f"Admin access required - not in allowlist (checked: {matched_by})")
     
-    stats = await get_admin_analytics(db, days)
+    stats = await get_admin_analytics(db, days, include_internal)
     return stats
 
 
