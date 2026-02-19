@@ -284,6 +284,102 @@ export function generateLazyCarts(
   return generateWorkoutCarts(intensity, moodCard, workoutType, combinedDatabase);
 }
 
+// Export for I'm Feeling Lazy path with specific training type selection
+export function generateLazyCartsWithType(
+  intensity: IntensityLevel,
+  trainingType: 'bodyweight' | 'weights',
+  moodCard: string = "I'm feeling lazy",
+): GeneratedCart[] {
+  // Determine exercise count based on training type and intensity
+  let exerciseCount: number;
+  
+  if (trainingType === 'bodyweight') {
+    // Move your body: 3 for beginner, 4 for intermediate and advanced
+    exerciseCount = intensity === 'beginner' ? 3 : 4;
+  } else {
+    // Lift weights: 1 from weights + 1 from bodyweight = 2 total
+    exerciseCount = 2;
+  }
+  
+  const workoutType = trainingType === 'bodyweight' ? 'Move Your Body' : 'Lift Weights';
+  
+  // Get databases based on training type
+  const bodyweightDatabase = lazyBodyweightDatabase;
+  const weightsDatabase = [
+    ...lazyUpperBodyDatabase,
+    ...lazyLowerBodyDatabase,
+    ...lazyFullBodyDatabase
+  ];
+  
+  const carts: GeneratedCart[] = [];
+  const cartCount = 3; // Generate 3 workout options
+  const usedWorkoutNames = new Set<string>();
+  
+  for (let i = 0; i < cartCount; i++) {
+    const workoutItems: WorkoutItem[] = [];
+    
+    if (trainingType === 'bodyweight') {
+      // Only bodyweight exercises
+      const allWorkouts = getAllWorkoutsForIntensity(bodyweightDatabase, intensity);
+      const shuffled = shuffleArray(allWorkouts);
+      
+      for (const item of shuffled) {
+        if (workoutItems.length >= exerciseCount) break;
+        if (usedWorkoutNames.has(item.workout.name)) continue;
+        
+        workoutItems.push(workoutToItem(item.workout, item.equipment, intensity, moodCard, workoutType));
+        usedWorkoutNames.add(item.workout.name);
+      }
+    } else {
+      // Lift weights: 1 bodyweight first, then 1 weight exercise
+      const bodyweightWorkouts = getAllWorkoutsForIntensity(bodyweightDatabase, intensity);
+      const weightsWorkouts = getAllWorkoutsForIntensity(weightsDatabase, intensity);
+      
+      // Shuffle both arrays
+      const shuffledBodyweight = shuffleArray(bodyweightWorkouts);
+      const shuffledWeights = shuffleArray(weightsWorkouts);
+      
+      // Add 1 bodyweight exercise first (listed first in cart)
+      for (const item of shuffledBodyweight) {
+        if (workoutItems.length >= 1) break;
+        if (usedWorkoutNames.has(item.workout.name)) continue;
+        
+        workoutItems.push(workoutToItem(item.workout, item.equipment, intensity, moodCard, 'Move Your Body'));
+        usedWorkoutNames.add(item.workout.name);
+      }
+      
+      // Add 1 weight exercise
+      for (const item of shuffledWeights) {
+        if (workoutItems.length >= 2) break;
+        if (usedWorkoutNames.has(item.workout.name)) continue;
+        
+        workoutItems.push(workoutToItem(item.workout, item.equipment, intensity, moodCard, workoutType));
+        usedWorkoutNames.add(item.workout.name);
+      }
+    }
+    
+    if (workoutItems.length === 0) {
+      usedWorkoutNames.clear();
+      continue;
+    }
+    
+    // Calculate total duration
+    const totalDuration = workoutItems.reduce(
+      (sum, item) => sum + parseDuration(item.duration),
+      0
+    );
+    
+    carts.push({
+      id: `cart-${i + 1}-${Date.now()}`,
+      workouts: workoutItems,
+      totalDuration,
+      intensity,
+    });
+  }
+  
+  return carts;
+}
+
 // Export for Calisthenics path
 export function generateCalisthenicsCarts(
   intensity: IntensityLevel,
