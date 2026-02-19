@@ -683,6 +683,31 @@ export interface SocialLoopMetrics {
   include_internal: boolean;
 }
 
+// Automated Insights types
+export interface Insight {
+  id: string;
+  title: string;
+  description: string;
+  severity: "info" | "warning" | "critical";
+  metric: string;
+  current_value: number;
+  previous_value: number;
+  change_percent: number;
+  recommendation: string | null;
+  timestamp: string;
+}
+
+export interface InsightsResponse {
+  insights: Insight[];
+  total: number;
+  critical_count: number;
+  warning_count: number;
+  info_count: number;
+  generated_at: string;
+  comparison_period: string;
+  include_internal: boolean;
+}
+
 // Saved Views types
 export interface SavedView {
   id: string;
