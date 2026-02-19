@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,91 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { WorkoutItem } from '../contexts/CartContext';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
+
+// Dynamic workout title pools by intensity category
+const WORKOUT_TITLES = {
+  // Foundation (Beginner)
+  foundation: [
+    'Controlled Burn', 'Steady Pressure', 'Base Builder', 'Engine Warmup', 'Clean Effort',
+    'Foundational Fire', 'Pulse Builder', 'Momentum', 'Rhythm & Repeat', 'Break a Sweat',
+    'Light the Fuse', 'Aerobic Armor', 'Starter Surge', 'Move With Purpose', 'Core Temperature',
+    'Built to Begin', 'Fresh Legs', 'Cardio Craft', 'Daily Driver', 'Solid State'
+  ],
+  // Performance (Intermediate)
+  performance: [
+    'Afterburn', 'Blacktop Conditioning', 'Velocity Circuit', 'Grind Mode', 'Oxygen Debt',
+    'Relentless Tempo', 'Redline Ready', 'Shock the System', 'Burn Protocol', 'High Output',
+    'Power Pulse', 'Engine Room', 'Dark Cardio', 'Heat Index', 'Gas Tank Builder',
+    'Iron Tempo', 'Accelerate', 'The Climb', 'Threshold Work', 'Push Past'
+  ],
+  // Intensity (Advanced)
+  intensity: [
+    'Blackout Intervals', 'Engine Collapse', 'Zero Comfort', 'Blood & Breath', 'Conditioned to Break',
+    'Redline Ritual', 'No Oxygen Left', 'Brutal Efficiency', 'System Override', 'Total Output',
+    'Failure to Quit', 'Relentless Intervals', 'Dead Air', 'Heart Rate Hostile', 'Aftershock',
+    'Chaos Conditioning', 'Burn the Clock', 'Max Effort Only', 'The Last Round', 'Full Send'
+  ],
+  // Athletic / Fight Conditioning
+  athletic: [
+    'Fight Shape', '12th Round', 'Roadwork Ritual', 'Championship Rounds', 'Overtime Engine',
+    'Cut Weight Circuit', 'Ringside Ready', 'Combat Conditioning', 'Final Bell', 'Warrior Wind'
+  ],
+  // Hybrid Power (Cardio + Strength)
+  hybrid: [
+    'Iron & Intervals', 'Load & Go', 'Heavy Breath', 'Carry the Chaos', 'Strength Under Fire',
+    'Weighted Velocity', 'Power Endurance', 'Force x Speed', 'Barbell Burn', 'Grind & Go'
+  ],
+  // Dark / Cinematic
+  dark: [
+    'Midnight Conditioning', 'Smoke & Sweat', 'Shadow Sprints', 'Neon Burn', 'Darkroom Intervals',
+    'Ashes & Air', 'Night Shift', 'Silent Grind', 'The Long Night', 'Iron Pulse'
+  ],
+  // Minimal / Elite
+  elite: [
+    'Surge', 'Override', 'Threshold', 'Impact', 'Ignite',
+    'Unbroken', 'Endure', 'Elevate', 'Relentless', 'Ascend'
+  ]
+};
+
+// Get a random workout title based on intensity level
+function getRandomWorkoutTitle(intensity: string, moodTitle: string): string {
+  // Determine which pools to use based on intensity
+  let availablePools: string[][] = [];
+  
+  const intensityLower = intensity.toLowerCase();
+  const moodLower = moodTitle.toLowerCase();
+  
+  // Map intensity to title pools
+  if (intensityLower === 'beginner') {
+    availablePools = [WORKOUT_TITLES.foundation];
+  } else if (intensityLower === 'intermediate') {
+    availablePools = [WORKOUT_TITLES.performance, WORKOUT_TITLES.hybrid];
+  } else if (intensityLower === 'advanced') {
+    availablePools = [WORKOUT_TITLES.intensity, WORKOUT_TITLES.dark, WORKOUT_TITLES.elite];
+  } else {
+    // Default to performance pool
+    availablePools = [WORKOUT_TITLES.performance];
+  }
+  
+  // Add mood-specific pools
+  if (moodLower.includes('muscle') || moodLower.includes('gain') || moodLower.includes('strength')) {
+    availablePools.push(WORKOUT_TITLES.hybrid);
+  }
+  if (moodLower.includes('explosion') || moodLower.includes('explosive') || moodLower.includes('power')) {
+    availablePools.push(WORKOUT_TITLES.athletic);
+  }
+  if (moodLower.includes('sweat') || moodLower.includes('burn') || moodLower.includes('cardio')) {
+    if (intensityLower === 'advanced') {
+      availablePools.push(WORKOUT_TITLES.elite);
+    }
+  }
+  
+  // Flatten all available pools
+  const allTitles = availablePools.flat();
+  
+  // Return a random title
+  return allTitles[Math.floor(Math.random() * allTitles.length)];
+}
 
 export interface GeneratedCart {
   id: string;
