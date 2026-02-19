@@ -1509,6 +1509,7 @@ async def get_time_series_analytics(
     response: Response,
     period: str = "day",  # day, week, month
     limit: int = 30,
+    include_internal: bool = False,
     current_user_id: str = Depends(require_admin)
 ):
     """
@@ -1524,6 +1525,11 @@ async def get_time_series_analytics(
     - mood_selections: Mood/goal selections made
     - posts_created: New posts created
     - social_interactions: Likes, comments, follows combined
+    
+    Query params:
+    - period: day, week, month (default: day)
+    - limit: Number of data points (default: 30)
+    - include_internal: Include internal/staff users (default: false)
     """
     # Admin check
     is_admin, matched_by = await is_admin_effective(current_user_id)
@@ -1532,6 +1538,12 @@ async def get_time_series_analytics(
         raise HTTPException(status_code=403, detail=f"Admin access required - not in allowlist (checked: {matched_by})")
     
     from collections import defaultdict
+    from admin_analytics import get_internal_user_ids
+    
+    # Get internal user IDs to exclude
+    excluded_user_ids = set()
+    if not include_internal:
+        excluded_user_ids = await get_internal_user_ids(db)
     
     # Determine time grouping
     if period == "month":
@@ -1546,13 +1558,18 @@ async def get_time_series_analytics(
     
     cutoff = datetime.now(timezone.utc) - timedelta(days=days_back)
     
+    # Build base query filter for exclusion
+    base_filter = {"timestamp": {"$gte": cutoff}}
+    if excluded_user_ids:
+        base_filter["user_id"] = {"$nin": list(excluded_user_ids)}
+    
     try:
         data_by_period = defaultdict(lambda: {"count": 0, "value": 0})
         
         if metric_type == "active_users":
             # Count unique users per period
             events = await db.user_events.find(
-                {"timestamp": {"$gte": cutoff}},
+                base_filter,
                 {"user_id": 1, "timestamp": 1}
             ).to_list(100000)
             
