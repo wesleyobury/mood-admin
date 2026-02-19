@@ -10,6 +10,7 @@ import { GlobalFilterBar } from "@/components/GlobalFilterBar";
 import { DrilldownDrawer } from "@/components/DrilldownDrawer";
 import { ChartSettings } from "@/components/ChartControls";
 import { SavedViewsDropdown } from "@/components/SavedViewsDropdown";
+import { InsightsCard } from "@/components/InsightsCard";
 import { METRIC_TOOLTIPS, Tooltip } from "@/components/Tooltip";
 import { format } from "date-fns";
 import {
