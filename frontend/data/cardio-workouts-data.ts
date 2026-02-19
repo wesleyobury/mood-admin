@@ -1597,7 +1597,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Full-body cardio circuit with squats, lunges, and presses.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 10 dumbbell squats\n• 8 alternating lunges (each leg)\n• 6 dumbbell push presses\n• 30 sec rest\nFinish with 2 min easy walking',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241311/mood_app/workout_images/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241263/mood_app/workout_images/0t57iowy_db_goblet_squat.jpg',
           intensityReason: 'Perfect beginner circuit with functional movements and rest.',
           moodTips: [
             {
@@ -1617,7 +1617,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Strength flow: squat to press, snatches, and bent-over rows.\n\n ',
           battlePlan: 'Perform 3 rounds:\n• 8 squat to overhead press\n• 6 single-arm dumbbell snatches (each arm)\n• 10 bent-over rows\n• 45 sec rest\nFinish with light stretching',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241311/mood_app/workout_images/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240692/mood_app/workout_images/2ctzlc7l_SA_db_row.jpg',
           intensityReason: 'Smooth flow teaches dumbbell transitions and builds coordination.',
           moodTips: [
             {
@@ -1639,7 +1639,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '28–30 min',
           description: 'Full-body complex: deadlifts, cleans, squats, presses, lunges.\n\n ',
           battlePlan: 'Perform 5 rounds:\n• 5 dumbbell deadlifts\n• 5 dumbbell cleans\n• 5 front squats\n• 5 push presses\n• 5 reverse lunges (each leg)\nRest 90 sec\nFinish with 3 min walk',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241311/mood_app/workout_images/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241323/mood_app/workout_images/5v2oyit3_dbrdl.jpg',
           intensityReason: 'Complex movements for increased strength and conditioning.',
           moodTips: [
             {
@@ -1659,7 +1659,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'EMOM: thrusters and renegade rows for strength endurance.\n\n ',
           battlePlan: 'Every minute on the minute for 12 minutes:\n• Minute 1: 8 dumbbell thrusters\n• Minute 2: 10 renegade rows\nRepeat alternating pattern\nRest remaining time in each minute',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241311/mood_app/workout_images/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241281/mood_app/workout_images/cnnnnm30_db_reverse_lunge.jpg',
           intensityReason: 'Time-based intervals challenge muscular endurance and cardio.',
           moodTips: [
             {
@@ -1681,7 +1681,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: 'Descending rep ladder: cleans, presses, and burpees.\n\n ',
           battlePlan: 'Descending ladder (10-9-8-7-6-5-4-3-2-1):\n• Dumbbell cleans\n• Push presses\n• Burpees over dumbbells\nRest 2 min every 3 rounds\nFinish when all rounds complete',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241311/mood_app/workout_images/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241353/mood_app/workout_images/mxfs858v_dbbss.jpg',
           intensityReason: 'Descending ladder demands advanced strength and conditioning.',
           moodTips: [
             {
@@ -1701,7 +1701,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'AMRAP: snatches, jump squats, push-up rows, and lunges.\n\n ',
           battlePlan: 'AMRAP for 15 minutes:\n• 8 single-arm dumbbell snatches (4 each)\n• 12 dumbbell jump squats\n• 8 push-up to T (4 each side)\n• 10 walking lunges with dumbbells\nScore total rounds + reps',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241311/mood_app/workout_images/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241344/mood_app/workout_images/hiyqkn20_db_lat_lunge.jpg',
           intensityReason: 'High-intensity AMRAP combines power movements with plyometrics.',
           moodTips: [
             {
