@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -26,6 +26,77 @@ import { Analytics } from '../utils/analytics';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+
+// Dynamic workout title pools by intensity category
+const WORKOUT_TITLES = {
+  foundation: [
+    'Controlled Burn', 'Steady Pressure', 'Base Builder', 'Engine Warmup', 'Clean Effort',
+    'Foundational Fire', 'Pulse Builder', 'Momentum', 'Rhythm & Repeat', 'Break a Sweat',
+    'Light the Fuse', 'Aerobic Armor', 'Starter Surge', 'Move With Purpose', 'Core Temperature',
+    'Built to Begin', 'Fresh Legs', 'Cardio Craft', 'Daily Driver', 'Solid State'
+  ],
+  performance: [
+    'Afterburn', 'Blacktop Conditioning', 'Velocity Circuit', 'Grind Mode', 'Oxygen Debt',
+    'Relentless Tempo', 'Redline Ready', 'Shock the System', 'Burn Protocol', 'High Output',
+    'Power Pulse', 'Engine Room', 'Dark Cardio', 'Heat Index', 'Gas Tank Builder',
+    'Iron Tempo', 'Accelerate', 'The Climb', 'Threshold Work', 'Push Past'
+  ],
+  intensity: [
+    'Blackout Intervals', 'Engine Collapse', 'Zero Comfort', 'Blood & Breath', 'Conditioned to Break',
+    'Redline Ritual', 'No Oxygen Left', 'Brutal Efficiency', 'System Override', 'Total Output',
+    'Failure to Quit', 'Relentless Intervals', 'Dead Air', 'Heart Rate Hostile', 'Aftershock',
+    'Chaos Conditioning', 'Burn the Clock', 'Max Effort Only', 'The Last Round', 'Full Send'
+  ],
+  athletic: [
+    'Fight Shape', '12th Round', 'Roadwork Ritual', 'Championship Rounds', 'Overtime Engine',
+    'Cut Weight Circuit', 'Ringside Ready', 'Combat Conditioning', 'Final Bell', 'Warrior Wind'
+  ],
+  hybrid: [
+    'Iron & Intervals', 'Load & Go', 'Heavy Breath', 'Carry the Chaos', 'Strength Under Fire',
+    'Weighted Velocity', 'Power Endurance', 'Force x Speed', 'Barbell Burn', 'Grind & Go'
+  ],
+  dark: [
+    'Midnight Conditioning', 'Smoke & Sweat', 'Shadow Sprints', 'Neon Burn', 'Darkroom Intervals',
+    'Ashes & Air', 'Night Shift', 'Silent Grind', 'The Long Night', 'Iron Pulse'
+  ],
+  elite: [
+    'Surge', 'Override', 'Threshold', 'Impact', 'Ignite',
+    'Unbroken', 'Endure', 'Elevate', 'Relentless', 'Ascend'
+  ]
+};
+
+// Get a random workout title based on intensity level
+function getRandomWorkoutTitle(intensity: string, moodTitle: string): string {
+  let availablePools: string[][] = [];
+  
+  const intensityLower = (intensity || 'intermediate').toLowerCase();
+  const moodLower = (moodTitle || '').toLowerCase();
+  
+  if (intensityLower === 'beginner') {
+    availablePools = [WORKOUT_TITLES.foundation];
+  } else if (intensityLower === 'intermediate') {
+    availablePools = [WORKOUT_TITLES.performance, WORKOUT_TITLES.hybrid];
+  } else if (intensityLower === 'advanced') {
+    availablePools = [WORKOUT_TITLES.intensity, WORKOUT_TITLES.dark, WORKOUT_TITLES.elite];
+  } else {
+    availablePools = [WORKOUT_TITLES.performance];
+  }
+  
+  if (moodLower.includes('muscle') || moodLower.includes('gain') || moodLower.includes('strength')) {
+    availablePools.push(WORKOUT_TITLES.hybrid);
+  }
+  if (moodLower.includes('explosion') || moodLower.includes('explosive') || moodLower.includes('power')) {
+    availablePools.push(WORKOUT_TITLES.athletic);
+  }
+  if (moodLower.includes('sweat') || moodLower.includes('burn') || moodLower.includes('cardio')) {
+    if (intensityLower === 'advanced') {
+      availablePools.push(WORKOUT_TITLES.elite);
+    }
+  }
+  
+  const allTitles = availablePools.flat();
+  return allTitles[Math.floor(Math.random() * allTitles.length)];
+}
 
 const CartItemComponent: React.FC<{
   item: WorkoutItem;
