@@ -2790,11 +2790,13 @@ async def get_user_lifecycle_endpoint(
         # Days since last activity
         days_since_last_session = None
         if last_session and last_session.get("timestamp"):
-            days_since_last_session = (now - last_session["timestamp"]).days
+            last_session_ts = make_aware(last_session["timestamp"])
+            days_since_last_session = (now - last_session_ts).days
         
         days_since_last_workout = None
         if last_workout and last_workout.get("timestamp"):
-            days_since_last_workout = (now - last_workout["timestamp"]).days
+            last_workout_ts = make_aware(last_workout["timestamp"])
+            days_since_last_workout = (now - last_workout_ts).days
         
         # Get activity counts by period
         periods = {
