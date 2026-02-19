@@ -2934,16 +2934,20 @@ async def get_user_lifecycle_endpoint(
         if created_at:
             milestones.append({"event": "account_created", "date": created_at.isoformat(), "label": "Joined"})
         if first_session:
-            milestones.append({"event": "first_session", "date": first_session["timestamp"].isoformat(), "label": "First app open"})
+            first_session_ts = make_aware(first_session["timestamp"])
+            milestones.append({"event": "first_session", "date": first_session_ts.isoformat(), "label": "First app open"})
         if first_workout:
-            milestones.append({"event": "first_workout", "date": first_workout["timestamp"].isoformat(), "label": "First workout started"})
+            first_workout_ts = make_aware(first_workout["timestamp"])
+            milestones.append({"event": "first_workout", "date": first_workout_ts.isoformat(), "label": "First workout started"})
         if first_completed:
-            milestones.append({"event": "first_completed", "date": first_completed["timestamp"].isoformat(), "label": "First workout completed"})
+            first_completed_ts = make_aware(first_completed["timestamp"])
+            milestones.append({"event": "first_completed", "date": first_completed_ts.isoformat(), "label": "First workout completed"})
         
         # Time to first workout
         time_to_first_workout_hours = None
         if created_at and first_workout and first_workout.get("timestamp"):
-            time_to_first_workout_hours = round((first_workout["timestamp"] - created_at).total_seconds() / 3600, 1)
+            first_workout_ts = make_aware(first_workout["timestamp"])
+            time_to_first_workout_hours = round((first_workout_ts - created_at).total_seconds() / 3600, 1)
         
         return {
             "user_id": uid,
