@@ -4930,7 +4930,7 @@ async def get_user_following(
         raise HTTPException(status_code=404, detail="User not found")
 
 @api_router.get("/users/search/query")
-async def search_users(
+async def search_users_general(
     q: str,
     current_user_id: str = Depends(get_current_user),
     limit: int = 20
