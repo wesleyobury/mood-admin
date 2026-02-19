@@ -111,11 +111,11 @@ export default function ChooseForMeButton({
         }
       ]}
     >
-      {/* "or" divider with lines */}
+      {/* Divider - can be just a line or "or" with lines */}
       <View style={styles.orDividerContainer}>
-        <View style={styles.orDividerLine} />
-        <Text style={styles.orDividerText}>or</Text>
-        <View style={styles.orDividerLine} />
+        <View style={[styles.orDividerLine, hideOrText && styles.orDividerLineFull]} />
+        {!hideOrText && <Text style={styles.orDividerText}>or</Text>}
+        {!hideOrText && <View style={styles.orDividerLine} />}
       </View>
 
       {/* Button wrapper */}
