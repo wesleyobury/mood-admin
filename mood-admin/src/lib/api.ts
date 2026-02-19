@@ -263,6 +263,28 @@ class ApiClient {
     return this.get<DrilldownEventsData>(`/analytics/admin/drilldown/events?${params}`);
   }
 
+  // Saved Views
+  async getSavedViews(viewType?: string) {
+    const params = viewType ? `?view_type=${viewType}` : "";
+    return this.get<SavedViewsResponse>(`/analytics/admin/saved-views${params}`);
+  }
+
+  async getSavedView(viewId: string) {
+    return this.get<SavedView>(`/analytics/admin/saved-views/${viewId}`);
+  }
+
+  async createSavedView(view: SavedViewCreate) {
+    return this.post<SavedView>(`/analytics/admin/saved-views`, view);
+  }
+
+  async updateSavedView(viewId: string, update: Partial<SavedViewCreate>) {
+    return this.put<SavedView>(`/analytics/admin/saved-views/${viewId}`, update);
+  }
+
+  async deleteSavedView(viewId: string) {
+    return this.delete<{ message: string; id: string }>(`/analytics/admin/saved-views/${viewId}`);
+  }
+
   // Admin actions
   async seedFeaturedWorkouts() {
     return this.post<{ message: string }>("/admin/seed-featured-workouts");
