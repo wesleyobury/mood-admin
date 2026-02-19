@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { Tooltip } from "./Tooltip";
 
 interface KPICardProps {
   title: string;
@@ -10,6 +11,7 @@ interface KPICardProps {
   trend?: "up" | "down" | "flat";
   format?: "number" | "percentage";
   icon?: React.ReactNode;
+  tooltip?: string;
   className?: string;
 }
 
@@ -22,6 +24,7 @@ export function KPICard({
   trend,
   format = "number",
   icon,
+  tooltip,
   className,
 }: KPICardProps) {
   const getTrendIcon = () => {
@@ -65,7 +68,10 @@ export function KPICard({
       )}
     >
       <div className="flex items-start justify-between mb-3">
-        <span className="text-sm text-muted-foreground font-medium">{title}</span>
+        <div className="flex items-center gap-1.5">
+          <span className="text-sm text-muted-foreground font-medium">{title}</span>
+          {tooltip && <Tooltip content={tooltip} />}
+        </div>
         {icon && <div className="text-muted-foreground">{icon}</div>}
       </div>
 
