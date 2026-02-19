@@ -16,7 +16,7 @@ import {
   Legend,
 } from "recharts";
 import { MousePointer2 } from "lucide-react";
-import { ChartControls, ChartSettings } from "./ChartControls";
+import { ChartControls, ChartSettings } from "@/components/ChartControls";
 
 interface ChartData {
   name: string;
