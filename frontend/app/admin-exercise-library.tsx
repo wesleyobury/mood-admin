@@ -85,13 +85,14 @@ export default function AdminExerciseLibrary() {
         return;
       }
 
-      // Check admin status
-      const response = await fetch(`${API_URL}/api/users/me`, {
+      // Check admin status using /api/auth/me which returns is_admin_effective
+      const response = await fetch(`${API_URL}/api/auth/me`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const userData = await response.json();
       
-      if (!userData.is_admin) {
+      // Use is_admin_effective which checks username, email, and allowlist
+      if (!userData.is_admin_effective) {
         Alert.alert('Access Denied', 'Admin access required');
         router.back();
         return;
