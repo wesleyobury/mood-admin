@@ -153,6 +153,30 @@ class ApiClient {
     );
   }
 
+  // Activation metrics
+  async getActivation(days: number = 30, includeInternal: boolean = false) {
+    const params = new URLSearchParams();
+    params.append("days", days.toString());
+    if (includeInternal) params.append("include_internal", "true");
+    return this.get<ActivationMetrics>(`/analytics/admin/activation?${params}`);
+  }
+
+  // Workout quality metrics
+  async getWorkoutQuality(days: number = 30, includeInternal: boolean = false) {
+    const params = new URLSearchParams();
+    params.append("days", days.toString());
+    if (includeInternal) params.append("include_internal", "true");
+    return this.get<WorkoutQualityMetrics>(`/analytics/admin/workout-quality?${params}`);
+  }
+
+  // Social loop metrics
+  async getSocialLoops(days: number = 30, includeInternal: boolean = false) {
+    const params = new URLSearchParams();
+    params.append("days", days.toString());
+    if (includeInternal) params.append("include_internal", "true");
+    return this.get<SocialLoopMetrics>(`/analytics/admin/social-loops?${params}`);
+  }
+
   async getComparison(start?: string, end?: string) {
     const params = new URLSearchParams();
     if (start) params.append("start", start);
