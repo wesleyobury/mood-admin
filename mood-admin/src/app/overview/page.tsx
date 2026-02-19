@@ -206,6 +206,9 @@ export default function OverviewPage() {
       {/* Global Filter Bar */}
       <GlobalFilterBar filters={filters} onChange={setFilters} />
 
+      {/* Automated Insights */}
+      <InsightsCard />
+
       {/* Engagement Metrics - WAU/MAU */}
       {engagement && (
         <div className="bg-card border border-border rounded-lg p-4">
