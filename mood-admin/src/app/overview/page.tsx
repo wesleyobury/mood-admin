@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
+import { useFilters } from "@/lib/filter-context";
 import { api, PlatformStats, ComparisonData, TimeSeriesData, EngagementData } from "@/lib/api";
 import { KPICard } from "@/components/KPICard";
 import { TimeSeriesChart } from "@/components/charts/TimeSeriesChart";
-import { DateRangePicker } from "@/components/DateRangePicker";
-import { subDays, format } from "date-fns";
+import { GlobalFilterBar } from "@/components/GlobalFilterBar";
+import { METRIC_TOOLTIPS, Tooltip } from "@/components/Tooltip";
+import { format } from "date-fns";
 import {
   Users,
   UserPlus,
@@ -16,13 +18,13 @@ import {
   Heart,
   Bell,
   Activity,
-  TrendingUp,
-  CalendarDays,
+  Info,
 } from "lucide-react";
 import { redirect } from "next/navigation";
 
 export default function OverviewPage() {
   const { isAuthenticated, isAdmin, isLoading } = useAuth();
+  const { filters, setFilters, days } = useFilters();
   const [stats, setStats] = useState<PlatformStats | null>(null);
   const [comparison, setComparison] = useState<ComparisonData | null>(null);
   const [engagement, setEngagement] = useState<EngagementData | null>(null);
@@ -30,8 +32,6 @@ export default function OverviewPage() {
   const [newUsersData, setNewUsersData] = useState<TimeSeriesData | null>(null);
   const [workoutsData, setWorkoutsData] = useState<TimeSeriesData | null>(null);
   const [postsData, setPostsData] = useState<TimeSeriesData | null>(null);
-  const [startDate, setStartDate] = useState(subDays(new Date(), 7));
-  const [endDate, setEndDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -45,16 +45,19 @@ export default function OverviewPage() {
     
     const fetchData = async () => {
       setLoading(true);
-      const days = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+      const startStr = format(filters.startDate, "yyyy-MM-dd");
+      const endStr = format(filters.endDate, "yyyy-MM-dd");
+      const includeInternal = filters.includeInternal;
+      const period = filters.granularity;
       
       const [statsRes, compRes, engRes, dauRes, usersRes, workoutsRes, postsRes] = await Promise.all([
-        api.getPlatformStats(days),
-        api.getComparison(format(startDate, "yyyy-MM-dd"), format(endDate, "yyyy-MM-dd")),
-        api.getEngagement(),
-        api.getTimeSeries("active_users", "day", days),
-        api.getTimeSeries("new_users", "day", days),
-        api.getTimeSeries("workouts_completed", "day", days),
-        api.getTimeSeries("posts_created", "day", days),
+        api.getPlatformStats(days, includeInternal),
+        api.getComparison(startStr, endStr),
+        api.getEngagement(includeInternal),
+        api.getTimeSeries("active_users", period, days, includeInternal),
+        api.getTimeSeries("new_users", period, days, includeInternal),
+        api.getTimeSeries("workouts_completed", period, days, includeInternal),
+        api.getTimeSeries("posts_created", period, days, includeInternal),
       ]);
 
       if (statsRes.data) setStats(statsRes.data);
@@ -69,12 +72,7 @@ export default function OverviewPage() {
     };
 
     fetchData();
-  }, [isAuthenticated, isAdmin, startDate, endDate]);
-
-  const handleDateChange = (start: Date, end: Date) => {
-    setStartDate(start);
-    setEndDate(end);
-  };
+  }, [isAuthenticated, isAdmin, filters, days]);
 
   const getMetric = (key: string) => comparison?.metrics[key];
 
@@ -97,48 +95,63 @@ export default function OverviewPage() {
           <h1 className="text-2xl font-bold">Overview</h1>
           <p className="text-muted-foreground">Platform performance at a glance</p>
         </div>
-        <DateRangePicker
-          startDate={startDate}
-          endDate={endDate}
-          onChange={handleDateChange}
-        />
       </div>
+
+      {/* Global Filter Bar */}
+      <GlobalFilterBar filters={filters} onChange={setFilters} />
 
       {/* Engagement Metrics - WAU/MAU */}
       {engagement && (
         <div className="bg-card border border-border rounded-lg p-4">
-          <h3 className="text-sm font-medium text-muted-foreground mb-4">
+          <h3 className="text-sm font-medium text-muted-foreground mb-4 flex items-center gap-2">
             Active Users & Stickiness
+            <Tooltip content="Engagement metrics based on app_session_start events. DAU/MAU indicates how often users return." />
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <div className="text-center">
-              <p className="text-2xl font-bold">{engagement.dau}</p>
+              <div className="flex items-center justify-center gap-1">
+                <p className="text-2xl font-bold">{engagement.dau}</p>
+                <Tooltip content={METRIC_TOOLTIPS.dau} />
+              </div>
               <p className="text-sm text-muted-foreground">DAU</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl font-bold">{engagement.wau}</p>
+              <div className="flex items-center justify-center gap-1">
+                <p className="text-2xl font-bold">{engagement.wau}</p>
+                <Tooltip content={METRIC_TOOLTIPS.wau} />
+              </div>
               <p className="text-sm text-muted-foreground">WAU</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl font-bold">{engagement.mau}</p>
+              <div className="flex items-center justify-center gap-1">
+                <p className="text-2xl font-bold">{engagement.mau}</p>
+                <Tooltip content={METRIC_TOOLTIPS.mau} />
+              </div>
               <p className="text-sm text-muted-foreground">MAU</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl font-bold text-green-500">{engagement.stickiness_dau_mau}%</p>
+              <div className="flex items-center justify-center gap-1">
+                <p className="text-2xl font-bold text-green-500">{engagement.stickiness_dau_mau}%</p>
+                <Tooltip content={METRIC_TOOLTIPS.stickiness} />
+              </div>
               <p className="text-sm text-muted-foreground">DAU/MAU</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl font-bold text-blue-500">{engagement.wau_mau_ratio}%</p>
+              <div className="flex items-center justify-center gap-1">
+                <p className="text-2xl font-bold text-blue-500">{engagement.wau_mau_ratio}%</p>
+                <Tooltip content={METRIC_TOOLTIPS.wauMauRatio} />
+              </div>
               <p className="text-sm text-muted-foreground">WAU/MAU</p>
             </div>
           </div>
           <p className="text-xs text-muted-foreground text-center mt-3">
             Based on app_session_start events • Last updated: {new Date(engagement.computed_at).toLocaleTimeString()}
+            {filters.includeInternal && " • Including internal users"}
           </p>
         </div>
       )}
 
-      {/* KPI Cards */}
+      {/* KPI Cards - Row 1 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <KPICard
           title="Daily Active Users"
@@ -147,6 +160,7 @@ export default function OverviewPage() {
           changePercent={getMetric("active_users")?.change_pct}
           trend={getMetric("active_users")?.trend}
           icon={<Users className="h-4 w-4" />}
+          tooltip={METRIC_TOOLTIPS.activeUsers}
         />
         <KPICard
           title="New Users"
@@ -155,6 +169,7 @@ export default function OverviewPage() {
           changePercent={getMetric("new_users")?.change_pct}
           trend={getMetric("new_users")?.trend}
           icon={<UserPlus className="h-4 w-4" />}
+          tooltip={METRIC_TOOLTIPS.newUsers}
         />
         <KPICard
           title="Workouts Started"
@@ -163,6 +178,7 @@ export default function OverviewPage() {
           changePercent={getMetric("workouts_started")?.change_pct}
           trend={getMetric("workouts_started")?.trend}
           icon={<Dumbbell className="h-4 w-4" />}
+          tooltip={METRIC_TOOLTIPS.workoutsStarted}
         />
         <KPICard
           title="Workouts Completed"
@@ -171,9 +187,11 @@ export default function OverviewPage() {
           changePercent={getMetric("workouts_completed")?.change_pct}
           trend={getMetric("workouts_completed")?.trend}
           icon={<CheckCircle className="h-4 w-4" />}
+          tooltip={METRIC_TOOLTIPS.workoutsCompleted}
         />
       </div>
 
+      {/* KPI Cards - Row 2 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <KPICard
           title="Completion Rate"
@@ -183,6 +201,7 @@ export default function OverviewPage() {
           trend={getMetric("completion_rate")?.trend}
           format="percentage"
           icon={<Activity className="h-4 w-4" />}
+          tooltip={METRIC_TOOLTIPS.completionRate}
         />
         <KPICard
           title="Posts Created"
@@ -191,6 +210,7 @@ export default function OverviewPage() {
           changePercent={getMetric("posts_created")?.change_pct}
           trend={getMetric("posts_created")?.trend}
           icon={<FileText className="h-4 w-4" />}
+          tooltip={METRIC_TOOLTIPS.postsCreated}
         />
         <KPICard
           title="Total Likes"
@@ -199,6 +219,7 @@ export default function OverviewPage() {
           changePercent={getMetric("likes")?.change_pct}
           trend={getMetric("likes")?.trend}
           icon={<Heart className="h-4 w-4" />}
+          tooltip={METRIC_TOOLTIPS.likes}
         />
         <KPICard
           title="Notification Clicks"
@@ -207,6 +228,7 @@ export default function OverviewPage() {
           changePercent={getMetric("notification_clicks")?.change_pct}
           trend={getMetric("notification_clicks")?.trend}
           icon={<Bell className="h-4 w-4" />}
+          tooltip={METRIC_TOOLTIPS.notificationClicks}
         />
       </div>
 
