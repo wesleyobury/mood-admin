@@ -528,29 +528,39 @@ export default function BodyPartsScreen() {
           disabled={selectedBodyParts.length === 0 || (remainingUses <= 0 && !isGuest)}
           variant="muscleGroup"
         />
-      </ScrollView>
 
-      {/* Continue Button */}
-      {selectedBodyParts.length > 0 && (
-        <View style={styles.bottomContainer}>
-          <TouchableOpacity 
-            style={styles.continueButton}
-            onPress={handleContinue}
-          >
-            <LinearGradient
-              colors={['#FFD700', '#FFA500']}
-              style={styles.continueButtonGradient}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
+        {/* Continue Button - below Build for Me, users scroll to see it */}
+        {selectedBodyParts.length > 0 && (
+          <View style={styles.inlineBottomContainer}>
+            {/* "or" divider between Build for Me and Continue */}
+            <View style={styles.orDividerContainer}>
+              <View style={styles.orDividerLine} />
+              <Text style={styles.orDividerText}>or</Text>
+              <View style={styles.orDividerLine} />
+            </View>
+            
+            <TouchableOpacity 
+              style={styles.continueButton}
+              onPress={handleContinue}
             >
-              <Text style={styles.continueButtonText}>
-                Continue
-              </Text>
-              <Ionicons name="arrow-forward" size={20} color='#0c0c0c' style={styles.buttonIcon} />
-            </LinearGradient>
-          </TouchableOpacity>
-        </View>
-      )}
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.continueButtonGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+              >
+                <Text style={styles.continueButtonText}>
+                  Continue
+                </Text>
+                <Ionicons name="arrow-forward" size={20} color='#0c0c0c' style={styles.buttonIcon} />
+              </LinearGradient>
+            </TouchableOpacity>
+          </View>
+        )}
+        
+        {/* Bottom padding for scroll */}
+        <View style={{ height: 40 }} />
+      </ScrollView>
 
       {/* Intensity Selection Modal */}
       <IntensitySelectionModal
