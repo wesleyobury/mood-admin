@@ -319,7 +319,7 @@ export default function GeneratedWorkoutView({
             <Text style={styles.generatedBadgeText}>Generated for you</Text>
           </View>
           <Text style={styles.moodLabel}>{moodTitle}</Text>
-          <Text style={styles.workoutTitle}>{workoutType}</Text>
+          <Text style={styles.workoutTitle}>{dynamicWorkoutTitle}</Text>
           <View style={styles.durationBadge}>
             <Ionicons name="time-outline" size={14} color="#FFD700" />
             <Text style={styles.durationText}>~{currentCart.totalDuration} min</Text>
