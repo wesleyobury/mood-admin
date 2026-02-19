@@ -385,3 +385,34 @@ agent_communication:
   - Viewing threaded replies
   - Mention notification delivery
 
+---
+## Latest Session Changes (Fork Session - Admin Analytics Bug Fixes)
+
+### Changes Made:
+
+#### 1. Fixed `/api/analytics/admin/users/search` endpoint (CRITICAL BUG FIX)
+- **Root Cause**: Python function naming conflict - a local `search_users` function in `server.py` was overwriting the imported `search_users` from `admin_analytics.py`
+- **Fix**: Renamed the local function at line 4933 from `search_users` to `search_users_general`
+- **File Modified**: `/app/backend/server.py`
+
+#### 2. Added `include_internal` parameter to time-series endpoint (DATA INTEGRITY FIX)
+- **Issue**: The `/api/analytics/admin/time-series/{metric_type}` endpoint was not excluding internal/staff users by default
+- **Fix**: Added `include_internal: bool = False` parameter and updated all metric queries to filter out internal users
+- **File Modified**: `/app/backend/server.py` (lines 1506-1700+)
+
+### Backend Endpoints Fixed:
+| Endpoint | Status | Description |
+|----------|--------|-------------|
+| `GET /api/analytics/admin/users/search?q=<query>` | ✅ Fixed | Was returning 500 error, now returns user list |
+| `GET /api/analytics/admin/time-series/{metric_type}` | ✅ Fixed | Now supports `include_internal` parameter |
+
+### Testing Status:
+- Backend restarted: ✅
+- Frontend restarted: ✅
+- All admin analytics endpoints verified working:
+  - users/search: Returns 29 users for query "test"
+  - time-series/active_users: Returns 18 total (7 days)
+  - time-series/workouts_started: Returns 64 total
+  - time-series/posts_created: Returns 49 total
+  - engagement metrics: DAU=1, WAU=1, MAU=3
+
