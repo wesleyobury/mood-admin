@@ -2389,7 +2389,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Foundational sled pushes and backward pulls.\n\n ',
           battlePlan: 'Perform 5 rounds:\n• 10m push (light)\n• 10m backward pull\n• Rest 1 min\nFinish with stretching',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241283/mood_app/workout_images/vrqnhbou_ChatGPT_Image_Feb_1_2026_09_36_59_PM.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sled_push.jpg',
           intensityReason: 'Introduction to sled training with proper mechanics.',
           moodTips: [
             {
@@ -2409,7 +2409,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Slow, controlled sled pushes and pulls for strength.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 15m slow push (heavy)\n• 15m backward pull (controlled)\n• Rest 90 sec\nFinish with light walking',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241283/mood_app/workout_images/vrqnhbou_ChatGPT_Image_Feb_1_2026_09_36_59_PM.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sled_pull.jpg',
           intensityReason: 'Controlled movements building strength endurance and mechanics.',
           moodTips: [
             {
@@ -2431,7 +2431,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'High-intensity sled sprint pushes with active recovery.\n\n ',
           battlePlan: 'Perform 6 rounds:\n• 20m sled sprint (light load)\n• Walk back recovery\n• Rest 45 sec\nFinish with cool-down walk',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241283/mood_app/workout_images/vrqnhbou_ChatGPT_Image_Feb_1_2026_09_36_59_PM.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sled_push.jpg',
           intensityReason: 'Power sprint intervals build explosive leg drive.',
           moodTips: [
             {
@@ -2451,7 +2451,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Full-body circuit: pushes, backward drags, and lateral pushes.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 15m forward push\n• 15m backward drag\n• 15m lateral push (each side)\n• Rest 2 min\nFinish with stretching',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241283/mood_app/workout_images/vrqnhbou_ChatGPT_Image_Feb_1_2026_09_36_59_PM.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sled_drag.jpg',
           intensityReason: 'Multi-directional sled work challenges different patterns.',
           moodTips: [
             {
@@ -2473,7 +2473,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '24–28 min',
           description: 'Full-body gauntlet: heavy pushes, sprints, drags, and lateral pushes.\n\n ',
           battlePlan: 'Perform 5 rounds:\n• 20m heavy push\n• 15m sprint push (light)\n• 15m backward drag\n• 10m lateral pushes (each side)\n• Rest 2 min\nFinish when complete',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241283/mood_app/workout_images/vrqnhbou_ChatGPT_Image_Feb_1_2026_09_36_59_PM.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sled_push.jpg',
           intensityReason: 'Advanced gauntlet combines max load with speed work.',
           moodTips: [
             {
@@ -2493,7 +2493,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '24–26 min',
           description: 'Strength and cardio: heavy pushes, drags, and burpees.\n\n ',
           battlePlan: 'Perform 3 rounds:\n• 10m max effort push\n• 20m sprint push\n• 15m single-arm drag (each arm)\n• 10 sled jumpovers\n• Rest 3 min\nFinish with walk',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241283/mood_app/workout_images/vrqnhbou_ChatGPT_Image_Feb_1_2026_09_36_59_PM.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/so_1.0,w_720,c_fill,q_auto,f_jpg/exercise_library/sled_drag.jpg',
           intensityReason: 'Ultimate challenge combining heavy sled work with burpees.',
           moodTips: [
             {
