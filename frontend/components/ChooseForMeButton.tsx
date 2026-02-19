@@ -197,6 +197,9 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: 'rgba(100, 100, 100, 0.4)',
   },
+  orDividerLineFull: {
+    width: '100%',
+  },
   orDividerText: {
     color: 'rgba(150, 150, 150, 0.8)',
     fontSize: 13,
