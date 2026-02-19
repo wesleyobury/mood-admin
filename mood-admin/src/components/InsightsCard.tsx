@@ -65,7 +65,11 @@ export function InsightsCard({ className }: InsightsCardProps) {
   }, [filters.includeInternal]);
 
   const handleDismiss = (id: string) => {
-    setDismissedIds((prev) => new Set([...prev, id]));
+    setDismissedIds((prev) => {
+      const newSet = new Set(prev);
+      newSet.add(id);
+      return newSet;
+    });
   };
 
   const visibleInsights = data?.insights.filter((i) => !dismissedIds.has(i.id)) || [];
