@@ -15,6 +15,7 @@ interface ChooseForMeButtonProps {
   disabled?: boolean;
   style?: object;
   variant?: 'workoutType' | 'equipment' | 'muscleGroup';
+  noAnimation?: boolean;
 }
 
 const BORDER_RADIUS = 12;
