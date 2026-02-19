@@ -12,10 +12,12 @@ import {
   Search,
   Settings,
   LogOut,
+  Lightbulb,
 } from "lucide-react";
 
 const navItems = [
   { href: "/overview", label: "Overview", icon: LayoutDashboard },
+  { href: "/insights", label: "Insights", icon: Lightbulb },
   { href: "/funnels", label: "Funnels", icon: GitBranch },
   { href: "/retention", label: "Retention", icon: BarChart3 },
   { href: "/features", label: "Features", icon: BarChart3 },
