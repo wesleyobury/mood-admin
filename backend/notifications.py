@@ -650,9 +650,10 @@ class NotificationService:
         # Truncate comment for body
         truncated_comment = comment_text[:50] + "..." if len(comment_text) > 50 else comment_text
         
-        # Get post preview image
+        # Get post preview image - prefer cover (thumbnail) for faster loading
         media_urls = post.get("media_urls", [])
-        post_image = media_urls[0] if media_urls else None
+        cover_urls = post.get("cover_urls", [])
+        post_thumbnail = cover_urls[0] if cover_urls else (media_urls[0] if media_urls else None)
         
         return await self.create_notification(
             user_id=str(post_author_id),
@@ -665,7 +666,7 @@ class NotificationService:
             image_url=avatar,
             metadata={
                 "commenter_username": commenter.get("username"),
-                "post_preview": post_image
+                "post_thumbnail": post_thumbnail
             }
         )
     
