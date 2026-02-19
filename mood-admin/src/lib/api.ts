@@ -77,6 +77,17 @@ class ApiClient {
     });
   }
 
+  async put<T>(endpoint: string, body?: unknown): Promise<ApiResponse<T>> {
+    return this.request<T>(endpoint, {
+      method: "PUT",
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  }
+
+  async delete<T>(endpoint: string): Promise<ApiResponse<T>> {
+    return this.request<T>(endpoint, { method: "DELETE" });
+  }
+
   // Auth endpoints
   async login(username: string, password: string) {
     const result = await this.post<{ token: string; user_id: string }>(
