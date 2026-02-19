@@ -51,6 +51,11 @@ const NotificationItem = React.memo(({
   const isUnread = !notification.read_at;
   const typeInfo = TYPE_ICONS[notification.type] || { name: 'notifications', color: '#888' };
   const slideAnim = useRef(new Animated.Value(0)).current;
+  
+  // Get content thumbnail from metadata (for likes, comments, mentions)
+  const contentThumbnail = notification.metadata?.post_thumbnail || notification.metadata?.post_preview;
+  const hasContentThumbnail = contentThumbnail && 
+    ['like', 'comment', 'mention', 'reply'].includes(notification.type);
 
   return (
     <Animated.View style={[
@@ -83,7 +88,7 @@ const NotificationItem = React.memo(({
         </View>
 
         {/* Content */}
-        <View style={styles.textContainer}>
+        <View style={[styles.textContainer, hasContentThumbnail && { flex: 1, marginRight: 12 }]}>
           <Text style={styles.notificationTitle} numberOfLines={1}>
             {notification.title}
           </Text>
@@ -95,8 +100,18 @@ const NotificationItem = React.memo(({
           </Text>
         </View>
 
+        {/* Content Thumbnail (post image/video) */}
+        {hasContentThumbnail && (
+          <View style={styles.contentThumbnailContainer}>
+            <Image
+              source={{ uri: contentThumbnail }}
+              style={styles.contentThumbnail}
+            />
+          </View>
+        )}
+
         {/* Unread indicator */}
-        {isUnread && (
+        {isUnread && !hasContentThumbnail && (
           <View style={styles.unreadDot} />
         )}
       </TouchableOpacity>
