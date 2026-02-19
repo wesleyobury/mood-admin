@@ -530,3 +530,47 @@ export interface DrilldownEventsData {
   skip: number;
   include_internal: boolean;
 }
+
+// Saved Views types
+export interface SavedView {
+  id: string;
+  name: string;
+  description: string;
+  view_type: "overview" | "funnel" | "retention" | "custom";
+  config: SavedViewConfig;
+  is_default: boolean;
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+export interface SavedViewConfig {
+  // Filter settings
+  dateRange?: {
+    preset?: string;
+    startDate?: string;
+    endDate?: string;
+  };
+  granularity?: "hour" | "day" | "week";
+  includeInternal?: boolean;
+  // Chart settings
+  chartType?: "line" | "bar" | "area";
+  showCumulative?: boolean;
+  showPrevious?: boolean;
+  // Selected metrics
+  selectedMetrics?: string[];
+  // Custom settings per view type
+  [key: string]: unknown;
+}
+
+export interface SavedViewsResponse {
+  views: SavedView[];
+  total: number;
+}
+
+export interface SavedViewCreate {
+  name: string;
+  description?: string;
+  view_type: "overview" | "funnel" | "retention" | "custom";
+  config: SavedViewConfig;
+  is_default?: boolean;
+}
