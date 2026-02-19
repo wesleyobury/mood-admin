@@ -3226,6 +3226,494 @@ async def delete_saved_view(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# ==================== ACTIVATION METRICS ====================
+
+@api_router.get("/analytics/admin/activation")
+async def get_activation_metrics(
+    days: int = 30,
+    include_internal: bool = False,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get activation metrics: time-to-first-workout, onboarding completion rates.
+    
+    Query params:
+    - days: Analysis period (default: 30)
+    - include_internal: Include internal/staff users (default: false)
+    
+    Returns activation funnel and timing metrics.
+    """
+    try:
+        cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        # Get users created in period
+        user_query = {"created_at": {"$gte": cutoff}}
+        if not include_internal:
+            user_query["is_internal"] = {"$ne": True}
+        
+        users = await db.users.find(user_query, {"_id": 1, "created_at": 1}).to_list(10000)
+        user_ids = [str(u["_id"]) for u in users]
+        user_created_map = {str(u["_id"]): u["created_at"] for u in users}
+        
+        total_new_users = len(users)
+        
+        if total_new_users == 0:
+            return {
+                "period_days": days,
+                "total_new_users": 0,
+                "activation_funnel": [],
+                "time_to_first_workout": {"median_hours": None, "avg_hours": None, "distribution": []},
+                "activated_users": 0,
+                "activation_rate": 0,
+            }
+        
+        # Get first workout for each user
+        first_workout_pipeline = [
+            {
+                "$match": {
+                    "event_type": "workout_started",
+                    "user_id": {"$in": user_ids},
+                    "timestamp": {"$gte": cutoff},
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$user_id",
+                    "first_workout": {"$min": "$timestamp"},
+                }
+            }
+        ]
+        
+        first_workouts = await db.user_events.aggregate(first_workout_pipeline).to_list(10000)
+        first_workout_map = {fw["_id"]: fw["first_workout"] for fw in first_workouts}
+        
+        # Calculate time to first workout
+        time_to_first = []
+        for user_id in user_ids:
+            if user_id in first_workout_map and user_id in user_created_map:
+                created = user_created_map[user_id]
+                first_wkt = first_workout_map[user_id]
+                if first_wkt and created:
+                    hours = (first_wkt - created).total_seconds() / 3600
+                    if hours >= 0:  # Valid positive time
+                        time_to_first.append(hours)
+        
+        # Time distribution buckets
+        distribution = {
+            "within_1h": 0,
+            "1h_to_24h": 0,
+            "24h_to_72h": 0,
+            "72h_to_7d": 0,
+            "after_7d": 0,
+        }
+        
+        for hours in time_to_first:
+            if hours <= 1:
+                distribution["within_1h"] += 1
+            elif hours <= 24:
+                distribution["1h_to_24h"] += 1
+            elif hours <= 72:
+                distribution["24h_to_72h"] += 1
+            elif hours <= 168:
+                distribution["72h_to_7d"] += 1
+            else:
+                distribution["after_7d"] += 1
+        
+        # Calculate median and avg
+        median_hours = None
+        avg_hours = None
+        if time_to_first:
+            sorted_times = sorted(time_to_first)
+            median_hours = round(sorted_times[len(sorted_times) // 2], 1)
+            avg_hours = round(sum(time_to_first) / len(time_to_first), 1)
+        
+        activated_users = len(first_workout_map)
+        activation_rate = round((activated_users / total_new_users) * 100, 1) if total_new_users > 0 else 0
+        
+        # Activation funnel: signup -> mood_selected -> workout_started -> workout_completed
+        funnel_events = ["mood_selected", "workout_started", "workout_completed"]
+        funnel_data = [{"step": "signup", "users": total_new_users, "rate": 100}]
+        
+        for event_type in funnel_events:
+            event_users = await db.user_events.distinct(
+                "user_id",
+                {
+                    "event_type": event_type,
+                    "user_id": {"$in": user_ids},
+                    "timestamp": {"$gte": cutoff},
+                }
+            )
+            count = len(event_users)
+            rate = round((count / total_new_users) * 100, 1) if total_new_users > 0 else 0
+            funnel_data.append({"step": event_type, "users": count, "rate": rate})
+        
+        return {
+            "period_days": days,
+            "total_new_users": total_new_users,
+            "activated_users": activated_users,
+            "activation_rate": activation_rate,
+            "time_to_first_workout": {
+                "median_hours": median_hours,
+                "avg_hours": avg_hours,
+                "distribution": [
+                    {"bucket": k, "count": v, "percentage": round((v / len(time_to_first)) * 100, 1) if time_to_first else 0}
+                    for k, v in distribution.items()
+                ],
+            },
+            "activation_funnel": funnel_data,
+            "include_internal": include_internal,
+        }
+        
+    except Exception as e:
+        logger.error(f"Activation metrics error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ==================== WORKOUT QUALITY METRICS ====================
+
+@api_router.get("/analytics/admin/workout-quality")
+async def get_workout_quality_metrics(
+    days: int = 30,
+    include_internal: bool = False,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get workout quality metrics: completion/abandon rates by category, equipment, difficulty.
+    
+    Query params:
+    - days: Analysis period (default: 30)
+    - include_internal: Include internal/staff users (default: false)
+    
+    Returns detailed workout performance breakdown.
+    """
+    try:
+        cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        # Get internal user IDs to exclude
+        excluded_user_ids = set()
+        if not include_internal:
+            internal_users = await db.users.find({"is_internal": True}, {"_id": 1}).to_list(1000)
+            excluded_user_ids = {str(u["_id"]) for u in internal_users}
+        
+        # Build match stage
+        match_stage = {"timestamp": {"$gte": cutoff}}
+        if excluded_user_ids:
+            match_stage["user_id"] = {"$nin": list(excluded_user_ids)}
+        
+        # Get workouts started with metadata
+        started_pipeline = [
+            {"$match": {**match_stage, "event_type": "workout_started"}},
+            {
+                "$group": {
+                    "_id": {
+                        "mood": "$metadata.mood_category",
+                        "difficulty": "$metadata.difficulty",
+                        "equipment": "$metadata.equipment",
+                    },
+                    "started_count": {"$sum": 1},
+                    "user_ids": {"$addToSet": "$user_id"},
+                }
+            }
+        ]
+        
+        started_results = await db.user_events.aggregate(started_pipeline).to_list(1000)
+        
+        # Get workouts completed
+        completed_pipeline = [
+            {"$match": {**match_stage, "event_type": "workout_completed"}},
+            {
+                "$group": {
+                    "_id": {
+                        "mood": "$metadata.mood_category",
+                        "difficulty": "$metadata.difficulty",
+                        "equipment": "$metadata.equipment",
+                    },
+                    "completed_count": {"$sum": 1},
+                }
+            }
+        ]
+        
+        completed_results = await db.user_events.aggregate(completed_pipeline).to_list(1000)
+        completed_map = {
+            (r["_id"].get("mood"), r["_id"].get("difficulty"), r["_id"].get("equipment")): r["completed_count"]
+            for r in completed_results
+        }
+        
+        # Calculate by mood category
+        by_mood = {}
+        by_difficulty = {}
+        by_equipment = {}
+        
+        total_started = 0
+        total_completed = 0
+        
+        for item in started_results:
+            mood = item["_id"].get("mood") or "Unknown"
+            difficulty = item["_id"].get("difficulty") or "Unknown"
+            equipment = item["_id"].get("equipment") or "None"
+            started = item["started_count"]
+            completed = completed_map.get(
+                (item["_id"].get("mood"), item["_id"].get("difficulty"), item["_id"].get("equipment")),
+                0
+            )
+            
+            total_started += started
+            total_completed += completed
+            
+            # Aggregate by mood
+            if mood not in by_mood:
+                by_mood[mood] = {"started": 0, "completed": 0, "unique_users": set()}
+            by_mood[mood]["started"] += started
+            by_mood[mood]["completed"] += completed
+            by_mood[mood]["unique_users"].update(item.get("user_ids", []))
+            
+            # Aggregate by difficulty
+            if difficulty not in by_difficulty:
+                by_difficulty[difficulty] = {"started": 0, "completed": 0}
+            by_difficulty[difficulty]["started"] += started
+            by_difficulty[difficulty]["completed"] += completed
+            
+            # Aggregate by equipment
+            if equipment not in by_equipment:
+                by_equipment[equipment] = {"started": 0, "completed": 0}
+            by_equipment[equipment]["started"] += started
+            by_equipment[equipment]["completed"] += completed
+        
+        # Format results
+        def calc_rates(started, completed):
+            completion_rate = round((completed / started) * 100, 1) if started > 0 else 0
+            abandon_rate = round(((started - completed) / started) * 100, 1) if started > 0 else 0
+            return completion_rate, abandon_rate
+        
+        overall_completion, overall_abandon = calc_rates(total_started, total_completed)
+        
+        mood_breakdown = []
+        for mood, data in sorted(by_mood.items(), key=lambda x: x[1]["started"], reverse=True):
+            comp_rate, abn_rate = calc_rates(data["started"], data["completed"])
+            mood_breakdown.append({
+                "category": mood,
+                "started": data["started"],
+                "completed": data["completed"],
+                "abandoned": data["started"] - data["completed"],
+                "completion_rate": comp_rate,
+                "abandon_rate": abn_rate,
+                "unique_users": len(data["unique_users"]),
+            })
+        
+        difficulty_breakdown = []
+        for diff, data in by_difficulty.items():
+            comp_rate, abn_rate = calc_rates(data["started"], data["completed"])
+            difficulty_breakdown.append({
+                "difficulty": diff,
+                "started": data["started"],
+                "completed": data["completed"],
+                "completion_rate": comp_rate,
+                "abandon_rate": abn_rate,
+            })
+        
+        equipment_breakdown = []
+        for equip, data in sorted(by_equipment.items(), key=lambda x: x[1]["started"], reverse=True)[:10]:
+            comp_rate, abn_rate = calc_rates(data["started"], data["completed"])
+            equipment_breakdown.append({
+                "equipment": equip,
+                "started": data["started"],
+                "completed": data["completed"],
+                "completion_rate": comp_rate,
+            })
+        
+        return {
+            "period_days": days,
+            "overall": {
+                "total_started": total_started,
+                "total_completed": total_completed,
+                "total_abandoned": total_started - total_completed,
+                "completion_rate": overall_completion,
+                "abandon_rate": overall_abandon,
+            },
+            "by_mood_category": mood_breakdown[:10],
+            "by_difficulty": sorted(difficulty_breakdown, key=lambda x: ["beginner", "intermediate", "advanced"].index(x["difficulty"]) if x["difficulty"] in ["beginner", "intermediate", "advanced"] else 99),
+            "by_equipment": equipment_breakdown,
+            "include_internal": include_internal,
+        }
+        
+    except Exception as e:
+        logger.error(f"Workout quality metrics error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ==================== SOCIAL LOOP METRICS ====================
+
+@api_router.get("/analytics/admin/social-loops")
+async def get_social_loop_metrics(
+    days: int = 30,
+    include_internal: bool = False,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get social loop metrics: engagement rates, viral coefficient estimates.
+    
+    Query params:
+    - days: Analysis period (default: 30)
+    - include_internal: Include internal/staff users (default: false)
+    
+    Returns social engagement and growth metrics.
+    """
+    try:
+        cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        # Get internal user IDs to exclude
+        excluded_user_ids = set()
+        if not include_internal:
+            internal_users = await db.users.find({"is_internal": True}, {"_id": 1}).to_list(1000)
+            excluded_user_ids = {str(u["_id"]) for u in internal_users}
+        
+        # Build match stage
+        match_stage = {"timestamp": {"$gte": cutoff}}
+        if excluded_user_ids:
+            match_stage["user_id"] = {"$nin": list(excluded_user_ids)}
+        
+        # Get social events
+        social_events = ["post_created", "post_liked", "post_commented", "user_followed"]
+        
+        social_pipeline = [
+            {"$match": {**match_stage, "event_type": {"$in": social_events}}},
+            {
+                "$group": {
+                    "_id": "$event_type",
+                    "count": {"$sum": 1},
+                    "unique_users": {"$addToSet": "$user_id"},
+                }
+            }
+        ]
+        
+        social_results = await db.user_events.aggregate(social_pipeline).to_list(100)
+        
+        # Build event counts
+        event_counts = {e: {"count": 0, "unique_users": 0} for e in social_events}
+        total_social_actions = 0
+        all_social_users = set()
+        
+        for item in social_results:
+            event_type = item["_id"]
+            if event_type in event_counts:
+                event_counts[event_type] = {
+                    "count": item["count"],
+                    "unique_users": len(item["unique_users"]),
+                }
+                total_social_actions += item["count"]
+                all_social_users.update(item["unique_users"])
+        
+        # Get total active users in period
+        active_users = await db.user_events.distinct(
+            "user_id",
+            {**match_stage, "event_type": "app_session_start"}
+        )
+        total_active_users = len(active_users) if not excluded_user_ids else len([u for u in active_users if u not in excluded_user_ids])
+        
+        # Calculate engagement rates
+        social_participation_rate = round((len(all_social_users) / total_active_users) * 100, 1) if total_active_users > 0 else 0
+        
+        # Get follow graph stats
+        follow_stats_pipeline = [
+            {"$match": {**match_stage, "event_type": "user_followed"}},
+            {
+                "$group": {
+                    "_id": "$user_id",
+                    "following_count": {"$sum": 1},
+                }
+            },
+            {
+                "$group": {
+                    "_id": None,
+                    "avg_following": {"$avg": "$following_count"},
+                    "max_following": {"$max": "$following_count"},
+                    "total_followers": {"$sum": 1},
+                }
+            }
+        ]
+        
+        follow_stats = await db.user_events.aggregate(follow_stats_pipeline).to_list(1)
+        avg_following = round(follow_stats[0]["avg_following"], 1) if follow_stats else 0
+        
+        # Get content creation stats
+        posts_query = {"created_at": {"$gte": cutoff}}
+        if excluded_user_ids:
+            posts_query["author_id"] = {"$nin": [ObjectId(uid) for uid in excluded_user_ids if len(uid) == 24]}
+        
+        total_posts = await db.posts.count_documents(posts_query)
+        
+        # Get engagement per post (likes + comments)
+        engagement_pipeline = [
+            {"$match": posts_query},
+            {
+                "$lookup": {
+                    "from": "user_events",
+                    "let": {"post_id": {"$toString": "$_id"}},
+                    "pipeline": [
+                        {
+                            "$match": {
+                                "$expr": {"$eq": ["$metadata.post_id", "$$post_id"]},
+                                "event_type": {"$in": ["post_liked", "post_commented"]},
+                                "timestamp": {"$gte": cutoff},
+                            }
+                        },
+                        {"$count": "engagement"}
+                    ],
+                    "as": "engagement_data"
+                }
+            },
+            {
+                "$project": {
+                    "engagement": {"$ifNull": [{"$arrayElemAt": ["$engagement_data.engagement", 0]}, 0]}
+                }
+            },
+            {
+                "$group": {
+                    "_id": None,
+                    "total_engagement": {"$sum": "$engagement"},
+                    "avg_engagement": {"$avg": "$engagement"},
+                    "posts_with_engagement": {"$sum": {"$cond": [{"$gt": ["$engagement", 0]}, 1, 0]}},
+                }
+            }
+        ]
+        
+        engagement_stats = await db.posts.aggregate(engagement_pipeline).to_list(1)
+        
+        avg_engagement_per_post = round(engagement_stats[0]["avg_engagement"], 1) if engagement_stats else 0
+        posts_with_engagement = engagement_stats[0]["posts_with_engagement"] if engagement_stats else 0
+        engagement_rate = round((posts_with_engagement / total_posts) * 100, 1) if total_posts > 0 else 0
+        
+        return {
+            "period_days": days,
+            "overview": {
+                "total_active_users": total_active_users,
+                "social_participants": len(all_social_users),
+                "social_participation_rate": social_participation_rate,
+                "total_social_actions": total_social_actions,
+            },
+            "content": {
+                "total_posts": total_posts,
+                "posts_with_engagement": posts_with_engagement,
+                "engagement_rate": engagement_rate,
+                "avg_engagement_per_post": avg_engagement_per_post,
+            },
+            "actions": {
+                "posts_created": event_counts["post_created"],
+                "likes": event_counts["post_liked"],
+                "comments": event_counts["post_commented"],
+                "follows": event_counts["user_followed"],
+            },
+            "network": {
+                "avg_following_per_user": avg_following,
+            },
+            "include_internal": include_internal,
+        }
+        
+    except Exception as e:
+        logger.error(f"Social loop metrics error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @api_router.get("/analytics/admin/comparison")
 async def get_comparison_endpoint(
     start: Optional[str] = None,
