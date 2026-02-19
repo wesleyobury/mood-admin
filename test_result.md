@@ -416,3 +416,50 @@ agent_communication:
   - time-series/posts_created: Returns 49 total
   - engagement metrics: DAU=1, WAU=1, MAU=3
 
+---
+## V2 Admin Panel Implementation Progress (Phase 1)
+
+### Changes Made:
+
+#### 1. Global Filter Context (`/app/mood-admin/src/lib/filter-context.tsx`)
+- Created FilterProvider and useFilters hook for global filter state management
+- Filters include: date range, granularity (hour/day/week), compare toggle, include_internal toggle
+- Computed values: days, startDateStr, endDateStr, periodParam
+
+#### 2. Updated API Client (`/app/mood-admin/src/lib/api.ts`)
+- Added `includeInternal` parameter to:
+  - `getEngagement(includeInternal)`
+  - `getPlatformStats(days, includeInternal)`
+  - `getTimeSeries(metricType, period, limit, includeInternal)`
+
+#### 3. Updated Layout (`/app/mood-admin/src/app/layout.tsx`)
+- Wrapped app with FilterProvider for global filter state
+
+#### 4. Updated Overview Page (`/app/mood-admin/src/app/overview/page.tsx`)
+- Integrated GlobalFilterBar component
+- All API calls now use filters from global context
+- Added tooltips to ALL KPI cards and engagement metrics
+- DAU, WAU, MAU, stickiness metrics all have explanatory tooltips
+- KPI cards use tooltip prop for metric definitions
+
+#### 5. Tooltip Component (`/app/mood-admin/src/components/Tooltip.tsx`)
+- Contains METRIC_TOOLTIPS with definitions for all metrics:
+  - Engagement: dau, wau, mau, stickiness, wauMauRatio
+  - Users: activeUsers, newUsers
+  - Workouts: workoutsStarted, workoutsCompleted, completionRate
+  - Social: postsCreated, likes, comments, follows, notificationClicks
+  - Retention: d1Retention, d7Retention, d28Retention
+  - Filters: includeInternal, comparePeriod
+
+### Features Now Working:
+- ✅ Global date range picker (preset options: Today, 7d, 14d, 30d, 90d)
+- ✅ Granularity selector (Hourly, Daily, Weekly)
+- ✅ Compare toggle (for period comparison)
+- ✅ Internal users toggle (exclude/include staff accounts)
+- ✅ Tooltips on all KPI cards explaining metric definitions
+- ✅ All charts respect global filters
+
+### Build Status:
+- mood-admin build: ✅ Success (no errors)
+- All routes compiled successfully
+
