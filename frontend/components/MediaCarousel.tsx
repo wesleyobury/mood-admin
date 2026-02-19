@@ -95,6 +95,13 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
   const [isSeeking, setIsSeeking] = useState(false);
   const [audioConfigured, setAudioConfigured] = useState(false);
   
+  // Timeout and retry state
+  const [retryCount, setRetryCount] = useState(0);
+  const [videoKey, setVideoKey] = useState(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const MAX_RETRIES = 3;
+  const LOAD_TIMEOUT_MS = 10000;
+  
   // Thumbnail state
   const [thumbnailUri, setThumbnailUri] = useState<string | null>(null);
   const [thumbnailLoading, setThumbnailLoading] = useState(true);
