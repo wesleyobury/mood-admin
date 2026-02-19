@@ -249,7 +249,10 @@ export default function LazyTrainingTypeScreen() {
                 />
                 {index === 1 && (
                   <View style={styles.chooseForMeContainer}>
-                    <ChooseForMeButton onPress={handleBuildForMe} />
+                    <ChooseForMeButton 
+                      onPress={handleBuildForMe} 
+                      disabled={!selectedOption}
+                    />
                   </View>
                 )}
               </View>
