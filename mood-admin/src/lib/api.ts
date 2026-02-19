@@ -251,6 +251,10 @@ class ApiClient {
     return this.get<UserTimelineData>(`/analytics/admin/users/${userId}/timeline?${params}`);
   }
 
+  async getUserLifecycle(userId: string) {
+    return this.get<UserLifecycleData>(`/analytics/admin/users/${userId}/lifecycle`);
+  }
+
   // Drilldown endpoints for universal drill-downs
   async getDrilldownUsers(
     metric: string,
