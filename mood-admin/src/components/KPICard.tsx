@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, MousePointer2 } from "lucide-react";
 import { Tooltip } from "./Tooltip";
 
 interface KPICardProps {
@@ -13,6 +13,7 @@ interface KPICardProps {
   icon?: React.ReactNode;
   tooltip?: string;
   className?: string;
+  onClick?: () => void;
 }
 
 export function KPICard({
@@ -26,6 +27,7 @@ export function KPICard({
   icon,
   tooltip,
   className,
+  onClick,
 }: KPICardProps) {
   const getTrendIcon = () => {
     if (!trend) return null;
@@ -60,10 +62,15 @@ export function KPICard({
     return val.toLocaleString();
   };
 
+  const Component = onClick ? "button" : "div";
+
   return (
-    <div
+    <Component
+      onClick={onClick}
       className={cn(
-        "bg-card border border-border rounded-lg p-4 hover:border-primary/30 transition-colors",
+        "bg-card border border-border rounded-lg p-4 transition-colors text-left w-full",
+        onClick && "hover:border-primary/50 cursor-pointer group",
+        !onClick && "hover:border-primary/30",
         className
       )}
     >
@@ -72,7 +79,12 @@ export function KPICard({
           <span className="text-sm text-muted-foreground font-medium">{title}</span>
           {tooltip && <Tooltip content={tooltip} />}
         </div>
-        {icon && <div className="text-muted-foreground">{icon}</div>}
+        <div className="flex items-center gap-2">
+          {onClick && (
+            <MousePointer2 className="h-3 w-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+          )}
+          {icon && <div className="text-muted-foreground">{icon}</div>}
+        </div>
       </div>
 
       <div className="flex items-end justify-between">
@@ -98,6 +110,6 @@ export function KPICard({
           </div>
         )}
       </div>
-    </div>
+    </Component>
   );
 }
