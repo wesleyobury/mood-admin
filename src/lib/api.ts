@@ -77,6 +77,17 @@ class ApiClient {
     });
   }
 
+  async put<T>(endpoint: string, body?: unknown): Promise<ApiResponse<T>> {
+    return this.request<T>(endpoint, {
+      method: "PUT",
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  }
+
+  async delete<T>(endpoint: string): Promise<ApiResponse<T>> {
+    return this.request<T>(endpoint, { method: "DELETE" });
+  }
+
   // Auth endpoints
   async login(username: string, password: string) {
     const result = await this.post<{ token: string; user_id: string }>(
@@ -111,18 +122,65 @@ class ApiClient {
     }>("/analytics/admin/env-info");
   }
 
-  async getEngagement() {
-    return this.get<EngagementData>("/analytics/admin/engagement");
+  async getDataFreshness() {
+    return this.get<DataFreshnessData>("/analytics/admin/data-freshness");
   }
 
-  async getPlatformStats(days: number = 30) {
-    return this.get<PlatformStats>(`/analytics/admin/platform-stats?days=${days}`);
+  async getEngagement(includeInternal: boolean = false) {
+    const params = includeInternal ? "?include_internal=true" : "";
+    return this.get<EngagementData>(`/analytics/admin/engagement${params}`);
   }
 
-  async getTimeSeries(metricType: string, period: string = "day", limit: number = 30) {
+  async getPlatformStats(days: number = 30, includeInternal: boolean = false) {
+    const params = new URLSearchParams();
+    params.append("days", days.toString());
+    if (includeInternal) params.append("include_internal", "true");
+    return this.get<PlatformStats>(`/analytics/admin/platform-stats?${params}`);
+  }
+
+  async getTimeSeries(
+    metricType: string, 
+    period: string = "day", 
+    limit: number = 30,
+    includeInternal: boolean = false
+  ) {
+    const params = new URLSearchParams();
+    params.append("period", period);
+    params.append("limit", limit.toString());
+    if (includeInternal) params.append("include_internal", "true");
     return this.get<TimeSeriesData>(
-      `/analytics/admin/time-series/${metricType}?period=${period}&limit=${limit}`
+      `/analytics/admin/time-series/${metricType}?${params}`
     );
+  }
+
+  // Activation metrics
+  async getActivation(days: number = 30, includeInternal: boolean = false) {
+    const params = new URLSearchParams();
+    params.append("days", days.toString());
+    if (includeInternal) params.append("include_internal", "true");
+    return this.get<ActivationMetrics>(`/analytics/admin/activation?${params}`);
+  }
+
+  // Workout quality metrics
+  async getWorkoutQuality(days: number = 30, includeInternal: boolean = false) {
+    const params = new URLSearchParams();
+    params.append("days", days.toString());
+    if (includeInternal) params.append("include_internal", "true");
+    return this.get<WorkoutQualityMetrics>(`/analytics/admin/workout-quality?${params}`);
+  }
+
+  // Social loop metrics
+  async getSocialLoops(days: number = 30, includeInternal: boolean = false) {
+    const params = new URLSearchParams();
+    params.append("days", days.toString());
+    if (includeInternal) params.append("include_internal", "true");
+    return this.get<SocialLoopMetrics>(`/analytics/admin/social-loops?${params}`);
+  }
+
+  // Automated insights
+  async getInsights(includeInternal: boolean = false) {
+    const params = includeInternal ? "?include_internal=true" : "";
+    return this.get<InsightsResponse>(`/analytics/admin/insights${params}`);
   }
 
   async getComparison(start?: string, end?: string) {
@@ -199,6 +257,79 @@ class ApiClient {
     return this.get<UserTimelineData>(`/analytics/admin/users/${userId}/timeline?${params}`);
   }
 
+  async getUserLifecycle(userId: string) {
+    return this.get<UserLifecycleData>(`/analytics/admin/users/${userId}/lifecycle`);
+  }
+
+  // Drilldown endpoints for universal drill-downs
+  async getDrilldownUsers(
+    metric: string,
+    start: string,
+    end: string,
+    options: {
+      value?: string;
+      limit?: number;
+      skip?: number;
+      includeInternal?: boolean;
+    } = {}
+  ) {
+    const params = new URLSearchParams();
+    params.append("metric", metric);
+    params.append("start", start);
+    params.append("end", end);
+    if (options.value) params.append("value", options.value);
+    if (options.limit) params.append("limit", options.limit.toString());
+    if (options.skip) params.append("skip", options.skip.toString());
+    if (options.includeInternal) params.append("include_internal", "true");
+    return this.get<DrilldownUsersData>(`/analytics/admin/drilldown/users?${params}`);
+  }
+
+  async getDrilldownEvents(
+    metric: string,
+    start: string,
+    end: string,
+    options: {
+      userId?: string;
+      value?: string;
+      limit?: number;
+      skip?: number;
+      includeInternal?: boolean;
+    } = {}
+  ) {
+    const params = new URLSearchParams();
+    params.append("metric", metric);
+    params.append("start", start);
+    params.append("end", end);
+    if (options.userId) params.append("user_id", options.userId);
+    if (options.value) params.append("value", options.value);
+    if (options.limit) params.append("limit", options.limit.toString());
+    if (options.skip) params.append("skip", options.skip.toString());
+    if (options.includeInternal) params.append("include_internal", "true");
+    return this.get<DrilldownEventsData>(`/analytics/admin/drilldown/events?${params}`);
+  }
+
+  // Saved Views
+  async getSavedViews(viewType?: string) {
+    const params = viewType ? `?view_type=${viewType}` : "";
+    return this.get<SavedViewsResponse>(`/analytics/admin/saved-views${params}`);
+  }
+
+  async getSavedView(viewId: string) {
+    return this.get<SavedView>(`/analytics/admin/saved-views/${viewId}`);
+  }
+
+  async createSavedView(view: SavedViewCreate) {
+    return this.post<SavedView>(`/analytics/admin/saved-views`, view);
+  }
+
+  async updateSavedView(viewId: string, update: Partial<SavedViewCreate>) {
+    return this.put<SavedView>(`/analytics/admin/saved-views/${viewId}`, update);
+  }
+
+  async deleteSavedView(viewId: string) {
+    return this.delete<{ message: string; id: string }>(`/analytics/admin/saved-views/${viewId}`);
+  }
+
   // Admin actions
   async seedFeaturedWorkouts() {
     return this.post<{ message: string }>("/admin/seed-featured-workouts");
@@ -220,6 +351,18 @@ export interface EngagementData {
   wau_mau_ratio: number;
   computed_at: string;
   note: string;
+}
+
+export interface DataFreshnessData {
+  last_event_at: string | null;
+  last_event_type: string | null;
+  events_last_hour: number;
+  events_last_24h: number;
+  checked_at: string;
+  git_sha: string;
+  deployed_at: string;
+  environment: string;
+  error?: string;
 }
 
 export interface PlatformStats {
@@ -405,4 +548,250 @@ export interface TimelineEvent {
   category: string;
   timestamp: string;
   metadata: Record<string, unknown>;
+}
+
+// Drilldown types for universal drill-downs
+export interface DrilldownUser {
+  user_id: string;
+  username: string;
+  email: string;
+  name: string;
+  avatar: string;
+  created_at: string | null;
+  metric_value: number;
+  metric_detail: string;
+  first_event?: string | null;
+  last_event?: string | null;
+}
+
+export interface DrilldownUsersData {
+  metric: string;
+  start_date: string;
+  end_date: string;
+  value_filter: string | null;
+  users: DrilldownUser[];
+  total: number;
+  limit: number;
+  skip: number;
+  include_internal: boolean;
+}
+
+export interface DrilldownEvent {
+  event_id: string;
+  event_type: string;
+  user_id: string;
+  username: string;
+  timestamp: string | null;
+  metadata: Record<string, unknown>;
+}
+
+export interface DrilldownEventsData {
+  metric: string;
+  start_date: string;
+  end_date: string;
+  user_filter: string | null;
+  value_filter: string | null;
+  events: DrilldownEvent[];
+  total: number;
+  limit: number;
+  skip: number;
+  include_internal: boolean;
+}
+
+// Activation Metrics types
+export interface ActivationMetrics {
+  period_days: number;
+  total_new_users: number;
+  activated_users: number;
+  activation_rate: number;
+  time_to_first_workout: {
+    median_hours: number | null;
+    avg_hours: number | null;
+    distribution: {
+      bucket: string;
+      count: number;
+      percentage: number;
+    }[];
+  };
+  activation_funnel: {
+    step: string;
+    users: number;
+    rate: number;
+  }[];
+  include_internal: boolean;
+}
+
+// Workout Quality Metrics types
+export interface WorkoutQualityMetrics {
+  period_days: number;
+  overall: {
+    total_started: number;
+    total_completed: number;
+    total_abandoned: number;
+    completion_rate: number;
+    abandon_rate: number;
+  };
+  by_mood_category: {
+    category: string;
+    started: number;
+    completed: number;
+    abandoned: number;
+    completion_rate: number;
+    abandon_rate: number;
+    unique_users: number;
+  }[];
+  by_difficulty: {
+    difficulty: string;
+    started: number;
+    completed: number;
+    completion_rate: number;
+    abandon_rate: number;
+  }[];
+  by_equipment: {
+    equipment: string;
+    started: number;
+    completed: number;
+    completion_rate: number;
+  }[];
+  include_internal: boolean;
+}
+
+// Social Loop Metrics types
+export interface SocialLoopMetrics {
+  period_days: number;
+  overview: {
+    total_active_users: number;
+    social_participants: number;
+    social_participation_rate: number;
+    total_social_actions: number;
+  };
+  content: {
+    total_posts: number;
+    posts_with_engagement: number;
+    engagement_rate: number;
+    avg_engagement_per_post: number;
+  };
+  actions: {
+    posts_created: { count: number; unique_users: number };
+    likes: { count: number; unique_users: number };
+    comments: { count: number; unique_users: number };
+    follows: { count: number; unique_users: number };
+  };
+  network: {
+    avg_following_per_user: number;
+  };
+  include_internal: boolean;
+}
+
+// Automated Insights types
+export interface Insight {
+  id: string;
+  title: string;
+  description: string;
+  severity: "info" | "warning" | "critical";
+  metric: string;
+  current_value: number;
+  previous_value: number;
+  change_percent: number;
+  recommendation: string | null;
+  timestamp: string;
+}
+
+export interface InsightsResponse {
+  insights: Insight[];
+  total: number;
+  critical_count: number;
+  warning_count: number;
+  info_count: number;
+  generated_at: string;
+  comparison_period: string;
+  include_internal: boolean;
+}
+
+// Saved Views types
+export interface SavedView {
+  id: string;
+  name: string;
+  description: string;
+  view_type: "overview" | "funnel" | "retention" | "custom";
+  config: SavedViewConfig;
+  is_default: boolean;
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+// User Lifecycle types
+export interface UserLifecycleData {
+  user_id: string;
+  username: string;
+  lifecycle: {
+    stage: "new" | "activated" | "engaged" | "power_user" | "at_risk" | "churned";
+    account_age_days: number;
+    days_since_last_session: number | null;
+    days_since_last_workout: number | null;
+  };
+  churn_risk: {
+    score: number;
+    level: "low" | "medium" | "high";
+    factors: {
+      factor: string;
+      impact: number;
+      detail: string;
+    }[];
+  };
+  milestones: {
+    event: string;
+    date: string;
+    label: string;
+  }[];
+  time_to_first_workout_hours: number | null;
+  lifetime_stats: {
+    total_sessions: number;
+    total_workouts_started: number;
+    total_workouts_completed: number;
+    completion_rate: number;
+  };
+  activity_trends: {
+    [period: string]: {
+      sessions: number;
+      workouts_started: number;
+      workouts_completed: number;
+      posts: number;
+      social_actions: number;
+    };
+  };
+  current_streak: number;
+  longest_streak: number;
+}
+
+export interface SavedViewConfig {
+  // Filter settings
+  dateRange?: {
+    preset?: string;
+    startDate?: string;
+    endDate?: string;
+  };
+  granularity?: "hour" | "day" | "week";
+  includeInternal?: boolean;
+  // Chart settings
+  chartType?: "line" | "bar" | "area";
+  showCumulative?: boolean;
+  showPrevious?: boolean;
+  // Selected metrics
+  selectedMetrics?: string[];
+  // Custom settings per view type
+  [key: string]: unknown;
+}
+
+export interface SavedViewsResponse {
+  views: SavedView[];
+  total: number;
+}
+
+export interface SavedViewCreate {
+  name: string;
+  description?: string;
+  view_type: "overview" | "funnel" | "retention" | "custom";
+  config: SavedViewConfig;
+  is_default?: boolean;
 }
