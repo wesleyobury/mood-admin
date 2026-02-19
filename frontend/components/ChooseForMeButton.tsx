@@ -31,18 +31,19 @@ export default function ChooseForMeButton({
   onPress, 
   disabled = false, 
   style,
-  variant = 'workoutType' 
+  variant = 'workoutType',
+  noAnimation = false
 }: ChooseForMeButtonProps) {
-  const fadeAnim = useRef(new Animated.Value(variant === 'muscleGroup' ? 1 : 0)).current;
+  const fadeAnim = useRef(new Animated.Value(variant === 'muscleGroup' || noAnimation ? 1 : 0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const shimmerAnim = useRef(new Animated.Value(0)).current;
   const [isPressed, setIsPressed] = useState(false);
 
   const backgroundColor = COLORS[variant];
 
-  // Fade-in on mount - no delay for muscleGroup variant
+  // Fade-in on mount - no delay for muscleGroup variant or when noAnimation is true
   useEffect(() => {
-    if (variant === 'muscleGroup') {
+    if (variant === 'muscleGroup' || noAnimation) {
       startShimmerAnimation();
       return;
     }
@@ -58,7 +59,7 @@ export default function ChooseForMeButton({
     }, 1500);
     
     return () => clearTimeout(timer);
-  }, [variant]);
+  }, [variant, noAnimation]);
 
   const startShimmerAnimation = () => {
     shimmerAnim.setValue(0);
