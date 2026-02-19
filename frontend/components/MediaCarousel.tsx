@@ -366,38 +366,93 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
     );
   }
 
+  // Manual retry handler
+  const handleManualRetry = useCallback(() => {
+    setRetryCount(0);
+    setHasError(false);
+    setVideoKey(prev => prev + 1);
+    setIsVideoLoading(true);
+  }, []);
+
   // Show video player (after user taps or visibility threshold met)
   return (
     <TouchableOpacity 
       style={styles.videoContainer} 
       activeOpacity={1}
-      onPress={togglePlayPause}
+      onPress={hasError ? handleManualRetry : togglePlayPause}
     >
-      <Video
-        ref={videoRef}
-        source={{ uri }}
-        style={styles.video}
-        resizeMode={ResizeMode.COVER}
-        shouldPlay={isActive}
-        isLooping
-        isMuted={isMuted}
-        onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
-        onReadyForDisplay={handleVideoReadyForDisplay}
-        onError={(error) => {
-          console.error('Video error:', error);
-          setHasError(true);
-        }}
-      />
+      {hasError ? (
+        // Error/timeout state with retry option
+        <View style={[styles.video, { backgroundColor: '#000', justifyContent: 'center', alignItems: 'center' }]}>
+          {thumbnailUri && (
+            <Image
+              source={{ uri: thumbnailUri }}
+              style={StyleSheet.absoluteFill}
+              contentFit="cover"
+              cachePolicy="memory-disk"
+            />
+          )}
+          <View style={{ 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            right: 0, 
+            bottom: 0, 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            backgroundColor: 'rgba(0,0,0,0.6)',
+          }}>
+            <Ionicons name="refresh-circle" size={48} color="#FFD700" />
+            <Text style={{ color: '#fff', marginTop: 8, fontSize: 14, fontWeight: '600' }}>
+              Video failed to load
+            </Text>
+            <Text style={{ color: 'rgba(255,255,255,0.7)', marginTop: 4, fontSize: 12 }}>
+              Tap to retry
+            </Text>
+          </View>
+        </View>
+      ) : (
+        <Video
+          key={videoKey}
+          ref={videoRef}
+          source={{ uri }}
+          style={styles.video}
+          resizeMode={ResizeMode.COVER}
+          shouldPlay={isActive}
+          isLooping
+          isMuted={isMuted}
+          onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
+          onReadyForDisplay={handleVideoReadyForDisplay}
+          onError={(error) => {
+            console.error('Video error:', error);
+            if (retryCount < MAX_RETRIES) {
+              // Auto-retry on error
+              if (videoRef.current) {
+                videoRef.current.unloadAsync().catch(() => {});
+              }
+              setRetryCount(prev => prev + 1);
+              setVideoKey(prev => prev + 1);
+            } else {
+              setHasError(true);
+            }
+          }}
+        />
+      )}
       
       {/* Loading indicator */}
-      {isVideoLoading && (
+      {isVideoLoading && !hasError && (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#FFD700" />
+          {retryCount > 0 && (
+            <Text style={{ color: 'rgba(255,255,255,0.5)', marginTop: 8, fontSize: 11 }}>
+              Retry {retryCount}/{MAX_RETRIES}
+            </Text>
+          )}
         </View>
       )}
       
       {/* Play/Pause overlay - shown when paused */}
-      {!isPlaying && !isVideoLoading && (
+      {!isPlaying && !isVideoLoading && !hasError && (
         <View style={styles.playOverlay}>
           <View style={styles.playButton}>
             <Ionicons name="play" size={40} color="#fff" />
@@ -411,13 +466,14 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
       </View>
       
       {/* Mute/Unmute button */}
-      <TouchableOpacity 
-        style={styles.muteButton}
-        onPress={(e) => {
-          e.stopPropagation();
-          toggleMute();
-        }}
-      >
+      {!hasError && (
+        <TouchableOpacity 
+          style={styles.muteButton}
+          onPress={(e) => {
+            e.stopPropagation();
+            toggleMute();
+          }}
+        >
         <Ionicons 
           name={isMuted ? "volume-mute" : "volume-high"} 
           size={18} 
