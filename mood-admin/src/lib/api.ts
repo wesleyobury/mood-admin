@@ -588,6 +588,91 @@ export interface DrilldownEventsData {
   include_internal: boolean;
 }
 
+// Activation Metrics types
+export interface ActivationMetrics {
+  period_days: number;
+  total_new_users: number;
+  activated_users: number;
+  activation_rate: number;
+  time_to_first_workout: {
+    median_hours: number | null;
+    avg_hours: number | null;
+    distribution: {
+      bucket: string;
+      count: number;
+      percentage: number;
+    }[];
+  };
+  activation_funnel: {
+    step: string;
+    users: number;
+    rate: number;
+  }[];
+  include_internal: boolean;
+}
+
+// Workout Quality Metrics types
+export interface WorkoutQualityMetrics {
+  period_days: number;
+  overall: {
+    total_started: number;
+    total_completed: number;
+    total_abandoned: number;
+    completion_rate: number;
+    abandon_rate: number;
+  };
+  by_mood_category: {
+    category: string;
+    started: number;
+    completed: number;
+    abandoned: number;
+    completion_rate: number;
+    abandon_rate: number;
+    unique_users: number;
+  }[];
+  by_difficulty: {
+    difficulty: string;
+    started: number;
+    completed: number;
+    completion_rate: number;
+    abandon_rate: number;
+  }[];
+  by_equipment: {
+    equipment: string;
+    started: number;
+    completed: number;
+    completion_rate: number;
+  }[];
+  include_internal: boolean;
+}
+
+// Social Loop Metrics types
+export interface SocialLoopMetrics {
+  period_days: number;
+  overview: {
+    total_active_users: number;
+    social_participants: number;
+    social_participation_rate: number;
+    total_social_actions: number;
+  };
+  content: {
+    total_posts: number;
+    posts_with_engagement: number;
+    engagement_rate: number;
+    avg_engagement_per_post: number;
+  };
+  actions: {
+    posts_created: { count: number; unique_users: number };
+    likes: { count: number; unique_users: number };
+    comments: { count: number; unique_users: number };
+    follows: { count: number; unique_users: number };
+  };
+  network: {
+    avg_following_per_user: number;
+  };
+  include_internal: boolean;
+}
+
 // Saved Views types
 export interface SavedView {
   id: string;
