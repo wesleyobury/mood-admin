@@ -205,10 +205,10 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
             />
           )}
           
-          {/* Gradient Overlay for text readability */}
+          {/* Subtle gradient at bottom only for text readability - NO vignette */}
           <LinearGradient
-            colors={['rgba(0,0,0,0.5)', 'transparent', 'rgba(0,0,0,0.7)']}
-            locations={[0, 0.4, 1]}
+            colors={['transparent', 'transparent', 'rgba(0,0,0,0.6)']}
+            locations={[0, 0.5, 1]}
             style={styles.videoGradientOverlay}
             pointerEvents="none"
           />
