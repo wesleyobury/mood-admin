@@ -2993,6 +2993,239 @@ async def get_drilldown_events(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# ==================== SAVED VIEWS ENDPOINTS ====================
+
+class SavedViewCreate(BaseModel):
+    name: str
+    description: Optional[str] = None
+    view_type: str  # "overview", "funnel", "retention", "custom"
+    config: dict  # Stores filters, chart settings, selected metrics, etc.
+    is_default: bool = False
+
+class SavedViewUpdate(BaseModel):
+    name: Optional[str] = None
+    description: Optional[str] = None
+    config: Optional[dict] = None
+    is_default: Optional[bool] = None
+
+
+@api_router.get("/analytics/admin/saved-views")
+async def get_saved_views(
+    view_type: Optional[str] = None,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get all saved views for the current admin user.
+    
+    Query params:
+    - view_type: Optional filter by type (overview, funnel, retention, custom)
+    
+    Returns list of saved views.
+    """
+    try:
+        query = {"user_id": current_user_id}
+        if view_type:
+            query["view_type"] = view_type
+        
+        views = await db.admin_saved_views.find(query).sort("created_at", -1).to_list(100)
+        
+        return {
+            "views": [
+                {
+                    "id": str(view["_id"]),
+                    "name": view.get("name", ""),
+                    "description": view.get("description", ""),
+                    "view_type": view.get("view_type", "custom"),
+                    "config": view.get("config", {}),
+                    "is_default": view.get("is_default", False),
+                    "created_at": view.get("created_at").isoformat() if view.get("created_at") else None,
+                    "updated_at": view.get("updated_at").isoformat() if view.get("updated_at") else None,
+                }
+                for view in views
+            ],
+            "total": len(views),
+        }
+    except Exception as e:
+        logger.error(f"Get saved views error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.post("/analytics/admin/saved-views")
+async def create_saved_view(
+    view: SavedViewCreate,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Create a new saved view.
+    
+    Body:
+    - name: View name
+    - description: Optional description
+    - view_type: Type of view (overview, funnel, retention, custom)
+    - config: JSON object with view configuration
+    - is_default: Whether this is the default view for its type
+    
+    Returns the created view.
+    """
+    try:
+        now = datetime.now(timezone.utc)
+        
+        # If setting as default, unset other defaults of same type
+        if view.is_default:
+            await db.admin_saved_views.update_many(
+                {"user_id": current_user_id, "view_type": view.view_type, "is_default": True},
+                {"$set": {"is_default": False}}
+            )
+        
+        view_doc = {
+            "user_id": current_user_id,
+            "name": view.name,
+            "description": view.description,
+            "view_type": view.view_type,
+            "config": view.config,
+            "is_default": view.is_default,
+            "created_at": now,
+            "updated_at": now,
+        }
+        
+        result = await db.admin_saved_views.insert_one(view_doc)
+        
+        return {
+            "id": str(result.inserted_id),
+            "name": view.name,
+            "description": view.description,
+            "view_type": view.view_type,
+            "config": view.config,
+            "is_default": view.is_default,
+            "created_at": now.isoformat(),
+            "updated_at": now.isoformat(),
+            "message": "View saved successfully",
+        }
+    except Exception as e:
+        logger.error(f"Create saved view error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.get("/analytics/admin/saved-views/{view_id}")
+async def get_saved_view(
+    view_id: str,
+    current_user_id: str = Depends(require_admin)
+):
+    """Get a specific saved view by ID."""
+    try:
+        view = await db.admin_saved_views.find_one({
+            "_id": ObjectId(view_id),
+            "user_id": current_user_id
+        })
+        
+        if not view:
+            raise HTTPException(status_code=404, detail="Saved view not found")
+        
+        return {
+            "id": str(view["_id"]),
+            "name": view.get("name", ""),
+            "description": view.get("description", ""),
+            "view_type": view.get("view_type", "custom"),
+            "config": view.get("config", {}),
+            "is_default": view.get("is_default", False),
+            "created_at": view.get("created_at").isoformat() if view.get("created_at") else None,
+            "updated_at": view.get("updated_at").isoformat() if view.get("updated_at") else None,
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Get saved view error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.put("/analytics/admin/saved-views/{view_id}")
+async def update_saved_view(
+    view_id: str,
+    update: SavedViewUpdate,
+    current_user_id: str = Depends(require_admin)
+):
+    """Update an existing saved view."""
+    try:
+        # Check view exists and belongs to user
+        existing = await db.admin_saved_views.find_one({
+            "_id": ObjectId(view_id),
+            "user_id": current_user_id
+        })
+        
+        if not existing:
+            raise HTTPException(status_code=404, detail="Saved view not found")
+        
+        # Build update document
+        update_doc = {"updated_at": datetime.now(timezone.utc)}
+        if update.name is not None:
+            update_doc["name"] = update.name
+        if update.description is not None:
+            update_doc["description"] = update.description
+        if update.config is not None:
+            update_doc["config"] = update.config
+        if update.is_default is not None:
+            update_doc["is_default"] = update.is_default
+            # If setting as default, unset other defaults
+            if update.is_default:
+                await db.admin_saved_views.update_many(
+                    {
+                        "user_id": current_user_id,
+                        "view_type": existing.get("view_type"),
+                        "is_default": True,
+                        "_id": {"$ne": ObjectId(view_id)}
+                    },
+                    {"$set": {"is_default": False}}
+                )
+        
+        await db.admin_saved_views.update_one(
+            {"_id": ObjectId(view_id)},
+            {"$set": update_doc}
+        )
+        
+        # Get updated document
+        updated = await db.admin_saved_views.find_one({"_id": ObjectId(view_id)})
+        
+        return {
+            "id": str(updated["_id"]),
+            "name": updated.get("name", ""),
+            "description": updated.get("description", ""),
+            "view_type": updated.get("view_type", "custom"),
+            "config": updated.get("config", {}),
+            "is_default": updated.get("is_default", False),
+            "created_at": updated.get("created_at").isoformat() if updated.get("created_at") else None,
+            "updated_at": updated.get("updated_at").isoformat() if updated.get("updated_at") else None,
+            "message": "View updated successfully",
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Update saved view error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.delete("/analytics/admin/saved-views/{view_id}")
+async def delete_saved_view(
+    view_id: str,
+    current_user_id: str = Depends(require_admin)
+):
+    """Delete a saved view."""
+    try:
+        result = await db.admin_saved_views.delete_one({
+            "_id": ObjectId(view_id),
+            "user_id": current_user_id
+        })
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="Saved view not found")
+        
+        return {"message": "View deleted successfully", "id": view_id}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Delete saved view error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @api_router.get("/analytics/admin/comparison")
 async def get_comparison_endpoint(
     start: Optional[str] = None,
