@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { useFilters } from "@/lib/filter-context";
 import { api, PlatformStats, ComparisonData, TimeSeriesData, EngagementData } from "@/lib/api";
 import { KPICard } from "@/components/KPICard";
 import { TimeSeriesChart } from "@/components/charts/TimeSeriesChart";
 import { GlobalFilterBar } from "@/components/GlobalFilterBar";
+import { DrilldownDrawer } from "@/components/DrilldownDrawer";
 import { METRIC_TOOLTIPS, Tooltip } from "@/components/Tooltip";
 import { format } from "date-fns";
 import {
@@ -18,9 +19,19 @@ import {
   Heart,
   Bell,
   Activity,
-  Info,
 } from "lucide-react";
 import { redirect } from "next/navigation";
+
+// Metric labels for the drilldown drawer
+const METRIC_LABELS: Record<string, string> = {
+  active_users: "Daily Active Users",
+  new_users: "New Users",
+  workouts_started: "Workouts Started",
+  workouts_completed: "Workouts Completed",
+  posts_created: "Posts Created",
+  social_interactions: "Social Interactions",
+  mood_selections: "Mood Selections",
+};
 
 export default function OverviewPage() {
   const { isAuthenticated, isAdmin, isLoading } = useAuth();
@@ -33,6 +44,11 @@ export default function OverviewPage() {
   const [workoutsData, setWorkoutsData] = useState<TimeSeriesData | null>(null);
   const [postsData, setPostsData] = useState<TimeSeriesData | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Drilldown state
+  const [drilldownOpen, setDrilldownOpen] = useState(false);
+  const [drilldownMetric, setDrilldownMetric] = useState("");
+  const [drilldownDateLabel, setDrilldownDateLabel] = useState("");
 
   useEffect(() => {
     if (!isLoading && (!isAuthenticated || !isAdmin)) {
@@ -73,6 +89,26 @@ export default function OverviewPage() {
 
     fetchData();
   }, [isAuthenticated, isAdmin, filters, days]);
+
+  // Handle chart click for drilldown
+  const handleChartClick = useCallback((metric: string, dateLabel: string) => {
+    setDrilldownMetric(metric);
+    setDrilldownDateLabel(dateLabel);
+    setDrilldownOpen(true);
+  }, []);
+
+  // Handle KPI card click for drilldown
+  const handleKPIClick = useCallback((metric: string) => {
+    setDrilldownMetric(metric);
+    setDrilldownDateLabel("");
+    setDrilldownOpen(true);
+  }, []);
+
+  const closeDrilldown = useCallback(() => {
+    setDrilldownOpen(false);
+    setDrilldownMetric("");
+    setDrilldownDateLabel("");
+  }, []);
 
   const getMetric = (key: string) => comparison?.metrics[key];
 
@@ -161,6 +197,7 @@ export default function OverviewPage() {
           trend={getMetric("active_users")?.trend}
           icon={<Users className="h-4 w-4" />}
           tooltip={METRIC_TOOLTIPS.activeUsers}
+          onClick={() => handleKPIClick("active_users")}
         />
         <KPICard
           title="New Users"
@@ -170,6 +207,7 @@ export default function OverviewPage() {
           trend={getMetric("new_users")?.trend}
           icon={<UserPlus className="h-4 w-4" />}
           tooltip={METRIC_TOOLTIPS.newUsers}
+          onClick={() => handleKPIClick("new_users")}
         />
         <KPICard
           title="Workouts Started"
@@ -179,6 +217,7 @@ export default function OverviewPage() {
           trend={getMetric("workouts_started")?.trend}
           icon={<Dumbbell className="h-4 w-4" />}
           tooltip={METRIC_TOOLTIPS.workoutsStarted}
+          onClick={() => handleKPIClick("workouts_started")}
         />
         <KPICard
           title="Workouts Completed"
@@ -188,6 +227,7 @@ export default function OverviewPage() {
           trend={getMetric("workouts_completed")?.trend}
           icon={<CheckCircle className="h-4 w-4" />}
           tooltip={METRIC_TOOLTIPS.workoutsCompleted}
+          onClick={() => handleKPIClick("workouts_completed")}
         />
       </div>
 
@@ -211,6 +251,7 @@ export default function OverviewPage() {
           trend={getMetric("posts_created")?.trend}
           icon={<FileText className="h-4 w-4" />}
           tooltip={METRIC_TOOLTIPS.postsCreated}
+          onClick={() => handleKPIClick("posts_created")}
         />
         <KPICard
           title="Total Likes"
@@ -220,6 +261,7 @@ export default function OverviewPage() {
           trend={getMetric("likes")?.trend}
           icon={<Heart className="h-4 w-4" />}
           tooltip={METRIC_TOOLTIPS.likes}
+          onClick={() => handleKPIClick("social_interactions")}
         />
         <KPICard
           title="Notification Clicks"
@@ -232,7 +274,7 @@ export default function OverviewPage() {
         />
       </div>
 
-      {/* Charts */}
+      {/* Charts with Drilldown support */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {dauData && (
           <TimeSeriesChart
@@ -243,6 +285,8 @@ export default function OverviewPage() {
             }))}
             type="area"
             color="hsl(var(--chart-1))"
+            metric="active_users"
+            onChartClick={handleChartClick}
           />
         )}
         {newUsersData && (
@@ -254,6 +298,8 @@ export default function OverviewPage() {
             }))}
             type="bar"
             color="hsl(var(--chart-2))"
+            metric="new_users"
+            onChartClick={handleChartClick}
           />
         )}
         {workoutsData && (
@@ -265,6 +311,8 @@ export default function OverviewPage() {
             }))}
             type="area"
             color="hsl(var(--chart-3))"
+            metric="workouts_completed"
+            onChartClick={handleChartClick}
           />
         )}
         {postsData && (
@@ -276,6 +324,8 @@ export default function OverviewPage() {
             }))}
             type="bar"
             color="hsl(var(--chart-4))"
+            metric="posts_created"
+            onChartClick={handleChartClick}
           />
         )}
       </div>
@@ -288,16 +338,34 @@ export default function OverviewPage() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {stats.popular_mood_categories.slice(0, 5).map((mood) => (
-              <div key={mood.mood} className="text-center">
+              <button
+                key={mood.mood}
+                onClick={() => {
+                  setDrilldownMetric("mood_selections");
+                  setDrilldownDateLabel(mood.mood);
+                  setDrilldownOpen(true);
+                }}
+                className="text-center hover:bg-accent/50 rounded-lg p-2 transition-colors cursor-pointer"
+              >
                 <p className="text-2xl font-bold">{mood.count}</p>
                 <p className="text-sm text-muted-foreground truncate" title={mood.mood}>
                   {mood.mood}
                 </p>
-              </div>
+              </button>
             ))}
           </div>
         </div>
       )}
+
+      {/* Drilldown Drawer */}
+      <DrilldownDrawer
+        isOpen={drilldownOpen}
+        onClose={closeDrilldown}
+        metric={drilldownMetric}
+        metricLabel={METRIC_LABELS[drilldownMetric] || drilldownMetric}
+        value={drilldownDateLabel || undefined}
+        dateLabel={drilldownDateLabel}
+      />
     </div>
   );
 }
