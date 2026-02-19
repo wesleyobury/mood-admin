@@ -2744,8 +2744,16 @@ async def get_user_lifecycle_endpoint(
         uid = str(user["_id"])
         now = datetime.now(timezone.utc)
         
+        # Helper to make datetime timezone-aware
+        def make_aware(dt):
+            if dt is None:
+                return None
+            if dt.tzinfo is None:
+                return dt.replace(tzinfo=timezone.utc)
+            return dt
+        
         # Calculate key dates
-        created_at = user.get("created_at")
+        created_at = make_aware(user.get("created_at"))
         account_age_days = (now - created_at).days if created_at else 0
         
         # Get activity data
