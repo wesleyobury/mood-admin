@@ -58,7 +58,7 @@ export default function TabLayout() {
         },
       }}
     >
-      {/* Explore - Left position */}
+      {/* Explore - Left position - Shows notification badge (likes, comments, follows) */}
       <Tabs.Screen
         name="explore"
         options={{
@@ -70,10 +70,10 @@ export default function TabLayout() {
                 size={24} 
                 color={color} 
               />
-              {totalBadgeCount > 0 && (
+              {unreadNotifications > 0 && (
                 <View style={styles.notificationBadge}>
                   <Text style={styles.notificationBadgeText}>
-                    {totalBadgeCount > 99 ? '99+' : totalBadgeCount}
+                    {unreadNotifications > 99 ? '99+' : unreadNotifications}
                   </Text>
                 </View>
               )}
@@ -97,7 +97,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      {/* Profile - Right position */}
+      {/* Profile - Right position - Shows DM badge */}
       <Tabs.Screen
         name="profile"
         options={{
@@ -109,6 +109,13 @@ export default function TabLayout() {
                 size={24} 
                 color={color} 
               />
+              {unreadMessages > 0 && (
+                <View style={styles.notificationBadge}>
+                  <Text style={styles.notificationBadgeText}>
+                    {unreadMessages > 99 ? '99+' : unreadMessages}
+                  </Text>
+                </View>
+              )}
             </View>
           ),
         }}
