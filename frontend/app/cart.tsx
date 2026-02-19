@@ -188,6 +188,7 @@ export default function CartScreen() {
   const [currentCartIndex, setCurrentCartIndex] = useState(0);
   const [isGeneratedWorkout, setIsGeneratedWorkout] = useState(false);
   const [moodCard, setMoodCard] = useState('');
+  const [dynamicTitle, setDynamicTitle] = useState('');
 
   // Parse generated carts from params on mount
   useEffect(() => {
@@ -200,6 +201,10 @@ export default function CartScreen() {
         if (params.moodCard) {
           setMoodCard(params.moodCard as string);
         }
+        // Generate initial dynamic title based on first cart's intensity
+        const firstCart = carts[0];
+        const intensity = firstCart?.intensity || 'intermediate';
+        setDynamicTitle(getRandomWorkoutTitle(intensity, params.moodCard as string || ''));
       } catch (e) {
         console.error('Error parsing generated carts:', e);
       }
@@ -226,6 +231,10 @@ export default function CartScreen() {
       const nextIndex = currentCartIndex + 1;
       const nextCart = generatedCarts[nextIndex];
       setCurrentCartIndex(nextIndex);
+      
+      // Generate new dynamic title for the new cart
+      const intensity = nextCart?.intensity || 'intermediate';
+      setDynamicTitle(getRandomWorkoutTitle(intensity, moodCard));
       
       // Update cart with next workout
       clearCart();
