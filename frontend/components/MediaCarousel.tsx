@@ -208,8 +208,43 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
         videoRef.current.stopAsync().catch(() => {});
         videoRef.current.unloadAsync().catch(() => {});
       }
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, []);
+
+  // Video loading timeout logic
+  useEffect(() => {
+    if (shouldLoadVideo && isVideoLoading) {
+      // Start timeout
+      timeoutRef.current = setTimeout(() => {
+        if (isVideoLoading && !isPlaying) {
+          console.log(`Video timeout in feed after ${LOAD_TIMEOUT_MS}ms, retry ${retryCount + 1}/${MAX_RETRIES}`);
+          
+          if (retryCount < MAX_RETRIES) {
+            // Auto-retry
+            if (videoRef.current) {
+              videoRef.current.unloadAsync().catch(() => {});
+            }
+            setRetryCount(prev => prev + 1);
+            setVideoKey(prev => prev + 1);
+          } else {
+            // Max retries - show error state
+            setHasError(true);
+            setIsVideoLoading(false);
+          }
+        }
+      }, LOAD_TIMEOUT_MS);
+    }
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+    };
+  }, [shouldLoadVideo, isVideoLoading, videoKey, retryCount, isPlaying]);
 
   const handlePlaybackStatusUpdate = useCallback((status: AVPlaybackStatus) => {
     if (status.isLoaded) {
@@ -222,6 +257,12 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
       if (status.didJustFinish) {
         // Loop the video
         videoRef.current?.replayAsync();
+      }
+      
+      // Clear timeout when video loads successfully
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
     }
   }, [isSeeking]);
