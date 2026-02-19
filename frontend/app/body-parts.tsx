@@ -856,4 +856,28 @@ const styles = StyleSheet.create({
   buttonIcon: {
     marginLeft: 4,
   },
+  inlineBottomContainer: {
+    paddingHorizontal: 20,
+    paddingTop: 0,
+    marginTop: 0,
+  },
+  orDividerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
+    marginTop: 4,
+  },
+  orDividerLine: {
+    width: 40,
+    height: 1,
+    backgroundColor: 'rgba(100, 100, 100, 0.4)',
+  },
+  orDividerText: {
+    color: 'rgba(150, 150, 150, 0.8)',
+    fontSize: 13,
+    fontWeight: '400',
+    paddingHorizontal: 16,
+    textTransform: 'lowercase',
+  },
 });
