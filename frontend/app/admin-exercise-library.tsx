@@ -21,7 +21,7 @@ import Constants from 'expo-constants';
 import { useAuth } from '../contexts/AuthContext';
 import BackButton from '../components/BackButton';
 
-const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 'https://mood-admin-v2.preview.emergentagent.com';
+const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 'https://mood-analytics-v2.preview.emergentagent.com';
 
 interface Exercise {
   _id: string;
