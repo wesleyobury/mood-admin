@@ -593,7 +593,9 @@ export default function CartScreen() {
         {/* Hero Content */}
         <View style={styles.heroContent}>
           <Text style={styles.moodLabel}>{moodInfo.mood}</Text>
-          <Text style={styles.workoutTitle}>{moodInfo.type}</Text>
+          <Text style={styles.workoutTitle}>
+            {isGeneratedWorkout && dynamicTitle ? dynamicTitle : moodInfo.type}
+          </Text>
           <View style={styles.durationBadge}>
             <Ionicons name="time-outline" size={14} color="#FFD700" />
             <Text style={styles.durationText}>~{getTotalDuration()} min</Text>
