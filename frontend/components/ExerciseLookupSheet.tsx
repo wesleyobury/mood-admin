@@ -291,10 +291,74 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
 
   // Video player with seamless poster-to-video transition
   // Keeps poster visible until video is actually playing to avoid aspect ratio jump
+  // Includes timeout and auto-retry for reliability
   const VideoWithPoster = ({ videoUrl, posterUrl, style }: { videoUrl: string; posterUrl: string; style: any }) => {
     const videoRef = useRef<Video>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isBuffering, setIsBuffering] = useState(true);
+    const [hasTimedOut, setHasTimedOut] = useState(false);
+    const [retryCount, setRetryCount] = useState(0);
+    const [videoKey, setVideoKey] = useState(0); // Force remount on retry
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const loadStartRef = useRef<number>(Date.now());
+    
+    const MAX_RETRIES = 3;
+    const LOAD_TIMEOUT_MS = 10000; // 10 seconds
+
+    // Start timeout when component mounts or retries
+    useEffect(() => {
+      loadStartRef.current = Date.now();
+      setHasTimedOut(false);
+      
+      // Set timeout for video loading
+      timeoutRef.current = setTimeout(() => {
+        if (!isPlaying) {
+          console.log(`Video timeout after ${LOAD_TIMEOUT_MS}ms, retry ${retryCount + 1}/${MAX_RETRIES}`);
+          
+          if (retryCount < MAX_RETRIES) {
+            // Auto-retry
+            handleRetry();
+          } else {
+            // Max retries exceeded
+            setHasTimedOut(true);
+          }
+        }
+      }, LOAD_TIMEOUT_MS);
+
+      return () => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+      };
+    }, [videoKey, retryCount]);
+
+    // Clear timeout when video starts playing
+    useEffect(() => {
+      if (isPlaying && timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+    }, [isPlaying]);
+
+    const handleRetry = useCallback(() => {
+      // Unload current video
+      if (videoRef.current) {
+        videoRef.current.unloadAsync().catch(() => {});
+      }
+      
+      setRetryCount(prev => prev + 1);
+      setVideoKey(prev => prev + 1); // Force Video component remount
+      setIsPlaying(false);
+      setIsBuffering(true);
+    }, []);
+
+    const handleManualRetry = useCallback(() => {
+      setRetryCount(0); // Reset retry count for manual retry
+      setHasTimedOut(false);
+      setVideoKey(prev => prev + 1);
+      setIsPlaying(false);
+      setIsBuffering(true);
+    }, []);
 
     const handlePlaybackStatusUpdate = useCallback((status: AVPlaybackStatus) => {
       if (status.isLoaded) {
@@ -302,8 +366,65 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
         const videoIsPlaying = status.isPlaying && !status.isBuffering;
         setIsPlaying(videoIsPlaying);
         setIsBuffering(status.isBuffering);
+        
+        // Clear timeout as soon as video is loaded and playing
+        if (videoIsPlaying && timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
       }
     }, []);
+
+    const handleError = useCallback((error: any) => {
+      console.error('Video playback error:', error);
+      if (retryCount < MAX_RETRIES) {
+        handleRetry();
+      } else {
+        setHasTimedOut(true);
+      }
+    }, [retryCount, handleRetry]);
+
+    // Show timeout/error state with retry button
+    if (hasTimedOut) {
+      return (
+        <TouchableOpacity 
+          style={[style, { backgroundColor: '#000' }]} 
+          onPress={handleManualRetry}
+          activeOpacity={0.8}
+        >
+          <Image
+            source={{ uri: posterUrl }}
+            style={{ 
+              position: 'absolute', 
+              top: 0, 
+              left: 0, 
+              right: 0, 
+              bottom: 0,
+            }}
+            contentFit="cover"
+            cachePolicy="memory-disk"
+          />
+          <View style={{ 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            right: 0, 
+            bottom: 0, 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            backgroundColor: 'rgba(0,0,0,0.6)',
+          }}>
+            <Ionicons name="refresh-circle" size={56} color="#FFD700" />
+            <Text style={{ color: '#fff', marginTop: 12, fontSize: 16, fontWeight: '600' }}>
+              Video taking too long
+            </Text>
+            <Text style={{ color: 'rgba(255,255,255,0.7)', marginTop: 4, fontSize: 14 }}>
+              Tap to retry
+            </Text>
+          </View>
+        </TouchableOpacity>
+      );
+    }
 
     return (
       <View style={[style, { backgroundColor: '#000' }]}>
@@ -337,11 +458,17 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
             zIndex: 3 
           }}>
             <ActivityIndicator size="large" color="rgba(255,255,255,0.7)" />
+            {retryCount > 0 && (
+              <Text style={{ color: 'rgba(255,255,255,0.5)', marginTop: 8, fontSize: 12 }}>
+                Retry {retryCount}/{MAX_RETRIES}
+              </Text>
+            )}
           </View>
         )}
         
         {/* Video - plays underneath poster until ready */}
         <Video
+          key={videoKey}
           ref={videoRef}
           source={{ uri: videoUrl }}
           style={{ width: '100%', height: '100%' }}
@@ -350,6 +477,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
           isMuted
           shouldPlay
           onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
+          onError={handleError}
         />
       </View>
     );
