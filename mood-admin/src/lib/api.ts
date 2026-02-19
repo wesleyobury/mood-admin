@@ -115,17 +115,30 @@ class ApiClient {
     return this.get<DataFreshnessData>("/analytics/admin/data-freshness");
   }
 
-  async getEngagement() {
-    return this.get<EngagementData>("/analytics/admin/engagement");
+  async getEngagement(includeInternal: boolean = false) {
+    const params = includeInternal ? "?include_internal=true" : "";
+    return this.get<EngagementData>(`/analytics/admin/engagement${params}`);
   }
 
-  async getPlatformStats(days: number = 30) {
-    return this.get<PlatformStats>(`/analytics/admin/platform-stats?days=${days}`);
+  async getPlatformStats(days: number = 30, includeInternal: boolean = false) {
+    const params = new URLSearchParams();
+    params.append("days", days.toString());
+    if (includeInternal) params.append("include_internal", "true");
+    return this.get<PlatformStats>(`/analytics/admin/platform-stats?${params}`);
   }
 
-  async getTimeSeries(metricType: string, period: string = "day", limit: number = 30) {
+  async getTimeSeries(
+    metricType: string, 
+    period: string = "day", 
+    limit: number = 30,
+    includeInternal: boolean = false
+  ) {
+    const params = new URLSearchParams();
+    params.append("period", period);
+    params.append("limit", limit.toString());
+    if (includeInternal) params.append("include_internal", "true");
     return this.get<TimeSeriesData>(
-      `/analytics/admin/time-series/${metricType}?period=${period}&limit=${limit}`
+      `/analytics/admin/time-series/${metricType}?${params}`
     );
   }
 
