@@ -811,6 +811,15 @@ class NotificationService:
         liker_name = liker.get("name") or liker.get("username", "Someone")
         avatar = liker.get("avatar") or liker.get("avatar_url")
         
+        # Get post preview image for the notification thumbnail
+        post = await self.db.posts.find_one({"_id": ObjectId(post_id)})
+        post_thumbnail = None
+        if post:
+            media_urls = post.get("media_urls", [])
+            cover_urls = post.get("cover_urls", [])
+            # Prefer cover (thumbnail) over full media for faster loading
+            post_thumbnail = cover_urls[0] if cover_urls else (media_urls[0] if media_urls else None)
+        
         # Bundle key for grouping
         bundle_key = f"likes_{post_id}_{now.strftime('%Y%m%d%H')}"
         
@@ -833,6 +842,7 @@ class NotificationService:
                             "body": f"{liker_name} and {like_count - 1} others liked your post",
                             "metadata.like_count": like_count,
                             "metadata.last_liker": liker_name,
+                            "metadata.post_thumbnail": post_thumbnail,
                             "created_at": now,  # Bump to top
                             "read_at": None  # Mark as unread again
                         }
@@ -851,7 +861,7 @@ class NotificationService:
                     entity_type="post",
                     image_url=avatar,
                     group_key=bundle_key,
-                    metadata={"like_count": recent_likes + 1, "last_liker": liker_name},
+                    metadata={"like_count": recent_likes + 1, "last_liker": liker_name, "post_thumbnail": post_thumbnail},
                     send_push=True
                 )
         else:
@@ -866,7 +876,7 @@ class NotificationService:
                 entity_type="post",
                 image_url=avatar,
                 group_key=bundle_key,
-                metadata={"like_count": 1},
+                metadata={"like_count": 1, "post_thumbnail": post_thumbnail},
                 send_push=False  # Don't push single likes - only bundled
             )
     
