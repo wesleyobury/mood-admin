@@ -1583,8 +1583,9 @@ async def get_time_series_analytics(
                 data_by_period[period_key]["count"] = len(users)
                 
         elif metric_type == "app_sessions":
+            query = {**base_filter, "event_type": "app_session_start"}
             events = await db.user_events.find(
-                {"timestamp": {"$gte": cutoff}, "event_type": "app_session_start"},
+                query,
                 {"timestamp": 1}
             ).to_list(100000)
             
@@ -1594,8 +1595,9 @@ async def get_time_series_analytics(
                     data_by_period[period_key]["count"] += 1
                     
         elif metric_type == "screen_views":
+            query = {**base_filter, "event_type": {"$in": ["screen_viewed", "screen_entered"]}}
             events = await db.user_events.find(
-                {"timestamp": {"$gte": cutoff}, "event_type": {"$in": ["screen_viewed", "screen_entered"]}},
+                query,
                 {"timestamp": 1}
             ).to_list(100000)
             
@@ -1605,8 +1607,9 @@ async def get_time_series_analytics(
                     data_by_period[period_key]["count"] += 1
                     
         elif metric_type == "screen_time":
+            query = {**base_filter, "event_type": "screen_time_spent"}
             events = await db.user_events.find(
-                {"timestamp": {"$gte": cutoff}, "event_type": "screen_time_spent"},
+                query,
                 {"timestamp": 1, "metadata": 1}
             ).to_list(100000)
             
@@ -1618,8 +1621,9 @@ async def get_time_series_analytics(
                     data_by_period[period_key]["value"] += duration / 60  # Convert to minutes
                     
         elif metric_type == "workouts_started":
+            query = {**base_filter, "event_type": "workout_started"}
             events = await db.user_events.find(
-                {"timestamp": {"$gte": cutoff}, "event_type": "workout_started"},
+                query,
                 {"timestamp": 1}
             ).to_list(100000)
             
@@ -1629,8 +1633,9 @@ async def get_time_series_analytics(
                     data_by_period[period_key]["count"] += 1
                     
         elif metric_type == "workouts_completed":
+            query = {**base_filter, "event_type": "workout_completed"}
             events = await db.user_events.find(
-                {"timestamp": {"$gte": cutoff}, "event_type": "workout_completed"},
+                query,
                 {"timestamp": 1}
             ).to_list(100000)
             
@@ -1640,8 +1645,9 @@ async def get_time_series_analytics(
                     data_by_period[period_key]["count"] += 1
                     
         elif metric_type == "mood_selections":
+            query = {**base_filter, "event_type": "mood_selected"}
             events = await db.user_events.find(
-                {"timestamp": {"$gte": cutoff}, "event_type": "mood_selected"},
+                query,
                 {"timestamp": 1, "metadata": 1}
             ).to_list(100000)
             
@@ -1651,8 +1657,12 @@ async def get_time_series_analytics(
                     data_by_period[period_key]["count"] += 1
                     
         elif metric_type == "posts_created":
+            # For posts, we need to filter by author_id
+            posts_filter = {"created_at": {"$gte": cutoff}}
+            if excluded_user_ids:
+                posts_filter["author_id"] = {"$nin": [ObjectId(uid) for uid in excluded_user_ids if len(uid) == 24]}
             posts = await db.posts.find(
-                {"created_at": {"$gte": cutoff}},
+                posts_filter,
                 {"created_at": 1}
             ).to_list(100000)
             
@@ -1663,8 +1673,9 @@ async def get_time_series_analytics(
                     
         elif metric_type == "social_interactions":
             # Likes, comments, follows
+            query = {**base_filter, "event_type": {"$in": ["post_liked", "post_commented", "user_followed"]}}
             events = await db.user_events.find(
-                {"timestamp": {"$gte": cutoff}, "event_type": {"$in": ["post_liked", "post_commented", "user_followed"]}},
+                query,
                 {"timestamp": 1, "event_type": 1}
             ).to_list(100000)
             
@@ -1674,8 +1685,12 @@ async def get_time_series_analytics(
                     data_by_period[period_key]["count"] += 1
                     
         elif metric_type == "new_users":
+            # For users, filter by is_internal flag
+            users_filter = {"created_at": {"$gte": cutoff}}
+            if not include_internal:
+                users_filter["is_internal"] = {"$ne": True}
             users = await db.users.find(
-                {"created_at": {"$gte": cutoff}},
+                users_filter,
                 {"created_at": 1}
             ).to_list(100000)
             
