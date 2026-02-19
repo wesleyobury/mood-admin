@@ -3987,6 +3987,369 @@ async def get_social_loop_metrics(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# ==================== INSIGHT SURFACING ====================
+
+@api_router.get("/analytics/admin/insights")
+async def get_automated_insights(
+    include_internal: bool = False,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get automatically generated insights by comparing current vs previous periods.
+    
+    Analyzes metrics and flags significant changes (>20% change threshold).
+    
+    Returns list of insights with severity (info, warning, critical) and recommendations.
+    """
+    try:
+        now = datetime.now(timezone.utc)
+        
+        # Get internal user IDs
+        excluded_user_ids = set()
+        if not include_internal:
+            internal_users = await db.users.find({"is_internal": True}, {"_id": 1}).to_list(1000)
+            excluded_user_ids = {str(u["_id"]) for u in internal_users}
+        
+        insights = []
+        
+        # Helper to add insight
+        def add_insight(title, description, severity, metric, current, previous, change_pct, recommendation=None):
+            insights.append({
+                "id": f"{metric}_{int(now.timestamp())}",
+                "title": title,
+                "description": description,
+                "severity": severity,  # "info", "warning", "critical"
+                "metric": metric,
+                "current_value": current,
+                "previous_value": previous,
+                "change_percent": change_pct,
+                "recommendation": recommendation,
+                "timestamp": now.isoformat(),
+            })
+        
+        # Define periods
+        current_7d_start = now - timedelta(days=7)
+        previous_7d_start = now - timedelta(days=14)
+        previous_7d_end = now - timedelta(days=7)
+        
+        # Build base query
+        def get_match(start, end=None):
+            match = {"timestamp": {"$gte": start}}
+            if end:
+                match["timestamp"]["$lt"] = end
+            if excluded_user_ids:
+                match["user_id"] = {"$nin": list(excluded_user_ids)}
+            return match
+        
+        # ===== 1. Daily Active Users Analysis =====
+        current_dau_users = await db.user_events.distinct(
+            "user_id",
+            {**get_match(current_7d_start), "event_type": "app_session_start"}
+        )
+        previous_dau_users = await db.user_events.distinct(
+            "user_id",
+            {**get_match(previous_7d_start, previous_7d_end), "event_type": "app_session_start"}
+        )
+        
+        current_dau = len([u for u in current_dau_users if u not in excluded_user_ids])
+        previous_dau = len([u for u in previous_dau_users if u not in excluded_user_ids])
+        
+        if previous_dau > 0:
+            dau_change = round(((current_dau - previous_dau) / previous_dau) * 100, 1)
+            if abs(dau_change) >= 20:
+                if dau_change >= 50:
+                    add_insight(
+                        "🚀 Significant DAU Growth",
+                        f"Daily active users increased by {dau_change}% compared to last week",
+                        "info",
+                        "dau",
+                        current_dau,
+                        previous_dau,
+                        dau_change,
+                        "Investigate what's driving growth - new feature, marketing campaign, or viral content?"
+                    )
+                elif dau_change >= 20:
+                    add_insight(
+                        "📈 DAU Trending Up",
+                        f"Daily active users increased by {dau_change}% week over week",
+                        "info",
+                        "dau",
+                        current_dau,
+                        previous_dau,
+                        dau_change
+                    )
+                elif dau_change <= -50:
+                    add_insight(
+                        "🚨 Critical DAU Drop",
+                        f"Daily active users dropped by {abs(dau_change)}% - urgent attention needed",
+                        "critical",
+                        "dau",
+                        current_dau,
+                        previous_dau,
+                        dau_change,
+                        "Check for app issues, server problems, or recent changes that may have impacted users"
+                    )
+                elif dau_change <= -20:
+                    add_insight(
+                        "⚠️ DAU Declining",
+                        f"Daily active users dropped by {abs(dau_change)}% compared to last week",
+                        "warning",
+                        "dau",
+                        current_dau,
+                        previous_dau,
+                        dau_change,
+                        "Review retention strategies and user feedback"
+                    )
+        
+        # ===== 2. New User Signups =====
+        user_query_current = {"created_at": {"$gte": current_7d_start}}
+        user_query_previous = {"created_at": {"$gte": previous_7d_start, "$lt": previous_7d_end}}
+        if not include_internal:
+            user_query_current["is_internal"] = {"$ne": True}
+            user_query_previous["is_internal"] = {"$ne": True}
+        
+        current_signups = await db.users.count_documents(user_query_current)
+        previous_signups = await db.users.count_documents(user_query_previous)
+        
+        if previous_signups > 0:
+            signup_change = round(((current_signups - previous_signups) / previous_signups) * 100, 1)
+            if abs(signup_change) >= 30:
+                if signup_change >= 30:
+                    add_insight(
+                        "🎉 New User Surge",
+                        f"New signups increased by {signup_change}% this week ({current_signups} vs {previous_signups})",
+                        "info",
+                        "signups",
+                        current_signups,
+                        previous_signups,
+                        signup_change,
+                        "Great momentum! Ensure onboarding flow can handle increased volume"
+                    )
+                elif signup_change <= -30:
+                    add_insight(
+                        "⚠️ Signup Slowdown",
+                        f"New signups dropped by {abs(signup_change)}% this week",
+                        "warning",
+                        "signups",
+                        current_signups,
+                        previous_signups,
+                        signup_change,
+                        "Review acquisition channels and marketing effectiveness"
+                    )
+        
+        # ===== 3. Workout Completion Rate =====
+        current_started = await db.user_events.count_documents({
+            **get_match(current_7d_start),
+            "event_type": "workout_started"
+        })
+        current_completed = await db.user_events.count_documents({
+            **get_match(current_7d_start),
+            "event_type": "workout_completed"
+        })
+        
+        previous_started = await db.user_events.count_documents({
+            **get_match(previous_7d_start, previous_7d_end),
+            "event_type": "workout_started"
+        })
+        previous_completed = await db.user_events.count_documents({
+            **get_match(previous_7d_start, previous_7d_end),
+            "event_type": "workout_completed"
+        })
+        
+        current_completion_rate = round((current_completed / max(1, current_started)) * 100, 1)
+        previous_completion_rate = round((previous_completed / max(1, previous_started)) * 100, 1)
+        
+        if previous_completion_rate > 0:
+            completion_change = current_completion_rate - previous_completion_rate
+            if abs(completion_change) >= 10:
+                if completion_change >= 10:
+                    add_insight(
+                        "💪 Completion Rate Improved",
+                        f"Workout completion rate increased from {previous_completion_rate}% to {current_completion_rate}%",
+                        "info",
+                        "completion_rate",
+                        current_completion_rate,
+                        previous_completion_rate,
+                        round(completion_change, 1),
+                        "Users are more engaged with workouts - consider highlighting popular workout types"
+                    )
+                elif completion_change <= -10:
+                    add_insight(
+                        "⚠️ Completion Rate Dropped",
+                        f"Workout completion rate fell from {previous_completion_rate}% to {current_completion_rate}%",
+                        "warning",
+                        "completion_rate",
+                        current_completion_rate,
+                        previous_completion_rate,
+                        round(completion_change, 1),
+                        "Investigate workout difficulty, length, or user experience issues"
+                    )
+        
+        # ===== 4. Social Engagement =====
+        social_events = ["post_liked", "post_commented", "user_followed"]
+        current_social = await db.user_events.count_documents({
+            **get_match(current_7d_start),
+            "event_type": {"$in": social_events}
+        })
+        previous_social = await db.user_events.count_documents({
+            **get_match(previous_7d_start, previous_7d_end),
+            "event_type": {"$in": social_events}
+        })
+        
+        if previous_social > 0:
+            social_change = round(((current_social - previous_social) / previous_social) * 100, 1)
+            if abs(social_change) >= 25:
+                if social_change >= 50:
+                    add_insight(
+                        "🔥 Social Engagement Spike",
+                        f"Social interactions up {social_change}% - community is thriving!",
+                        "info",
+                        "social_engagement",
+                        current_social,
+                        previous_social,
+                        social_change,
+                        "Capitalize on momentum with community features or challenges"
+                    )
+                elif social_change >= 25:
+                    add_insight(
+                        "💬 Social Activity Growing",
+                        f"Social interactions increased by {social_change}%",
+                        "info",
+                        "social_engagement",
+                        current_social,
+                        previous_social,
+                        social_change
+                    )
+                elif social_change <= -25:
+                    add_insight(
+                        "📉 Social Engagement Declining",
+                        f"Social interactions dropped by {abs(social_change)}%",
+                        "warning",
+                        "social_engagement",
+                        current_social,
+                        previous_social,
+                        social_change,
+                        "Consider promoting community features or introducing social incentives"
+                    )
+        
+        # ===== 5. Content Creation =====
+        current_posts = await db.user_events.count_documents({
+            **get_match(current_7d_start),
+            "event_type": "post_created"
+        })
+        previous_posts = await db.user_events.count_documents({
+            **get_match(previous_7d_start, previous_7d_end),
+            "event_type": "post_created"
+        })
+        
+        if previous_posts > 0:
+            posts_change = round(((current_posts - previous_posts) / previous_posts) * 100, 1)
+            if abs(posts_change) >= 30:
+                if posts_change >= 30:
+                    add_insight(
+                        "📝 Content Creation Surge",
+                        f"User-generated posts increased by {posts_change}% ({current_posts} posts this week)",
+                        "info",
+                        "content_creation",
+                        current_posts,
+                        previous_posts,
+                        posts_change
+                    )
+                elif posts_change <= -30:
+                    add_insight(
+                        "📉 Content Creation Slowing",
+                        f"User-generated posts dropped by {abs(posts_change)}%",
+                        "warning",
+                        "content_creation",
+                        current_posts,
+                        previous_posts,
+                        posts_change,
+                        "Encourage content creation with prompts or incentives"
+                    )
+        
+        # ===== 6. At-Risk Users Detection =====
+        # Users who were active 14-21 days ago but not in last 7 days
+        active_14_21d = await db.user_events.distinct(
+            "user_id",
+            {
+                "timestamp": {"$gte": now - timedelta(days=21), "$lt": now - timedelta(days=14)},
+                "event_type": "app_session_start"
+            }
+        )
+        active_7d = await db.user_events.distinct(
+            "user_id",
+            {
+                "timestamp": {"$gte": now - timedelta(days=7)},
+                "event_type": "app_session_start"
+            }
+        )
+        
+        at_risk_users = set(active_14_21d) - set(active_7d) - excluded_user_ids
+        at_risk_count = len(at_risk_users)
+        
+        if at_risk_count >= 5:
+            add_insight(
+                "🚨 At-Risk Users Detected",
+                f"{at_risk_count} users who were active 2-3 weeks ago haven't returned in the last week",
+                "warning",
+                "at_risk_users",
+                at_risk_count,
+                0,
+                0,
+                "Consider sending re-engagement notifications or emails to these users"
+            )
+        
+        # ===== 7. Power User Growth =====
+        # Users with 3+ workouts in last 7 days
+        power_user_pipeline = [
+            {
+                "$match": {
+                    "timestamp": {"$gte": current_7d_start},
+                    "event_type": "workout_completed",
+                }
+            },
+            {"$group": {"_id": "$user_id", "count": {"$sum": 1}}},
+            {"$match": {"count": {"$gte": 3}}},
+            {"$count": "total"}
+        ]
+        if excluded_user_ids:
+            power_user_pipeline[0]["$match"]["user_id"] = {"$nin": list(excluded_user_ids)}
+        
+        power_users_result = await db.user_events.aggregate(power_user_pipeline).to_list(1)
+        current_power_users = power_users_result[0]["total"] if power_users_result else 0
+        
+        if current_power_users >= 3:
+            add_insight(
+                "⭐ Power Users Identified",
+                f"{current_power_users} users completed 3+ workouts this week",
+                "info",
+                "power_users",
+                current_power_users,
+                0,
+                0,
+                "These are your champions! Consider featuring their content or inviting them to beta features"
+            )
+        
+        # Sort insights by severity
+        severity_order = {"critical": 0, "warning": 1, "info": 2}
+        insights.sort(key=lambda x: severity_order.get(x["severity"], 3))
+        
+        return {
+            "insights": insights,
+            "total": len(insights),
+            "critical_count": len([i for i in insights if i["severity"] == "critical"]),
+            "warning_count": len([i for i in insights if i["severity"] == "warning"]),
+            "info_count": len([i for i in insights if i["severity"] == "info"]),
+            "generated_at": now.isoformat(),
+            "comparison_period": "7 days vs previous 7 days",
+            "include_internal": include_internal,
+        }
+        
+    except Exception as e:
+        logger.error(f"Insights endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @api_router.get("/analytics/admin/comparison")
 async def get_comparison_endpoint(
     start: Optional[str] = None,
