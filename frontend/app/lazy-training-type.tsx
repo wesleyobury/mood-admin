@@ -252,6 +252,7 @@ export default function LazyTrainingTypeScreen() {
                     <ChooseForMeButton 
                       onPress={handleBuildForMe} 
                       disabled={!selectedOption}
+                      noAnimation={true}
                     />
                   </View>
                 )}
