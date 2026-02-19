@@ -199,6 +199,11 @@ export default function GeneratedWorkoutView({
   const [localRemainingGenerations, setLocalRemainingGenerations] = useState(remainingGenerations);
   const insets = useSafeAreaInsets();
 
+  // Generate dynamic workout title based on intensity - memoized per cart
+  const dynamicWorkoutTitle = useMemo(() => {
+    return getRandomWorkoutTitle(currentCart?.intensity || 'intermediate', moodTitle);
+  }, [currentCartIndex, moodTitle]); // Regenerate when cart changes
+
   const isLastCart = currentCartIndex === carts.length - 1;
   const cartsRemaining = carts.length - currentCartIndex - 1;
 
