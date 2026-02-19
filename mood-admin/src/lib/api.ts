@@ -177,6 +177,12 @@ class ApiClient {
     return this.get<SocialLoopMetrics>(`/analytics/admin/social-loops?${params}`);
   }
 
+  // Automated insights
+  async getInsights(includeInternal: boolean = false) {
+    const params = includeInternal ? "?include_internal=true" : "";
+    return this.get<InsightsResponse>(`/analytics/admin/insights${params}`);
+  }
+
   async getComparison(start?: string, end?: string) {
     const params = new URLSearchParams();
     if (start) params.append("start", start);
