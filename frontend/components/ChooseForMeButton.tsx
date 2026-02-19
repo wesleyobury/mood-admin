@@ -33,7 +33,8 @@ export default function ChooseForMeButton({
   disabled = false, 
   style,
   variant = 'workoutType',
-  noAnimation = false
+  noAnimation = false,
+  hideOrText = false
 }: ChooseForMeButtonProps) {
   const fadeAnim = useRef(new Animated.Value(variant === 'muscleGroup' || noAnimation ? 1 : 0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
