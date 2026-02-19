@@ -14,6 +14,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
+import { MousePointer2 } from "lucide-react";
 
 interface ChartData {
   name: string;
@@ -29,6 +30,9 @@ interface TimeSeriesChartProps {
   showPrevious?: boolean;
   color?: string;
   height?: number;
+  // New props for drilldown
+  metric?: string;
+  onChartClick?: (metric: string, dateLabel: string) => void;
 }
 
 export function TimeSeriesChart({
@@ -38,10 +42,22 @@ export function TimeSeriesChart({
   showPrevious = false,
   color = "hsl(var(--chart-1))",
   height = 300,
+  metric,
+  onChartClick,
 }: TimeSeriesChartProps) {
+  const isClickable = !!metric && !!onChartClick;
+
+  const handleClick = (chartData: { activeLabel?: string }) => {
+    if (isClickable && chartData?.activeLabel && metric) {
+      onChartClick(metric, chartData.activeLabel);
+    }
+  };
+
   const commonProps = {
     data,
     margin: { top: 10, right: 10, left: 0, bottom: 0 },
+    onClick: isClickable ? handleClick : undefined,
+    style: isClickable ? { cursor: "pointer" } : undefined,
   };
 
   const renderChart = () => {
@@ -74,6 +90,7 @@ export function TimeSeriesChart({
               strokeWidth={2}
               dot={false}
               name="Current"
+              activeDot={isClickable ? { r: 6, strokeWidth: 2 } : undefined}
             />
             {showPrevious && (
               <Line
@@ -110,7 +127,13 @@ export function TimeSeriesChart({
               }}
               labelStyle={{ color: "hsl(var(--foreground))" }}
             />
-            <Bar dataKey="value" fill={color} radius={[4, 4, 0, 0]} name="Current" />
+            <Bar 
+              dataKey="value" 
+              fill={color} 
+              radius={[4, 4, 0, 0]} 
+              name="Current"
+              className={isClickable ? "cursor-pointer" : ""}
+            />
             {showPrevious && (
               <Bar
                 dataKey="previousValue"
@@ -126,7 +149,7 @@ export function TimeSeriesChart({
         return (
           <AreaChart {...commonProps}>
             <defs>
-              <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id={`colorValue-${metric || 'default'}`} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor={color} stopOpacity={0.3} />
                 <stop offset="95%" stopColor={color} stopOpacity={0} />
               </linearGradient>
@@ -155,8 +178,9 @@ export function TimeSeriesChart({
               stroke={color}
               strokeWidth={2}
               fillOpacity={1}
-              fill="url(#colorValue)"
+              fill={`url(#colorValue-${metric || 'default'})`}
               name="Current"
+              activeDot={isClickable ? { r: 6, strokeWidth: 2 } : undefined}
             />
             {showPrevious && (
               <Line
@@ -176,8 +200,16 @@ export function TimeSeriesChart({
   };
 
   return (
-    <div className="bg-card border border-border rounded-lg p-4">
-      <h3 className="text-sm font-medium text-muted-foreground mb-4">{title}</h3>
+    <div className={`bg-card border border-border rounded-lg p-4 ${isClickable ? 'hover:border-primary/50 transition-colors' : ''}`}>
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
+        {isClickable && (
+          <span className="flex items-center gap-1 text-xs text-muted-foreground">
+            <MousePointer2 className="h-3 w-3" />
+            Click to drill down
+          </span>
+        )}
+      </div>
       <ResponsiveContainer width="100%" height={height}>
         {renderChart()}
       </ResponsiveContainer>
