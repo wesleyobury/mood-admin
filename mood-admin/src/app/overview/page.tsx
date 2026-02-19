@@ -3,11 +3,13 @@
 import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { useFilters } from "@/lib/filter-context";
-import { api, PlatformStats, ComparisonData, TimeSeriesData, EngagementData } from "@/lib/api";
+import { api, PlatformStats, ComparisonData, TimeSeriesData, EngagementData, SavedViewConfig } from "@/lib/api";
 import { KPICard } from "@/components/KPICard";
 import { TimeSeriesChart } from "@/components/charts/TimeSeriesChart";
 import { GlobalFilterBar } from "@/components/GlobalFilterBar";
 import { DrilldownDrawer } from "@/components/DrilldownDrawer";
+import { ChartSettings } from "@/components/ChartControls";
+import { SavedViewsDropdown } from "@/components/SavedViewsDropdown";
 import { METRIC_TOOLTIPS, Tooltip } from "@/components/Tooltip";
 import { format } from "date-fns";
 import {
@@ -33,6 +35,13 @@ const METRIC_LABELS: Record<string, string> = {
   mood_selections: "Mood Selections",
 };
 
+// Default chart settings
+const defaultChartSettings: ChartSettings = {
+  chartType: "area",
+  showCumulative: false,
+  showPrevious: false,
+};
+
 export default function OverviewPage() {
   const { isAuthenticated, isAdmin, isLoading } = useAuth();
   const { filters, setFilters, days } = useFilters();
@@ -44,6 +53,12 @@ export default function OverviewPage() {
   const [workoutsData, setWorkoutsData] = useState<TimeSeriesData | null>(null);
   const [postsData, setPostsData] = useState<TimeSeriesData | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Chart settings state (per-chart customization)
+  const [dauSettings, setDauSettings] = useState<ChartSettings>({ ...defaultChartSettings });
+  const [newUsersSettings, setNewUsersSettings] = useState<ChartSettings>({ ...defaultChartSettings, chartType: "bar" });
+  const [workoutsSettings, setWorkoutsSettings] = useState<ChartSettings>({ ...defaultChartSettings });
+  const [postsSettings, setPostsSettings] = useState<ChartSettings>({ ...defaultChartSettings, chartType: "bar" });
 
   // Drilldown state
   const [drilldownOpen, setDrilldownOpen] = useState(false);
@@ -110,6 +125,54 @@ export default function OverviewPage() {
     setDrilldownDateLabel("");
   }, []);
 
+  // Get current config for saved views
+  const getCurrentConfig = useCallback((): SavedViewConfig => {
+    return {
+      dateRange: {
+        startDate: filters.startDate.toISOString(),
+        endDate: filters.endDate.toISOString(),
+      },
+      granularity: filters.granularity,
+      includeInternal: filters.includeInternal,
+      chartType: dauSettings.chartType,
+      showCumulative: dauSettings.showCumulative,
+      showPrevious: dauSettings.showPrevious,
+    };
+  }, [filters, dauSettings]);
+
+  // Load saved view config
+  const handleLoadView = useCallback((config: SavedViewConfig) => {
+    if (config.dateRange?.startDate && config.dateRange?.endDate) {
+      setFilters((prev) => ({
+        ...prev,
+        startDate: new Date(config.dateRange!.startDate!),
+        endDate: new Date(config.dateRange!.endDate!),
+        granularity: config.granularity || prev.granularity,
+        includeInternal: config.includeInternal ?? prev.includeInternal,
+      }));
+    }
+    if (config.chartType || config.showCumulative !== undefined || config.showPrevious !== undefined) {
+      const newSettings: ChartSettings = {
+        chartType: config.chartType || "area",
+        showCumulative: config.showCumulative ?? false,
+        showPrevious: config.showPrevious ?? false,
+      };
+      setDauSettings(newSettings);
+      setWorkoutsSettings(newSettings);
+    }
+  }, [setFilters]);
+
+  // Save current view
+  const handleSaveView = useCallback(async (name: string, isDefault: boolean) => {
+    const config = getCurrentConfig();
+    await api.createSavedView({
+      name,
+      view_type: "overview",
+      config,
+      is_default: isDefault,
+    });
+  }, [getCurrentConfig]);
+
   const getMetric = (key: string) => comparison?.metrics[key];
 
   if (isLoading || loading) {
@@ -126,11 +189,17 @@ export default function OverviewPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
           <h1 className="text-2xl font-bold">Overview</h1>
           <p className="text-muted-foreground">Platform performance at a glance</p>
         </div>
+        <SavedViewsDropdown
+          viewType="overview"
+          currentConfig={getCurrentConfig()}
+          onLoadView={handleLoadView}
+          onSaveView={handleSaveView}
+        />
       </div>
 
       {/* Global Filter Bar */}
@@ -274,7 +343,7 @@ export default function OverviewPage() {
         />
       </div>
 
-      {/* Charts with Drilldown support */}
+      {/* Charts with Controls */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {dauData && (
           <TimeSeriesChart
@@ -283,10 +352,12 @@ export default function OverviewPage() {
               name: label,
               value: dauData.values[i],
             }))}
-            type="area"
             color="hsl(var(--chart-1))"
             metric="active_users"
             onChartClick={handleChartClick}
+            showControls={true}
+            chartSettings={dauSettings}
+            onSettingsChange={setDauSettings}
           />
         )}
         {newUsersData && (
@@ -296,10 +367,12 @@ export default function OverviewPage() {
               name: label,
               value: newUsersData.values[i],
             }))}
-            type="bar"
             color="hsl(var(--chart-2))"
             metric="new_users"
             onChartClick={handleChartClick}
+            showControls={true}
+            chartSettings={newUsersSettings}
+            onSettingsChange={setNewUsersSettings}
           />
         )}
         {workoutsData && (
@@ -309,10 +382,12 @@ export default function OverviewPage() {
               name: label,
               value: workoutsData.values[i],
             }))}
-            type="area"
             color="hsl(var(--chart-3))"
             metric="workouts_completed"
             onChartClick={handleChartClick}
+            showControls={true}
+            chartSettings={workoutsSettings}
+            onSettingsChange={setWorkoutsSettings}
           />
         )}
         {postsData && (
@@ -322,10 +397,12 @@ export default function OverviewPage() {
               name: label,
               value: postsData.values[i],
             }))}
-            type="bar"
             color="hsl(var(--chart-4))"
             metric="posts_created"
             onChartClick={handleChartClick}
+            showControls={true}
+            chartSettings={postsSettings}
+            onSettingsChange={setPostsSettings}
           />
         )}
       </div>
