@@ -482,3 +482,51 @@ export interface TimelineEvent {
   timestamp: string;
   metadata: Record<string, unknown>;
 }
+
+// Drilldown types for universal drill-downs
+export interface DrilldownUser {
+  user_id: string;
+  username: string;
+  email: string;
+  name: string;
+  avatar: string;
+  created_at: string | null;
+  metric_value: number;
+  metric_detail: string;
+  first_event?: string | null;
+  last_event?: string | null;
+}
+
+export interface DrilldownUsersData {
+  metric: string;
+  start_date: string;
+  end_date: string;
+  value_filter: string | null;
+  users: DrilldownUser[];
+  total: number;
+  limit: number;
+  skip: number;
+  include_internal: boolean;
+}
+
+export interface DrilldownEvent {
+  event_id: string;
+  event_type: string;
+  user_id: string;
+  username: string;
+  timestamp: string | null;
+  metadata: Record<string, unknown>;
+}
+
+export interface DrilldownEventsData {
+  metric: string;
+  start_date: string;
+  end_date: string;
+  user_filter: string | null;
+  value_filter: string | null;
+  events: DrilldownEvent[];
+  total: number;
+  limit: number;
+  skip: number;
+  include_internal: boolean;
+}
