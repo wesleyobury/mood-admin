@@ -2710,6 +2710,289 @@ async def get_user_timeline_endpoint(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@api_router.get("/analytics/admin/drilldown/users")
+async def get_drilldown_users(
+    metric: str,
+    start: str,
+    end: str,
+    value: Optional[str] = None,
+    limit: int = 100,
+    skip: int = 0,
+    include_internal: bool = False,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get users who contributed to a specific metric for drill-down views.
+    
+    Query params:
+    - metric: Metric type (active_users, new_users, workouts_started, workouts_completed, posts_created, etc.)
+    - start: ISO date string for period start
+    - end: ISO date string for period end
+    - value: Optional specific value to filter by (e.g., mood category, equipment type)
+    - limit: Max results (default: 100)
+    - skip: Pagination offset
+    - include_internal: Include internal/staff users (default: false)
+    
+    Returns list of users with their contribution to the metric.
+    """
+    try:
+        start_date = datetime.fromisoformat(start.replace('Z', '+00:00'))
+        end_date = datetime.fromisoformat(end.replace('Z', '+00:00'))
+        
+        # Get internal user IDs to exclude
+        excluded_user_ids = set()
+        if not include_internal:
+            internal_users = await db.users.find(
+                {"is_internal": True},
+                {"_id": 1}
+            ).to_list(1000)
+            excluded_user_ids = {str(u["_id"]) for u in internal_users}
+        
+        users_data = []
+        
+        # Define event type mappings
+        event_mappings = {
+            "active_users": ["app_session_start"],
+            "workouts_started": ["workout_started"],
+            "workouts_completed": ["workout_completed"],
+            "posts_created": ["post_created"],
+            "mood_selections": ["mood_selected"],
+            "social_interactions": ["post_liked", "post_commented", "user_followed"],
+            "app_sessions": ["app_session_start"],
+            "screen_views": ["screen_viewed", "screen_entered"],
+        }
+        
+        if metric == "new_users":
+            # Query users collection for new signups
+            query = {"created_at": {"$gte": start_date, "$lte": end_date}}
+            if not include_internal:
+                query["is_internal"] = {"$ne": True}
+            
+            users = await db.users.find(query).skip(skip).limit(limit).sort("created_at", -1).to_list(limit)
+            total = await db.users.count_documents(query)
+            
+            for user in users:
+                users_data.append({
+                    "user_id": str(user["_id"]),
+                    "username": user.get("username", ""),
+                    "email": user.get("email", ""),
+                    "name": user.get("name", ""),
+                    "avatar": user.get("avatar", ""),
+                    "created_at": user.get("created_at").isoformat() if user.get("created_at") else None,
+                    "metric_value": 1,
+                    "metric_detail": "Signed up",
+                })
+        else:
+            # Query user_events for other metrics
+            event_types = event_mappings.get(metric, [metric])
+            
+            pipeline = [
+                {
+                    "$match": {
+                        "timestamp": {"$gte": start_date, "$lte": end_date},
+                        "event_type": {"$in": event_types},
+                    }
+                },
+            ]
+            
+            # Add internal user exclusion
+            if excluded_user_ids:
+                pipeline[0]["$match"]["user_id"] = {"$nin": list(excluded_user_ids)}
+            
+            # Add value filter if provided (e.g., specific mood category)
+            if value:
+                if metric == "mood_selections":
+                    pipeline[0]["$match"]["metadata.mood"] = value
+                elif metric == "screen_views":
+                    pipeline[0]["$match"]["metadata.screen_name"] = value
+            
+            # Group by user and count
+            pipeline.extend([
+                {
+                    "$group": {
+                        "_id": "$user_id",
+                        "count": {"$sum": 1},
+                        "first_event": {"$min": "$timestamp"},
+                        "last_event": {"$max": "$timestamp"},
+                    }
+                },
+                {"$sort": {"count": -1}},
+                {"$skip": skip},
+                {"$limit": limit},
+            ])
+            
+            aggregated = await db.user_events.aggregate(pipeline).to_list(limit)
+            
+            # Count total unique users
+            count_pipeline = [
+                {
+                    "$match": {
+                        "timestamp": {"$gte": start_date, "$lte": end_date},
+                        "event_type": {"$in": event_types},
+                    }
+                },
+                {"$group": {"_id": "$user_id"}},
+                {"$count": "total"},
+            ]
+            if excluded_user_ids:
+                count_pipeline[0]["$match"]["user_id"] = {"$nin": list(excluded_user_ids)}
+            
+            count_result = await db.user_events.aggregate(count_pipeline).to_list(1)
+            total = count_result[0]["total"] if count_result else 0
+            
+            # Enrich with user data
+            for item in aggregated:
+                user_id = item["_id"]
+                try:
+                    user = await db.users.find_one({"_id": ObjectId(user_id)})
+                except:
+                    user = await db.users.find_one({"user_id": user_id})
+                
+                if user:
+                    users_data.append({
+                        "user_id": user_id,
+                        "username": user.get("username", ""),
+                        "email": user.get("email", ""),
+                        "name": user.get("name", ""),
+                        "avatar": user.get("avatar", ""),
+                        "created_at": user.get("created_at").isoformat() if user.get("created_at") else None,
+                        "metric_value": item["count"],
+                        "metric_detail": f"{item['count']} events",
+                        "first_event": item["first_event"].isoformat() if item.get("first_event") else None,
+                        "last_event": item["last_event"].isoformat() if item.get("last_event") else None,
+                    })
+        
+        return {
+            "metric": metric,
+            "start_date": start_date.isoformat(),
+            "end_date": end_date.isoformat(),
+            "value_filter": value,
+            "users": users_data,
+            "total": total,
+            "limit": limit,
+            "skip": skip,
+            "include_internal": include_internal,
+        }
+        
+    except Exception as e:
+        logger.error(f"Drilldown users endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.get("/analytics/admin/drilldown/events")
+async def get_drilldown_events(
+    metric: str,
+    start: str,
+    end: str,
+    user_id: Optional[str] = None,
+    value: Optional[str] = None,
+    limit: int = 100,
+    skip: int = 0,
+    include_internal: bool = False,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get raw events for a specific metric for drill-down views.
+    
+    Query params:
+    - metric: Metric type
+    - start: ISO date string for period start
+    - end: ISO date string for period end
+    - user_id: Optional user ID to filter events
+    - value: Optional specific value to filter by
+    - limit: Max results (default: 100)
+    - skip: Pagination offset
+    - include_internal: Include internal/staff users (default: false)
+    
+    Returns list of events with metadata.
+    """
+    try:
+        start_date = datetime.fromisoformat(start.replace('Z', '+00:00'))
+        end_date = datetime.fromisoformat(end.replace('Z', '+00:00'))
+        
+        # Get internal user IDs to exclude
+        excluded_user_ids = set()
+        if not include_internal:
+            internal_users = await db.users.find(
+                {"is_internal": True},
+                {"_id": 1}
+            ).to_list(1000)
+            excluded_user_ids = {str(u["_id"]) for u in internal_users}
+        
+        # Define event type mappings
+        event_mappings = {
+            "active_users": ["app_session_start"],
+            "workouts_started": ["workout_started"],
+            "workouts_completed": ["workout_completed"],
+            "posts_created": ["post_created"],
+            "mood_selections": ["mood_selected"],
+            "social_interactions": ["post_liked", "post_commented", "user_followed"],
+            "app_sessions": ["app_session_start"],
+            "screen_views": ["screen_viewed", "screen_entered"],
+        }
+        
+        event_types = event_mappings.get(metric, [metric])
+        
+        # Build query
+        query = {
+            "timestamp": {"$gte": start_date, "$lte": end_date},
+            "event_type": {"$in": event_types},
+        }
+        
+        if user_id:
+            query["user_id"] = user_id
+        elif excluded_user_ids:
+            query["user_id"] = {"$nin": list(excluded_user_ids)}
+        
+        if value:
+            if metric == "mood_selections":
+                query["metadata.mood"] = value
+            elif metric == "screen_views":
+                query["metadata.screen_name"] = value
+        
+        # Get events
+        events = await db.user_events.find(query).sort("timestamp", -1).skip(skip).limit(limit).to_list(limit)
+        total = await db.user_events.count_documents(query)
+        
+        # Format events
+        formatted_events = []
+        for event in events:
+            # Get username for the event
+            username = "Unknown"
+            try:
+                user = await db.users.find_one({"_id": ObjectId(event.get("user_id"))})
+                if user:
+                    username = user.get("username", "Unknown")
+            except:
+                pass
+            
+            formatted_events.append({
+                "event_id": str(event["_id"]),
+                "event_type": event.get("event_type"),
+                "user_id": event.get("user_id"),
+                "username": username,
+                "timestamp": event.get("timestamp").isoformat() if event.get("timestamp") else None,
+                "metadata": event.get("metadata", {}),
+            })
+        
+        return {
+            "metric": metric,
+            "start_date": start_date.isoformat(),
+            "end_date": end_date.isoformat(),
+            "user_filter": user_id,
+            "value_filter": value,
+            "events": formatted_events,
+            "total": total,
+            "limit": limit,
+            "skip": skip,
+            "include_internal": include_internal,
+        }
+        
+    except Exception as e:
+        logger.error(f"Drilldown events endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @api_router.get("/analytics/admin/comparison")
 async def get_comparison_endpoint(
     start: Optional[str] = None,
