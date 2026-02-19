@@ -689,6 +689,50 @@ export interface SavedView {
   updated_at: string | null;
 }
 
+// User Lifecycle types
+export interface UserLifecycleData {
+  user_id: string;
+  username: string;
+  lifecycle: {
+    stage: "new" | "activated" | "engaged" | "power_user" | "at_risk" | "churned";
+    account_age_days: number;
+    days_since_last_session: number | null;
+    days_since_last_workout: number | null;
+  };
+  churn_risk: {
+    score: number;
+    level: "low" | "medium" | "high";
+    factors: {
+      factor: string;
+      impact: number;
+      detail: string;
+    }[];
+  };
+  milestones: {
+    event: string;
+    date: string;
+    label: string;
+  }[];
+  time_to_first_workout_hours: number | null;
+  lifetime_stats: {
+    total_sessions: number;
+    total_workouts_started: number;
+    total_workouts_completed: number;
+    completion_rate: number;
+  };
+  activity_trends: {
+    [period: string]: {
+      sessions: number;
+      workouts_started: number;
+      workouts_completed: number;
+      posts: number;
+      social_actions: number;
+    };
+  };
+  current_streak: number;
+  longest_streak: number;
+}
+
 export interface SavedViewConfig {
   // Filter settings
   dateRange?: {
