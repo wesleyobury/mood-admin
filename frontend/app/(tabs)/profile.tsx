@@ -1247,8 +1247,15 @@ export default function Profile() {
                       });
                     }}
                   >
-                    <Ionicons name="share-social" size={20} color="#0c0c0c" />
-                    <Text style={styles.shareAchievementButtonText}>Share Achievement</Text>
+                    <LinearGradient
+                      colors={['#FFD700', '#FFA500']}
+                      style={styles.shareAchievementGradient}
+                      start={{ x: 0, y: 0 }}
+                      end={{ x: 1, y: 0 }}
+                    >
+                      <Ionicons name="share-social" size={20} color="#0c0c0c" />
+                      <Text style={styles.shareAchievementButtonText}>Share Achievement</Text>
+                    </LinearGradient>
                   </TouchableOpacity>
                 </View>
               )}
@@ -2132,7 +2139,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#FFFFFF',
   },
   modalActions: {
     flexDirection: 'row',
@@ -2152,20 +2159,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   shareAchievementButton: {
+    borderRadius: 12,
+    overflow: 'hidden',
+    marginTop: 16,
+    width: '100%',
+  },
+  shareAchievementGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#D4AF37',
-    borderRadius: 12,
     paddingVertical: 14,
     paddingHorizontal: 24,
-    marginTop: 16,
     gap: 8,
-    width: '100%',
   },
   shareAchievementButtonText: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     color: '#0c0c0c',
   },
   // Guest Profile Styles
