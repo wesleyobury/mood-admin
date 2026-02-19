@@ -527,6 +527,7 @@ export default function BodyPartsScreen() {
           onPress={handleBuildForMePress}
           disabled={selectedBodyParts.length === 0 || (remainingUses <= 0 && !isGuest)}
           variant="muscleGroup"
+          hideOrText={true}
         />
 
         {/* Continue Button - below Build for Me, users scroll to see it */}
