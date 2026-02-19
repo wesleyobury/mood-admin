@@ -2710,6 +2710,265 @@ async def get_user_timeline_endpoint(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@api_router.get("/analytics/admin/users/{user_id}/lifecycle")
+async def get_user_lifecycle_endpoint(
+    user_id: str,
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    Get comprehensive lifecycle summary and churn risk for a user.
+    
+    Path params:
+    - user_id: User's MongoDB ObjectId or custom user_id
+    
+    Returns:
+    - Lifecycle stage (new, activated, engaged, power_user, at_risk, churned)
+    - Churn risk score (0-100) with contributing factors
+    - Key milestones and dates
+    - Engagement trends
+    """
+    try:
+        # Find user
+        user = None
+        try:
+            user = await db.users.find_one({"_id": ObjectId(user_id)})
+        except:
+            pass
+        
+        if not user:
+            user = await db.users.find_one({"user_id": user_id})
+        
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        uid = str(user["_id"])
+        now = datetime.now(timezone.utc)
+        
+        # Calculate key dates
+        created_at = user.get("created_at")
+        account_age_days = (now - created_at).days if created_at else 0
+        
+        # Get activity data
+        # First app session
+        first_session = await db.user_events.find_one(
+            {"user_id": uid, "event_type": "app_session_start"},
+            sort=[("timestamp", 1)]
+        )
+        
+        # Last app session
+        last_session = await db.user_events.find_one(
+            {"user_id": uid, "event_type": "app_session_start"},
+            sort=[("timestamp", -1)]
+        )
+        
+        # First workout
+        first_workout = await db.user_events.find_one(
+            {"user_id": uid, "event_type": "workout_started"},
+            sort=[("timestamp", 1)]
+        )
+        
+        # Last workout
+        last_workout = await db.user_events.find_one(
+            {"user_id": uid, "event_type": "workout_started"},
+            sort=[("timestamp", -1)]
+        )
+        
+        # First completed workout
+        first_completed = await db.user_events.find_one(
+            {"user_id": uid, "event_type": "workout_completed"},
+            sort=[("timestamp", 1)]
+        )
+        
+        # Days since last activity
+        days_since_last_session = None
+        if last_session and last_session.get("timestamp"):
+            days_since_last_session = (now - last_session["timestamp"]).days
+        
+        days_since_last_workout = None
+        if last_workout and last_workout.get("timestamp"):
+            days_since_last_workout = (now - last_workout["timestamp"]).days
+        
+        # Get activity counts by period
+        periods = {
+            "7d": now - timedelta(days=7),
+            "14d": now - timedelta(days=14),
+            "30d": now - timedelta(days=30),
+            "90d": now - timedelta(days=90),
+        }
+        
+        activity_trends = {}
+        for period_name, cutoff in periods.items():
+            sessions = await db.user_events.count_documents({
+                "user_id": uid,
+                "event_type": "app_session_start",
+                "timestamp": {"$gte": cutoff}
+            })
+            workouts_started = await db.user_events.count_documents({
+                "user_id": uid,
+                "event_type": "workout_started",
+                "timestamp": {"$gte": cutoff}
+            })
+            workouts_completed = await db.user_events.count_documents({
+                "user_id": uid,
+                "event_type": "workout_completed",
+                "timestamp": {"$gte": cutoff}
+            })
+            posts = await db.user_events.count_documents({
+                "user_id": uid,
+                "event_type": "post_created",
+                "timestamp": {"$gte": cutoff}
+            })
+            social_actions = await db.user_events.count_documents({
+                "user_id": uid,
+                "event_type": {"$in": ["post_liked", "post_commented", "user_followed"]},
+                "timestamp": {"$gte": cutoff}
+            })
+            
+            activity_trends[period_name] = {
+                "sessions": sessions,
+                "workouts_started": workouts_started,
+                "workouts_completed": workouts_completed,
+                "posts": posts,
+                "social_actions": social_actions,
+            }
+        
+        # Total lifetime stats
+        total_sessions = await db.user_events.count_documents({
+            "user_id": uid,
+            "event_type": "app_session_start"
+        })
+        total_workouts_started = await db.user_events.count_documents({
+            "user_id": uid,
+            "event_type": "workout_started"
+        })
+        total_workouts_completed = await db.user_events.count_documents({
+            "user_id": uid,
+            "event_type": "workout_completed"
+        })
+        
+        # Calculate churn risk score (0-100)
+        churn_risk = 0
+        churn_factors = []
+        
+        # Factor 1: Days since last session (0-30 points)
+        if days_since_last_session is not None:
+            if days_since_last_session >= 30:
+                churn_risk += 30
+                churn_factors.append({"factor": "inactive_30d", "impact": 30, "detail": f"No sessions in {days_since_last_session} days"})
+            elif days_since_last_session >= 14:
+                churn_risk += 20
+                churn_factors.append({"factor": "inactive_14d", "impact": 20, "detail": f"No sessions in {days_since_last_session} days"})
+            elif days_since_last_session >= 7:
+                churn_risk += 10
+                churn_factors.append({"factor": "inactive_7d", "impact": 10, "detail": f"No sessions in {days_since_last_session} days"})
+        else:
+            churn_risk += 25
+            churn_factors.append({"factor": "no_sessions", "impact": 25, "detail": "Never opened the app"})
+        
+        # Factor 2: Never completed a workout (0-25 points)
+        if total_workouts_completed == 0:
+            if total_workouts_started > 0:
+                churn_risk += 15
+                churn_factors.append({"factor": "no_completions", "impact": 15, "detail": f"Started {total_workouts_started} workouts, completed 0"})
+            elif first_workout is None:
+                churn_risk += 25
+                churn_factors.append({"factor": "never_exercised", "impact": 25, "detail": "Never started a workout"})
+        
+        # Factor 3: Activity trend declining (0-20 points)
+        if activity_trends["7d"]["sessions"] == 0 and activity_trends["30d"]["sessions"] > 0:
+            churn_risk += 15
+            churn_factors.append({"factor": "declining_activity", "impact": 15, "detail": "No activity in last 7d but was active in 30d"})
+        elif activity_trends["14d"]["sessions"] == 0 and activity_trends["30d"]["sessions"] > 0:
+            churn_risk += 10
+            churn_factors.append({"factor": "declining_activity", "impact": 10, "detail": "No activity in last 14d but was active in 30d"})
+        
+        # Factor 4: Low engagement (0-15 points)
+        if account_age_days > 14:
+            sessions_per_week = (total_sessions / max(1, account_age_days)) * 7
+            if sessions_per_week < 1:
+                churn_risk += 10
+                churn_factors.append({"factor": "low_engagement", "impact": 10, "detail": f"Avg {sessions_per_week:.1f} sessions/week"})
+        
+        # Factor 5: No social connections (0-10 points)
+        follows = await db.user_events.count_documents({
+            "user_id": uid,
+            "event_type": "user_followed"
+        })
+        if follows == 0 and account_age_days > 7:
+            churn_risk += 5
+            churn_factors.append({"factor": "no_social", "impact": 5, "detail": "Not following anyone"})
+        
+        # Cap at 100
+        churn_risk = min(100, churn_risk)
+        
+        # Determine lifecycle stage
+        lifecycle_stage = "new"
+        if days_since_last_session is not None and days_since_last_session >= 30:
+            lifecycle_stage = "churned"
+        elif days_since_last_session is not None and days_since_last_session >= 14:
+            lifecycle_stage = "at_risk"
+        elif total_workouts_completed == 0:
+            if first_workout:
+                lifecycle_stage = "activated"  # Started but not completed
+            else:
+                lifecycle_stage = "new"
+        elif activity_trends["7d"]["workouts_completed"] >= 3:
+            lifecycle_stage = "power_user"
+        elif activity_trends["30d"]["workouts_completed"] >= 4:
+            lifecycle_stage = "engaged"
+        elif total_workouts_completed >= 1:
+            lifecycle_stage = "activated"
+        
+        # Build milestones
+        milestones = []
+        if created_at:
+            milestones.append({"event": "account_created", "date": created_at.isoformat(), "label": "Joined"})
+        if first_session:
+            milestones.append({"event": "first_session", "date": first_session["timestamp"].isoformat(), "label": "First app open"})
+        if first_workout:
+            milestones.append({"event": "first_workout", "date": first_workout["timestamp"].isoformat(), "label": "First workout started"})
+        if first_completed:
+            milestones.append({"event": "first_completed", "date": first_completed["timestamp"].isoformat(), "label": "First workout completed"})
+        
+        # Time to first workout
+        time_to_first_workout_hours = None
+        if created_at and first_workout and first_workout.get("timestamp"):
+            time_to_first_workout_hours = round((first_workout["timestamp"] - created_at).total_seconds() / 3600, 1)
+        
+        return {
+            "user_id": uid,
+            "username": user.get("username"),
+            "lifecycle": {
+                "stage": lifecycle_stage,
+                "account_age_days": account_age_days,
+                "days_since_last_session": days_since_last_session,
+                "days_since_last_workout": days_since_last_workout,
+            },
+            "churn_risk": {
+                "score": churn_risk,
+                "level": "high" if churn_risk >= 60 else "medium" if churn_risk >= 30 else "low",
+                "factors": churn_factors,
+            },
+            "milestones": milestones,
+            "time_to_first_workout_hours": time_to_first_workout_hours,
+            "lifetime_stats": {
+                "total_sessions": total_sessions,
+                "total_workouts_started": total_workouts_started,
+                "total_workouts_completed": total_workouts_completed,
+                "completion_rate": round((total_workouts_completed / max(1, total_workouts_started)) * 100, 1),
+            },
+            "activity_trends": activity_trends,
+            "current_streak": user.get("current_streak", 0),
+            "longest_streak": user.get("longest_streak", 0),
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"User lifecycle endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @api_router.get("/analytics/admin/drilldown/users")
 async def get_drilldown_users(
     metric: str,
