@@ -474,15 +474,16 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
             toggleMute();
           }}
         >
-        <Ionicons 
-          name={isMuted ? "volume-mute" : "volume-high"} 
-          size={18} 
-          color="#fff" 
-        />
-      </TouchableOpacity>
+          <Ionicons 
+            name={isMuted ? "volume-mute" : "volume-high"} 
+            size={18} 
+            color="#fff" 
+          />
+        </TouchableOpacity>
+      )}
 
       {/* Minimal Video Progress Bar */}
-      {duration > 0 && (
+      {duration > 0 && !hasError && (
         <View style={styles.progressBarContainer}>
           <View 
             style={[
