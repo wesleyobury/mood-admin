@@ -947,7 +947,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Foundational decline pressing for lower chest confidence.',
           battlePlan: 'Instructions: Use a load you could complete for 2 more reps.\nSets: 4\nRest: 75–90s\n\n• Decline Barbell Press — 4 × 8',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241311/mood_app/workout_images/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241316/mood_app/workout_images/r1uig0ll_download_4_.jpg',
           intensityReason: 'Foundational decline pressing for lower chest confidence.',
           moodTips: [
             {
@@ -1049,7 +1049,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Cluster decline pressing to maintain output and control.',
           battlePlan: 'Instructions: 15s breaths between mini-sets.\nSets: 4\nRest: 2:00 between clusters\n\n• Decline Press — 4 × (4 / 4 / 4)',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241311/mood_app/workout_images/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241316/mood_app/workout_images/r1uig0ll_download_4_.jpg',
           intensityReason: 'Cluster decline pressing to maintain output and control.',
           moodTips: [
             {
@@ -1151,7 +1151,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: 'Heavy decline clusters to sustain lower chest power.',
           battlePlan: 'Instructions: Short breaths, full recovery between sets.\nSets: 5\nRest: 2:00\n\n• Decline Press — 5 × (3 / 3 / 3)',
-          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241311/mood_app/workout_images/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241316/mood_app/workout_images/r1uig0ll_download_4_.jpg',
           intensityReason: 'Heavy decline clusters to sustain lower chest power.',
           moodTips: [
             {
