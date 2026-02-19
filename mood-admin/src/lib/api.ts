@@ -216,6 +216,53 @@ class ApiClient {
     return this.get<UserTimelineData>(`/analytics/admin/users/${userId}/timeline?${params}`);
   }
 
+  // Drilldown endpoints for universal drill-downs
+  async getDrilldownUsers(
+    metric: string,
+    start: string,
+    end: string,
+    options: {
+      value?: string;
+      limit?: number;
+      skip?: number;
+      includeInternal?: boolean;
+    } = {}
+  ) {
+    const params = new URLSearchParams();
+    params.append("metric", metric);
+    params.append("start", start);
+    params.append("end", end);
+    if (options.value) params.append("value", options.value);
+    if (options.limit) params.append("limit", options.limit.toString());
+    if (options.skip) params.append("skip", options.skip.toString());
+    if (options.includeInternal) params.append("include_internal", "true");
+    return this.get<DrilldownUsersData>(`/analytics/admin/drilldown/users?${params}`);
+  }
+
+  async getDrilldownEvents(
+    metric: string,
+    start: string,
+    end: string,
+    options: {
+      userId?: string;
+      value?: string;
+      limit?: number;
+      skip?: number;
+      includeInternal?: boolean;
+    } = {}
+  ) {
+    const params = new URLSearchParams();
+    params.append("metric", metric);
+    params.append("start", start);
+    params.append("end", end);
+    if (options.userId) params.append("user_id", options.userId);
+    if (options.value) params.append("value", options.value);
+    if (options.limit) params.append("limit", options.limit.toString());
+    if (options.skip) params.append("skip", options.skip.toString());
+    if (options.includeInternal) params.append("include_internal", "true");
+    return this.get<DrilldownEventsData>(`/analytics/admin/drilldown/events?${params}`);
+  }
+
   // Admin actions
   async seedFeaturedWorkouts() {
     return this.post<{ message: string }>("/admin/seed-featured-workouts");
