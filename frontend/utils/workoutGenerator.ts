@@ -294,8 +294,8 @@ export function generateLazyCartsWithType(
   let exerciseCount: number;
   
   if (trainingType === 'bodyweight') {
-    // Move your body: 3 for beginner, 4 for intermediate and advanced
-    exerciseCount = intensity === 'beginner' ? 3 : 4;
+    // Move your body: 3 for beginner and intermediate, 4 for advanced
+    exerciseCount = intensity === 'advanced' ? 4 : 3;
   } else {
     // Lift weights: 1 from weights + 1 from bodyweight = 2 total
     exerciseCount = 2;
