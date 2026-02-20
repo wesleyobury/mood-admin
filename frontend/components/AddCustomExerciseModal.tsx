@@ -150,6 +150,11 @@ const COMBINED_THUMBNAILS: { [key: string]: string } = {
 
 // Fallback equipment-only mappings
 const EQUIPMENT_FALLBACKS: { [key: string]: string } = {
+  // SMITH MACHINE must come first (before generic "machine")
+  'smith': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241300/mood_app/workout_images/ynnuugau_smith_squat.jpg',
+  'smith machine': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241300/mood_app/workout_images/ynnuugau_smith_squat.jpg',
+  
+  // Other equipment
   'dumbbell': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241263/mood_app/workout_images/0t57iowy_db_goblet_squat.jpg',
   'dumbbells': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241263/mood_app/workout_images/0t57iowy_db_goblet_squat.jpg',
   'barbell': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241360/mood_app/workout_images/tyk9o76q_barbell_row.jpg',
@@ -170,6 +175,10 @@ const EQUIPMENT_FALLBACKS: { [key: string]: string } = {
   'battle ropes': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241360/mood_app/workout_images/yvkcgdyx_battle_rope.jpg',
   'box': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241300/mood_app/workout_images/z0smxd1m_box_jump.jpg',
   'plyo box': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241300/mood_app/workout_images/z0smxd1m_box_jump.jpg',
+  'machine': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240916/mood_app/workout_images/xgk4blng_download_2_.jpg',
+  'leg press': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241300/mood_app/workout_images/ynnuugau_smith_squat.jpg',
+  'hack squat': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241300/mood_app/workout_images/ynnuugau_smith_squat.jpg',
+  'lat pulldown': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241283/mood_app/workout_images/ht4gv5dv_Pull-up.jpg',
 };
 
 // Find matching thumbnail using combined equipment + exercise name logic
