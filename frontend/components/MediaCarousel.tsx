@@ -133,7 +133,7 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
         return;
       }
 
-      // 3. Try Cloudinary thumbnail
+      // 3. Try Cloudinary thumbnail (most reliable for production)
       const cloudinaryThumb = getCloudinaryThumbnail(uri);
       if (cloudinaryThumb) {
         setThumbnailUri(cloudinaryThumb);
@@ -142,16 +142,22 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
         return;
       }
 
-      // 4. Generate thumbnail from first frame (native only)
-      if (Platform.OS !== 'web') {
+      // 4. Generate thumbnail from first frame (native only, skip on web)
+      // Wrapped in additional try-catch to prevent crashes in production
+      if (Platform.OS !== 'web' && VideoThumbnails) {
         try {
-          const { uri: generatedUri } = await VideoThumbnails.getThumbnailAsync(uri, {
+          const result = await VideoThumbnails.getThumbnailAsync(uri, {
             time: 1000, // 1 second in
             quality: 0.7,
           });
-          thumbnailCache[uri] = generatedUri;
-          setThumbnailUri(generatedUri);
+          if (result && result.uri) {
+            thumbnailCache[uri] = result.uri;
+            setThumbnailUri(result.uri);
+          } else {
+            setThumbnailError(true);
+          }
         } catch (e) {
+          // Silently fail thumbnail generation - not critical
           console.log('Could not generate thumbnail for:', uri);
           setThumbnailError(true);
         }
