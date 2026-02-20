@@ -16,250 +16,29 @@ import { useCart, WorkoutItem } from '../contexts/CartContext';
 
 const { width, height } = Dimensions.get('window');
 
-// Default athlete image for when no match is found - VERIFIED WORKING
-const DEFAULT_ATHLETE_IMAGE = 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg';
-
-// Combined equipment + exercise type mappings for maximum accuracy
-// ALL URLs VERIFIED TO RETURN HTTP 200 from actual data files
-// Format: "equipment_keyword|exercise_keyword" -> thumbnail URL
-const COMBINED_THUMBNAILS: { [key: string]: string } = {
-  // SMITH MACHINE exercises
-  'smith|squat': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'smith|press': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'smith|lunge': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'smith|bench': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'smith|calf': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'smith|deadlift': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  
-  // DUMBBELL exercises - VERIFIED WORKING URLs
-  'dumbbell|squat': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241293/mood_app/workout_images/p55uxvw3_db_squat.jpg',
-  'dumbbell|goblet': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241293/mood_app/workout_images/p55uxvw3_db_squat.jpg',
-  'dumbbell|lunge': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241295/mood_app/workout_images/rvwet9i1_db_elevated_split_squat.jpg',
-  'dumbbell|split': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241295/mood_app/workout_images/rvwet9i1_db_elevated_split_squat.jpg',
-  'dumbbell|bulgarian': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241295/mood_app/workout_images/rvwet9i1_db_elevated_split_squat.jpg',
-  'dumbbell|curl': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240587/mood_app/workout_images/yv5l5jby_cable_curl.jpg',
-  'dumbbell|bicep': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240587/mood_app/workout_images/yv5l5jby_cable_curl.jpg',
-  'dumbbell|arnold': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240587/mood_app/workout_images/yv5l5jby_cable_curl.jpg',
-  'dumbbell|press': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241038/mood_app/workout_images/y6ofpbdj_kb_sa_press_v2.jpg',
-  'dumbbell|shoulder': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241038/mood_app/workout_images/y6ofpbdj_kb_sa_press_v2.jpg',
-  'dumbbell|row': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240702/mood_app/workout_images/9hjdvg6i_kb_suitcase_row.jpg',
-  'dumbbell|bent': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240702/mood_app/workout_images/9hjdvg6i_kb_suitcase_row.jpg',
-  'dumbbell|fly': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240702/mood_app/workout_images/9hjdvg6i_kb_suitcase_row.jpg',
-  
-  // BARBELL exercises - VERIFIED WORKING URLs
-  'barbell|squat': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'barbell|back': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'barbell|front': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241297/mood_app/workout_images/x54zcr7d_db_front_squat.jpg',
-  'barbell|deadlift': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241299/mood_app/workout_images/xfs748m6_bb_back_squat_2.jpg',
-  'barbell|row': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241299/mood_app/workout_images/xfs748m6_bb_back_squat_2.jpg',
-  'barbell|bench': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241299/mood_app/workout_images/xfs748m6_bb_back_squat_2.jpg',
-  'barbell|press': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241299/mood_app/workout_images/xfs748m6_bb_back_squat_2.jpg',
-  'barbell|curl': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240574/mood_app/workout_images/g54uz2wp_preacher_curl.jpg',
-  
-  // KETTLEBELL exercises - VERIFIED WORKING URLs
-  'kettlebell|swing': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240731/mood_app/workout_images/kc1es3oi_kb_gorilla_row.jpg',
-  'kettlebell|snatch': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240731/mood_app/workout_images/kc1es3oi_kb_gorilla_row.jpg',
-  'kettlebell|clean': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240731/mood_app/workout_images/kc1es3oi_kb_gorilla_row.jpg',
-  'kettlebell|press': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241038/mood_app/workout_images/y6ofpbdj_kb_sa_press_v2.jpg',
-  'kettlebell|squat': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240731/mood_app/workout_images/kc1es3oi_kb_gorilla_row.jpg',
-  'kettlebell|goblet': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240731/mood_app/workout_images/kc1es3oi_kb_gorilla_row.jpg',
-  'kettlebell|row': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240725/mood_app/workout_images/h1hdn33y_kb_cs_row.jpg',
-  
-  // CABLE exercises - VERIFIED WORKING URLs
-  'cable|curl': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240587/mood_app/workout_images/yv5l5jby_cable_curl.jpg',
-  'cable|tricep': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240587/mood_app/workout_images/yv5l5jby_cable_curl.jpg',
-  'cable|pushdown': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240587/mood_app/workout_images/yv5l5jby_cable_curl.jpg',
-  'cable|fly': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240587/mood_app/workout_images/yv5l5jby_cable_curl.jpg',
-  'cable|row': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240575/mood_app/workout_images/lz1p2boy_seated_low_cable_curl.jpg',
-  'cable|pull': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240694/mood_app/workout_images/3kbrum0a_lat_pull_down.jpg',
-  
-  // BODYWEIGHT exercises - VERIFIED WORKING URLs
-  'bodyweight|pushup': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
-  'bodyweight|push-up': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
-  'bodyweight|pullup': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241330/mood_app/workout_images/3aciwkyi_assisted_pull_ups.jpg',
-  'bodyweight|pull-up': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241330/mood_app/workout_images/3aciwkyi_assisted_pull_ups.jpg',
-  'bodyweight|chin': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241330/mood_app/workout_images/3aciwkyi_assisted_pull_ups.jpg',
-  'bodyweight|squat': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
-  'bodyweight|lunge': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
-  'bodyweight|dip': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
-  'bodyweight|plank': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240908/mood_app/workout_images/rptdlvng_download_12_.jpg',
-  'bodyweight|crunch': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240807/mood_app/workout_images/b2yevch7_crunch.jpg',
-  'bodyweight|sit': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240810/mood_app/workout_images/fvyi5mpl_sit_up.jpg',
-  
-  // MEDICINE BALL exercises - VERIFIED WORKING URLs
-  'medicine|slam': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241174/mood_app/workout_images/wwxk13a9_tbs.jpg',
-  'medicine|throw': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241174/mood_app/workout_images/wwxk13a9_tbs.jpg',
-  'medicine|twist': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241174/mood_app/workout_images/wwxk13a9_tbs.jpg',
-  'med|slam': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241174/mood_app/workout_images/wwxk13a9_tbs.jpg',
-  'med|throw': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241174/mood_app/workout_images/wwxk13a9_tbs.jpg',
-  
-  // RESISTANCE BAND exercises - VERIFIED WORKING URLs
-  'band|curl': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241381/mood_app/workout_images/sn9i3ng0_download_1_.jpg',
-  'band|press': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241381/mood_app/workout_images/sn9i3ng0_download_1_.jpg',
-  'band|pull': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241381/mood_app/workout_images/sn9i3ng0_download_1_.jpg',
-  'resistance|curl': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241381/mood_app/workout_images/sn9i3ng0_download_1_.jpg',
-  'resistance|press': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241381/mood_app/workout_images/sn9i3ng0_download_1_.jpg',
-  
-  // PULL-UP BAR exercises - VERIFIED WORKING URLs
-  'bar|pullup': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241330/mood_app/workout_images/3aciwkyi_assisted_pull_ups.jpg',
-  'bar|pull-up': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241330/mood_app/workout_images/3aciwkyi_assisted_pull_ups.jpg',
-  'bar|chin': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241330/mood_app/workout_images/3aciwkyi_assisted_pull_ups.jpg',
-  'bar|hang': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240898/mood_app/workout_images/n5wg8sb5_download_17_.jpg',
-  
-  // BOX / PLYO exercises - VERIFIED WORKING URLs
-  'box|jump': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240628/mood_app/workout_images/wok1mz8a_rbj.jpg',
-  'box|step': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240628/mood_app/workout_images/wok1mz8a_rbj.jpg',
-  'plyo|jump': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240628/mood_app/workout_images/wok1mz8a_rbj.jpg',
-  'plyo|box': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240628/mood_app/workout_images/wok1mz8a_rbj.jpg',
-  
-  // SLED exercises - VERIFIED WORKING URLs
-  'sled|push': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241067/mood_app/workout_images/ikffehr2_download_19_.jpg',
-  'sled|pull': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241067/mood_app/workout_images/ikffehr2_download_19_.jpg',
-  'sled|drag': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241067/mood_app/workout_images/ikffehr2_download_19_.jpg',
-  
-  // MACHINE exercises - VERIFIED WORKING URLs
-  'machine|press': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
-  'machine|row': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240575/mood_app/workout_images/lz1p2boy_seated_low_cable_curl.jpg',
-  'machine|curl': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240582/mood_app/workout_images/qfupz5zv_bicep_curl_machine.jpg',
-  'machine|leg': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240683/mood_app/workout_images/pokwsf2m_leg_curl.jpg',
-  'machine|crunch': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240722/mood_app/workout_images/g9c1g1gr_ab_crunch_machine.jpg',
-  'machine|ab': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240722/mood_app/workout_images/g9c1g1gr_ab_crunch_machine.jpg',
-  'machine|calf': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240671/mood_app/workout_images/elld3iw7_calf_machine_calf_raise.jpg',
-};
-
-// Fallback equipment-only mappings - ALL URLs VERIFIED WORKING
-const EQUIPMENT_FALLBACKS: { [key: string]: string } = {
-  // SMITH MACHINE must come first (before generic "machine")
-  'smith': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'smith machine': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  
-  // Other equipment - VERIFIED WORKING URLs
-  'dumbbell': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241293/mood_app/workout_images/p55uxvw3_db_squat.jpg',
-  'dumbbells': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241293/mood_app/workout_images/p55uxvw3_db_squat.jpg',
-  'barbell': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'kettlebell': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240731/mood_app/workout_images/kc1es3oi_kb_gorilla_row.jpg',
-  'kettlebells': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240731/mood_app/workout_images/kc1es3oi_kb_gorilla_row.jpg',
-  'cable': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240587/mood_app/workout_images/yv5l5jby_cable_curl.jpg',
-  'cable machine': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240587/mood_app/workout_images/yv5l5jby_cable_curl.jpg',
-  'resistance band': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241381/mood_app/workout_images/sn9i3ng0_download_1_.jpg',
-  'bands': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241381/mood_app/workout_images/sn9i3ng0_download_1_.jpg',
-  'bodyweight': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
-  'body weight': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
-  'none': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
-  'pull-up bar': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241330/mood_app/workout_images/3aciwkyi_assisted_pull_ups.jpg',
-  'pullup bar': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241330/mood_app/workout_images/3aciwkyi_assisted_pull_ups.jpg',
-  'medicine ball': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241174/mood_app/workout_images/wwxk13a9_tbs.jpg',
-  'med ball': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241174/mood_app/workout_images/wwxk13a9_tbs.jpg',
-  'sled': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241067/mood_app/workout_images/ikffehr2_download_19_.jpg',
-  'box': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240628/mood_app/workout_images/wok1mz8a_rbj.jpg',
-  'plyo box': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240628/mood_app/workout_images/wok1mz8a_rbj.jpg',
-  'plyo': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240628/mood_app/workout_images/wok1mz8a_rbj.jpg',
-  'machine': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240582/mood_app/workout_images/qfupz5zv_bicep_curl_machine.jpg',
-  'leg press': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240683/mood_app/workout_images/pokwsf2m_leg_curl.jpg',
-  'hack squat': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
-  'lat pulldown': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240694/mood_app/workout_images/3kbrum0a_lat_pull_down.jpg',
-  'ab roller': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240732/mood_app/workout_images/kega9d81_ab_wheel.jpg',
-  'ab wheel': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240732/mood_app/workout_images/kega9d81_ab_wheel.jpg',
-  'roman chair': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240754/mood_app/workout_images/zqeon0lh_roman_chair_weighted_side_bend.jpg',
-  'preacher curl': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240574/mood_app/workout_images/g54uz2wp_preacher_curl.jpg',
-  'captain': 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240704/mood_app/workout_images/9wb93wi2_cap_chair_leg_raise.jpg',
-};
-
-// Find matching thumbnail using combined equipment + exercise name logic
-const findMatchingThumbnail = (exerciseName: string, equipment: string): string => {
-  const lowerName = exerciseName.toLowerCase().trim();
-  const lowerEquipment = equipment.toLowerCase().trim();
-  
-  // Extract key words from exercise name
-  const exerciseWords = lowerName.split(/[\s\-_]+/);
-  
-  // Extract key words from equipment
-  const equipmentWords = lowerEquipment.split(/[\s\-_]+/);
-  
-  // STEP 0: Try exact full equipment match first (e.g., "smith machine" -> "smith")
-  // Check combined thumbnails for exact match with first significant equipment word
-  for (const [key, url] of Object.entries(COMBINED_THUMBNAILS)) {
-    const [keyEquip, keyExercise] = key.split('|');
-    
-    // Check if equipment contains the key equipment word AND exercise contains the key exercise word
-    const hasEquipmentKeyword = lowerEquipment.includes(keyEquip) || equipmentWords.some(w => w === keyEquip);
-    const hasExerciseKeyword = exerciseWords.some(w => w === keyExercise || w.includes(keyExercise) || keyExercise.includes(w));
-    
-    if (hasEquipmentKeyword && hasExerciseKeyword) {
-      return url;
-    }
-  }
-  
-  // STEP 1: Try exact combined match (equipment|exercise)
-  for (const eqWord of equipmentWords) {
-    for (const exWord of exerciseWords) {
-      const combinedKey = `${eqWord}|${exWord}`;
-      if (COMBINED_THUMBNAILS[combinedKey]) {
-        return COMBINED_THUMBNAILS[combinedKey];
-      }
-    }
-  }
-  
-  // STEP 2: Try partial combined match with priority scoring
-  let bestMatch: { url: string; score: number } | null = null;
-  
-  for (const [key, url] of Object.entries(COMBINED_THUMBNAILS)) {
-    const [keyEquip, keyExercise] = key.split('|');
-    
-    // Check if equipment contains the key equipment word AND exercise contains the key exercise word
-    const equipmentMatch = equipmentWords.some(w => w.includes(keyEquip) || keyEquip.includes(w)) || lowerEquipment.includes(keyEquip);
-    const exerciseMatch = exerciseWords.some(w => w.includes(keyExercise) || keyExercise.includes(w));
-    
-    if (equipmentMatch && exerciseMatch) {
-      // Score: longer equipment key = more specific = higher priority
-      const score = keyEquip.length + (lowerEquipment.includes(keyEquip) ? 10 : 0);
-      if (!bestMatch || score > bestMatch.score) {
-        bestMatch = { url, score };
-      }
-    }
-  }
-  
-  if (bestMatch) {
-    return bestMatch.url;
-  }
-  
-  // STEP 3: Try equipment-only fallback - check full equipment string first
-  for (const [key, url] of Object.entries(EQUIPMENT_FALLBACKS)) {
-    if (lowerEquipment === key || lowerEquipment.includes(key)) {
-      return url;
-    }
-  }
-  
-  // STEP 4: Word-level equipment match
-  for (const eqWord of equipmentWords) {
-    if (EQUIPMENT_FALLBACKS[eqWord]) {
-      return EQUIPMENT_FALLBACKS[eqWord];
-    }
-  }
-  
-  // STEP 5: Partial equipment match
-  for (const [key, url] of Object.entries(EQUIPMENT_FALLBACKS)) {
-    if (key.includes(lowerEquipment) || equipmentWords.some(w => key.includes(w))) {
-      return url;
-    }
-  }
-  
-  // STEP 6: Return default athlete image (NOT decline bench)
-  return DEFAULT_ATHLETE_IMAGE;
-};
+// 5 custom workout images - cycle through without duplicating
+const CUSTOM_WORKOUT_IMAGES = [
+  'https://customer-assets.emergentagent.com/job_973f98f7-793a-4a48-9ca9-9ee71c7f4aec/artifacts/0u0g3ynz_download%20%286%29.png',
+  'https://customer-assets.emergentagent.com/job_973f98f7-793a-4a48-9ca9-9ee71c7f4aec/artifacts/q99uhxb8_download%20%287%29.png',
+  'https://customer-assets.emergentagent.com/job_973f98f7-793a-4a48-9ca9-9ee71c7f4aec/artifacts/fu7i3it5_download%20%288%29.png',
+  'https://customer-assets.emergentagent.com/job_973f98f7-793a-4a48-9ca9-9ee71c7f4aec/artifacts/5fn316jf_download%20%289%29.png',
+  'https://customer-assets.emergentagent.com/job_973f98f7-793a-4a48-9ca9-9ee71c7f4aec/artifacts/6c0f7bcq_download%20%2810%29.png',
+];
 
 interface AddCustomExerciseModalProps {
   visible: boolean;
   onClose: () => void;
   onAdd?: (workout: WorkoutItem) => void;
+  existingCustomWorkouts?: WorkoutItem[]; // Pass existing custom workouts to track used images
 }
 
 const AddCustomExerciseModal: React.FC<AddCustomExerciseModalProps> = ({
   visible,
   onClose,
   onAdd,
+  existingCustomWorkouts = [],
 }) => {
-  const { addToCart } = useCart();
+  const { addToCart, cartItems } = useCart();
   
   const [workoutTitle, setWorkoutTitle] = useState('');
   const [equipment, setEquipment] = useState('');
@@ -267,6 +46,28 @@ const AddCustomExerciseModal: React.FC<AddCustomExerciseModalProps> = ({
   const [reps, setReps] = useState('');
   const [rest, setRest] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+
+  // Get next available image that hasn't been used yet
+  const getNextAvailableImage = (): string => {
+    // Combine cart items and existing custom workouts to check used images
+    const allItems = [...cartItems, ...existingCustomWorkouts];
+    
+    // Get all images currently used by custom workouts
+    const usedImages = allItems
+      .filter(item => item.id?.startsWith('custom-') || item.workoutType === 'Custom')
+      .map(item => item.imageUrl)
+      .filter(Boolean);
+    
+    // Find first unused image from our 5 images
+    for (const img of CUSTOM_WORKOUT_IMAGES) {
+      if (!usedImages.includes(img)) {
+        return img;
+      }
+    }
+    
+    // If all 5 are used, pick a random one
+    return CUSTOM_WORKOUT_IMAGES[Math.floor(Math.random() * CUSTOM_WORKOUT_IMAGES.length)];
+  };
 
   const resetForm = () => {
     setWorkoutTitle('');
@@ -281,8 +82,8 @@ const AddCustomExerciseModal: React.FC<AddCustomExerciseModalProps> = ({
       return;
     }
 
-    // Find matching thumbnail using combined equipment + exercise name logic
-    const thumbnailUrl = findMatchingThumbnail(workoutTitle, equipment);
+    // Get next available image (no duplicates for first 5 custom exercises)
+    const thumbnailUrl = getNextAvailableImage();
 
     // Generate battle plan from user input
     const battlePlan = rest.trim() 
