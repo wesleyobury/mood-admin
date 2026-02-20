@@ -1187,4 +1187,30 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#0c0c0c',
   },
+  // Add Exercise Button Styles
+  addExerciseButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 16,
+    marginBottom: 8,
+    paddingVertical: 12,
+    gap: 8,
+  },
+  addExerciseIconContainer: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    borderStyle: 'dashed',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addExerciseText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: 'rgba(255, 215, 0, 0.8)',
+  },
 });
