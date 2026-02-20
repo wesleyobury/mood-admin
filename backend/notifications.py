@@ -538,6 +538,7 @@ class NotificationService:
                     "entity_type": 1,
                     "created_at": 1,
                     "read_at": 1,
+                    "metadata": 1,  # Include metadata for post_thumbnail, etc.
                     "actor": {
                         "id": {"$toString": "$actor._id"},
                         "username": "$actor.username",
