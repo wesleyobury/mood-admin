@@ -183,6 +183,7 @@ export default function CartScreen() {
   const [isSaving, setIsSaving] = useState(false);
   const [saveModalVisible, setSaveModalVisible] = useState(false);
   const [workoutName, setWorkoutName] = useState('');
+  const [showAddExerciseModal, setShowAddExerciseModal] = useState(false);
   
   // Generated carts state for skip functionality
   const [generatedCarts, setGeneratedCarts] = useState<any[]>([]);
