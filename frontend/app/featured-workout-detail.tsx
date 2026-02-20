@@ -443,6 +443,25 @@ export default function FeaturedWorkoutDetail() {
   const [exercises, setExercises] = useState<WorkoutExercise[]>([]);
   const [isSaved, setIsSaved] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [showAddExerciseModal, setShowAddExerciseModal] = useState(false);
+  
+  // Handle adding custom exercise to the featured workout
+  const handleAddCustomExercise = (workout: WorkoutItem) => {
+    const newExercise: WorkoutExercise = {
+      name: workout.name,
+      equipment: workout.equipment || 'Custom',
+      description: workout.description || '',
+      battlePlan: workout.battlePlan || '',
+      duration: workout.duration,
+      imageUrl: workout.imageUrl || '',
+      intensityReason: workout.intensityReason || '',
+      difficulty: workout.difficulty || 'Custom',
+      workoutType: workout.workoutType || 'Custom',
+      moodCard: workout.moodCard || 'Custom Exercise',
+      moodTips: [],
+    };
+    setExercises([...exercises, newExercise]);
+  };
   
   // Fetch workout data - first try API, fallback to hardcoded
   useEffect(() => {
