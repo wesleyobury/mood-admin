@@ -628,8 +628,26 @@ export default function CartScreen() {
               isLast={index === cartItems.length - 1}
             />
           ))}
+          
+          {/* Add Custom Exercise Button - appears below last exercise */}
+          <TouchableOpacity 
+            style={styles.addExerciseButton}
+            onPress={() => setShowAddExerciseModal(true)}
+            activeOpacity={0.7}
+          >
+            <View style={styles.addExerciseIconContainer}>
+              <Ionicons name="add" size={24} color="#FFD700" />
+            </View>
+            <Text style={styles.addExerciseText}>Add Exercise</Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
+
+      {/* Add Custom Exercise Modal */}
+      <AddCustomExerciseModal
+        visible={showAddExerciseModal}
+        onClose={() => setShowAddExerciseModal(false)}
+      />
 
       {/* Bottom Action Bar */}
       <View style={[styles.bottomBar, { paddingBottom: Math.max(insets.bottom, 20) }]}>
