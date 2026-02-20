@@ -192,6 +192,20 @@ const findMatchingThumbnail = (exerciseName: string, equipment: string): string 
   // Extract key words from equipment
   const equipmentWords = lowerEquipment.split(/[\s\-_]+/);
   
+  // STEP 0: Try exact full equipment match first (e.g., "smith machine" -> "smith")
+  // Check combined thumbnails for exact match with first significant equipment word
+  for (const [key, url] of Object.entries(COMBINED_THUMBNAILS)) {
+    const [keyEquip, keyExercise] = key.split('|');
+    
+    // Check if equipment contains the key equipment word AND exercise contains the key exercise word
+    const hasEquipmentKeyword = lowerEquipment.includes(keyEquip) || equipmentWords.some(w => w === keyEquip);
+    const hasExerciseKeyword = exerciseWords.some(w => w === keyExercise || w.includes(keyExercise) || keyExercise.includes(w));
+    
+    if (hasEquipmentKeyword && hasExerciseKeyword) {
+      return url;
+    }
+  }
+  
   // STEP 1: Try exact combined match (equipment|exercise)
   for (const eqWord of equipmentWords) {
     for (const exWord of exerciseWords) {
@@ -202,34 +216,51 @@ const findMatchingThumbnail = (exerciseName: string, equipment: string): string 
     }
   }
   
-  // STEP 2: Try partial combined match
+  // STEP 2: Try partial combined match with priority scoring
+  let bestMatch: { url: string; score: number } | null = null;
+  
   for (const [key, url] of Object.entries(COMBINED_THUMBNAILS)) {
     const [keyEquip, keyExercise] = key.split('|');
     
     // Check if equipment contains the key equipment word AND exercise contains the key exercise word
-    const equipmentMatch = equipmentWords.some(w => w.includes(keyEquip) || keyEquip.includes(w));
+    const equipmentMatch = equipmentWords.some(w => w.includes(keyEquip) || keyEquip.includes(w)) || lowerEquipment.includes(keyEquip);
     const exerciseMatch = exerciseWords.some(w => w.includes(keyExercise) || keyExercise.includes(w));
     
     if (equipmentMatch && exerciseMatch) {
+      // Score: longer equipment key = more specific = higher priority
+      const score = keyEquip.length + (lowerEquipment.includes(keyEquip) ? 10 : 0);
+      if (!bestMatch || score > bestMatch.score) {
+        bestMatch = { url, score };
+      }
+    }
+  }
+  
+  if (bestMatch) {
+    return bestMatch.url;
+  }
+  
+  // STEP 3: Try equipment-only fallback - check full equipment string first
+  for (const [key, url] of Object.entries(EQUIPMENT_FALLBACKS)) {
+    if (lowerEquipment === key || lowerEquipment.includes(key)) {
       return url;
     }
   }
   
-  // STEP 3: Try equipment-only fallback
+  // STEP 4: Word-level equipment match
   for (const eqWord of equipmentWords) {
     if (EQUIPMENT_FALLBACKS[eqWord]) {
       return EQUIPMENT_FALLBACKS[eqWord];
     }
   }
   
-  // STEP 4: Partial equipment match
+  // STEP 5: Partial equipment match
   for (const [key, url] of Object.entries(EQUIPMENT_FALLBACKS)) {
-    if (lowerEquipment.includes(key) || key.includes(lowerEquipment)) {
+    if (key.includes(lowerEquipment) || equipmentWords.some(w => key.includes(w))) {
       return url;
     }
   }
   
-  // STEP 5: Return default athlete image (NOT decline bench)
+  // STEP 6: Return default athlete image (NOT decline bench)
   return DEFAULT_ATHLETE_IMAGE;
 };
 
