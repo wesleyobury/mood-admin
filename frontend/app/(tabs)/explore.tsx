@@ -1225,39 +1225,41 @@ export default function Explore() {
                 {/* Post Media (Images and Videos) */}
                 {post.media_urls.length > 0 && (
                   <View>
-                    <MediaCarousel 
-                      media={post.media_urls.map(url => {
-                        // If URL doesn't start with http/https, prepend backend URL
-                        if (!url.startsWith('http')) {
-                          return url.startsWith('/') ? `${API_URL}${url}` : `${API_URL}/api/uploads/${url}`;
-                        }
-                        return url;
-                      })}
-                      isPostVisible={visiblePostId === post.id}
-                      coverUrls={post.cover_urls}
-                      onIndexChange={(index) => {
-                        setCarouselIndexes(prev => ({ ...prev, [post.id]: index }));
-                        
-                        // Trigger animation when swiping to the last slide (workout completion card)
-                        if (post.workout_data && 
-                            post.workout_data.workouts && 
-                            post.workout_data.workouts.length > 0 && 
-                            index === post.media_urls.length - 1) {
-                          // Create animation if it doesn't exist
-                          if (!tryWorkoutAnimations[post.id]) {
-                            tryWorkoutAnimations[post.id] = new Animated.Value(0);
+                    <ErrorBoundary>
+                      <MediaCarousel 
+                        media={post.media_urls.map(url => {
+                          // If URL doesn't start with http/https, prepend backend URL
+                          if (!url.startsWith('http')) {
+                            return url.startsWith('/') ? `${API_URL}${url}` : `${API_URL}/api/uploads/${url}`;
                           }
-                          // Reset and play animation
-                          tryWorkoutAnimations[post.id].setValue(0);
-                          Animated.spring(tryWorkoutAnimations[post.id], {
-                            toValue: 1,
-                            useNativeDriver: true,
-                            tension: 50,
-                            friction: 7,
-                          }).start();
-                        }
-                      }}
-                    />
+                          return url;
+                        })}
+                        isPostVisible={visiblePostId === post.id}
+                        coverUrls={post.cover_urls}
+                        onIndexChange={(index) => {
+                          setCarouselIndexes(prev => ({ ...prev, [post.id]: index }));
+                          
+                          // Trigger animation when swiping to the last slide (workout completion card)
+                          if (post.workout_data && 
+                              post.workout_data.workouts && 
+                              post.workout_data.workouts.length > 0 && 
+                              index === post.media_urls.length - 1) {
+                            // Create animation if it doesn't exist
+                            if (!tryWorkoutAnimations[post.id]) {
+                              tryWorkoutAnimations[post.id] = new Animated.Value(0);
+                            }
+                            // Reset and play animation
+                            tryWorkoutAnimations[post.id].setValue(0);
+                            Animated.spring(tryWorkoutAnimations[post.id], {
+                              toValue: 1,
+                              useNativeDriver: true,
+                              tension: 50,
+                              friction: 7,
+                            }).start();
+                          }
+                        }}
+                      />
+                    </ErrorBoundary>
                     
                     {/* Try This Workout Button - Only show on workout completion card (last slide) */}
                     {post.workout_data && 
