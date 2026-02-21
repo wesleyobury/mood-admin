@@ -100,3 +100,7 @@ mood-admin/node_modules/@next/swc-linux-arm64-musl/next-swc.linux-arm64-musl.nod
 
 # Expo logs
 frontend/expo_*.log
+-e 
+# Environment files
+*.env
+*.env.*
