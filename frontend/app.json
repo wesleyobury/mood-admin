@@ -11,7 +11,7 @@
     "newArchEnabled": true,
     "ios": {
       "bundleIdentifier": "com.official.moodapp",
-      "buildNumber": "26",
+      "buildNumber": "27",
       "supportsTablet": true,
       "infoPlist": {
         "UIViewControllerBasedStatusBarAppearance": false,
