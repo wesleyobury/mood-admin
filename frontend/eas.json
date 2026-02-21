@@ -24,7 +24,7 @@
       "distribution": "store",
       "node": "20.19.4",
       "env": {
-        "EXPO_PUBLIC_BACKEND_URL": "https://api.officialmood.app"
+        "EXPO_PUBLIC_BACKEND_URL": "https://api.officialmoodapp.com"
       },
       "ios": {
         "resourceClass": "m-medium",
