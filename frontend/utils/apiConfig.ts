@@ -18,7 +18,7 @@ const PRODUCTION_BACKEND_URL = 'https://api.officialmood.app';
  * 2. EXPO_PUBLIC_BACKEND_URL from Constants.expoConfig.extra (for EAS builds)
  * 3. PRODUCTION_BACKEND_URL hardcoded fallback (guaranteed for production)
  */
-export const getApiUrl = (): string => {
+const getApiUrl = (): string => {
   // Try environment variable first (dev/preview environments)
   const envUrl = process.env.EXPO_PUBLIC_BACKEND_URL;
   if (envUrl && envUrl.trim() !== '') {
