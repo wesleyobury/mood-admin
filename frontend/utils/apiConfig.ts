@@ -9,7 +9,7 @@ import Constants from 'expo-constants';
 
 // Production backend URL - HARDCODED FALLBACK
 // This ensures TestFlight/production builds ALWAYS have a valid URL
-const PRODUCTION_BACKEND_URL = 'https://api.officialmood.app';
+const PRODUCTION_BACKEND_URL = 'https://api.officialmoodapp.com';
 
 /**
  * Get the API base URL with guaranteed non-empty result
