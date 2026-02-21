@@ -76,7 +76,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
       
       try {
         console.log('🔐 Initializing auth...');
-        console.log('API_URL:', API_URL);
+        
+        // Validate API configuration and log for debugging
+        await validateApiConfig();
         
         // Safety timeout - ensure we never hang
         const timeoutPromise = new Promise<'timeout'>((resolve) => {
