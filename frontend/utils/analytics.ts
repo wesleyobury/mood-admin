@@ -12,9 +12,7 @@ import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
 import * as Localization from 'expo-localization';
-
-// Prioritize process.env for development/preview environments
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+import { API_URL } from './apiConfig';
 
 // Storage keys
 const GUEST_DEVICE_ID_KEY = 'guest_device_id';
