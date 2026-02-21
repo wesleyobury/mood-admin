@@ -2,7 +2,7 @@
  * API Configuration - Production URL Lock
  * 
  * CRITICAL: This file ensures the app NEVER uses relative URLs.
- * Production builds MUST use https://api.officialmood.app
+ * Production builds MUST use https://api.officialmoodapp.com
  */
 
 import Constants from 'expo-constants';
