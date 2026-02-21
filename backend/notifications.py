@@ -774,6 +774,15 @@ class NotificationService:
         # Truncate reply for body
         truncated_reply = reply_text[:50] + "..." if len(reply_text) > 50 else reply_text
         
+        # Get post preview image for the notification thumbnail
+        post = await self.db.posts.find_one({"_id": ObjectId(post_id)})
+        post_thumbnail = None
+        if post:
+            media_urls = post.get("media_urls", [])
+            cover_urls = post.get("cover_urls", [])
+            # Prefer cover (thumbnail) over full media for faster loading
+            post_thumbnail = cover_urls[0] if cover_urls else (media_urls[0] if media_urls else None)
+        
         return await self.create_notification(
             user_id=parent_comment_author_id,
             notification_type=NotificationType.REPLY,
@@ -785,7 +794,8 @@ class NotificationService:
             image_url=avatar,
             metadata={
                 "replier_username": replier.get("username"),
-                "reply_preview": truncated_reply
+                "reply_preview": truncated_reply,
+                "post_thumbnail": post_thumbnail
             }
         )
     
