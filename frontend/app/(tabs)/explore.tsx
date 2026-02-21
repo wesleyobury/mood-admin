@@ -27,6 +27,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useCart, WorkoutItem } from '../../contexts/CartContext';
 import { useBadges } from '../../contexts/BadgeContext';
 import MediaCarousel from '../../components/MediaCarousel';
+import ErrorBoundary from '../../components/ErrorBoundary';
 import CommentsBottomSheet from '../../components/CommentsBottomSheet';
 import { Analytics, GuestAnalytics } from '../../utils/analytics';
 import { useScreenTime } from '../../hooks/useScreenTime';
