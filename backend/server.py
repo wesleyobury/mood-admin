@@ -9778,24 +9778,36 @@ async def upload_exercise_video(
         
         # Generate a clean public_id from filename
         import re
+        import time
         filename = file.filename or "exercise_video"
         clean_name = re.sub(r'[^a-zA-Z0-9_-]', '_', filename.rsplit('.', 1)[0])
         clean_name = re.sub(r'_+', '_', clean_name)[:80]
         
         public_id = f"exercise_library/{clean_name}"
         
-        # Upload to Cloudinary
+        # Upload to Cloudinary with eager thumbnail generation (synchronous)
         result = cloudinary.uploader.upload(
             content,
             public_id=public_id,
             resource_type="video",
-            overwrite=True
+            overwrite=True,
+            eager=[
+                {"format": "jpg", "transformation": [{"start_offset": "1", "width": 400, "height": 400, "crop": "fill"}]}
+            ],
+            eager_async=False  # Wait for thumbnail to be generated before returning
         )
         
         video_url = result.get("secure_url")
         
-        # Generate thumbnail URL (frame at 2 seconds)
-        thumbnail_url = f"https://res.cloudinary.com/{os.environ.get('CLOUDINARY_CLOUD_NAME')}/video/upload/so_2.0,w_400,h_400,c_fill/{result['public_id']}.jpg"
+        # Use the eagerly generated thumbnail if available
+        thumbnail_url = None
+        if result.get("eager") and len(result["eager"]) > 0:
+            thumbnail_url = result["eager"][0].get("secure_url")
+        else:
+            # Fallback: Generate thumbnail URL manually (may not be immediately available)
+            # Add timestamp to bust cache on client
+            timestamp = int(time.time())
+            thumbnail_url = f"https://res.cloudinary.com/{os.environ.get('CLOUDINARY_CLOUD_NAME')}/video/upload/so_1.0,w_400,h_400,c_fill/{result['public_id']}.jpg?t={timestamp}"
         
         return {
             "success": True,
