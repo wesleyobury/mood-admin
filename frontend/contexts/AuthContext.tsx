@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 import { trackEvent, aliasGuestToUser, GuestAnalytics } from '../utils/analytics';
 import TermsAcceptanceModal from '../components/TermsAcceptanceModal';
 import { resetNotificationSession } from '../utils/notificationUtils';
+import { API_URL, validateApiConfig } from '../utils/apiConfig';
 
 // Terms version must match backend CURRENT_TERMS_VERSION
 // Update this when terms change to force re-acceptance for all users
@@ -45,8 +46,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Prioritize process.env for development/preview environments
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+// API_URL is now imported from utils/apiConfig.ts with production fallback
 
 interface AuthProviderProps {
   children: ReactNode;
