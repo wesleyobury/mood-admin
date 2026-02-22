@@ -24,7 +24,7 @@
       "distribution": "store",
       "node": "20.19.4",
       "env": {
-        "EXPO_PUBLIC_BACKEND_URL": "https://api.officialmoodapp.com"
+        "EXPO_PUBLIC_BACKEND_URL": "https://bug-busters-13.emergent.host"
       },
       "ios": {
         "resourceClass": "m-medium",
