@@ -285,13 +285,17 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
   const toggleMute = useCallback(async () => {
     if (!videoRef.current) return;
     
-    // Configure audio when unmuting (ensures iOS silent mode works)
-    if (isMuted) {
-      await configureAudio();
+    try {
+      // Configure audio when unmuting (ensures iOS silent mode works)
+      if (isMuted) {
+        await configureAudio();
+      }
+      
+      await videoRef.current.setIsMutedAsync(!isMuted);
+      setIsMuted(!isMuted);
+    } catch (error) {
+      console.warn('Mute toggle failed:', error);
     }
-    
-    await videoRef.current.setIsMutedAsync(!isMuted);
-    setIsMuted(!isMuted);
   }, [isMuted]);
 
   // Handle video ready to play
@@ -299,12 +303,26 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
     setIsVideoLoading(false);
     // Auto-play when video is ready
     if (videoRef.current && isActive) {
-      videoRef.current.setIsMutedAsync(false).then(() => {
-        setIsMuted(false);
-        videoRef.current?.playAsync();
-      });
+      try {
+        videoRef.current.setIsMutedAsync(false).then(() => {
+          setIsMuted(false);
+          videoRef.current?.playAsync().catch(() => {});
+        }).catch(() => {});
+      } catch (error) {
+        console.warn('Video ready handler failed:', error);
+      }
     }
   }, [isActive]);
+
+  // Safety check - if uri is invalid, show error state
+  if (!uri || typeof uri !== 'string' || uri.length === 0) {
+    return (
+      <View style={styles.errorContainer}>
+        <Ionicons name="videocam-off-outline" size={48} color="#666" />
+        <Text style={styles.errorText}>Invalid video</Text>
+      </View>
+    );
+  }
 
   if (hasError) {
     return (
