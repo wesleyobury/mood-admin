@@ -802,11 +802,12 @@ export default function CreatePost() {
         
         showAlert('Image Downloaded', 'Your workout overlay has been downloaded. Open Instagram Stories and add it as a sticker on your photo!');
       } else {
-        // For native (iOS/Android), capture the image
+        // For native (iOS/Android), capture the image with transparency
         imageUri = await captureRef(transparentCardRef.current, {
           format: 'png',
           quality: 1,
           result: 'tmpfile',
+          bgColor: 'transparent', // CRITICAL: preserves transparency for Instagram sticker overlay
         });
         
         // Try to deep-link directly to Instagram Stories
