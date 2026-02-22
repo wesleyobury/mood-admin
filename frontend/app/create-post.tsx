@@ -25,6 +25,7 @@ import * as Sharing from 'expo-sharing';
 import * as FileSystem from 'expo-file-system';
 import { Video, ResizeMode } from 'expo-av';
 import { captureRef } from 'react-native-view-shot';
+import Share from 'react-native-share';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import WorkoutStatsCard from '../components/WorkoutStatsCard';
