@@ -23,7 +23,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { isAnalyticsOptedOut, setAnalyticsOptOut } from '../utils/analytics';
 import BackButton from '../components/BackButton';
 
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+import { API_URL } from '../utils/apiConfig';
 const SUPPORT_EMAIL = 'wesleyogsbury@gmail.com';
 
 // External URLs for legal pages

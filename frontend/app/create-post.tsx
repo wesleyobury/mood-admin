@@ -35,7 +35,7 @@ import GuestPromptModal from '../components/GuestPromptModal';
 import VideoFrameSelector from '../components/VideoFrameSelector';
 import InstagramShareModal from '../components/InstagramShareModal';
 
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+import { API_URL } from '../utils/apiConfig';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 // Storage keys for persisting user goals
