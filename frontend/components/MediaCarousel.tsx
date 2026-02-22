@@ -14,7 +14,7 @@ import {
 import { Image } from 'expo-image';
 import { Video, ResizeMode, AVPlaybackStatus, Audio } from 'expo-av';
 import { Ionicons } from '@expo/vector-icons';
-import * as VideoThumbnails from 'expo-video-thumbnails';
+// REMOVED: expo-video-thumbnails - causes crashes in production builds
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
