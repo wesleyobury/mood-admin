@@ -57,8 +57,8 @@ const NotificationItem = React.memo(({
   const hasContentThumbnail = contentThumbnail && 
     ['like', 'comment', 'mention', 'reply'].includes(notification.type);
 
-  // Only featured_workout notifications are clickable
-  const isClickable = notification.type === 'featured_workout';
+  // All notifications are clickable - featured_workout goes to cart, others go to home
+  const isClickable = true;
 
   return (
     <Animated.View style={[
@@ -67,10 +67,9 @@ const NotificationItem = React.memo(({
       { transform: [{ translateX: slideAnim }] },
     ]}>
       <TouchableOpacity
-        style={[styles.notificationContent, !isClickable && styles.notificationContentDisabled]}
-        onPress={isClickable ? onPress : undefined}
-        activeOpacity={isClickable ? 0.7 : 1}
-        disabled={!isClickable}
+        style={styles.notificationContent}
+        onPress={onPress}
+        activeOpacity={0.7}
       >
         {/* Avatar or Type Icon */}
         <View style={styles.avatarContainer}>
