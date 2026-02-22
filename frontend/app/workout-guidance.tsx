@@ -22,6 +22,7 @@ import { Analytics, GuestAnalytics } from '../utils/analytics';
 import ExerciseLookupSheet from '../components/ExerciseLookupSheet';
 import ExerciseLookupTrigger from '../components/ExerciseLookupTrigger';
 import { TextWithTermLinks } from '../components/TermDefinitionPopup';
+import { API_URL } from '../utils/apiConfig';
 
 interface MOODTip {
   icon: keyof typeof Ionicons.glyphMap;
