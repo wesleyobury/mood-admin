@@ -77,42 +77,14 @@ agenthub/agents/youtube/db
 .cache/
 
 # Mobile development
-android-sdk/ -e 
-# Environment files - Emergent requires .env files for deployment
-# Don't ignore .env files for Emergent deployment
-# *.env
-# *.env.*
-backend/uploads/47ba125c-9b6b-454b-bca5-836aa71a12bd.mov
-mood-admin/node_modules/@next/swc-linux-arm64-gnu/next-swc.linux-arm64-gnu.node
-mood-admin/node_modules/@next/swc-linux-arm64-musl/next-swc.linux-arm64-musl.node
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
+android-sdk/
 
 # Expo logs
 frontend/expo_*.log
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
+
+# Large upload files
+backend/uploads/*.mov
+backend/uploads/*.mp4
+mood-admin/node_modules/@next/swc-linux-arm64-gnu/next-swc.linux-arm64-gnu.node
+mood-admin/node_modules/@next/swc-linux-arm64-musl/next-swc.linux-arm64-musl.node
+backend/uploads/47ba125c-9b6b-454b-bca5-836aa71a12bd.mov
