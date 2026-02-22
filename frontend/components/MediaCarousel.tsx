@@ -21,6 +21,9 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 // Configure audio mode for proper playback on mobile
 const configureAudio = async () => {
   try {
+    // Only configure on native platforms
+    if (Platform.OS === 'web') return;
+    
     await Audio.setAudioModeAsync({
       allowsRecordingIOS: false,
       playsInSilentModeIOS: true,
@@ -29,7 +32,8 @@ const configureAudio = async () => {
       playThroughEarpieceAndroid: false,
     });
   } catch (error) {
-    console.error('Error configuring audio:', error);
+    // Silently fail - audio config is not critical for video playback
+    console.warn('Audio config warning (non-critical):', error);
   }
 };
 
