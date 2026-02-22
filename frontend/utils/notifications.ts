@@ -220,11 +220,12 @@ class NotificationService {
     // Listener for user tapping on notification
     this.responseListener = Notifications.addNotificationResponseReceivedListener(
       (response) => {
-        const data = response.notification.request.content.data;
+        const data = response.notification.request.content.data as any;
         console.log('📲 Notification tapped:', data);
         
-        // Handle deep link navigation
-        if (data?.deep_link) {
+        // Only handle deep links for featured_workout notifications
+        // Other notification types should just open the app
+        if (data?.type === 'featured_workout' && data?.deep_link) {
           this.handleDeepLink(data.deep_link as string);
         }
       }
@@ -235,15 +236,14 @@ class NotificationService {
    * Handle deep link navigation
    */
   private handleDeepLink(deepLink: string): void {
-    // Parse and navigate to the correct screen
-    // This will be implemented with the app's navigation
     console.log('🔗 Navigating to:', deepLink);
     
-    // Example deep link parsing:
-    // mood://post/{id} -> navigate to post detail
-    // mood://profile/{id} -> navigate to user profile
-    // mood://chat/{id} -> navigate to chat conversation
-    // mood://featured-workout/{id} -> navigate to workout detail
+    // Import Linking to open the deep link
+    import('expo-linking').then(({ default: Linking }) => {
+      Linking.openURL(deepLink).catch(err => {
+        console.error('Error opening deep link:', err);
+      });
+    });
   }
 
   /**
