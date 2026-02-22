@@ -2294,6 +2294,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: -9999,
     top: 0,
+    backgroundColor: 'transparent', // CRITICAL: ensures PNG export has no background
   },
   saveCardButton: {
     flexDirection: 'row',
