@@ -167,13 +167,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
           } catch (fetchError: any) {
             clearTimeout(fetchTimeoutId);
             if (fetchError.name === 'AbortError') {
-              console.warn('🕐 Auth fetch aborted (timeout), proceeding without validation');
-              // Set token optimistically
+              console.warn('🕐 Auth fetch aborted (timeout), proceeding with stored token');
+              // Set token optimistically - will be validated on next API call
               setToken(storedToken);
+              setIsLoading(false);
+              if (timeoutId) clearTimeout(timeoutId);
+              return;
             } else {
               console.warn('⚠️ Auth validation network error:', fetchError.message);
-              // Clear potentially invalid token
-              await AsyncStorage.removeItem('auth_token');
+              // KEEP the token on network errors - don't log out the user
+              // The network might just be temporarily unavailable on app cold start
+              console.log('📱 Keeping stored token despite network error (offline support)');
+              setToken(storedToken);
+              setIsLoading(false);
+              if (timeoutId) clearTimeout(timeoutId);
+              return;
             }
           }
         }
