@@ -932,12 +932,18 @@ class NotificationService:
         workout_name: str,
         workout_image: Optional[str] = None
     ) -> Optional[str]:
-        """Trigger notification for a new featured workout drop"""
+        """Trigger notification for a new featured workout drop - uses randomized copy"""
+        # Use standardized push copy for featured workouts
+        push_content = build_push_content(
+            notif_type="featured_workout",
+            deep_link=f"mood://cart?featuredId={workout_id}"
+        )
+        
         return await self.create_notification(
             user_id=user_id,
             notification_type=NotificationType.FEATURED_WORKOUT,
-            title="New Featured Workout",
-            body=f'"{workout_name}" just dropped',
+            title=push_content["title"],  # Random from: "New Drop", "Today's Workout", etc.
+            body=push_content["body"],    # Random from: "A new workout is live.", etc.
             entity_id=workout_id,
             entity_type="featured_workout",
             image_url=workout_image,
