@@ -223,10 +223,13 @@ class NotificationService {
         const data = response.notification.request.content.data as any;
         console.log('📲 Notification tapped:', data);
         
-        // Only handle deep links for featured_workout notifications
-        // Other notification types should just open the app
+        // Handle deep links based on notification type
         if (data?.type === 'featured_workout' && data?.deep_link) {
+          // Featured workout: open to cart with workout loaded
           this.handleDeepLink(data.deep_link as string);
+        } else {
+          // All other types (like, comment, mention, nudge): open to home screen
+          this.handleDeepLink('mood://home');
         }
       }
     );
