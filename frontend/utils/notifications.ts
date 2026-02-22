@@ -8,10 +8,7 @@ import * as Device from 'expo-device';
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 
-  process.env.EXPO_PUBLIC_BACKEND_URL || 
-  'https://lazy-build-feature.preview.emergentagent.com';
+import { API_URL } from './apiConfig';
 
 // Configure notification handler
 Notifications.setNotificationHandler({
