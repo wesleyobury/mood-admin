@@ -248,7 +248,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
       }
     } catch (error) {
       console.error('Error fetching current user:', error);
-      await logout();
+      // DON'T logout on network errors - keep the token
+      // Only the explicit logout() function should clear auth
+      console.log('📱 Network error fetching user, keeping session alive');
     }
   };
 
