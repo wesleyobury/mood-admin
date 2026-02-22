@@ -1,7 +1,5 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode, useRef } from 'react';
-import Constants from 'expo-constants';
-
-const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || '';
+import { API_URL } from '../utils/apiConfig';
 
 export interface WorkoutItem {
   id: string;
