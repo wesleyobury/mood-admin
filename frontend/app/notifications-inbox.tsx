@@ -514,6 +514,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
   },
+  notificationContentDisabled: {
+    opacity: 0.85, // Subtle indicator that it's not clickable
+  },
   avatarContainer: {
     position: 'relative',
     marginRight: 12,
