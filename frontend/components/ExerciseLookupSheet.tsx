@@ -17,7 +17,7 @@ import { Image } from 'expo-image';
 import { Video, ResizeMode, AVPlaybackStatus } from 'expo-av';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Constants from 'expo-constants';
+import { API_URL } from '../utils/apiConfig';
 import { 
   cloudinaryThumbnailUrlFromVideoUrl, 
   cloudinaryOptimizedVideoUrl,
