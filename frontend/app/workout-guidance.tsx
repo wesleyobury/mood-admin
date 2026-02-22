@@ -273,7 +273,6 @@ export default function WorkoutGuidanceScreen() {
   const [exerciseLookupVisible, setExerciseLookupVisible] = useState(false);
   
   const { token } = useAuth();
-  import { API_URL } from '../utils/apiConfig';
   
   // Timer that calculates elapsed time from start timestamp
   // This ensures timer continues even when app is in background
