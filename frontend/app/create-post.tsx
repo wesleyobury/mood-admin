@@ -1758,14 +1758,21 @@ export default function CreatePost() {
                   <Text style={styles.attachmentType}>Achievement</Text>
                 </View>
                 <View style={styles.actionButtonsRow}>
-                  {/* Instagram Share Button */}
+                  {/* Instagram Share Button - Uses Instagram gradient colors */}
                   <TouchableOpacity 
                     onPress={() => setShowInstagramShareModal(true)} 
-                    style={styles.instagramButton}
-                    activeOpacity={0.7}
+                    style={styles.instagramButtonWrapper}
+                    activeOpacity={0.8}
                   >
-                    <Ionicons name="logo-instagram" size={18} color="#fff" />
-                    <Text style={styles.instagramButtonText}>Stories</Text>
+                    <LinearGradient
+                      colors={['#833AB4', '#FD1D1D', '#F77737']}
+                      start={{ x: 0, y: 0 }}
+                      end={{ x: 1, y: 1 }}
+                      style={styles.instagramButtonGradient}
+                    >
+                      <Ionicons name="logo-instagram" size={18} color="#fff" />
+                      <Text style={styles.instagramButtonText}>Stories</Text>
+                    </LinearGradient>
                   </TouchableOpacity>
                   
                   {/* Save Button */}
