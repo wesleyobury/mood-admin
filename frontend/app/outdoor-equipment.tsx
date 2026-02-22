@@ -22,7 +22,7 @@ import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 
-const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || '';
+import { API_URL } from '../utils/apiConfig';
 
 interface EquipmentOption {
   id: string;
