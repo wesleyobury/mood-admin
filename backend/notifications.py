@@ -633,7 +633,7 @@ class NotificationService:
         post_id: str,
         comment_text: str
     ) -> Optional[str]:
-        """Trigger notification when someone comments on a post"""
+        """Trigger notification when someone comments on a post - IG-style copy"""
         # Get post and commenter info
         post = await self.db.posts.find_one({"_id": ObjectId(post_id)})
         if not post:
@@ -649,6 +649,7 @@ class NotificationService:
             return None
         
         commenter_name = commenter.get("name") or commenter.get("username", "Someone")
+        commenter_username = commenter.get("username", "Someone")
         avatar = commenter.get("avatar") or commenter.get("avatar_url")
         
         # Truncate comment for body
@@ -659,17 +660,18 @@ class NotificationService:
         cover_urls = post.get("cover_urls", [])
         post_thumbnail = cover_urls[0] if cover_urls else (media_urls[0] if media_urls else None)
         
+        # IG-style: "username commented on your photo."
         return await self.create_notification(
             user_id=str(post_author_id),
             notification_type=NotificationType.COMMENT,
             title="New Comment",
-            body=f'{commenter_name}: "{truncated_comment}"',
+            body=f'{commenter_username} commented: "{truncated_comment}"',
             actor_id=commenter_id,
             entity_id=post_id,
             entity_type="post",
             image_url=avatar,
             metadata={
-                "commenter_username": commenter.get("username"),
+                "commenter_username": commenter_username,
                 "post_thumbnail": post_thumbnail
             }
         )
