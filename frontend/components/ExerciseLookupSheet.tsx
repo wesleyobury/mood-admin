@@ -69,7 +69,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
   const searchInputRef = useRef<TextInput>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
-  const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+  // API_URL is imported from apiConfig
 
   // Load recent lookups from storage
   useEffect(() => {
