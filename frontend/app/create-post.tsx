@@ -781,11 +781,8 @@ export default function CreatePost() {
     setIsExportingToInstagram(true);
     
     try {
-      // Capture the transparent card as PNG
-      let imageUri: string;
-      
       if (Platform.OS === 'web') {
-        // For web, use html2canvas
+        // For web, use html2canvas and download
         const html2canvas = (await import('html2canvas')).default;
         const canvas = await html2canvas(transparentCardRef.current, {
           backgroundColor: null, // Transparent background
@@ -793,7 +790,7 @@ export default function CreatePost() {
           logging: false,
           useCORS: true,
         });
-        imageUri = canvas.toDataURL('image/png');
+        const imageUri = canvas.toDataURL('image/png');
         
         // On web, download the image
         const link = document.createElement('a');
@@ -803,31 +800,8 @@ export default function CreatePost() {
         
         showAlert('Image Downloaded', 'Your workout overlay has been downloaded. Open Instagram Stories and add it as a sticker on your photo!');
       } else {
-        // For native (iOS/Android), capture the image with transparency
-        imageUri = await captureRef(transparentCardRef.current, {
-          format: 'png',
-          quality: 1,
-          result: 'tmpfile',
-          bgColor: 'transparent', // CRITICAL: preserves transparency for Instagram sticker overlay
-        });
-        
-        // Try to deep-link directly to Instagram Stories
-        const instagramDeepLinked = await shareToInstagramStories(imageUri);
-        
-        if (!instagramDeepLinked) {
-          // Fall back to native share sheet if Instagram isn't installed (e.g., in Expo Go)
-          const canShare = await Sharing.isAvailableAsync();
-          
-          if (canShare) {
-            await Sharing.shareAsync(imageUri, {
-              mimeType: 'image/png',
-              dialogTitle: 'Share your workout achievement',
-              UTI: 'public.png',
-            });
-          } else {
-            showAlert('Sharing not available', 'Please save the image and share it manually to Instagram.');
-          }
-        }
+        // For native (iOS/Android), use direct Instagram Stories share
+        await shareToInstagramStoriesDirect();
       }
     } catch (error) {
       console.error('Error sharing to Instagram:', error);
@@ -838,7 +812,67 @@ export default function CreatePost() {
     }
   };
 
-  // Helper function to share directly to Instagram Stories via deep link
+  // Direct share to Instagram Stories - opens IG immediately like CapCut
+  const shareToInstagramStoriesDirect = async () => {
+    if (!transparentCardRef.current) {
+      throw new Error('No card to capture');
+    }
+
+    // Check if Instagram is installed
+    const canOpen = await Linking.canOpenURL('instagram-stories://share');
+    if (!canOpen) {
+      showAlert('Instagram Not Installed', 'Please install Instagram to share stories directly.');
+      // Fall back to regular share sheet
+      const imageUri = await captureRef(transparentCardRef.current, {
+        format: 'png',
+        quality: 1,
+        result: 'tmpfile',
+        bgColor: 'transparent',
+      });
+      const canShare = await Sharing.isAvailableAsync();
+      if (canShare) {
+        await Sharing.shareAsync(imageUri, {
+          mimeType: 'image/png',
+          dialogTitle: 'Share your workout achievement',
+          UTI: 'public.png',
+        });
+      }
+      return;
+    }
+
+    // 1) Capture overlay WITH transparency
+    const uri = await captureRef(transparentCardRef.current, {
+      format: 'png',
+      quality: 1,
+      result: 'tmpfile',
+      bgColor: 'transparent',
+    });
+
+    // 2) Convert to base64 data URI for react-native-share
+    const b64 = await FileSystem.readAsStringAsync(uri, {
+      encoding: FileSystem.EncodingType.Base64,
+    });
+    const stickerImage = `data:image/png;base64,${b64}`;
+
+    // 3) Share directly to IG Stories (skips iOS share sheet screens)
+    try {
+      await Share.shareSingle({
+        social: Share.Social.INSTAGRAM_STORIES,
+        stickerImage,
+        backgroundTopColor: '#000000',
+        backgroundBottomColor: '#000000',
+      });
+    } catch (error: any) {
+      // If shareSingle fails (e.g., user cancelled), don't show error
+      if (error?.message?.includes('User did not share')) {
+        console.log('User cancelled Instagram share');
+        return;
+      }
+      throw error;
+    }
+  };
+
+  // Legacy helper (kept for backwards compatibility, but not used)
   const shareToInstagramStories = async (imageUri: string): Promise<boolean> => {
     try {
       // Check if Instagram is installed
