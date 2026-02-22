@@ -33,7 +33,7 @@ import { GridItemSkeleton, ProfileHeaderSkeleton } from '../../components/Skelet
 import GuestPromptModal from '../../components/GuestPromptModal';
 
 // Prioritize process.env for development/preview environments
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+import { API_URL } from '../../utils/apiConfig';
 const { width } = Dimensions.get('window');
 
 

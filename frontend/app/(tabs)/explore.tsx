@@ -35,7 +35,7 @@ import { PostSkeleton } from '../../components/Skeleton';
 import GuestPromptModal from '../../components/GuestPromptModal';
 import ReportModal from '../../components/ReportModal';
 
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+import { API_URL } from '../../utils/apiConfig';
 import { formatNotificationTime } from '../../utils/notificationUtils';
 
 interface Author {
