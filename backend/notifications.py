@@ -864,7 +864,7 @@ class NotificationService:
                     {"_id": existing_bundle["_id"]},
                     {
                         "$set": {
-                            "body": f"{liker_name} and {like_count - 1} others liked your post",
+                            "body": f"{liker_name} and {like_count - 1} others liked your post.",
                             "metadata.like_count": like_count,
                             "metadata.last_liker": liker_name,
                             "metadata.post_thumbnail": post_thumbnail,
@@ -875,12 +875,12 @@ class NotificationService:
                 )
                 return str(existing_bundle["_id"])
             else:
-                # Create new bundled notification
+                # Create new bundled notification - IG-style copy
                 return await self.create_notification(
                     user_id=post_author_id,
                     notification_type=NotificationType.LIKE,
-                    title="New Likes",
-                    body=f"{liker_name} and {recent_likes} others liked your post",
+                    title="Activity",  # IG-style minimal title
+                    body=f"{liker_name} and {recent_likes} others liked your photo.",
                     actor_id=liker_id,
                     entity_id=post_id,
                     entity_type="post",
@@ -891,11 +891,12 @@ class NotificationService:
                 )
         else:
             # Not enough for bundle yet - store but DON'T push (likes only bundled)
+            # IG-style: "username liked your photo."
             return await self.create_notification(
                 user_id=post_author_id,
                 notification_type=NotificationType.LIKE,
                 title="New Like",
-                body=f"{liker_name} liked your post",
+                body=f"{liker_name} liked your photo.",  # IG-style
                 actor_id=liker_id,
                 entity_id=post_id,
                 entity_type="post",
