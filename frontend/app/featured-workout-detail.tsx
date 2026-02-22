@@ -19,7 +19,7 @@ import { useCart, WorkoutItem } from '../contexts/CartContext';
 import { Analytics, GuestAnalytics } from '../utils/analytics';
 import AddCustomExerciseModal from '../components/AddCustomExerciseModal';
 
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+import { API_URL } from '../utils/apiConfig';
 
 // Define workout exercise type matching the cart/guidance structure
 interface WorkoutExercise {

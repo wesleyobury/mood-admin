@@ -26,7 +26,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+import { API_URL } from '../utils/apiConfig';
 
 // Dynamic workout title pools by intensity category
 const WORKOUT_TITLES = {
