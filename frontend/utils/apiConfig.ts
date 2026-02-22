@@ -104,8 +104,8 @@ export const buildApiUrl = (path: string): string => {
  * OAuth callback URLs - use production domain
  */
 export const OAUTH_CALLBACKS = {
-  google: `${PRODUCTION_BACKEND_URL}/api/auth/callback/google`,
-  apple: `${PRODUCTION_BACKEND_URL}/api/auth/callback/apple`,
+  google: `${API_URL}/api/auth/callback/google`,
+  apple: `${API_URL}/api/auth/callback/apple`,
 };
 
 export default {
