@@ -142,29 +142,9 @@ const SmartVideoPlayer = memo(({ uri, coverUrl, isActive, isPostInCenter }: Smar
         return;
       }
 
-      // 4. Generate thumbnail from first frame (native only, skip on web)
-      // Wrapped in additional try-catch to prevent crashes in production
-      if (Platform.OS !== 'web' && VideoThumbnails) {
-        try {
-          const result = await VideoThumbnails.getThumbnailAsync(uri, {
-            time: 1000, // 1 second in
-            quality: 0.7,
-          });
-          if (result && result.uri) {
-            thumbnailCache[uri] = result.uri;
-            setThumbnailUri(result.uri);
-          } else {
-            setThumbnailError(true);
-          }
-        } catch (e) {
-          // Silently fail thumbnail generation - not critical
-          console.log('Could not generate thumbnail for:', uri);
-          setThumbnailError(true);
-        }
-      } else {
-        // Web fallback - just show placeholder
-        setThumbnailError(true);
-      }
+      // 4. No thumbnail available - show video icon placeholder
+      // REMOVED: expo-video-thumbnails - causes crashes in production iOS builds
+      setThumbnailError(true);
     } catch (error) {
       console.error('Error loading thumbnail:', error);
       setThumbnailError(true);
