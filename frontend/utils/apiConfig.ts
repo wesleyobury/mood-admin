@@ -2,14 +2,14 @@
  * API Configuration - Production URL Lock
  * 
  * CRITICAL: This file ensures the app NEVER uses relative URLs.
- * Production builds MUST use https://api.officialmoodapp.com
+ * Production builds MUST use https://bug-busters-13.emergent.host
  */
 
 import Constants from 'expo-constants';
 
 // Production backend URL - HARDCODED FALLBACK
 // This ensures TestFlight/production builds ALWAYS have a valid URL
-const PRODUCTION_BACKEND_URL = 'https://api.officialmoodapp.com';
+const PRODUCTION_BACKEND_URL = 'https://bug-busters-13.emergent.host';
 
 /**
  * Get the API base URL with guaranteed non-empty result
