@@ -5,6 +5,8 @@ import { Sidebar } from "@/components/Sidebar";
 import { EnvBanner } from "@/components/EnvBanner";
 import { AuthProvider } from "@/lib/auth-context";
 import { FilterProvider } from "@/lib/filter-context";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +34,8 @@ export default function RootLayout({
             </div>
           </FilterProvider>
         </AuthProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
