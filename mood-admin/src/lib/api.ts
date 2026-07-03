@@ -204,6 +204,18 @@ class ApiClient {
     return this.get<FunnelData>(`/analytics/admin/funnel?${params}`);
   }
 
+  async getOnboarding(
+    start?: string,
+    end?: string,
+    includeInternal: boolean = false
+  ) {
+    const params = new URLSearchParams();
+    if (start) params.append("start", start);
+    if (end) params.append("end", end);
+    if (includeInternal) params.append("include_internal", "true");
+    return this.get<OnboardingData>(`/analytics/admin/onboarding?${params}`);
+  }
+
   async getRetention(
     start?: string,
     end?: string,
@@ -338,6 +350,56 @@ class ApiClient {
   async grantAccess(username: string) {
     return this.post<{ message: string; user_id: string }>("/admin/grant-access", { username });
   }
+
+  // ── MOOD V2 Phase 1: Comp accounts ───────────────────────────────────
+  async listCompUsers() {
+    return this.get<{ users: CompUser[]; total: number }>("/admin/comp-users");
+  }
+
+  async grantComp(identifier: string) {
+    return this.post<{ ok: boolean }>(
+      `/admin/users/${encodeURIComponent(identifier)}/comp`
+    );
+  }
+
+  async revokeComp(identifier: string) {
+    return this.delete<{ ok: boolean }>(
+      `/admin/users/${encodeURIComponent(identifier)}/comp`
+    );
+  }
+
+  // ── MOOD V2 Phase 1: Forced-update / app config ──────────────────────
+  async getAppConfig() {
+    return this.get<AppConfig>("/config");
+  }
+
+  async updateAppConfig(update: Partial<AppConfig>) {
+    return this.put<{ ok: boolean }>("/admin/config", update);
+  }
+}
+
+export interface CompUser {
+  user_id: string;
+  username: string;
+  email: string;
+  name: string;
+  avatar?: string;
+  comp_granted_at: string | null;
+  comp_granted_by?: string | null;
+}
+
+export interface AppConfig {
+  min_supported_build_ios: number;
+  min_supported_build_android: number;
+  latest_build_ios: number;
+  latest_build_android: number;
+  force_update_message: string;
+  ios_store_url: string;
+  android_store_url: string;
+  update_check_enabled: boolean;
+  v2_launch_date?: string | null;
+  updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 export const api = new ApiClient();
@@ -427,6 +489,67 @@ export interface FunnelStep {
   dropoff_rate: number;
   converted_user_ids?: string[];
   dropped_user_ids?: string[];
+}
+
+// ── Onboarding funnel ──
+export interface OnboardingFunnelStep {
+  step: string;
+  step_index: number;
+  label: string;
+  unique: number;
+  converted: number;
+  dropped: number;
+  step_conversion: number; // vs previous step
+  step_dropoff: number;
+  pct_of_entry: number; // vs funnel entry
+}
+
+export interface OnboardingTiming {
+  step: number;
+  label: string;
+  median_ms: number;
+  avg_ms: number;
+  samples: number;
+}
+
+export interface OnboardingAnswerOption {
+  answer: string;
+  count: number;
+  pct: number;
+}
+
+export interface OnboardingAnswers {
+  step: number;
+  question: string;
+  total: number;
+  options: OnboardingAnswerOption[];
+}
+
+export interface OnboardingCta {
+  cta: string;
+  count: number;
+}
+
+export interface OnboardingAbandon {
+  step: number | null;
+  label: string;
+  count: number;
+}
+
+export interface OnboardingData {
+  start_date: string;
+  end_date: string;
+  entry_participants: number;
+  completed_participants: number;
+  overall_completion_rate: number;
+  guest_entries: number;
+  auth_entries: number;
+  funnel: OnboardingFunnelStep[];
+  timing: OnboardingTiming[];
+  answers: OnboardingAnswers[];
+  reveal_ctas: OnboardingCta[];
+  abandonment: OnboardingAbandon[];
+  error?: string;
 }
 
 export interface RetentionData {
