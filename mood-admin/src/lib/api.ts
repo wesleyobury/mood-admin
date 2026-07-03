@@ -409,6 +409,10 @@ export interface AppConfig {
   ios_store_url: string;
   android_store_url: string;
   update_check_enabled: boolean;
+  welcome_video_enabled?: boolean;
+  welcome_video_url?: string;
+  welcome_video_thumbnail_url?: string;
+  welcome_video_caption?: string;
   v2_launch_date?: string | null;
   updated_at?: string | null;
   updated_by?: string | null;
