@@ -13,6 +13,9 @@ import {
   Settings,
   LogOut,
   Users,
+  Download,
+  CreditCard,
+  UserPlus,
 } from "lucide-react";
 
 /**
@@ -37,6 +40,12 @@ const navSections: {
         label: "Growth",
         description: "Signups, activation, funnels",
         icon: TrendingUp,
+      },
+      {
+        href: "/acquisition",
+        label: "Acquisition",
+        description: "Store funnel: download → paid",
+        icon: Download,
       },
       {
         href: "/engagement",
@@ -67,6 +76,12 @@ const navSections: {
         description: "Look up any user",
         icon: Search,
       },
+      {
+        href: "/subscribers",
+        label: "Subscribers",
+        description: "Who's paying (or comped)",
+        icon: CreditCard,
+      },
     ],
   },
   {
@@ -77,6 +92,12 @@ const navSections: {
         label: "Admin & Config",
         description: "Access, app config, ops",
         icon: Settings,
+      },
+      {
+        href: "/creators",
+        label: "Creators",
+        description: "Applications & creator codes",
+        icon: UserPlus,
       },
     ],
   },

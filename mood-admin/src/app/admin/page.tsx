@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/lib/auth-context";
-import { api, type CompUser, type AppConfig } from "@/lib/api";
+import { api, type CompUser, type AppConfig, type CreatorCode } from "@/lib/api";
 import { redirect } from "next/navigation";
 import {
   Gift,
@@ -14,6 +14,10 @@ import {
   Settings,
   Database,
   UserPlus,
+  Ticket,
+  Plus,
+  Copy,
+  Check,
 } from "lucide-react";
 
 interface EnvInfo {
@@ -41,6 +45,13 @@ export default function AdminPage() {
   const [compLoading, setCompLoading] = useState(false);
   const [grantId, setGrantId] = useState("");
   const [grantAdminUsername, setGrantAdminUsername] = useState("");
+
+  // Creator codes
+  const [codes, setCodes] = useState<CreatorCode[]>([]);
+  const [codesLoading, setCodesLoading] = useState(false);
+  const [newCreatorName, setNewCreatorName] = useState("");
+  const [newCustomCode, setNewCustomCode] = useState("");
+  const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
   // App configuration
   const [config, setConfig] = useState<AppConfig | null>(null);
@@ -71,6 +82,13 @@ export default function AdminPage() {
     setConfigLoading(false);
   }, []);
 
+  const loadCodes = useCallback(async () => {
+    setCodesLoading(true);
+    const res = await api.listCreatorCodes();
+    if (res.data) setCodes(res.data.codes);
+    setCodesLoading(false);
+  }, []);
+
   useEffect(() => {
     if (!isAuthenticated || !isAdmin) return;
 
@@ -87,8 +105,9 @@ export default function AdminPage() {
 
     loadEnv();
     loadCompUsers();
+    loadCodes();
     loadConfig();
-  }, [isAuthenticated, isAdmin, loadCompUsers, loadConfig]);
+  }, [isAuthenticated, isAdmin, loadCompUsers, loadCodes, loadConfig]);
 
   // ── Access handlers ──────────────────────────────────────────────────
 
@@ -135,6 +154,46 @@ export default function AdminPage() {
       setResult({ type: "error", message: res.error || "Failed to grant access" });
     }
     setActionLoading(null);
+  };
+
+  // ── Creator code handlers ────────────────────────────────────────────
+
+  const handleCreateCode = async () => {
+    if (!newCreatorName.trim()) return;
+    setActionLoading("create-code");
+    setResult(null);
+    const res = await api.createCreatorCode({
+      creator_name: newCreatorName.trim(),
+      code: newCustomCode.trim() || undefined,
+    });
+    if (res.data?.ok) {
+      setResult({ type: "success", message: `Code ${res.data.code} created for ${newCreatorName}.` });
+      setNewCreatorName("");
+      setNewCustomCode("");
+      await loadCodes();
+    } else {
+      setResult({ type: "error", message: res.error || "Failed to create code." });
+    }
+    setActionLoading(null);
+  };
+
+  const handleRevokeCode = async (code: string) => {
+    setActionLoading(`revoke-code-${code}`);
+    setResult(null);
+    const res = await api.revokeCreatorCode(code);
+    if (res.data?.ok) {
+      setResult({ type: "success", message: `Code ${code} deactivated. Creators who already redeemed it keep access.` });
+      await loadCodes();
+    } else {
+      setResult({ type: "error", message: res.error || "Failed to deactivate code." });
+    }
+    setActionLoading(null);
+  };
+
+  const handleCopyCode = (code: string) => {
+    navigator.clipboard?.writeText(code);
+    setCopiedCode(code);
+    setTimeout(() => setCopiedCode((c) => (c === code ? null : c)), 1500);
   };
 
   // ── App config handlers ──────────────────────────────────────────────
@@ -360,6 +419,113 @@ export default function AdminPage() {
                       <Trash2 className="h-3.5 w-3.5" />
                       {actionLoading === `revoke-${u.user_id}` ? "..." : "Revoke"}
                     </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Creator Codes */}
+        <div className="bg-card border border-border rounded-lg p-6">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <Ticket className="h-5 w-5 text-muted-foreground" />
+              <h3 className="text-lg font-medium">Creator Codes</h3>
+            </div>
+            <button
+              onClick={loadCodes}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="Refresh"
+            >
+              <RefreshCw className={`h-4 w-4 ${codesLoading ? "animate-spin" : ""}`} />
+            </button>
+          </div>
+          <p className="text-sm text-muted-foreground mb-4">
+            Per-creator codes the creator redeems inside the app to unlock lifetime access —
+            works no matter how they sign in (email, Google, or Apple Hide My Email). Single-use
+            by default. Give the creator their code; access goes live the moment they enter it.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-2 mb-6">
+            <input
+              type="text"
+              value={newCreatorName}
+              onChange={(e) => setNewCreatorName(e.target.value)}
+              placeholder="Creator name (e.g. Steph)"
+              className={`flex-1 ${inputField}`}
+            />
+            <input
+              type="text"
+              value={newCustomCode}
+              onChange={(e) => setNewCustomCode(e.target.value)}
+              placeholder="Custom code (optional)"
+              className={`flex-1 ${inputField}`}
+            />
+            <button
+              onClick={handleCreateCode}
+              disabled={!newCreatorName.trim() || actionLoading === "create-code"}
+              className="flex items-center justify-center gap-1.5 px-4 py-2 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 disabled:opacity-50 transition-colors"
+            >
+              <Plus className="h-4 w-4" />
+              {actionLoading === "create-code" ? "Creating..." : "Generate"}
+            </button>
+          </div>
+
+          <div className="border-t border-border pt-4">
+            <p className="text-sm text-muted-foreground mb-3">
+              {codes.length} {codes.length === 1 ? "code" : "codes"}
+            </p>
+            {codes.length === 0 ? (
+              <p className="text-sm text-muted-foreground italic">No creator codes yet.</p>
+            ) : (
+              <div className="space-y-2">
+                {codes.map((c) => (
+                  <div
+                    key={c.code}
+                    className="flex items-center justify-between bg-muted/40 rounded-md px-3 py-2 gap-3"
+                  >
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2">
+                        <code className="font-mono font-medium truncate">{c.code}</code>
+                        <button
+                          onClick={() => handleCopyCode(c.code)}
+                          className="text-muted-foreground hover:text-foreground transition-colors"
+                          title="Copy code"
+                        >
+                          {copiedCode === c.code ? (
+                            <Check className="h-3.5 w-3.5 text-green-500" />
+                          ) : (
+                            <Copy className="h-3.5 w-3.5" />
+                          )}
+                        </button>
+                        {!c.active && (
+                          <span className="text-xs px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+                            inactive
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-muted-foreground truncate">
+                        {c.creator_name || "(no name)"} ·{" "}
+                        {c.redemption_count >= c.max_redemptions ? (
+                          <span className="text-foreground">
+                            redeemed{c.redemptions[0]?.username ? ` by ${c.redemptions[0].username}` : ""}
+                          </span>
+                        ) : (
+                          `${c.redemption_count}/${c.max_redemptions} redeemed`
+                        )}
+                      </p>
+                    </div>
+                    {c.active && (
+                      <button
+                        onClick={() => handleRevokeCode(c.code)}
+                        disabled={actionLoading === `revoke-code-${c.code}`}
+                        className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-red-500/10 text-red-500 rounded-md hover:bg-red-500/20 disabled:opacity-50 transition-colors flex-shrink-0"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                        {actionLoading === `revoke-code-${c.code}` ? "..." : "Deactivate"}
+                      </button>
+                    )}
                   </div>
                 ))}
               </div>
