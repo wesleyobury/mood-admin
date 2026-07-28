@@ -4,6 +4,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
+import asyncio
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
@@ -1525,6 +1526,7 @@ async def get_time_series_analytics(
     - mood_selections: Mood/goal selections made
     - posts_created: New posts created
     - social_interactions: Likes, comments, follows combined
+    - completion_rate: Workout completion rate (% of started workouts completed)
     
     Query params:
     - period: day, week, month (default: day)
@@ -1551,7 +1553,7 @@ async def get_time_series_analytics(
         date_format = "%Y-%m"
     elif period == "week":
         days_back = 180
-        date_format = "%Y-W%V"
+        date_format = "%G-W%V"
     else:  # day
         days_back = 30 if limit <= 30 else limit
         date_format = "%Y-%m-%d"
@@ -1575,9 +1577,9 @@ async def get_time_series_analytics(
             
             users_by_period = defaultdict(set)
             for event in events:
-                if event.get("timestamp"):
+                if event.get("timestamp") and event.get("user_id"):
                     period_key = event["timestamp"].strftime(date_format)
-                    users_by_period[period_key].add(event.get("user_id"))
+                    users_by_period[period_key].add(event["user_id"])
             
             for period_key, users in users_by_period.items():
                 data_by_period[period_key]["count"] = len(users)
@@ -1698,7 +1700,30 @@ async def get_time_series_analytics(
                 if user.get("created_at"):
                     period_key = user["created_at"].strftime(date_format)
                     data_by_period[period_key]["count"] += 1
-        
+
+        elif metric_type == "completion_rate":
+            # Workout completion rate per period: completed / started * 100
+            query = {**base_filter, "event_type": {"$in": ["workout_started", "workout_completed"]}}
+            events = await db.user_events.find(
+                query,
+                {"timestamp": 1, "event_type": 1}
+            ).to_list(100000)
+
+            started_by_period = defaultdict(int)
+            completed_by_period = defaultdict(int)
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    if event.get("event_type") == "workout_started":
+                        started_by_period[period_key] += 1
+                    else:
+                        completed_by_period[period_key] += 1
+
+            for period_key in set(started_by_period) | set(completed_by_period):
+                started = started_by_period[period_key]
+                completed = completed_by_period[period_key]
+                data_by_period[period_key]["count"] = round(100 * completed / started, 1) if started > 0 else 0
+
         # Format response
         sorted_data = sorted(data_by_period.items(), key=lambda x: x[0])[-limit:]
         
@@ -1725,15 +1750,27 @@ async def get_time_series_analytics(
             
             values.append(data["count"])
             secondary_values.append(round(data["value"], 1) if data["value"] else 0)
-        
+
+        total = sum(values)
+        average = round(sum(values) / len(values), 1) if values else 0
+        if metric_type == "completion_rate":
+            # Overall rate across the displayed window is more meaningful than
+            # summing/averaging per-bucket percentages
+            displayed_keys = [k for k, _ in sorted_data]
+            overall_started = sum(started_by_period[k] for k in displayed_keys)
+            overall_completed = sum(completed_by_period[k] for k in displayed_keys)
+            overall_rate = round(100 * overall_completed / overall_started, 1) if overall_started > 0 else 0
+            total = overall_rate
+            average = overall_rate
+
         return {
             "metric_type": metric_type,
             "period": period,
             "labels": labels,
             "values": values,
             "secondary_values": secondary_values,  # For metrics like screen_time (minutes)
-            "total": sum(values),
-            "average": round(sum(values) / len(values), 1) if values else 0,
+            "total": total,
+            "average": average,
         }
         
     except Exception as e:
@@ -1869,16 +1906,17 @@ async def get_new_users_endpoint(
 async def get_signup_trend_endpoint(
     period: str = "day",  # day, week, month
     limit: int = 30,
+    include_internal: bool = False,
     current_user_id: str = Depends(require_admin)
 ):
-    """Get user signup trends grouped by day, week, or month"""
+    """Get user signup trends grouped by day, week, or month (excludes internal users by default)"""
     try:
         # Determine the date grouping format
         if period == "month":
             date_format = "%Y-%m"
             days_back = 365
         elif period == "week":
-            date_format = "%Y-W%V"
+            date_format = "%G-W%V"
             days_back = 180
         else:  # day
             date_format = "%Y-%m-%d"
@@ -1886,9 +1924,12 @@ async def get_signup_trend_endpoint(
         
         cutoff = datetime.now(timezone.utc) - timedelta(days=days_back)
         
-        # Get all users created after cutoff
+        # Get all users created after cutoff (excluding internal users unless requested)
+        users_filter = {"created_at": {"$gte": cutoff}}
+        if not include_internal:
+            users_filter["is_internal"] = {"$ne": True}
         users = await db.users.find(
-            {"created_at": {"$gte": cutoff}},
+            users_filter,
             {"created_at": 1}
         ).to_list(10000)
         
@@ -1901,7 +1942,7 @@ async def get_signup_trend_endpoint(
                 created_at = user["created_at"]
                 if period == "week":
                     # Format as year-week
-                    period_key = created_at.strftime("%Y-W%V")
+                    period_key = created_at.strftime("%G-W%V")
                 elif period == "month":
                     period_key = created_at.strftime("%Y-%m")
                 else:
@@ -2315,7 +2356,7 @@ async def get_workout_engagement_chart(
             # Group by week number
             group_id = {
                 "$concat": [
-                    {"$toString": {"$year": "$timestamp"}},
+                    {"$toString": {"$isoWeekYear": "$timestamp"}},
                     "-W",
                     {"$toString": {"$isoWeek": "$timestamp"}}
                 ]
@@ -4496,6 +4537,7 @@ async def get_comprehensive_stats(
     This is the main endpoint for the admin dashboard.
     days=0 means "all time" (no date filter)
     user_type: "all" (combined), "users" (registered only), "guests" (guest only)
+    Note: guest metrics (unique_guest_devices) count tracked first opens, not App Store downloads.
     """
     from collections import defaultdict
     
@@ -5458,7 +5500,7 @@ async def get_chart_data(
         date_format = "%Y-%m"
     elif period == "week":
         days_back = min(days, 180)
-        date_format = "%Y-W%V"
+        date_format = "%G-W%V"
     else:
         days_back = min(days, 90)
         date_format = "%Y-%m-%d"
@@ -11216,6 +11258,108 @@ async def admin_trigger_digest(
         "message": "Digest sent" if result else "No activity to report or user has no following"
     }
 
+# ============================================================
+# App Store Connect — real download numbers (see appstore_connect.py)
+# ============================================================
+
+@api_router.get("/analytics/admin/appstore/downloads")
+async def get_appstore_downloads(
+    days: int = 30,
+    period: str = "day",
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    App Store download units from Apple's daily Sales reports (cached in Mongo).
+    days=0 returns everything cached. Includes configured/missing status so the
+    frontend can render a helpful setup state instead of an error.
+    """
+    import appstore_connect
+    return await appstore_connect.get_download_series(db, days=days, period=period)
+
+
+@api_router.post("/analytics/admin/appstore/sync")
+async def sync_appstore_downloads(
+    days: int = 30,
+    current_user_id: str = Depends(require_admin)
+):
+    """Manually sync/backfill the trailing N days of App Store sales reports."""
+    import appstore_connect
+    if not appstore_connect.is_configured():
+        return {"configured": False, "missing": appstore_connect.missing_config_fields()}
+    result = await appstore_connect.sync_days(db, days_back=min(days, 365))
+    return result
+
+
+@api_router.get("/analytics/admin/appstore/comparison")
+async def get_appstore_comparison(
+    days: int = 30,
+    period: str = "day",
+    current_user_id: str = Depends(require_admin)
+):
+    """
+    App Store downloads vs tracked first opens, bucketed identically so the
+    dashboard can chart them side by side.
+    first_opens = devices whose FIRST guest_session_started event falls in the
+    bucket (i.e. tracked first launches).
+    """
+    import appstore_connect
+    from collections import defaultdict
+
+    if period == "month":
+        date_format = "%Y-%m"
+    elif period == "week":
+        date_format = "%G-W%V"
+    else:
+        date_format = "%Y-%m-%d"
+
+    # --- Tracked first opens per bucket (first event per device_id) ---
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days if days > 0 else 3650)
+    pipeline = [
+        {"$match": {"event_type": "guest_session_started", "device_id": {"$exists": True, "$ne": None}}},
+        {"$group": {"_id": "$device_id", "first_seen": {"$min": "$timestamp"}}},
+        {"$match": {"first_seen": {"$gte": cutoff}}},
+    ]
+    first_opens_by_period = defaultdict(int)
+    async for doc in db.user_events.aggregate(pipeline):
+        ts = doc.get("first_seen")
+        if ts:
+            first_opens_by_period[ts.strftime(date_format)] += 1
+
+    # --- App Store downloads per bucket (raw keys, same formats) ---
+    appstore = await appstore_connect.get_download_series(db, days=days, period=period)
+    appstore_by_period = dict(zip(appstore.get("labels", []), appstore.get("values", [])))
+
+    all_keys = sorted(set(first_opens_by_period) | set(appstore_by_period))
+
+    # Display labels consistent with the other time-series endpoints
+    labels = []
+    for key in all_keys:
+        if period == "month":
+            try:
+                labels.append(datetime.strptime(key, "%Y-%m").strftime("%b '%y"))
+            except ValueError:
+                labels.append(key)
+        elif period == "week":
+            labels.append(f"W{key.split('W')[1]}" if "W" in key else key)
+        else:
+            try:
+                labels.append(datetime.strptime(key, "%Y-%m-%d").strftime("%m/%d"))
+            except ValueError:
+                labels.append(key[-5:])
+
+    return {
+        "configured": appstore.get("configured", False),
+        "missing": appstore.get("missing", []),
+        "labels": labels,
+        "appstore_downloads": [appstore_by_period.get(k) for k in all_keys],
+        "first_opens": [first_opens_by_period.get(k, 0) for k in all_keys],
+        "appstore_total": appstore.get("total", 0),
+        "first_opens_total": sum(first_opens_by_period.values()),
+        "last_synced_at": appstore.get("last_synced_at"),
+        "note": appstore.get("note"),
+    }
+
+
 # Include router in main app
 app.include_router(api_router)
 
@@ -11277,6 +11421,13 @@ async def startup_db_client():
         logger.info("🚀 Notification worker started successfully")
     except Exception as e:
         logger.error(f"Failed to start notification worker: {e}")
+
+    # Keep App Store Connect download numbers synced (no-op if unconfigured)
+    try:
+        import appstore_connect
+        asyncio.create_task(appstore_connect.start_sync_loop(db))
+    except Exception as e:
+        logger.error(f"Failed to start App Store Connect sync loop: {e}")
     
     # Auto-seed featured workouts in staging or if empty
     # This runs on EVERY deployment to ensure featured workouts exist

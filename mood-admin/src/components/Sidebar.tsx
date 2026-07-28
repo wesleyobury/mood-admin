@@ -5,31 +5,81 @@ import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import {
   LayoutDashboard,
-  GitBranch,
-  Users,
-  BarChart3,
+  TrendingUp,
+  Repeat,
+  Dumbbell,
   Heart,
   Search,
   Settings,
   LogOut,
-  Lightbulb,
-  KeyRound,
-  Rocket,
-  DollarSign,
+  Users,
 } from "lucide-react";
 
-const navItems = [
-  { href: "/overview", label: "Overview", icon: LayoutDashboard },
-  { href: "/insights", label: "Insights", icon: Lightbulb },
-  { href: "/onboarding", label: "Onboarding", icon: Rocket },
-  { href: "/funnels", label: "Funnels", icon: GitBranch },
-  { href: "/monetization", label: "Monetization", icon: DollarSign },
-  { href: "/retention", label: "Retention", icon: BarChart3 },
-  { href: "/features", label: "Features", icon: BarChart3 },
-  { href: "/social", label: "Social", icon: Heart },
-  { href: "/users", label: "Users", icon: Search },
-  { href: "/access", label: "Access", icon: KeyRound },
-  { href: "/ops", label: "Ops", icon: Settings },
+/**
+ * Consolidated navigation: 3 clear groups instead of 11 flat tabs.
+ * Analytics = the numbers; Explore = per-user digging; Admin = actions/config.
+ */
+const navSections: {
+  title: string;
+  items: { href: string; label: string; description: string; icon: React.ElementType }[];
+}[] = [
+  {
+    title: "Analytics",
+    items: [
+      {
+        href: "/overview",
+        label: "Overview",
+        description: "The headline numbers",
+        icon: LayoutDashboard,
+      },
+      {
+        href: "/growth",
+        label: "Growth",
+        description: "Signups, activation, funnels",
+        icon: TrendingUp,
+      },
+      {
+        href: "/engagement",
+        label: "Engagement",
+        description: "Retention & workout quality",
+        icon: Repeat,
+      },
+      {
+        href: "/content",
+        label: "Content",
+        description: "Moods, equipment, exercises",
+        icon: Dumbbell,
+      },
+      {
+        href: "/social",
+        label: "Social",
+        description: "Posts, likes, community",
+        icon: Heart,
+      },
+    ],
+  },
+  {
+    title: "Explore",
+    items: [
+      {
+        href: "/users",
+        label: "User Explorer",
+        description: "Look up any user",
+        icon: Search,
+      },
+    ],
+  },
+  {
+    title: "Admin",
+    items: [
+      {
+        href: "/admin",
+        label: "Admin & Config",
+        description: "Access, app config, ops",
+        icon: Settings,
+      },
+    ],
+  },
 ];
 
 export function Sidebar() {
@@ -47,28 +97,45 @@ export function Sidebar() {
         <p className="text-xs text-muted-foreground mt-1">Analytics Dashboard</p>
       </div>
 
-      <nav className="flex-1 p-4">
-        <ul className="space-y-1">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
-            return (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
-                    isActive
-                      ? "bg-primary/10 text-primary font-medium"
-                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <nav className="flex-1 p-4 overflow-y-auto">
+        {navSections.map((section) => (
+          <div key={section.title} className="mb-5">
+            <p className="px-3 mb-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/70">
+              {section.title}
+            </p>
+            <ul className="space-y-0.5">
+              {section.items.map((item) => {
+                const Icon = item.icon;
+                const isActive =
+                  pathname === item.href || pathname.startsWith(item.href + "/");
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={`flex items-start gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
+                        isActive
+                          ? "bg-primary/10 text-primary font-medium"
+                          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                      }`}
+                    >
+                      <Icon className="h-4 w-4 mt-0.5 shrink-0" />
+                      <span className="flex flex-col">
+                        <span>{item.label}</span>
+                        <span
+                          className={`text-[11px] font-normal ${
+                            isActive ? "text-primary/70" : "text-muted-foreground/60"
+                          }`}
+                        >
+                          {item.description}
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
       </nav>
 
       <div className="p-4 border-t border-border">

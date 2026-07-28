@@ -8,17 +8,17 @@ All backend aggregations are computed in **UTC**. Frontend displays may use loca
 ## Core Metrics
 
 ### Daily Active Users (DAU)
-- **Definition**: Unique users with at least one `app_session_start` event on a given day
+- **Definition**: Unique users with at least one `app_session_start` event in a ROLLING 24-hour window (now - 24h), not a calendar day
 - **Primary Event**: `app_session_start`
-- **Computation**: `COUNT(DISTINCT user_id) WHERE event_type = 'app_session_start' AND date = target_date`
-- **Timezone**: UTC day boundaries
+- **Computation**: `COUNT(DISTINCT user_id) WHERE event_type = 'app_session_start' AND timestamp >= (now - 24 hours)`
+- **Timezone**: UTC
 
 ### Weekly Active Users (WAU)
-- **Definition**: Unique users with at least one `app_session_start` event in the past 7 days
+- **Definition**: Unique users with at least one `app_session_start` event in a ROLLING 7-day window
 - **Computation**: `COUNT(DISTINCT user_id) WHERE event_type = 'app_session_start' AND timestamp >= (now - 7 days)`
 
 ### Monthly Active Users (MAU)
-- **Definition**: Unique users with at least one `app_session_start` event in the past 30 days
+- **Definition**: Unique users with at least one `app_session_start` event in a ROLLING 30-day window
 - **Computation**: `COUNT(DISTINCT user_id) WHERE event_type = 'app_session_start' AND timestamp >= (now - 30 days)`
 
 ### DAU/MAU Stickiness
@@ -76,18 +76,19 @@ All backend aggregations are computed in **UTC**. Frontend displays may use loca
 ### Retention Cohorts
 - **Cohort Definition**: Users grouped by `users.created_at` (signup date) in UTC
 - **Cohort Periods**: Day, Week, or Month
-- **Retention Event**: `app_session_start` (PRIMARY)
-  - Secondary (future): `workout_completed` for product-quality retention
+- **Retention Event**: "Returned" means the user had ANY tracked event (not just `app_session_start`)
+- **Anchoring**: Day D is anchored to each user's EXACT signup timestamp: the window is `[signup + D days, signup + D + 1 days)`, not calendar days
+- **Young Cohorts**: Cohorts too young to have reached day D (cohort period start + D days > now) report `null` for that cell (frontend renders "—") and are EXCLUDED from `average_retention` for that day
 
 ### D1 Retention
-- **Definition**: Percentage of cohort users who had `app_session_start` on day 1 after signup
-- **Computation**: `(users with activity on day 1) / (cohort size) * 100`
+- **Definition**: Percentage of cohort users with any tracked event in `[signup + 1 day, signup + 2 days)`
+- **Computation**: `(users with activity in the day-1 window) / (cohort size) * 100`
 
 ### D7 Retention
-- **Definition**: Percentage of cohort users who had `app_session_start` on day 7 after signup
+- **Definition**: Percentage of cohort users with any tracked event in `[signup + 7 days, signup + 8 days)`
 
 ### D28 Retention
-- **Definition**: Percentage of cohort users who had `app_session_start` on day 28 after signup
+- **Definition**: Percentage of cohort users with any tracked event in `[signup + 28 days, signup + 29 days)`
 
 ---
 
@@ -100,22 +101,34 @@ All backend aggregations are computed in **UTC**. Frontend displays may use loca
 4. `workout_completed` - User completed a workout
 5. `post_created` - User created a post
 
+### Funnel Matching
+- **Within-period matching**: A user counts for a step if they performed the step's event anywhere in the date range. Event ORDER is NOT enforced (a user who completed a workout before selecting a mood in the period still counts through both steps).
+- **Cumulative counts**: Each step's `unique_users` is the CUMULATIVE intersection — users who did this step AND all previous steps in the period. `raw_unique_users` is the raw per-step count regardless of previous steps. The funnel is therefore monotonically decreasing.
+
 ### Conversion Rate (Step N)
-- **Definition**: Percentage of users from step N-1 who completed step N
-- **Computation**: `(users at step N) / (users at step N-1) * 100`
+- **Definition**: Percentage of users from step N-1 (cumulative) who also completed step N
+- **Computation**: `(cumulative users at step N) / (cumulative users at step N-1) * 100`
 
 ### Overall Funnel Conversion
-- **Definition**: Percentage of entry users who completed final step
-- **Computation**: `(final step users) / (first step users) * 100`
+- **Definition**: Percentage of entry users who completed ALL steps in the period
+- **Computation**: `(users in step1 ∩ step2 ∩ ... ∩ stepN) / (first step users) * 100`
 
 ---
 
 ## Data Quality Notes
 
 ### Excluded Users
-The following users are excluded from analytics:
-- User IDs in `EXCLUDED_USER_IDS` list (test accounts)
-- Usernames in `EXCLUDED_USERNAMES` list
+Internal/staff users are excluded from most analytics via the `users.is_internal` flag (accounts with `is_internal: true`). Endpoints accept an `include_internal` query param (default false) to include them.
+
+**Endpoints that do NOT exclude internal users** (they count everyone):
+- `comprehensive-stats`
+- `users/active`
+- `daily-active`
+- `users/list`
+- `try-workout-stats`
+- `session-completion-stats`
+- `chart-data/*`
+- breakdowns (`breakdown/*`)
 
 ### Timezone Handling
 - **Backend**: All aggregations use UTC
@@ -126,6 +139,20 @@ The following users are excluded from analytics:
 - **Default**: 30 days
 - **Maximum**: 180 days for standard endpoints
 - **Retention**: Up to 90 days of cohorts
+
+---
+
+## Downloads vs App Store Connect
+
+`unique_guest_devices` (and guest metrics generally) count **tracked first opens**, NOT App Store downloads. Differences from App Store Connect (ASC) first-time download numbers:
+
+- **Device-ID based**: counts unique device identifiers seen by our analytics, not store transactions
+- **Only since tracking shipped**: devices that first opened the app before analytics tracking was released are never counted
+- **Requires a successful network call**: a first open with no connectivity (or a failed request) is not recorded
+- **Analytics opt-out**: users who opt out of analytics in the app are never tracked
+- **No download without open**: a download that is never opened produces no event
+
+For these reasons `unique_guest_devices` will always UNDERCOUNT ASC first-time downloads. Use ASC for true download numbers; use this metric for tracked first-open engagement.
 
 ---
 
@@ -160,5 +187,5 @@ db.user_events.distinct("user_id", {
 
 ---
 
-*Last Updated: 2025-02-18*
-*Version: 1.0*
+*Last Updated: 2026-07-25*
+*Version: 1.1*

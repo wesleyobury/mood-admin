@@ -114,7 +114,10 @@ async def get_funnel_analysis(
                 "step": step,
                 "step_index": i,
                 "step_label": _get_step_label(step),
-                "unique_users": len(user_ids),
+                # Cumulative: users who did this step AND all previous steps
+                "unique_users": len(converted_users),
+                # Raw: users who did this step regardless of previous steps
+                "raw_unique_users": len(user_ids),
                 "converted_users": len(converted_users) if i > 0 else len(user_ids),
                 "dropped_users": len(dropped_users),
                 "conversion_rate": conversion_rate,
@@ -131,9 +134,11 @@ async def get_funnel_analysis(
                 step_data["dropped_user_ids"] = dropped_sample
             
             funnel_data.append(step_data)
-            previous_users = user_ids
-        
-        # Calculate overall funnel conversion
+            # Carry the cumulative intersected set forward so each step is
+            # measured against users who completed all previous steps
+            previous_users = converted_users
+
+        # Calculate overall funnel conversion (final cumulative set / step 1 set)
         if funnel_data and len(funnel_data) >= 2:
             overall_conversion = round(
                 (funnel_data[-1]["unique_users"] / funnel_data[0]["unique_users"]) * 100, 2
@@ -264,7 +269,8 @@ async def get_retention_cohorts(
         # Calculate retention for each cohort
         cohort_results = []
         heatmap_data = []
-        
+        now = datetime.now(timezone.utc)
+
         for cohort_key in sorted(cohorts.keys()):
             cohort_users = cohorts[cohort_key]
             cohort_size = len(cohort_users)
@@ -279,9 +285,30 @@ async def get_retention_cohorts(
                 "retention": {}
             }
             
+            # Start of the cohort's signup period, used to decide whether the
+            # cohort is old enough to have reached retention day D
+            if cohort_period == "month":
+                cohort_start = datetime.strptime(cohort_key, "%Y-%m").replace(tzinfo=timezone.utc)
+            else:
+                cohort_start = datetime.strptime(cohort_key, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+
             for day in retention_days:
+                # Cohort too young to have lived D days: report None (rendered
+                # as "—") and exclude from averages instead of counting as 0%
+                if cohort_start + timedelta(days=day) > now:
+                    cohort_retention["retention"][f"D{day}"] = {
+                        "retained": None,
+                        "percentage": None
+                    }
+                    heatmap_data.append({
+                        "cohort": cohort_key,
+                        "day": f"D{day}",
+                        "value": None
+                    })
+                    continue
+
                 retained_count = 0
-                
+
                 for user_data in cohort_users:
                     user_id = user_data["user_id"]
                     signup_date = user_data["signup_date"]
@@ -314,11 +341,13 @@ async def get_retention_cohorts(
             
             cohort_results.append(cohort_retention)
         
-        # Calculate average retention across all cohorts
+        # Calculate average retention across all cohorts (excluding cohorts
+        # too young to have reached that day, reported as None)
         avg_retention = {}
         for day in retention_days:
             day_key = f"D{day}"
-            values = [c["retention"].get(day_key, {}).get("percentage", 0) for c in cohort_results]
+            values = [c["retention"].get(day_key, {}).get("percentage") for c in cohort_results]
+            values = [v for v in values if v is not None]
             avg_retention[day_key] = round(sum(values) / len(values), 1) if values else 0
         
         return {
