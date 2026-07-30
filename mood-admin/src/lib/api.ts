@@ -567,6 +567,7 @@ export interface CreatorApplication {
   status: CreatorAppStatus;
   code: string;
   sign_link: string;
+  store_link: string;
   tier: string;
   payout_method: string;
   payout_handle: string;
